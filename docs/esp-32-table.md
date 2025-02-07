@@ -19,18 +19,18 @@ title: ESP32 Table
 | Supports External Interrupts?                 | Supports external interrupts which can also be used to wake from light sleep mode                                                    |
 | Required Programming Hardware, Cost, URL      | [USD to Serial converter 5-10$](https://www.amazon.com/IZOKEE-CP2102-Converter-Adapter-Downloader/dp/B07D6LLX19/ref=sr_1_3?adgrpid=1330409641990384&dib=eyJ2IjoiMSJ9.qroPT-fyHbCHJ3tcPCCTQfWRI8aVGF1Xa7ZxFaJF9LZMTgBqYg3YnMxqbubd7viDdw_T94MoKF_7UtWKuCCOebeoGVe5et2rTnfrh9iC_hn_snBwX5FbfEboSq0eX1q9MR1r8YCT-GcYlrxQgXiivg2L_gIOq_3L4baNmX-jjSPmZemAlGkHT9GRgYIJJ9vUZtfyOIzaqS0kOh4-z1Vm7fHMl2-8sjURz31spK3cVGs.EzKKHT1QePqvJUjzSOqcp0mnXalQBORKEvpsg7AKnl8&dib_tag=se&hvadid=83150817082162&hvbmt=be&hvdev=c&hvlocphy=77892&hvnetw=o&hvqmt=e&hvtargid=kwd-83150962142855%3Aloc-190&hydadcr=19132_13351602&keywords=usb+to+uart+converter&mcid=c9ec1fe3b12d3f0e82d616b6cc8bb95d&qid=1738966734&sr=8-3)                                            |
 
-| Module         | # Available | Needed | Associated Pins (or * for any) |
-| -------------- | ----------- | ------ | ------------------------------ |
-| UART           | ?           | ?      | ?                              |
-| external SPI\* | ?           | ?      | ?                              |
-| I2C            | ?           | ?      | ?                              |
-| GPIO           | ?           | ?      | ?                              |
-| ADC            | ?           | ?      | ?                              |
-| LED PWM        | ?           | ?      | ?                              |
-| Motor PWM      | ?           | ?      | ?                              |
-| USB Programmer | ?           | 1      | ?                              |
-| ...            |
+| Module         | # Available | Needed |                        Associated Pins (or * for any)                        |
+| -------------- | ----------- | ------ | ---------------------------------------------------------------------------- |
+| UART           | 2           | 2      | Pins 10 & 37 (TX) <br> Pins 11 & 36 (RX)                                     |
+| external SPI\* | 1           | 0      | SPI 0 & 1 (Reserved) <br> SPI 2 (Pins 18-21) <br> SPI 3 (Pins 27-30)         |
+| I2C            | 2           | 0      | *                                                                            |
+| GPIO           | 36          | ?      | Any except 1, 2, 3, 40 & 41                                                  |
+| ADC            | 20          | 0      | ADC1 (Pins 4-7, 12, 15, 17, 18, 38, 39) <br> ADC2 (Pins 8-11, 13, 14, 19-22) |
+| LED PWM        | 36          | 4      | *                                                                            |
+| Motor PWM      | 36          | 0      | *                                                                            |
+| USB Programmer | 1           | 1      | Pins (13 & 14 +VCC/Ground)                                                   |
 
 
 
-\* The ESP32-S2 has multiple SPI interfaces, but some are for internal use
+
+
