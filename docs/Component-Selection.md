@@ -3,7 +3,6 @@ title: Component Selection
 ---
 
 | MQTT WiFi Server |
-| ---------------- |
 
 | Hardware Selection |
 | ------------------ |
