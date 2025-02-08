@@ -752,10 +752,32 @@
 <td>1</td>
 <td>Pins (13 &amp; 14 +VCC/Ground)</td>
 </tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td># Final Selection</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>The determining factors for my microcontroller selection were speed and WiFi capability. The main requirements of the microcontroller for my subsystem are UART communication and WiFi capability. Any other required pins, such as GPIO pins, will be more plentifully available than I need on any board that I choose, so those were not considered in the decision. At a minimum, the subsystem requires 1 UART connection, but more would be easier to use. Both the ESP32 and PIC18 have at least one UART connection, so they both meet my requirements. The PIC does not have internal WiFi capabilities. While I can use external peripherals to supliment that, the ESP32 has the WiFi modules already built into it. The last consideration was speed. The PIC18 has an average clock speed of 40MHz, while the ESP32 has a speed of 240MHz and supports multithreading. This will be helpful when connecting to the MQTT server and handeling data from the other subsystems in real-time.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<h1 id="final-selection">Final Selection</h1>
-<p>The determining factors for my microcontroller selection were speed and WiFi capability. The main requirements of the microcontroller for my subsystem are UART communication and WiFi capability. Any other required pins, such as GPIO pins, will be more plentifully available than I need on any board that I choose, so those were not considered in the decision. At a minimum, the subsystem requires 1 UART connection, but more would be easier to use. Both the ESP32 and PIC18 have at least one UART connection, so they both meet my requirements. The PIC does not have internal WiFi capabilities. While I can use external peripherals to supliment that, the ESP32 has the WiFi modules already built into it. The last consideration was speed. The PIC18 has an average clock speed of 40MHz, while the ESP32 has a speed of 240MHz and supports multithreading. This will be helpful when connecting to the MQTT server and handeling data from the other subsystems in real-time.</p>
 <h1 id="esp32-diagram-and-wiring">ESP32 Diagram and Wiring</h1>
 <p><a class="glightbox" href="../Images/Diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block Diagram" src="../Images/Diagram.png" /></a></p>
 <p><a class="glightbox" href="../Images/Wiring.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block Diagram" src="../Images/Wiring.png" /></a></p>
