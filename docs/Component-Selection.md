@@ -1,7 +1,6 @@
 ---
 title: Component Selection
 ---
-MQTT WiFi Server
 <br>
 <br>
 # Major Hardware Selection
