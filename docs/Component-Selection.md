@@ -1,8 +1,6 @@
 ---
 title: Component Selection
 ---
-<br>
-<br>
 # Major Hardware Selection
 This subsystem has no major hardware components for this section. <br> All components will either be small passive components (resistors, capacitors, etc) or the microcontroller
 <br>
