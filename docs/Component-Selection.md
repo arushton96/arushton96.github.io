@@ -46,11 +46,5 @@ The determining factors for my microcontroller selection were speed and WiFi cap
 # ESP32 Diagram and Wiring
 
 ![Block Diagram](Images/Diagram.png)
-<div align="center">
-*Block Diagram*
-</div>
 
 ![Block Diagram](Images/Wiring.png)
-<div align="center">
-*Block Diagram*
-</div>
