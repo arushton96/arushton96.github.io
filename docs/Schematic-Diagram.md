@@ -1,1 +1,1 @@
-
+Individual_Schematic_Design-1.png
