@@ -1,4 +1,4 @@
 ![Block Diagram](Images/BlockDiagram.png)
 <div align="center">
-*Block Diagram*
+Block Diagram
 </div>
