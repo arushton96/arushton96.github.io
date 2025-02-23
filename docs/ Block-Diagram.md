@@ -1,4 +1,7 @@
 ![Block Diagram](Images/BlockDiagram.png)
+
 <div align="center">
-Block Diagram
+
+  [Block Diagram PDF](Images/BlockDiagram.pdf)
+
 </div>
