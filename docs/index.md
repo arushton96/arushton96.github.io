@@ -7,14 +7,8 @@ tags:
 
 ## Hello, my name is Andrew
 
-* List Item 1
-* List Item 2
+I am a member of team 305 and for our project we are creating a line-following robot [like this one](https://pcbwayfile.s3-us-west-2.amazonaws.com/web/20/12/21/1129065663881t.gif). It will use color sensors to detect the location and curve of the line , and servo motors to control the wheels of the machine. 
 
-name | description
------|------------
-test |   Test2
+Currently the plan is to 3D print a small chassis to hold the components of the car such as the PC boards, sensors, and motors. We will create an interface with the robot that will allow for diagnostic control as well as an information outputs possibly including speed, processing time, and information from the sensors. We will establish a WiFi connection with the robot using MQTT protocol, which is my primary contribution to the project. Most of the utility of the human-machine interface will be accessable locally through buttons and an LCD screen, but will also be accessible on a computer through the WiFi server.
 
-### Here is a sub heading
-
-1. Step 1
-1. Step 2  
+Feel free to please peruse through my webpage to see the current progress and workflow of my part of the project. If you would like to navigate back to the group 305's team webpage you can access it [right here](https://asu-egr314-2025-s-305.github.io/). There you will find our group contributuions and overall structure to our project, as well as links to the individual pages of the rest of the group.
