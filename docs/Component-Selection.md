@@ -34,7 +34,7 @@ This subsystem has no major hardware components for this section. <br> All compo
 | UART           | 2           | 2      | Pins 10 & 37 (TX) <br> Pins 11 & 36 (RX)                                     |
 | external SPI\* | 1           | 0      | SPI 0 & 1 (Reserved) <br> SPI 2 (Pins 18-21) <br> SPI 3 (Pins 27-30)         |
 | I2C            | 2           | 0      | *                                                                            |
-| GPIO           | 36          | ?      | Any except 1, 2, 3, 40 & 41                                                  |
+| GPIO           | 36          | 0      | Any except 1, 2, 3, 40 & 41                                                  |
 | ADC            | 20          | 0      | ADC1 (Pins 4-7, 12, 15, 17, 18, 38, 39) <br> ADC2 (Pins 8-11, 13, 14, 19-22) |
 | LED PWM        | 36          | 4      | *                                                                            |
 | Motor PWM      | 36          | 0      | *                                                                            |
