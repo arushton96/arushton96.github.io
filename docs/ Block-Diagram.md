@@ -5,3 +5,5 @@
   [Block Diagram PDF](Images/BlockDiagram.pdf)
 
 </div>
+
+[Block Diagram PDF](Images/BlockDiagram.pdf)
