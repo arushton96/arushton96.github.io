@@ -1,3 +1,3 @@
-![Individual Schematic](Images/Individual_Schematic_Design-1.png)
+![Individual Schematic](Images/Individual_Schematic-1.png)
 
-[Individual Schematic PDF](Images/SchematicDesign.pdf)
+[Individual Schematic PDF](Images/Individual_Schematic.pdf)
