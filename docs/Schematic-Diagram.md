@@ -1,3 +1,3 @@
-![Individual Schematic](Images/Individual_Schematic_Correct.png)
+![Individual Schematic](Images/Individual_Schematic_Final-1.png)
 
-[Individual Schematic PDF](Images/Individual_Schematic_Correct.pdf)
+[Individual Schematic PDF](Images/Individual_Schematic_Final.pdf)
