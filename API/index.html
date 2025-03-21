@@ -556,15 +556,14 @@
 <p>The MQTT subsystem is at the end of the UART daisy chain, so my main process will be to pass on the messages I receive back to the beginning of the chain. I will be using the data I receive on the WiFi server, but the MQTT communication will be outlined on a different page than this one. This page will only focus on the UART communications.
 <br>
 <br></p>
-<h1 id="message-structure">Message Structure</h1>
-<h2 id="messages-overview">Messages Overview</h2>
+<h1 id="message-overview">Message Overview</h1>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Byte 1</th>
-<th>Byte 2</th>
-<th>Byte 3</th>
+<th>Message 1</th>
+<th>Message 2</th>
+<th>Message 3</th>
 </tr>
 </thead>
 <tbody>
@@ -603,7 +602,243 @@
 <p>I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.
 <br>
 <br></p>
-<h2 id="sensor-value">Sensor Value</h2>
+<h1 id="sensor-value">Sensor Value</h1>
+<h2 id="receive-format">Receive Format</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+<th>Byte 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte Name</td>
+<td>Start</td>
+<td>Sender</td>
+<td>Receiver</td>
+<td>Sensor_Value</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Byte Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Byte Contents</td>
+<td>0x41</td>
+<td>0x03</td>
+<td>0x05</td>
+<td>Sensor Byte</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transmit-format">Transmit Format</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+<th>Byte 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte Name</td>
+<td>Start</td>
+<td>Sender</td>
+<td>Receiver</td>
+<td>Sensor_Value</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Byte Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Byte Contents</td>
+<td>0x41</td>
+<td>0x05</td>
+<td>0x04</td>
+<td>Sensor Byte</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<h1 id="motor-1">Motor 1</h1>
+<h2 id="receive-format_1">Receive Format</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+<th>Byte 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte Name</td>
+<td>Start</td>
+<td>Sender</td>
+<td>Receiver</td>
+<td>Motor_1_Value</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Byte Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Byte Contents</td>
+<td>0x41</td>
+<td>0x03</td>
+<td>0x05</td>
+<td>Motor 1 Byte</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transmit-format_1">Transmit Format</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+<th>Byte 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte Name</td>
+<td>Start</td>
+<td>Sender</td>
+<td>Receiver</td>
+<td>Motor_1_Value</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Byte Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Byte Contents</td>
+<td>0x41</td>
+<td>0x05</td>
+<td>0x04</td>
+<td>Motor 1 Byte</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<h1 id="motor-2">Motor 2</h1>
+<h2 id="receive-format_2">Receive Format</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+<th>Byte 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte Name</td>
+<td>Start</td>
+<td>Sender</td>
+<td>Receiver</td>
+<td>Motor_2_Value</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Byte Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Byte Contents</td>
+<td>0x41</td>
+<td>0x03</td>
+<td>0x05</td>
+<td>Motor 2 Byte</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transmit-format_2">Transmit Format</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+<th>Byte 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte Name</td>
+<td>Start</td>
+<td>Sender</td>
+<td>Receiver</td>
+<td>Motor_2_Value</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Byte Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Byte Contents</td>
+<td>0x41</td>
+<td>0x05</td>
+<td>0x04</td>
+<td>Motor 2 Byte</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
 
 
 
