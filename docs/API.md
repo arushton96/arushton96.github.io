@@ -9,7 +9,8 @@ The MQTT subsystem is at the end of the UART daisy chain, so my main process wil
 # Message Structure
 ## Messages Overview
 
-| ------------- |    Byte 1    |     Byte 2    |     Byte 3    |
+|               |    Byte 1    |     Byte 2    |     Byte 3    |
+| ------------- | ------------ | ------------- | ------------- |
 | Variable Name | Sensor_Value | Motor_1_Value | Motor_2_Value |
 | Variable Type |    uint8_t   |    uint8_t    |    uint8_t    |
 |   Min Value   |       0      |       0       |       0       |
