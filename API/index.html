@@ -558,12 +558,48 @@
 <br></p>
 <h1 id="message-structure">Message Structure</h1>
 <h2 id="messages-overview">Messages Overview</h2>
-<p>| ------------- |    Byte 1    |     Byte 2    |     Byte 3    |
-| Variable Name | Sensor_Value | Motor_1_Value | Motor_2_Value |
-| Variable Type |    uint8_t   |    uint8_t    |    uint8_t    |
-|   Min Value   |       0      |       0       |       0       |
-|   Max Value   |      255     |      255      |      255      |
-|    Example    |      52      |       77      |      153      |</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable Name</td>
+<td>Sensor_Value</td>
+<td>Motor_1_Value</td>
+<td>Motor_2_Value</td>
+</tr>
+<tr>
+<td>Variable Type</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>Min Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Max Value</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>52</td>
+<td>77</td>
+<td>153</td>
+</tr>
+</tbody>
+</table>
 <p>I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.
 <br>
 <br></p>
