@@ -553,9 +553,21 @@
 
 
 <h1 id="introduction">Introduction</h1>
-<p>The MQTT subsystem is at the end of the UART daisy chain, so my main process will be to pass on the messages I receive back to the beginning of the chain. I will be using the data I receive on the WiFi server, but the MQTT communication will be outlined on a different page than this one. This page will only focus on the UART communications.</p>
+<p>The MQTT subsystem is at the end of the UART daisy chain, so my main process will be to pass on the messages I receive back to the beginning of the chain. I will be using the data I receive on the WiFi server, but the MQTT communication will be outlined on a different page than this one. This page will only focus on the UART communications.
+<br>
+<br></p>
 <h1 id="message-structure">Message Structure</h1>
-<h2 id="message-outlines">Message Outlines</h2>
+<h2 id="messages-overview">Messages Overview</h2>
+<p>| ------------- |    Byte 1    |     Byte 2    |     Byte 3    |
+| Variable Name | Sensor_Value | Motor_1_Value | Motor_2_Value |
+| Variable Type |    uint8_t   |    uint8_t    |    uint8_t    |
+|   Min Value   |       0      |       0       |       0       |
+|   Max Value   |      255     |      255      |      255      |
+|    Example    |      52      |       77      |      153      |</p>
+<p>I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.
+<br>
+<br></p>
+<h2 id="sensor-value">Sensor Value</h2>
 
 
 
