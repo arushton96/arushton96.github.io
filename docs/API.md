@@ -6,10 +6,9 @@ title: API Documentation
 The MQTT subsystem is at the end of the UART daisy chain, so my main process will be to pass on the messages I receive back to the beginning of the chain. I will be using the data I receive on the WiFi server, but the MQTT communication will be outlined on a different page than this one. This page will only focus on the UART communications.
 <br>
 <br>
-# Message Structure
-## Messages Overview
+# Message Overview
 
-|               |    Byte 1    |     Byte 2    |     Byte 3    |
+|               |   Message 1  |   Message 2   |   Message 3   |
 | ------------- | ------------ | ------------- | ------------- |
 | Variable Name | Sensor_Value | Motor_1_Value | Motor_2_Value |
 | Variable Type |    uint8_t   |    uint8_t    |    uint8_t    |
@@ -20,4 +19,53 @@ The MQTT subsystem is at the end of the UART daisy chain, so my main process wil
 I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.
 <br>
 <br>
-## Sensor Value
+# Sensor Value
+## Receive Format
+
+|               |  Byte 1 |  Byte 2 |  Byte 3  |    Byte 4    |  Byte 5 |
+| ------------- | ------- | ------- | -------- | ------------ | ------- |
+|   Byte Name   |   Start |  Sender | Receiver | Sensor_Value |   End   |
+|   Byte Type   | uint8_t | uint8_t |  uint8_t |    uint8_t   | uint8_t |
+| Byte Contents |   0x41  |   0x03  |   0x05   |  Sensor Byte |   0x42  |
+
+## Transmit Format
+
+|               |  Byte 1 |  Byte 2 |  Byte 3  |    Byte 4    |  Byte 5 |
+| ------------- | ------- | ------- | -------- | ------------ | ------- |
+|   Byte Name   |   Start |  Sender | Receiver | Sensor_Value |   End   |
+|   Byte Type   | uint8_t | uint8_t |  uint8_t |    uint8_t   | uint8_t |
+| Byte Contents |   0x41  |   0x05  |   0x04   |  Sensor Byte |   0x42  |
+
+# Motor 1
+## Receive Format
+
+|               |  Byte 1 |  Byte 2 |  Byte 3  |     Byte 4    |  Byte 5 |
+| ------------- | ------- | ------- | -------- | ------------- | ------- |
+|   Byte Name   |   Start |  Sender | Receiver | Motor_1_Value |   End   |
+|   Byte Type   | uint8_t | uint8_t |  uint8_t |     uint8_t   | uint8_t |
+| Byte Contents |   0x41  |   0x03  |   0x05   |  Motor 1 Byte |   0x42  |
+
+## Transmit Format
+
+|               |  Byte 1 |  Byte 2 |  Byte 3  |     Byte 4    |  Byte 5 |
+| ------------- | ------- | ------- | -------- | ------------- | ------- |
+|   Byte Name   |   Start |  Sender | Receiver | Motor_1_Value |   End   |
+|   Byte Type   | uint8_t | uint8_t |  uint8_t |     uint8_t   | uint8_t |
+| Byte Contents |   0x41  |   0x05  |   0x04   |  Motor 1 Byte |   0x42  |
+
+# Motor 2
+## Receive Format
+
+|               |  Byte 1 |  Byte 2 |  Byte 3  |     Byte 4    |  Byte 5 |
+| ------------- | ------- | ------- | -------- | ------------- | ------- |
+|   Byte Name   |   Start |  Sender | Receiver | Motor_2_Value |   End   |
+|   Byte Type   | uint8_t | uint8_t |  uint8_t |     uint8_t   | uint8_t |
+| Byte Contents |   0x41  |   0x03  |   0x05   |  Motor 2 Byte |   0x42  |
+
+## Transmit Format
+
+|               |  Byte 1 |  Byte 2 |  Byte 3  |     Byte 4    |  Byte 5 |
+| ------------- | ------- | ------- | -------- | ------------- | ------- |
+|   Byte Name   |   Start |  Sender | Receiver | Motor_2_Value |   End   |
+|   Byte Type   | uint8_t | uint8_t |  uint8_t |     uint8_t   | uint8_t |
+| Byte Contents |   0x41  |   0x05  |   0x04   |  Motor 2 Byte |   0x42  |
