@@ -19,6 +19,10 @@ The MQTT subsystem is at the end of the UART daisy chain, so my main process wil
 I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.
 
 The Sender and Receiver bytes will be between 0x01 and 0x04. The start byte is 0x41 and the end byte is 0x42. Currently, our "data" package of each message will only be 1 byte between 0 and 255, written in hex.
+
+Team IDs: Sensor = 0x01 HMI = 0x02 Motor = 0x03 MQTT = 0x04
+
+
 <br>
 <br>
 # Sensor Value
