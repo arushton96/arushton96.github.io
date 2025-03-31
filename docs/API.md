@@ -14,7 +14,7 @@ The MQTT subsystem is at the end of the UART daisy chain, so my main process wil
 | Variable Type |    uint8_t   |    uint8_t    |    uint8_t    |
 |   Min Value   |       0      |       0       |       0       |
 |   Max Value   |      255     |      255      |      255      |
-|    Example    |      52      |       77      |      153      |
+|    Example    |      0x42      |       0x71      |      0x53      |
 
 I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.
 
