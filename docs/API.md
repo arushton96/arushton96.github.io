@@ -20,7 +20,7 @@ I will be receiving three different data values from upstream: The sensor values
 
 The Sender and Receiver bytes will be between 0x01 and 0x04. The start byte is 0x41 and the end byte is 0x42. Currently, our "data" package of each message will only be 1 byte between 0 and 255, written in hex.
 
-Team IDs: Sensor = 0x01 HMI = 0x02 Motor = 0x03 MQTT = 0x04
+Team IDs: Sensor = 0x01 | HMI = 0x02 | Motor = 0x03 | MQTT = 0x04
 
 
 <br>
