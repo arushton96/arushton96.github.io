@@ -2,11 +2,15 @@
 title: Component Selection
 ---
 # My Subsystem
-On my team, I am responsible for creating the MQTT server, as well as creating the power supply that will feed to the other three subsystems. The main goal of my subsystem will be to connect the project to a computer that will serve not only as the platform for the HMI system and controller but also display diagnostic data from the rest of the system. This data could include battery life, speed, current sensor calculation speed, or current data transfer speed. The exact diagnostics that will be displayed are still undecided by the group as of now, though. I will have UART connections to all three other subsystems, however I will only be sending and receiving data from the HMI subsystem; the other two will only be sending me data.
+I was responsible for the development of the MQTT subsystem, which provided both communication reliability and system monitoring. The MQTT system served as a centralized message handler between the sensor and motor subsystems. It acted as a validation and control point for UART messages, ensuring that only correctly formatted and authorized messages were allowed through.
+
+In addition to filtering messages, the subsystem served as a backup communication pathway in the event of UART failure. It also generated real-time graphs to visualize vehicle movement and message activity, allowing for performance analysis and debugging. Although early plans included integration with the HMI subsystem, that feature was ultimately removed from the system's scope.
 <br>
 <br>
 # Major Hardware Selection
-This subsystem has no major hardware components for this section. <br> All components will either be small passive components (resistors, capacitors, etc) or the microcontroller
+This subsystem includes very few major hardware components. Most supporting elements—such as resistors and capacitors—are standard passive components required for basic operation. The two most important hardware decisions were the selection of the ESP32 microcontroller and the use of a 3.3V switching voltage regulator to supply it with regulated power.
+
+The ESP32 was chosen for its UART and WiFi capabilities, and is discussed in detail in the next section. The switching voltage regulator was not selected through a formal evaluation process, but was reused from earlier coursework. It had been previously tested and was known to meet the voltage and current requirements of the ESP32, making it a practical and reliable choice for this subsystem.
 <br>
 <br>
 # Microcontroller Selection
@@ -39,10 +43,15 @@ This subsystem has no major hardware components for this section. <br> All compo
 | LED PWM        | 36          | 4      | *                                                                            |
 | Motor PWM      | 36          | 0      | *                                                                            |
 | USB Programmer | 1           | 1      | Pins (13 & 14 +VCC/Ground)                                                   |
-<br>
-<br>
+
+<p>&nbsp;</p>
+
 # Final Selection
-The determining factors for my microcontroller selection were speed and WiFi capability. The main requirements of the microcontroller for my subsystem are UART communication and WiFi capability. Any other required pins, such as GPIO pins, will be more plentifully available than I need on any board that I choose, so those were not considered in the decision. At a minimum, the subsystem requires 1 UART connection, but more would be easier to use. Both the ESP32 and PIC18 have at least one UART connection, so they both meet my requirements. The PIC does not have internal WiFi capabilities. While I can use external peripherals to supliment that, the ESP32 has the WiFi modules already built into it. The last consideration was speed. The PIC18 has an average clock speed of 40MHz, while the ESP32 has a speed of 240MHz and supports multithreading. This will be helpful when connecting to the MQTT server and handeling data from the other subsystems in real-time.
+The final microcontroller selection was based primarily on processing speed and WiFi capability. The subsystem required at least one UART interface and a reliable wireless connection. While the PIC18 met the UART requirement, it lacked onboard WiFi, which would have required additional components and complexity. In contrast, the ESP32 included integrated WiFi, simplifying both hardware and software design.
+
+In addition to connectivity, the ESP32 offered a 240 MHz clock speed and support for dual-core processing, which was beneficial for handling concurrent MQTT and UART communication tasks. The PIC18, by comparison, operated at only 40 MHz and would have presented performance limitations for this subsystem’s requirements.
+
+<p>&nbsp;</p>
 
 # ESP32 Diagram and Wiring
 
