@@ -588,14 +588,14 @@
 </tr>
 </tbody>
 </table>
-<p>As written above, the only value we decided was needed in our system was the live sensor values.</p>
+<p>As written above, the only value used in the system is the live sensor value.</p>
 <p>The Sender and Receiver bytes are 0x01, 0x03, 0x04, and 0x05. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.</p>
 <p>Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x05 | MQTT = 0x04</p>
 <p>&nbsp;</p>
 
 <h1 id="message-format">Message Format</h1>
-<p>This section shows how I receive a message for the first time from the sensor, and then change the receiver byte before sending it to everyone else and eventually back to me.</p>
-<h2 id="format-for-how-i-received-messages-for-first-time">Format For How I Received Messages for First Time</h2>
+<p>This section demonstrates how the MQTT subsystem receives messages differently the first time versus the second time. When a sensor message is received for the first time, it arrives with the original receiver ID (0x05). The MQTT subsystem then rewrites the receiver ID to 0x04 before forwarding it. This change affects how all other subsystems receive the message as well—each sees the modified version with the updated receiver ID. If the message loops back to the MQTT subsystem, the new receiver ID indicates it has already been processed once, allowing it to be identified and discarded as a duplicate.</p>
+<h2 id="first-time-message-format-before-id-change">First-Time Message Format (Before ID Change)</h2>
 <table>
 <thead>
 <tr>
@@ -634,7 +634,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="format-for-how-everyone-else-received-messages-and-how-i-received-messages-for-second-time">Format for How Everyone Else Received Messages, and How I Received Messages for Second Time</h2>
+<h2 id="second-time-message-format-after-id-change">Second-Time Message Format (After ID Change)</h2>
 <table>
 <thead>
 <tr>
