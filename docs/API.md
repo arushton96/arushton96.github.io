@@ -19,7 +19,7 @@ A separate challenge arose from the high frequency of sensor messages—often 5 
 |   Max Value   |      101     |
 |    Example    |  0x64 & 0x65 |
 
-As written above, the only value we decided was needed in our system was the live sensor values.
+As written above, the only value used in the system is the live sensor value.
 
 The Sender and Receiver bytes are 0x01, 0x03, 0x04, and 0x05. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.
 
@@ -29,9 +29,9 @@ Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x05 | MQTT = 0x04
 
 # Message Format
 
-This section shows how I receive a message for the first time from the sensor, and then change the receiver byte before sending it to everyone else and eventually back to me.
+This section demonstrates how the MQTT subsystem receives messages differently the first time versus the second time. When a sensor message is received for the first time, it arrives with the original receiver ID (0x05). The MQTT subsystem then rewrites the receiver ID to 0x04 before forwarding it. This change affects how all other subsystems receive the message as well—each sees the modified version with the updated receiver ID. If the message loops back to the MQTT subsystem, the new receiver ID indicates it has already been processed once, allowing it to be identified and discarded as a duplicate.
 
-## Format For How I Received Messages for First Time
+## First-Time Message Format (Before ID Change)
 
 |               |  Byte 1 |  Byte 2 |  Byte 3  |    Byte 4    |  Byte 5 |
 | ------------- | ------- | ------- | -------- | ------------ | ------- |
@@ -39,7 +39,7 @@ This section shows how I receive a message for the first time from the sensor, a
 |   Byte Type   |  int8_t |  int8_t |   int8_t |     int8_t   |  int8_t |
 | Byte Contents |   0x41  |   0x01  |   0x05   |  Sensor Byte |   0x42  |
 
-## Format for How Everyone Else Received Messages, and How I Received Messages for Second Time
+## Second-Time Message Format (After ID Change)
 
 |               |  Byte 1 |  Byte 2 |  Byte 3  |    Byte 4    |  Byte 5 |
 | ------------- | ------- | ------- | -------- | ------------ | ------- |
