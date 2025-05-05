@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#process-and-solved-problems" class="md-skip">
           Skip to content
         </a>
       
@@ -552,60 +552,50 @@
   
 
 
-<h1 id="introduction">Introduction</h1>
-<p>The MQTT subsystem is at the end of the UART daisy chain, so my main process will be to pass on the messages I receive back to the beginning of the chain. I will be using the data I receive on the WiFi server, but the MQTT communication will be outlined on a different page than this one. This page will only focus on the UART communications.
-<br>
-<br></p>
+<h1 id="process-and-solved-problems">Process and Solved Problems</h1>
+<p>The MQTT subsystem served as the second node in the UART message chain and took on the primary responsibility for message validation and filtering due to its robust communication protocol. Over the course of development, our team determined that only one type of message—live sensor values—needed to be propagated through the system. While sender and receiver IDs were initially planned as key routing elements, they ultimately became redundant for most subsystems. However, the MQTT system retained full protocol enforcement, which required it to remain between the sensor and motor subsystems to ensure only valid messages were processed. To support this, I adapted the receiver ID field to track whether a message had already circulated through the full UART chain. Upon receiving a valid message, the MQTT system rewrote the receiver ID to its own and filtered out any returning messages marked this way, effectively preventing duplication without altering the message structure.</p>
+<p>A separate challenge arose from the high frequency of sensor messages—often 5 to 10 per second—which could overwhelm the system and prevent the motors from restarting once a stop condition was triggered. To manage this, I implemented a timed filter that suppressed duplicate sensor messages during a defined stop interval. After this delay, the MQTT subsystem automatically resumed motor activity and introduced a secondary lockout period to prevent premature retriggering. This approach ensured reliable operation without requiring upstream changes to the sensor logic.</p>
+<p>&nbsp;</p>
+
 <h1 id="message-overview">Message Overview</h1>
 <table>
 <thead>
 <tr>
 <th></th>
 <th>Message 1</th>
-<th>Message 2</th>
-<th>Message 3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Variable Name</td>
 <td>Sensor_Value</td>
-<td>Motor_1_Value</td>
-<td>Motor_2_Value</td>
 </tr>
 <tr>
 <td>Variable Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
+<td>int8_t</td>
 </tr>
 <tr>
 <td>Min Value</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>100</td>
 </tr>
 <tr>
 <td>Max Value</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
+<td>101</td>
 </tr>
 <tr>
 <td>Example</td>
-<td>0x42</td>
-<td>0x71</td>
-<td>0x53</td>
+<td>0x64 &amp; 0x65</td>
 </tr>
 </tbody>
 </table>
-<p>I will be receiving three different data values from upstream: The sensor values and the values of motor 1 and motor 2. The values will be uploaded to the WiFi server and then passed along the chain to the HMI subsystem. That means that all of these messages will be both received and transmitted messages.</p>
-<p>The Sender and Receiver bytes will be between 0x01 and 0x04. The start byte is 0x41 and the end byte is 0x42. Currently, our "data" package of each message will only be 1 byte between 0 and 255, written in hex.</p>
-<p>Team IDs: Sensor = 0x01 | HMI = 0x02 | Motor = 0x03 | MQTT = 0x04</p>
-<p><br>
-<br></p>
-<h1 id="sensor-value">Sensor Value</h1>
-<h2 id="receive-format">Receive Format</h2>
+<p>As written above, the only value we decided was needed in our system was the live sensor values.</p>
+<p>The Sender and Receiver bytes are 0x01, 0x03, 0x04, and 0x05. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.</p>
+<p>Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x05 | MQTT = 0x04</p>
+<p>&nbsp;</p>
+
+<h1 id="message-format">Message Format</h1>
+<p>This section shows how I receive a message for the first time from the sensor, and then change the receiver byte before sending it to everyone else and eventually back to me.</p>
+<h2 id="format-for-how-i-received-messages-for-first-time">Format For How I Received Messages for First Time</h2>
 <table>
 <thead>
 <tr>
@@ -628,23 +618,23 @@
 </tr>
 <tr>
 <td>Byte Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
 </tr>
 <tr>
 <td>Byte Contents</td>
 <td>0x41</td>
-<td>0x03</td>
+<td>0x01</td>
 <td>0x05</td>
 <td>Sensor Byte</td>
 <td>0x42</td>
 </tr>
 </tbody>
 </table>
-<h2 id="transmit-format">Transmit Format</h2>
+<h2 id="format-for-how-everyone-else-received-messages-and-how-i-received-messages-for-second-time">Format for How Everyone Else Received Messages, and How I Received Messages for Second Time</h2>
 <table>
 <thead>
 <tr>
@@ -667,176 +657,18 @@
 </tr>
 <tr>
 <td>Byte Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
+<td>int8_t</td>
 </tr>
 <tr>
 <td>Byte Contents</td>
 <td>0x41</td>
-<td>0x05</td>
+<td>0x01</td>
 <td>0x04</td>
 <td>Sensor Byte</td>
-<td>0x42</td>
-</tr>
-</tbody>
-</table>
-<h1 id="motor-1">Motor 1</h1>
-<h2 id="receive-format_1">Receive Format</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Byte 1</th>
-<th>Byte 2</th>
-<th>Byte 3</th>
-<th>Byte 4</th>
-<th>Byte 5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Byte Name</td>
-<td>Start</td>
-<td>Sender</td>
-<td>Receiver</td>
-<td>Motor_1_Value</td>
-<td>End</td>
-</tr>
-<tr>
-<td>Byte Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-</tr>
-<tr>
-<td>Byte Contents</td>
-<td>0x41</td>
-<td>0x03</td>
-<td>0x05</td>
-<td>Motor 1 Byte</td>
-<td>0x42</td>
-</tr>
-</tbody>
-</table>
-<h2 id="transmit-format_1">Transmit Format</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Byte 1</th>
-<th>Byte 2</th>
-<th>Byte 3</th>
-<th>Byte 4</th>
-<th>Byte 5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Byte Name</td>
-<td>Start</td>
-<td>Sender</td>
-<td>Receiver</td>
-<td>Motor_1_Value</td>
-<td>End</td>
-</tr>
-<tr>
-<td>Byte Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-</tr>
-<tr>
-<td>Byte Contents</td>
-<td>0x41</td>
-<td>0x05</td>
-<td>0x04</td>
-<td>Motor 1 Byte</td>
-<td>0x42</td>
-</tr>
-</tbody>
-</table>
-<h1 id="motor-2">Motor 2</h1>
-<h2 id="receive-format_2">Receive Format</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Byte 1</th>
-<th>Byte 2</th>
-<th>Byte 3</th>
-<th>Byte 4</th>
-<th>Byte 5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Byte Name</td>
-<td>Start</td>
-<td>Sender</td>
-<td>Receiver</td>
-<td>Motor_2_Value</td>
-<td>End</td>
-</tr>
-<tr>
-<td>Byte Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-</tr>
-<tr>
-<td>Byte Contents</td>
-<td>0x41</td>
-<td>0x03</td>
-<td>0x05</td>
-<td>Motor 2 Byte</td>
-<td>0x42</td>
-</tr>
-</tbody>
-</table>
-<h2 id="transmit-format_2">Transmit Format</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Byte 1</th>
-<th>Byte 2</th>
-<th>Byte 3</th>
-<th>Byte 4</th>
-<th>Byte 5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Byte Name</td>
-<td>Start</td>
-<td>Sender</td>
-<td>Receiver</td>
-<td>Motor_2_Value</td>
-<td>End</td>
-</tr>
-<tr>
-<td>Byte Type</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-<td>uint8_t</td>
-</tr>
-<tr>
-<td>Byte Contents</td>
-<td>0x41</td>
-<td>0x05</td>
-<td>0x04</td>
-<td>Motor 2 Byte</td>
 <td>0x42</td>
 </tr>
 </tbody>
