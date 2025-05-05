@@ -12,11 +12,13 @@
       
       
       
-        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/esp-32-table/">
+        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/PCB-Layout/">
       
       
-        <link rel="prev" href="../Schematic-Diagram/">
+        <link rel="prev" href="../Component-Selection/">
       
+      
+        <link rel="next" href="../Schematic-Diagram/">
       
       
       <link rel="icon" href="../static/logo.png">
@@ -27,7 +29,7 @@
 
     
       
-        <title>ESP32 Table - EGR314 Andrew Rushton's Document</title>
+        <title>PCB Layout - EGR314 Andrew Rushton's Document</title>
       
     
     
@@ -121,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ESP32 Table
+              PCB Layout
             
           </span>
         </div>
@@ -278,9 +280,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../PCB-Layout/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -312,11 +316,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../esp-32-table/" class="md-tabs__link">
         
   
     
@@ -477,9 +479,16 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../PCB-Layout/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -488,6 +497,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -515,16 +525,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../esp-32-table/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +536,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -569,7 +571,7 @@
                   
 
   
-    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/esp-32-table.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/PCB-Layout.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -577,134 +579,9 @@
   
 
 
-  <h1>ESP32 Table</h1>
+  <h1>PCB Layout</h1>
 
-<table>
-<thead>
-<tr>
-<th>ESP Info</th>
-<th>Answer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Model</td>
-<td>ESP32-S3-WROOM-1</td>
-</tr>
-<tr>
-<td>Product Page URL</td>
-<td><a href="https://www.espressif.com/en/products/modules/page#ESP32-S3">Product Page</a></td>
-</tr>
-<tr>
-<td>ESP32-S3-WROOM-1-N4 Datasheet URL</td>
-<td><a href="https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf">Data Sheet</a></td>
-</tr>
-<tr>
-<td>ESP32 S3 Datasheet URL</td>
-<td><a href="https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf">ESP32-S3 Series Datasheet</a></td>
-</tr>
-<tr>
-<td>ESP32 S3 Technical Reference Manual URL</td>
-<td><a href="https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf">Technical Reference Manual</a></td>
-</tr>
-<tr>
-<td>Vendor link</td>
-<td><a href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-S3-WROOM-1-N4/16162639">Digikey Link</a></td>
-</tr>
-<tr>
-<td>Code Examples</td>
-<td><a href="https://github.com/knolleary/pubsubclient">PubSubLibrary</a> <br> <a href="https://github.com/arduino-libraries/WiFi">WiFi Library</a></td>
-</tr>
-<tr>
-<td>External Resources URL(s)</td>
-<td><a href="https://youtu.be/ugEnE7XSR5I?si=Fv3zHxQ3zeP0jUnl">ESP32 MicroPython: MQTT</a> <br> <a href="https://youtu.be/ebsXSCKsHeQ?si=SOfk5tIESVuPY_7s">How to setup MQTT for Raspberry Pi and ESP32</a></td>
-</tr>
-<tr>
-<td>Unit cost</td>
-<td>$2.95</td>
-</tr>
-<tr>
-<td>Absolute Maximum Current for entire IC</td>
-<td>1500 mA</td>
-</tr>
-<tr>
-<td>Supply Voltage Range</td>
-<td>Min: 3.0V <br> Typical: 3.3V <br> Max: 3.6V</td>
-</tr>
-<tr>
-<td>Maximum GPIO current <br> (per pin)</td>
-<td>Not explicitly stated in datasheet, however in general around 40mA max and 20mA typical.</td>
-</tr>
-<tr>
-<td>Supports External Interrupts?</td>
-<td>Supports external interrupts which can also be used to wake from light sleep mode</td>
-</tr>
-<tr>
-<td>Required Programming Hardware, Cost, URL</td>
-<td><a href="https://www.amazon.com/IZOKEE-CP2102-Converter-Adapter-Downloader/dp/B07D6LLX19/ref=sr_1_3?adgrpid=1330409641990384&amp;dib=eyJ2IjoiMSJ9.qroPT-fyHbCHJ3tcPCCTQfWRI8aVGF1Xa7ZxFaJF9LZMTgBqYg3YnMxqbubd7viDdw_T94MoKF_7UtWKuCCOebeoGVe5et2rTnfrh9iC_hn_snBwX5FbfEboSq0eX1q9MR1r8YCT-GcYlrxQgXiivg2L_gIOq_3L4baNmX-jjSPmZemAlGkHT9GRgYIJJ9vUZtfyOIzaqS0kOh4-z1Vm7fHMl2-8sjURz31spK3cVGs.EzKKHT1QePqvJUjzSOqcp0mnXalQBORKEvpsg7AKnl8&amp;dib_tag=se&amp;hvadid=83150817082162&amp;hvbmt=be&amp;hvdev=c&amp;hvlocphy=77892&amp;hvnetw=o&amp;hvqmt=e&amp;hvtargid=kwd-83150962142855%3Aloc-190&amp;hydadcr=19132_13351602&amp;keywords=usb+to+uart+converter&amp;mcid=c9ec1fe3b12d3f0e82d616b6cc8bb95d&amp;qid=1738966734&amp;sr=8-3">USD to Serial converter 5-10$</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Module</th>
-<th># Available</th>
-<th>Needed</th>
-<th>Associated Pins (or * for any)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UART</td>
-<td>2</td>
-<td>2</td>
-<td>Pins 10 &amp; 37 (TX) <br> Pins 11 &amp; 36 (RX)</td>
-</tr>
-<tr>
-<td>external SPI*</td>
-<td>1</td>
-<td>0</td>
-<td>SPI 0 &amp; 1 (Reserved) <br> SPI 2 (Pins 18-21) <br> SPI 3 (Pins 27-30)</td>
-</tr>
-<tr>
-<td>I2C</td>
-<td>2</td>
-<td>0</td>
-<td>*</td>
-</tr>
-<tr>
-<td>GPIO</td>
-<td>36</td>
-<td>?</td>
-<td>Any except 1, 2, 3, 40 &amp; 41</td>
-</tr>
-<tr>
-<td>ADC</td>
-<td>20</td>
-<td>0</td>
-<td>ADC1 (Pins 4-7, 12, 15, 17, 18, 38, 39) <br> ADC2 (Pins 8-11, 13, 14, 19-22)</td>
-</tr>
-<tr>
-<td>LED PWM</td>
-<td>36</td>
-<td>4</td>
-<td>*</td>
-</tr>
-<tr>
-<td>Motor PWM</td>
-<td>36</td>
-<td>0</td>
-<td>*</td>
-</tr>
-<tr>
-<td>USB Programmer</td>
-<td>1</td>
-<td>1</td>
-<td>Pins (13 &amp; 14 +VCC/Ground)</td>
-</tr>
-</tbody>
-</table>
+
 
 
 
@@ -732,7 +609,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Schematic-Diagram/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Schematic Diagram" rel="prev">
+          <a href="../Component-Selection/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Component Selection" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -742,11 +619,27 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Schematic Diagram
+                Component Selection
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../Schematic-Diagram/" class="md-footer__link md-footer__link--next" aria-label="Next: Schematic Diagram" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Schematic Diagram
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
