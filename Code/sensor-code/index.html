@@ -12,16 +12,14 @@
       
       
       
-        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/%20Block-Diagram/">
+        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/Code/sensor-code/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../mqtt-code/">
       
       
-        <link rel="next" href="../API/">
       
-      
-      <link rel="icon" href="../static/logo.png">
+      <link rel="icon" href="../../static/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.0">
             
 
@@ -29,14 +27,14 @@
 
     
       
-        <title>Block Diagram - EGR314 Andrew Rushton's Document</title>
+        <title>Sensor code - EGR314 Andrew Rushton's Document</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.649f08f9.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
       
       
 
@@ -55,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,7 +64,7 @@
     
 
 
-   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -75,7 +73,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -104,9 +102,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="EGR314 Andrew Rushton&#39;s Document" class="md-header__button md-logo" aria-label="EGR314 Andrew Rushton's Document" data-md-component="logo">
+    <a href="../.." title="EGR314 Andrew Rushton&#39;s Document" class="md-header__button md-logo" aria-label="EGR314 Andrew Rushton's Document" data-md-component="logo">
       
-  <img src="../static/logo.svg" alt="logo">
+  <img src="../../static/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-               Block Diagram
+              Sensor code
             
           </span>
         </div>
@@ -197,7 +195,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -212,11 +210,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../%20Block-Diagram/" class="md-tabs__link">
         
   
     
@@ -233,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../API/" class="md-tabs__link">
+      <a href="../../API/" class="md-tabs__link">
         
   
     
@@ -250,7 +246,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../Bill-Of-Materials/" class="md-tabs__link">
+      <a href="../../Bill-Of-Materials/" class="md-tabs__link">
         
   
     
@@ -267,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../Component-Selection/" class="md-tabs__link">
+      <a href="../../Component-Selection/" class="md-tabs__link">
         
   
     
@@ -284,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../PCB-Layout/" class="md-tabs__link">
+      <a href="../../PCB-Layout/" class="md-tabs__link">
         
   
     
@@ -301,7 +297,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../Schematic-Diagram/" class="md-tabs__link">
+      <a href="../../Schematic-Diagram/" class="md-tabs__link">
         
   
     
@@ -318,7 +314,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../esp-32-table/" class="md-tabs__link">
+      <a href="../../esp-32-table/" class="md-tabs__link">
         
   
     
@@ -333,11 +329,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../Code/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -378,9 +376,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="EGR314 Andrew Rushton&#39;s Document" class="md-nav__button md-logo" aria-label="EGR314 Andrew Rushton's Document" data-md-component="logo">
+    <a href="../.." title="EGR314 Andrew Rushton&#39;s Document" class="md-nav__button md-logo" aria-label="EGR314 Andrew Rushton's Document" data-md-component="logo">
       
-  <img src="../static/logo.svg" alt="logo">
+  <img src="../../static/logo.svg" alt="logo">
 
     </a>
     EGR314 Andrew Rushton's Document
@@ -406,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -423,16 +421,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../%20Block-Diagram/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -441,7 +432,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -452,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../API/" class="md-nav__link">
+      <a href="../../API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Bill-Of-Materials/" class="md-nav__link">
+      <a href="../../Bill-Of-Materials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -490,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Component-Selection/" class="md-nav__link">
+      <a href="../../Component-Selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -509,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PCB-Layout/" class="md-nav__link">
+      <a href="../../PCB-Layout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Schematic-Diagram/" class="md-nav__link">
+      <a href="../../Schematic-Diagram/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -547,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../esp-32-table/" class="md-nav__link">
+      <a href="../../esp-32-table/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -564,6 +554,8 @@
       
   
   
+    
+  
   
     
     
@@ -578,28 +570,92 @@
       
     
     
-      
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
-  
-  
-    <a href="../Code/" class="md-nav__link">
-      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Code
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              <label class="md-nav__link " for="__nav_9">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mqtt-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mqtt code
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sensor code
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -636,7 +692,7 @@
                   
 
   
-    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/ Block-Diagram.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/Code/sensor-code.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -644,10 +700,9 @@
   
 
 
-  <h1> Block Diagram</h1>
+  <h1>Sensor code</h1>
 
-<p><a class="glightbox" href="../Images/BlockDiagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block Diagram" src="../Images/BlockDiagram.png" /></a></p>
-<p><a href="../Images/BlockDiagram.pdf">Block Diagram PDF</a></p>
+
 
 
 
@@ -675,7 +730,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome" rel="prev">
+          <a href="../mqtt-code/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mqtt code" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -685,27 +740,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Welcome
+                Mqtt code
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../API/" class="md-footer__link md-footer__link--next" aria-label="Next: API Documentation" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                API Documentation
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
@@ -742,12 +781,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
