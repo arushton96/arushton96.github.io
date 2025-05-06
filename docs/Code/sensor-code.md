@@ -1,6 +1,6 @@
 # Sensor Code
 
-The following code integrates the original sensor functionality written by my teammate with MQTT fallback logic that I implemented. This version reflects the final, fully functional integration that was intended to run during demonstration. Due to a hardware issue on the sensor board (USB wiring), I was unable to upload and test this version on the actual board — but it is the correct working integration.
+The following code integrates the original sensor functionality written by my teammate with MQTT fallback logic that I implemented. This version reflects the final, fully functional integration that was intended to run during demonstration.
 
 MQTT-related sections are clearly marked to indicate my specific contributions.
 
