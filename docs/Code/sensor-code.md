@@ -11,7 +11,7 @@ import time
 import uasyncio as asyncio
 from machine import SoftI2C, Pin, UART
 # 🟩 MQTT addition
-from mqtt_as.mqtt_as import MQTTClient
+from mqtt_as.mqtt_as import MQTTClient                    # 🟩 MQTT addition
 # 🟩 MQTT addition
 from mqtt_as.mqtt_local import config
 
