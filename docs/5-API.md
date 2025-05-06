@@ -1,5 +1,5 @@
 ---
-title: API Documentation
+title: API
 ---
 
 # Process and Solved Problems
