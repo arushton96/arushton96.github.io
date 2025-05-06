@@ -29,7 +29,7 @@
 
     
       
-        <title>Index - EGR314 Andrew Rushton's Document</title>
+        <title>MQTT Subsystem Code - EGR314 Andrew Rushton's Document</title>
       
     
     
@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#mqtt-subsystem-code" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -123,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              MQTT Subsystem Code
             
           </span>
         </div>
@@ -800,6 +805,23 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    Files
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -822,9 +844,15 @@
   
 
 
-  <h1>Index</h1>
-
-
+<h1 id="mqtt-subsystem-code">MQTT Subsystem Code</h1>
+<p>This section contains all code related to the MQTT subsystem, including both embedded logic running on the ESP32 and a separate Python script used for real-time visualization on a local computer.</p>
+<hr />
+<h2 id="files">Files</h2>
+<ul>
+<li><a href="main/">main.py</a>: Core firmware logic for UART filtering, MQTT publishing, and system control.</li>
+<li><a href="uart-protocol/">uart_protocol.py</a>: Utility functions to encode and decode 5-byte UART messages.</li>
+<li><a href="graph-viewer/">mqtt_graph_viewer.py</a>: Python script for PC-based graphing of MQTT topic data.</li>
+</ul>
 
 
 
