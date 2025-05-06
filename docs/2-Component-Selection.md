@@ -1,18 +1,35 @@
 ---
 title: Component Selection
 ---
-# My Subsystem
-I was responsible for the development of the MQTT subsystem, which provided both communication reliability and system monitoring. The MQTT system served as a centralized message handler between the sensor and motor subsystems. It acted as a validation and control point for UART messages, ensuring that only correctly formatted and authorized messages were allowed through.
+## My Subsystem
 
-In addition to filtering messages, the subsystem served as a backup communication pathway in the event of UART failure. It also generated real-time graphs to visualize vehicle movement and message activity, allowing for performance analysis and debugging. Although early plans included integration with the HMI subsystem, that feature was ultimately removed from the system's scope.
-<br>
-<br>
-# Major Hardware Selection
-This subsystem includes very few major hardware components. Most supporting elements—such as resistors and capacitors—are standard passive components required for basic operation. The two most important hardware decisions were the selection of the ESP32 microcontroller and the use of a 3.3V switching voltage regulator to supply it with regulated power.
+I was responsible for developing the MQTT subsystem, which provided fault-tolerant communication reliability and system monitoring. The ESP32-S3-WROOM module served as the backbone for this design due to its native Wi-Fi capabilities, flexible UART support, and sufficient GPIO for expansion and debugging features.
 
-The ESP32 was chosen for its UART and WiFi capabilities, and is discussed in detail in the next section. The switching voltage regulator was not selected through a formal evaluation process, but was reused from earlier coursework. It had been previously tested and was known to meet the voltage and current requirements of the ESP32, making it a practical and reliable choice for this subsystem.
+This subsystem was responsible for relaying messages between other boards, detecting UART failure, and forwarding valid data via MQTT. It also coordinated a system-wide response to sensor input, managed a timed lockout to prevent false stop signals, and published MQTT data that could be visualized using a Python-based local graph viewer. Debug LEDs were incorporated for status indication during startup, message processing, and system activity.
+
+
 <br>
+
+## Major Hardware Selection
+
+This subsystem relied primarily on the ESP32-S3-WROOM, which integrated all the features required for MQTT communication and UART relaying. No external microcontroller or Wi-Fi module was necessary due to its built-in capabilities. The only other significant component was a switching voltage regulator (buck converter) used to step down 5V USB power to the 3.3V required by the ESP32.
+
+While passive components like resistors and capacitors were also included, they were part of standard best practices rather than explicit design decisions. Because the ESP32 handled all logic, message processing, and communication tasks, no additional sensors or specialized ICs were required.
+
+
 <br>
+
+## Design Decisions and Justification
+
+The MQTT board’s design revolved around ensuring reliable message routing, fallback communication, and monitoring. The ESP32-S3-WROOM was selected because it could handle all UART communication and MQTT publishing without external hardware. This selection enabled robust integration and flexibility while minimizing the component count.
+
+A previously validated buck converter (MP1584) was reused to provide regulated 3.3V power. Although not extensively researched during this project, the module was well-known from earlier coursework and was verified to meet voltage and current demands. Other hardware choices, such as debug LEDs, were added to support troubleshooting and state visibility throughout the development process.
+
+Originally, this subsystem was also meant to handle the power supply and HMI coordination, but its role was later focused specifically on system communication. Final implementation included UART parsing and filtering, MQTT publishing of valid messages, automatic fallback when UART became unresponsive, and visualization of system activity using a local Python graphing tool. These decisions resulted in a stable and modular foundation for the entire system’s message flow.
+
+
+<br>
+
 # Microcontroller Selection
 
 | ESP Info                                      | Answer                                                                                                                               |
@@ -46,10 +63,12 @@ The ESP32 was chosen for its UART and WiFi capabilities, and is discussed in det
 
 <p>&nbsp;</p>
 
-# Final Selection
-The final microcontroller selection was based primarily on processing speed and WiFi capability. The subsystem required at least one UART interface and a reliable wireless connection. While the PIC18 met the UART requirement, it lacked onboard WiFi, which would have required additional components and complexity. In contrast, the ESP32 included integrated WiFi, simplifying both hardware and software design.
+## Final Major Components Summary
 
-In addition to connectivity, the ESP32 offered a 240 MHz clock speed and support for dual-core processing, which was beneficial for handling concurrent MQTT and UART communication tasks. The PIC18, by comparison, operated at only 40 MHz and would have presented performance limitations for this subsystem’s requirements.
+| Component              | Part Number         | Function                           |
+|------------------------|---------------------|------------------------------------|
+| ESP32-S3-WROOM         | ESP32-S3-WROOM-1-N8R8 | Main microcontroller for MQTT, UART, Wi-Fi |
+| Buck Converter Module  | LM2596 Module       | 5V voltage regulation for board power |
 
 <p>&nbsp;</p>
 
