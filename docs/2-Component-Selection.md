@@ -72,6 +72,17 @@ Originally, this subsystem was also meant to handle the power supply and HMI coo
 
 <p>&nbsp;</p>
 
+### Power Budget
+
+| **Component Name** | **Part Number**          | **Supply Voltage Range** | **# Used** | **Absolute Max Current (mA)** | **Total Current (mA)** |
+|--------------------|--------------------------|---------------------------|------------|-------------------------------|-------------------------|
+| Buck Converter     | LM2575-3.3               | 7.0V – 40.0V              | 1          | **1000**                      | 1000                    |
+| ESP32-S3-WROOM     | ESP32-S3-WROOM-1-N4R2    | 3.0V – 3.6V               | 1          | **500**                       | 500                     |
+
+This power budget outlines the expected current draw and supply capability of the major components in the system. The LM2575-3.3 voltage regulator supplies up to 1000 mA at 3.3V, which is sufficient to power the ESP32-S3-WROOM module, which has a maximum current draw of approximately 500 mA. This margin ensures stable operation even under peak load conditions. Estimating power requirements like this was essential for confirming regulator selection and ensuring reliability during testing.
+
+<p>&nbsp;</p>
+
 # ESP32 Diagram and Wiring
 
 ![Block Diagram](Images/Diagram.png)
