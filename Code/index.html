@@ -29,7 +29,7 @@
 
     
       
-        <title>Index - EGR314 Andrew Rushton's Document</title>
+        <title>Code Overview - EGR314 Andrew Rushton's Document</title>
       
     
     
@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#code-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -123,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Code Overview
             
           </span>
         </div>
@@ -694,6 +699,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mqtt-subsystem" class="md-nav__link">
+    MQTT Subsystem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-subsystem-uart-backup" class="md-nav__link">
+    Sensor Subsystem (UART Backup)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hmi-subsystem-mqtt-visualization" class="md-nav__link">
+    HMI Subsystem (MQTT Visualization)
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -716,9 +752,27 @@
   
 
 
-  <h1>Index</h1>
-
-
+<h1 id="code-overview">Code Overview</h1>
+<p>This section documents the code I developed for the MQTT subsystem, along with support code I wrote or modified for the Sensor and HMI subsystems to enable UART-to-MQTT fallback functionality.</p>
+<hr />
+<h2 id="mqtt-subsystem">MQTT Subsystem</h2>
+<p>This subsystem was responsible for UART message filtering, MQTT communication, and system visualization. It includes three main files:</p>
+<ul>
+<li><strong>main.py</strong> – Core loop for UART parsing, MQTT publishing, and state control</li>
+<li><strong>UART_Protocol.py</strong> – Functions to encode and decode 5-byte UART messages</li>
+<li><strong>mqtt_graph_viewer.py</strong> – Python script for PC-based graphing of MQTT topic data.</li>
+</ul>
+<p><a href="mqtt-code/">📄 View MQTT Subsystem Code</a></p>
+<hr />
+<h2 id="sensor-subsystem-uart-backup">Sensor Subsystem (UART Backup)</h2>
+<p>The following code reflects the final integrated version used for the Sensor subsystem. While the original structure was written by a teammate, I incorporated all MQTT-related functionality and UART fallback logic shown here.</p>
+<p>This version was tested and ready for final demonstration, and accurately represents my contribution to the subsystem. All MQTT-related sections are clearly marked in the code below. The remaining core sensor logic and I2C implementation were provided by the original developer.</p>
+<p><a href="sensor-code/">📄 View Sensor Code</a></p>
+<hr />
+<h2 id="hmi-subsystem-mqtt-visualization">HMI Subsystem (MQTT Visualization)</h2>
+<p>To support UART backup functionality and MQTT-based system visualization, I modified the HMI subsystem code to publish messages over MQTT for my subsystems use. The base structure was written by a teammate; I incorporated MQTT logic and display rendering to support testing and integration.</p>
+<p>The code shown here does not exactly match the final version submitted by the teammate responsible for the HMI subsystem. I rewrote portions of the code for my at-home testing environment and have highlighted the sections that reflect my contributions. These highlighted areas represent the full scope of my work on this subsystem and were functionally validated during integration.</p>
+<p><a href="hmi-code/">📄 View HMI Code</a></p>
 
 
 
