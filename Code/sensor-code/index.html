@@ -765,138 +765,161 @@
 <p>The following code integrates the original sensor functionality written by my teammate with MQTT fallback logic that I implemented. This version reflects the final, fully functional integration that was intended to run during demonstration. Due to a hardware issue on the sensor board (USB wiring), I was unable to upload and test this version on the actual board — but it is the correct working integration.</p>
 <p>MQTT-related sections are clearly marked to indicate my specific contributions.</p>
 <hr />
-<p>```python
-import time
-import uasyncio as asyncio
-from machine import SoftI2C, Pin, UART
-from mqtt_as.mqtt_as import MQTTClient                          # 🟩 MQTT addition
-from mqtt_as.mqtt_local import config                           # 🟩 MQTT addition</p>
-<h1 id="i2c-and-sensor-setup">I2C and sensor setup</h1>
-<p>i2c = SoftI2C(scl=Pin(9), sda=Pin(8), freq=100000)
-OPT4060_ADDR = 0x44</p>
-<h1 id="led">LED</h1>
-<p>led = Pin(15, Pin.OUT)</p>
-<h1 id="uart2-on-gpio-47-tx-gpio-46-rx">UART2 on GPIO 47 (TX), GPIO 46 (RX)</h1>
-<p>uart = UART(2, baudrate=9600, tx=Pin(47), rx=Pin(46))</p>
-<h1 id="protocol-constants">Protocol constants</h1>
-<p>START = 0x41
-END = 0x42
-SENDER_ID = 0x01
-RECEIVER_ID = 0x03
-RED_MSG = 0x64
-BLUE_MSG = 0x65</p>
-<h1 id="mqtt-configuration-mqtt-addition">==== MQTT Configuration ====                                 # 🟩 MQTT addition</h1>
-<p>config['ssid'] = 'phpton'
-config['wifi_pw'] = 'particle'
-config['server'] = 'mqtt.eclipseprojects.io'
-config['port'] = 1883
-config['ssl'] = False
-config['clean'] = True
-config['subs_cb'] = None
-MQTTClient.DEBUG = True
-client = MQTTClient(config)</p>
-<h1 id="fallback-logic-mqtt-addition">==== Fallback Logic ====                                     # 🟩 MQTT addition</h1>
-<p>uart_last_seen = time.ticks_ms()
-FALLBACK_TIMEOUT = 15000  # 15 seconds
-mqtt_fallback_active = False</p>
-<p>def send_message(receiver_id, data_byte):
-    msg = bytes([START, SENDER_ID, receiver_id, data_byte, END])
-    uart.write(msg)
-    print("Sent to UART:", [hex(b) for b in msg])</p>
-<p>def read_uart():
-    global uart_last_seen
-    if uart.any() &gt;= 5:
-        msg = uart.read(5)
-        if msg and len(msg) == 5 and msg[0] == START and msg[4] == END:
-            print("UART Received:", [hex(b) for b in msg])
-            uart_last_seen = time.ticks_ms()
-            return msg
-    return None</p>
-<h1 id="mqtt-fallback-watchdog-mqtt-addition">==== MQTT Fallback Watchdog ====                              # 🟩 MQTT addition</h1>
-<p>async def check_mqtt_fallback():
-    global mqtt_fallback_active
-    while True:
-        if time.ticks_diff(time.ticks_ms(), uart_last_seen) &gt; FALLBACK_TIMEOUT:
-            if not mqtt_fallback_active:
-                mqtt_fallback_active = True
-                print("MQTT fallback mode ENABLED")
-                await client.subscribe('hmi/uart_data', 1)
-        await asyncio.sleep(1)</p>
-<h1 id="mqtt-message-handler-mqtt-addition">==== MQTT Message Handler ====                                # 🟩 MQTT addition</h1>
-<p>async def handle_mqtt_messages(topic, msg, retained):
-    global uart_last_seen
-    if not mqtt_fallback_active:
-        return</p>
-<pre><code>try:
-    values = eval(msg.decode())
-    if isinstance(values, list) and len(values) == 5 and values[0] == '0x41' and values[4] == '0x42':
-        parsed = [int(v, 16) for v in values]
-        print("Forwarding MQTT message:", values)
-        uart.write(bytes(parsed))
-        uart_last_seen = time.ticks_ms()
-except Exception as e:
-    print("Error parsing MQTT message:", e)
-</code></pre>
-<p>config['subs_cb'] = handle_mqtt_messages                       # 🟩 MQTT addition</p>
-<h1 id="sensor-main-loop">==== Sensor Main Loop ====</h1>
-<p>async def sensor_loop():
-    while True:
-        read_uart()  # Check for incoming UART messages</p>
-<pre><code>    # Color sensor capture
-    try:
-        i2c.writeto(OPT4060_ADDR, bytes([0x0A, 0x30, 0x78]))
-        time.sleep_ms(100)
-        i2c.writeto(OPT4060_ADDR, bytes([0x00]))
-        data = i2c.readfrom(OPT4060_ADDR, 16)
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">uasyncio</span> <span class="k">as</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">SoftI2C</span><span class="p">,</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">UART</span>
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="kn">from</span> <span class="nn">mqtt_as.mqtt_as</span> <span class="kn">import</span> <span class="n">MQTTClient</span>
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="kn">from</span> <span class="nn">mqtt_as.mqtt_local</span> <span class="kn">import</span> <span class="n">config</span>
 
-        red   = ((data[0] &amp; 0x0F) &lt;&lt; 8) | data[1]
-        green = ((data[4] &amp; 0x0F) &lt;&lt; 8) | data[5]
-        blue  = ((data[8] &amp; 0x0F) &lt;&lt; 8) | data[9]
+<span class="c1"># I2C and sensor setup</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">SoftI2C</span><span class="p">(</span><span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">OPT4060_ADDR</span> <span class="o">=</span> <span class="mh">0x44</span>
 
-        print("Red:", red, "Green:", green, "Blue:", blue)
+<span class="c1"># LED</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 
-        if red &gt; green and red &gt; blue and red &gt; 200:
-            print("🔴 Red detected")
-            led.on()
-            await asyncio.sleep(0.2)
-            led.off()
-            await asyncio.sleep(0.2)
-            send_message(RECEIVER_ID, RED_MSG)
+<span class="c1"># UART2 on GPIO 47 (TX), GPIO 46 (RX)</span>
+<span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">47</span><span class="p">),</span> <span class="n">rx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">46</span><span class="p">))</span>
 
-        elif blue &gt; red and blue &gt; green and blue &gt; 200:
-            print("🔵 Blue detected")
-            led.on()
-            await asyncio.sleep(0.2)
-            led.off()
-            await asyncio.sleep(0.2)
-            send_message(RECEIVER_ID, BLUE_MSG)
+<span class="c1"># Protocol constants</span>
+<span class="n">START</span> <span class="o">=</span> <span class="mh">0x41</span>
+<span class="n">END</span> <span class="o">=</span> <span class="mh">0x42</span>
+<span class="n">SENDER_ID</span> <span class="o">=</span> <span class="mh">0x01</span>
+<span class="n">RECEIVER_ID</span> <span class="o">=</span> <span class="mh">0x03</span>
+<span class="n">RED_MSG</span> <span class="o">=</span> <span class="mh">0x64</span>
+<span class="n">BLUE_MSG</span> <span class="o">=</span> <span class="mh">0x65</span>
 
-        else:
-            led.off()
-            await asyncio.sleep(0.5)
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="c1"># ==== MQTT Configuration ====</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;ssid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;phpton&#39;</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;wifi_pw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;particle&#39;</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;server&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mqtt.eclipseprojects.io&#39;</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1883</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;ssl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;subs_cb&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">MQTTClient</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-    except Exception as e:
-        print("Sensor read error:", e)
-        await asyncio.sleep(1)
-</code></pre>
-<h1 id="main-entry-point-mqtt-addition">==== Main Entry Point ====                                    # 🟩 MQTT addition</h1>
-<p>async def main():
-    print("Connecting to MQTT...")
-    while True:
-        try:
-            await client.connect()
-            print("MQTT Connected")
-            break
-        except Exception as e:
-            print("MQTT connect failed:", e)
-            await asyncio.sleep(2)</p>
-<pre><code>asyncio.create_task(check_mqtt_fallback())
-await sensor_loop()
-</code></pre>
-<p>try:
-    asyncio.run(main())
-finally:
-    client.close()                                              # 🟩 MQTT addition</p>
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="c1"># ==== Fallback Logic ====</span>
+<span class="n">uart_last_seen</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+<span class="n">FALLBACK_TIMEOUT</span> <span class="o">=</span> <span class="mi">15000</span>  <span class="c1"># 15 seconds</span>
+<span class="n">mqtt_fallback_active</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">receiver_id</span><span class="p">,</span> <span class="n">data_byte</span><span class="p">):</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">START</span><span class="p">,</span> <span class="n">SENDER_ID</span><span class="p">,</span> <span class="n">receiver_id</span><span class="p">,</span> <span class="n">data_byte</span><span class="p">,</span> <span class="n">END</span><span class="p">])</span>
+    <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sent to UART:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">read_uart</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">uart_last_seen</span>
+    <span class="k">if</span> <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">msg</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">msg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">START</span> <span class="ow">and</span> <span class="n">msg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="n">END</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UART Received:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
+            <span class="n">uart_last_seen</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">msg</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="c1"># ==== MQTT Fallback Watchdog ====</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">check_mqtt_fallback</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">mqtt_fallback_active</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">uart_last_seen</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">FALLBACK_TIMEOUT</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">mqtt_fallback_active</span><span class="p">:</span>
+                <span class="n">mqtt_fallback_active</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MQTT fallback mode ENABLED&quot;</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s1">&#39;hmi/uart_data&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="c1"># ==== MQTT Message Handler ====</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">handle_mqtt_messages</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">retained</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">uart_last_seen</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mqtt_fallback_active</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0x41&#39;</span> <span class="ow">and</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0x42&#39;</span><span class="p">:</span>
+            <span class="n">parsed</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Forwarding MQTT message:&quot;</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+            <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">parsed</span><span class="p">))</span>
+            <span class="n">uart_last_seen</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error parsing MQTT message:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;subs_cb&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_mqtt_messages</span>
+
+<span class="c1"># ==== Sensor Main Loop ====</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">sensor_loop</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">read_uart</span><span class="p">()</span>  <span class="c1"># Check for incoming UART messages</span>
+
+        <span class="c1"># Color sensor capture</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">OPT4060_ADDR</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0x0A</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x78</span><span class="p">]))</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+            <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">OPT4060_ADDR</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0x00</span><span class="p">]))</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom</span><span class="p">(</span><span class="n">OPT4060_ADDR</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+            <span class="n">red</span>   <span class="o">=</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x0F</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">green</span> <span class="o">=</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x0F</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+            <span class="n">blue</span>  <span class="o">=</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x0F</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">data</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Red:&quot;</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="s2">&quot;Green:&quot;</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="s2">&quot;Blue:&quot;</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">red</span> <span class="o">&gt;</span> <span class="n">green</span> <span class="ow">and</span> <span class="n">red</span> <span class="o">&gt;</span> <span class="n">blue</span> <span class="ow">and</span> <span class="n">red</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔴 Red detected&quot;</span><span class="p">)</span>
+                <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+                <span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+                <span class="n">send_message</span><span class="p">(</span><span class="n">RECEIVER_ID</span><span class="p">,</span> <span class="n">RED_MSG</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">blue</span> <span class="o">&gt;</span> <span class="n">red</span> <span class="ow">and</span> <span class="n">blue</span> <span class="o">&gt;</span> <span class="n">green</span> <span class="ow">and</span> <span class="n">blue</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔵 Blue detected&quot;</span><span class="p">)</span>
+                <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+                <span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+                <span class="n">send_message</span><span class="p">(</span><span class="n">RECEIVER_ID</span><span class="p">,</span> <span class="n">BLUE_MSG</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sensor read error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 🟩 MQTT addition</span>
+<span class="c1"># ==== Main Entry Point ====</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connecting to MQTT...&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MQTT Connected&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MQTT connect failed:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">check_mqtt_fallback</span><span class="p">())</span>
+    <span class="k">await</span> <span class="n">sensor_loop</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1"># 🟩 MQTT addition</span>
+</code></pre></div>
 
 
 
