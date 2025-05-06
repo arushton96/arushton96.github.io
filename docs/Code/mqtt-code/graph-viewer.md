@@ -95,3 +95,4 @@ fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 6))
 ani = animation.FuncAnimation(fig, update_plot, interval=500)
 plt.tight_layout()
 plt.show()
+```
