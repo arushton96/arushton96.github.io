@@ -541,6 +541,19 @@
     Final Major Components Summary
   </a>
   
+    <nav class="md-nav" aria-label="Final Major Components Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-budget" class="md-nav__link">
+    Power Budget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -782,6 +795,19 @@
     Final Major Components Summary
   </a>
   
+    <nav class="md-nav" aria-label="Final Major Components Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-budget" class="md-nav__link">
+    Power Budget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -987,6 +1013,40 @@
 </tr>
 </tbody>
 </table>
+<p>&nbsp;</p>
+
+<h3 id="power-budget">Power Budget</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Component Name</strong></th>
+<th><strong>Part Number</strong></th>
+<th><strong>Supply Voltage Range</strong></th>
+<th><strong># Used</strong></th>
+<th><strong>Absolute Max Current (mA)</strong></th>
+<th><strong>Total Current (mA)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buck Converter</td>
+<td>LM2575-3.3</td>
+<td>7.0V – 40.0V</td>
+<td>1</td>
+<td><strong>1000</strong></td>
+<td>1000</td>
+</tr>
+<tr>
+<td>ESP32-S3-WROOM</td>
+<td>ESP32-S3-WROOM-1-N4R2</td>
+<td>3.0V – 3.6V</td>
+<td>1</td>
+<td><strong>500</strong></td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p>This power budget outlines the expected current draw and supply capability of the major components in the system. The LM2575-3.3 voltage regulator supplies up to 1000 mA at 3.3V, which is sufficient to power the ESP32-S3-WROOM module, which has a maximum current draw of approximately 500 mA. This margin ensures stable operation even under peak load conditions. Estimating power requirements like this was essential for confirming regulator selection and ensuring reliability during testing.</p>
 <p>&nbsp;</p>
 
 <h1 id="esp32-diagram-and-wiring">ESP32 Diagram and Wiring</h1>
