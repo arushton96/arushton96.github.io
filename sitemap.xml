@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/%201-Block-Diagram/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/2-Component-Selection/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/3-esp-32-table/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/4-Bill-Of-Materials/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/5-API/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/6-Schematic-Diagram/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/7-PCB-Layout/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Code/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Code/hmi-code/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Code/mqtt-code/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Code/sensor-code/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/static/node_modules/mathjax/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
