@@ -692,8 +692,8 @@
 </tbody>
 </table>
 <p>As written above, the only value used in the system is the live sensor value.</p>
-<p>The Sender and Receiver bytes are 0x01, 0x03, 0x04, and 0x05. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.</p>
-<p>Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x05 | MQTT = 0x04</p>
+<p>The Sender and Receiver bytes are 0x01-0x04. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.</p>
+<p>Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x02 | MQTT = 0x04</p>
 <p>&nbsp;</p>
 
 <h1 id="message-format">Message Format</h1>
@@ -731,7 +731,7 @@
 <td>Byte Contents</td>
 <td>0x41</td>
 <td>0x01</td>
-<td>0x05</td>
+<td>0x03</td>
 <td>Sensor Byte</td>
 <td>0x42</td>
 </tr>
