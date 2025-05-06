@@ -72,3 +72,4 @@ def read_message(uart):
         return sender, receiver, data, msg, True
 
     return None, None, None, None, False
+```
