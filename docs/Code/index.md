@@ -12,7 +12,7 @@ This subsystem was responsible for UART message filtering, MQTT communication, a
 - **UART_Protocol.py** – Functions to encode and decode 5-byte UART messages
 - **mqtt_graph_viewer.py** – Python script for PC-based graphing of MQTT topic data.
 
-[📄 View MQTT Subsystem Code](mqtt-code.md)
+[📄 View MQTT Subsystem Code](mqtt-code/index.md)
 
 ---
 
