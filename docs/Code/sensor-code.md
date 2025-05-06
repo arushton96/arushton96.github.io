@@ -10,8 +10,10 @@ MQTT-related sections are clearly marked to indicate my specific contributions.
 import time
 import uasyncio as asyncio
 from machine import SoftI2C, Pin, UART
-from mqtt_as.mqtt_as import MQTTClient                          # 🟩 MQTT addition
-from mqtt_as.mqtt_local import config                           # 🟩 MQTT addition
+# 🟩 MQTT addition
+from mqtt_as.mqtt_as import MQTTClient
+# 🟩 MQTT addition
+from mqtt_as.mqtt_local import config
 
 # I2C and sensor setup
 i2c = SoftI2C(scl=Pin(9), sda=Pin(8), freq=100000)
@@ -31,7 +33,8 @@ RECEIVER_ID = 0x03
 RED_MSG = 0x64
 BLUE_MSG = 0x65
 
-# ==== MQTT Configuration ====                                 # 🟩 MQTT addition
+# 🟩 MQTT addition
+# ==== MQTT Configuration ====
 config['ssid'] = 'phpton'
 config['wifi_pw'] = 'particle'
 config['server'] = 'mqtt.eclipseprojects.io'
@@ -42,7 +45,8 @@ config['subs_cb'] = None
 MQTTClient.DEBUG = True
 client = MQTTClient(config)
 
-# ==== Fallback Logic ====                                     # 🟩 MQTT addition
+# 🟩 MQTT addition
+# ==== Fallback Logic ====
 uart_last_seen = time.ticks_ms()
 FALLBACK_TIMEOUT = 15000  # 15 seconds
 mqtt_fallback_active = False
@@ -62,7 +66,8 @@ def read_uart():
             return msg
     return None
 
-# ==== MQTT Fallback Watchdog ====                              # 🟩 MQTT addition
+# 🟩 MQTT addition
+# ==== MQTT Fallback Watchdog ====
 async def check_mqtt_fallback():
     global mqtt_fallback_active
     while True:
@@ -73,7 +78,8 @@ async def check_mqtt_fallback():
                 await client.subscribe('hmi/uart_data', 1)
         await asyncio.sleep(1)
 
-# ==== MQTT Message Handler ====                                # 🟩 MQTT addition
+# 🟩 MQTT addition
+# ==== MQTT Message Handler ====
 async def handle_mqtt_messages(topic, msg, retained):
     global uart_last_seen
     if not mqtt_fallback_active:
@@ -89,7 +95,8 @@ async def handle_mqtt_messages(topic, msg, retained):
     except Exception as e:
         print("Error parsing MQTT message:", e)
 
-config['subs_cb'] = handle_mqtt_messages                       # 🟩 MQTT addition
+# 🟩 MQTT addition
+config['subs_cb'] = handle_mqtt_messages
 
 # ==== Sensor Main Loop ====
 async def sensor_loop():
@@ -133,7 +140,8 @@ async def sensor_loop():
             print("Sensor read error:", e)
             await asyncio.sleep(1)
 
-# ==== Main Entry Point ====                                    # 🟩 MQTT addition
+# 🟩 MQTT addition
+# ==== Main Entry Point ====
 async def main():
     print("Connecting to MQTT...")
     while True:
@@ -151,4 +159,6 @@ async def main():
 try:
     asyncio.run(main())
 finally:
-    client.close()                                              # 🟩 MQTT addition
+    client.close()
+# 🟩 MQTT addition
+```
