@@ -840,70 +840,74 @@
 <h1 id="uart_protocolpy">uart_protocol.py</h1>
 <p>This module defines the UART message protocol for the MQTT subsystem. It provides functions for encoding and decoding 5-byte messages, including full validation of structure, sender/receiver IDs, and data integrity.</p>
 <hr />
-<p>```python
-from machine import UART
-import time</p>
-<p>START = 0x41
-END = 0x42
-SENDER = 0x04  # This device’s ID</p>
-<p>def send_message(uart, receiver, data):
-    # Accept int or hex string
-    if isinstance(data, str):
-        try:
-            data = int(data, 0)
-        except ValueError:
-            raise ValueError("Data must be an integer or hex string")</p>
-<pre><code>if not (0 &lt;= data &lt;= 255):
-    raise ValueError("Data must be a single byte (0–255)")
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">UART</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-msg = bytes([START, SENDER, receiver, data, END])
-uart.write(msg)
-print("Sent:", [f"0x{b:02X}" for b in msg])
-</code></pre>
-<p>def read_message(uart):
-    while uart.any():
-        start = uart.read(1)
-        if not start or start[0] != START:
-            continue</p>
-<pre><code>    rest = b''
-    timeout = 1000
-    start_time = time.ticks_ms()
+<span class="n">START</span> <span class="o">=</span> <span class="mh">0x41</span>
+<span class="n">END</span> <span class="o">=</span> <span class="mh">0x42</span>
+<span class="n">SENDER</span> <span class="o">=</span> <span class="mh">0x04</span>  <span class="c1"># This device’s ID</span>
 
-    while len(rest) &lt; 4:
-        if uart.any():
-            rest += uart.read(1)
-        elif time.ticks_diff(time.ticks_ms(), start_time) &gt; timeout:
-            print("Timed out waiting for full message.")
-            return None, None, None, None, False
+<span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">uart</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="c1"># Accept int or hex string</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Data must be an integer or hex string&quot;</span><span class="p">)</span>
 
-    msg = bytes([START]) + rest
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">data</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Data must be a single byte (0–255)&quot;</span><span class="p">)</span>
 
-    if msg[4] != END:
-        print("Invalid packet structure:", [hex(b) for b in msg])
-        return None, None, None, msg, False
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">START</span><span class="p">,</span> <span class="n">SENDER</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">END</span><span class="p">])</span>
+    <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sent:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;0x</span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
 
-    sender = msg[1]
-    receiver = msg[2]
-    data = msg[3]
 
-    if sender not in (0x01, 0x02, 0x03, 0x04) or receiver not in (0x01, 0x02, 0x03, 0x04):
-        print("Invalid sender or receiver value:", [hex(b) for b in msg])
-        return None, None, None, msg, False
+<span class="k">def</span> <span class="nf">read_message</span><span class="p">(</span><span class="n">uart</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">START</span><span class="p">:</span>
+            <span class="k">continue</span>
 
-    if not (0 &lt;= data &lt;= 255):
-        print("Invalid data value (not a byte):", [hex(b) for b in msg])
-        return None, None, None, msg, False
+        <span class="n">rest</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+        <span class="n">timeout</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
 
-    if receiver == SENDER:
-        print("Message Received:")
-        print(f"  Sender  : 0x{sender:02X}")
-        print(f"  Receiver: 0x{receiver:02X}")
-        print(f"  Data    : 0x{data:02X} ({chr(data)})")
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">rest</span> <span class="o">+=</span> <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timed out waiting for full message.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span>
 
-    return sender, receiver, data, msg, True
+        <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">START</span><span class="p">])</span> <span class="o">+</span> <span class="n">rest</span>
 
-return None, None, None, None, False
-</code></pre>
+        <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="n">END</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid packet structure:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="n">sender</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">receiver</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">sender</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">)</span> <span class="ow">or</span> <span class="n">receiver</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid sender or receiver value:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">data</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid data value (not a byte):&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">receiver</span> <span class="o">==</span> <span class="n">SENDER</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message Received:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sender  : 0x</span><span class="si">{</span><span class="n">sender</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Receiver: 0x</span><span class="si">{</span><span class="n">receiver</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Data    : 0x</span><span class="si">{</span><span class="n">data</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">chr</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span>
+</code></pre></div>
 
 
 
