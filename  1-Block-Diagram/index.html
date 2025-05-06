@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#decision-process" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -432,6 +437,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Block Diagram
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -441,6 +457,30 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decision-process" class="md-nav__link">
+    Decision Process
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -625,6 +665,21 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decision-process" class="md-nav__link">
+    Decision Process
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -648,6 +703,8 @@
 
   <h1>Block Diagram</h1>
 
+<h2 id="decision-process">Decision Process</h2>
+<p>The block diagram for my subsystem was developed based on the need for both UART message validation and MQTT-based fallback communication. Early in the design phase, the MQTT system was primarily intended to act as a relay node, but as the project progressed, its role expanded to include UART message filtering, MQTT publication, and fallback logic in the event of UART failure. The final block diagram reflects this integration of responsibilities, showing clear communication pathways between the sensor, motor, and HMI subsystems, as well as the dual-channel communication through both UART and MQTT. The inclusion of debug LEDs, state-tracking logic, and a local graphing interface helped the system fulfill reliability, visibility, and backup functionality requirements set during development.</p>
 <p><a class="glightbox" href="../Images/BlockDiagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block Diagram" src="../Images/BlockDiagram.png" /></a></p>
 <p><a href="../Images/BlockDiagram.pdf">Block Diagram PDF</a></p>
 
