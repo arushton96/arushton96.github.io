@@ -29,7 +29,7 @@
 
     
       
-        <title>Graph viewer - EGR314 Andrew Rushton's Document</title>
+        <title>mqtt_graph_viewer.py - EGR314 Andrew Rushton's Document</title>
       
     
     
@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#mqtt_graph_viewerpy" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -123,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graph viewer
+              mqtt_graph_viewer.py
             
           </span>
         </div>
@@ -720,12 +725,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Graph viewer
+    mqtt_graph_viewer.py
   </span>
   
 
@@ -808,6 +815,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -830,9 +839,90 @@
   
 
 
-  <h1>Graph viewer</h1>
+<h1 id="mqtt_graph_viewerpy">mqtt_graph_viewer.py</h1>
+<p>This Python script was developed to run on a PC for real-time monitoring and visualization of MQTT data during testing and demonstration.</p>
+<p>It subscribes to key MQTT topics and plots:
+- Robot car movement state (start/stop)
+- Count of terminated messages (loopback detected)
+- Count of redundant messages (excess sensor triggers)</p>
+<p>This is not embedded code — it was designed as a local tool to support development and debugging of the MQTT subsystem.</p>
+<hr />
+<p>```python
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from collections import deque
+import paho.mqtt.client as mqtt</p>
+<h1 id="mqtt-configuration">MQTT Configuration</h1>
+<p>BROKER = "mqtt.eclipseprojects.io"
+PORT = 1883
+TOPICS = [("car/state", 0), ("counter/terminated", 0), ("counter/redundant", 0)]</p>
+<h1 id="plot-data">Plot data</h1>
+<p>MAX_POINTS = 100
+movement_data = deque([0]<em>MAX_POINTS, maxlen=MAX_POINTS)
+terminated_count = deque([0]</em>MAX_POINTS, maxlen=MAX_POINTS)
+redundant_count = deque([0]*MAX_POINTS, maxlen=MAX_POINTS)</p>
+<h1 id="current-values-to-plot">Current values to plot</h1>
+<p>current_terminated = 0
+current_redundant = 0</p>
+<p>def on_connect(client, userdata, flags, rc):
+    if rc == 0:
+        print("Connected to MQTT broker.")
+        for topic, qos in TOPICS:
+            client.subscribe(topic)
+    else:
+        print(f"Failed to connect, return code {rc}")</p>
+<p>def on_message(client, userdata, msg):
+    global current_terminated, current_redundant</p>
+<pre><code>topic = msg.topic
+payload = msg.payload.decode()
 
+if topic == "car/state":
+    if payload == "1":
+        movement_data.append(1)
+    elif payload == "0":
+        movement_data.append(-1)
+    else:
+        movement_data.append(0)
+elif topic == "counter/terminated":
+    try:
+        current_terminated = int(payload)
+    except ValueError:
+        pass
+elif topic == "counter/redundant":
+    try:
+        current_redundant = int(payload)
+    except ValueError:
+        pass
+</code></pre>
+<p>def update_plot(frame):
+    terminated_count.append(current_terminated)
+    redundant_count.append(current_redundant)</p>
+<pre><code>ax1.clear()
+ax1.plot(movement_data, label="Car State")
+ax1.set_ylim([-1.5, 1.5])
+ax1.set_title("Robot Car State (1 = Moving, -1 = Stopped)")
+ax1.grid(True)
+ax1.legend(loc="upper right")
 
+ax2.clear()
+ax2.plot(terminated_count, label="Terminated Messages")
+ax2.plot(redundant_count, label="Redundant Messages")
+ax2.set_title("MQTT Message Counters")
+ax2.set_xlabel("Time")
+ax2.grid(True)
+ax2.legend(loc="upper left")
+</code></pre>
+<h1 id="mqtt-setup">MQTT Setup</h1>
+<p>client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(BROKER, PORT, 60)
+client.loop_start()</p>
+<h1 id="matplotlib-setup">Matplotlib Setup</h1>
+<p>fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 6))
+ani = animation.FuncAnimation(fig, update_plot, interval=500)
+plt.tight_layout()
+plt.show()</p>
 
 
 
