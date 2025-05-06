@@ -1,5 +1,5 @@
 ---
-title: Bill of Materials
+title: BoM
 ---
 
 ![Individual Schematic](Images/Rushton_BoM-1.png)
