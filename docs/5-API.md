@@ -21,9 +21,9 @@ A separate challenge arose from the high frequency of sensor messages—often 5 
 
 As written above, the only value used in the system is the live sensor value.
 
-The Sender and Receiver bytes are 0x01, 0x03, 0x04, and 0x05. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.
+The Sender and Receiver bytes are 0x01-0x04. The start byte is 0x41 and the end byte is 0x42. Our "data" package of the message is only 1 byte, either 0x64 or 0x65, which represent the only two colors that the sensors were coded to recognize.
 
-Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x05 | MQTT = 0x04
+Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x02 | MQTT = 0x04
 
 <p>&nbsp;</p>
 
@@ -37,7 +37,7 @@ This section demonstrates how the MQTT subsystem receives messages differently t
 | ------------- | ------- | ------- | -------- | ------------ | ------- |
 |   Byte Name   |   Start |  Sender | Receiver | Sensor_Value |   End   |
 |   Byte Type   |  int8_t |  int8_t |   int8_t |     int8_t   |  int8_t |
-| Byte Contents |   0x41  |   0x01  |   0x05   |  Sensor Byte |   0x42  |
+| Byte Contents |   0x41  |   0x01  |   0x03   |  Sensor Byte |   0x42  |
 
 ## Second-Time Message Format (After ID Change)
 
