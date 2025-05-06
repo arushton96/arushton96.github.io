@@ -10,7 +10,7 @@ import time
 
 START = 0x41
 END = 0x42
-SENDER = 0x04  # This device’s ID (adjust if needed)
+SENDER = 0x04  # This device’s ID
 
 def send_message(uart, receiver, data):
     # Accept int or hex string
