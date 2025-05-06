@@ -61,7 +61,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://embedded-systems-design.github.io/template_report/Code/mqtt-code/graph-viewer/</loc>
+         <lastmod>2025-05-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://embedded-systems-design.github.io/template_report/Code/mqtt-code/main/</loc>
+         <lastmod>2025-05-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://embedded-systems-design.github.io/template_report/Code/mqtt-code/uart-protocol/</loc>
          <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
