@@ -108,3 +108,4 @@ try:
     asyncio.run(main())
 finally:
     client.close()                                           # 🟩 MQTT addition
+```
