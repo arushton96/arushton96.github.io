@@ -9,16 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/Code/">
+        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/Industrial-Battery-Sorting-System/">
       
       
-        <link rel="prev" href="../8-Resources/">
+        <link rel="prev" href="../Embedded-Systems_Project/Code/mqtt-code/uart-protocol/">
       
       
-        <link rel="next" href="hmi-code/">
       
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
             
 
@@ -26,14 +24,14 @@
 
     
       
-        <title>Code Overview - Andrew Rushton | Projects</title>
+        <title>Embedded Systems Project - Andrew Rushton | Projects</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,7 +61,7 @@
     
 
 
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -90,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#code-overview" class="md-skip">
+        <a href="#embedded-systems-project" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +104,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Andrew Rushton | Projects" class="md-header__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
+    <a href=".." title="Andrew Rushton | Projects" class="md-header__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
@@ -126,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code Overview
+              Embedded Systems Project
             
           </span>
         </div>
@@ -199,13 +197,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../Embedded-Systems_Project/" class="md-tabs__link">
           
   
     
@@ -221,11 +217,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Industrial-Battery-Sorting-System/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
     
@@ -266,7 +264,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Andrew Rushton | Projects" class="md-nav__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
+    <a href=".." title="Andrew Rushton | Projects" class="md-nav__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
@@ -293,8 +291,6 @@
       
   
   
-    
-  
   
   
     
@@ -320,6 +316,56 @@
       
         
       
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../Embedded-Systems_Project/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Embedded Systems Project
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
         
       
     
@@ -337,239 +383,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked="">
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Embedded Systems Project
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            Embedded Systems Project
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%201-Block-Diagram/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Block Diagram
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2-Component-Selection/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Component Selection
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../3-esp-32-table/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ESP32 Table
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../4-Bill-Of-Materials/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    BoM
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5-API/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    API
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../6-Schematic-Diagram/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Schematic
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../7-Reflections/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reflections
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8-Resources/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Resources
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           
@@ -578,183 +392,25 @@
               
   
   <span class="md-ellipsis">
-    Code
+    Industrial Battery Sorting System
   </span>
   
 
             </a>
             
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_1_10" id="__nav_1_10_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Code
+            Industrial Battery Sorting System
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="hmi-code/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    HMI Code
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="sensor-code/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Sensor Code
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="mqtt-code/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Mqtt code
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../Industrial-Battery-Sorting-System/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Industrial Battery Sorting System
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
       
     </li>
   
@@ -787,27 +443,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#mqtt-subsystem" class="md-nav__link">
+  <a href="#project-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      MQTT Subsystem
+      Project Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sensor-subsystem-uart-backup" class="md-nav__link">
+  <a href="#my-role" class="md-nav__link">
     <span class="md-ellipsis">
-      Sensor Subsystem (UART Backup)
+      My Role
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hmi-subsystem-mqtt-visualization" class="md-nav__link">
+  <a href="#key-contributions" class="md-nav__link">
     <span class="md-ellipsis">
-      HMI Subsystem (MQTT Visualization)
+      Key Contributions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies Used
     </span>
   </a>
   
@@ -828,7 +493,7 @@
                   
 
   
-    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/Embedded-Systems_Project/Code/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/Industrial-Battery-Sorting-System/index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
     </a>
@@ -836,27 +501,32 @@
   
 
 
-<h1 id="code-overview">Code Overview</h1>
-<p>This section documents the code I developed for the MQTT subsystem, along with support code I wrote or modified for the Sensor and HMI subsystems to enable UART-to-MQTT fallback functionality.</p>
-<hr>
-<h2 id="mqtt-subsystem">MQTT Subsystem</h2>
-<p>This subsystem was responsible for UART message filtering, MQTT communication, and system visualization. It includes three main files:</p>
+<h1 id="embedded-systems-project">Embedded Systems Project</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p>This project was a line-following robot built for EGR314 using an ESP32-based embedded control system. The robot used color sensors to detect and follow a line path, servo motors to control motion, and a local human-machine interface to display operating data.</p>
+<p>My portion of the project focused on wireless communication, data handling, and the user interface. I developed the MQTT-based communication path that allowed the robot to transmit operating data over Wi-Fi and display useful information to the user.</p>
+<h2 id="my-role">My Role</h2>
+<p>My primary responsibility was creating the Wi-Fi and MQTT communication system for the robot. This included configuring the ESP32 communication logic, handling sensor and status data, and supporting the HMI features used to monitor the robot during operation.</p>
+<p>I also contributed to the documentation and organization of the project, including the code structure, API documentation, schematic references, bill of materials, and supporting technical resources shown throughout this site.</p>
+<h2 id="key-contributions">Key Contributions</h2>
 <ul>
-<li><strong>main.py</strong> – Core loop for UART parsing, MQTT publishing, and state control</li>
-<li><strong>UART_Protocol.py</strong> – Functions to encode and decode 5-byte UART messages</li>
-<li><strong>mqtt_graph_viewer.py</strong> – Python script for PC-based graphing of MQTT topic data.</li>
+<li>Developed the MQTT communication structure for wireless data transfer</li>
+<li>Supported HMI functionality for displaying robot status and diagnostic information</li>
+<li>Helped organize project documentation into clear technical sections</li>
+<li>Documented code, hardware selections, API behavior, schematic references, and project resources</li>
+<li>Contributed to the integration of embedded hardware, sensors, motors, and user-facing controls</li>
 </ul>
-<p><a href="mqtt-code/">📄 View MQTT Subsystem Code</a></p>
-<hr>
-<h2 id="sensor-subsystem-uart-backup">Sensor Subsystem (UART Backup)</h2>
-<p>The following code reflects the final integrated version used for the Sensor subsystem. While the original structure was written by a teammate, I incorporated all MQTT-related functionality and UART fallback logic shown here.</p>
-<p>This version was tested and ready for final demonstration, and accurately represents my contribution to the subsystem. All MQTT-related sections are clearly marked in the code below. The remaining core sensor logic and I2C implementation were provided by the original developer.</p>
-<p><a href="sensor-code/">📄 View Sensor Code</a></p>
-<hr>
-<h2 id="hmi-subsystem-mqtt-visualization">HMI Subsystem (MQTT Visualization)</h2>
-<p>To support UART backup functionality and MQTT-based system visualization, I modified the HMI subsystem code to publish messages over MQTT for my subsystems use. The base structure was written by a teammate; I incorporated MQTT logic and display rendering to support testing and integration.</p>
-<p>The code shown here does not exactly match the final version submitted by the teammate responsible for the HMI subsystem. I rewrote portions of the code for my at-home testing environment and have highlighted the sections that reflect my contributions. These highlighted areas represent the full scope of my work on this subsystem and were functionally validated during integration.</p>
-<p><a href="hmi-code/">📄 View HMI Code</a></p>
+<h2 id="technologies-used">Technologies Used</h2>
+<ul>
+<li>ESP32 microcontroller</li>
+<li>MQTT communication protocol</li>
+<li>Wi-Fi networking</li>
+<li>Color sensors</li>
+<li>Servo motors</li>
+<li>LCD/HMI display</li>
+<li>Embedded C/C++ / Arduino-style development</li>
+<li>MkDocs documentation site</li>
+</ul>
 
 
 
@@ -892,7 +562,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../8-Resources/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resources">
+          <a href="../Embedded-Systems_Project/Code/mqtt-code/uart-protocol/" class="md-footer__link md-footer__link--prev" aria-label="Previous: uart_protocol.py">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -902,27 +572,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Resources
+                uart_protocol.py
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="hmi-code/" class="md-footer__link md-footer__link--next" aria-label="Next: HMI Code">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                HMI Code
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-            </div>
-          </a>
         
       </nav>
     
@@ -960,12 +614,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
