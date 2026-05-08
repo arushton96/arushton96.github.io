@@ -1243,21 +1243,36 @@
 - SQL database integration</p>
 <p>This layered communication structure allowed the system to coordinate real-time automation control, operator interaction, machine vision processing, and persistent data logging within a single integrated industrial automation platform.</p>
 <h2 id="design-decisions">Design Decisions</h2>
-<p>Discussion of major architectural decisions and why they were made.</p>
-<p>Possible topics:
-- Centralized PLC architecture
-- Profinet device integration
-- Pneumatic-only fallback operation
-- Separation of SCADA and control logic
-- Database logging implementation</p>
+<p>The final system architecture evolved significantly throughout development as subsystem integration, communication testing, and hardware constraints exposed new engineering challenges and design tradeoffs.</p>
+<p>One of the primary architectural decisions was to use the Siemens S7-1200 PLC as the centralized controller for the entire system. Rather than distributing logic across multiple devices, the PLC was responsible for sequence control, pneumatic output coordination, scanner communication, SCADA interaction, and QR-data processing. This centralized approach simplified subsystem coordination and allowed all major automation logic to remain within a single deterministic control platform.</p>
+<p>Another major design decision involved the separation of control logic and operator interaction. The PLC handled all real-time automation behavior while Ignition served strictly as the operator interface and monitoring layer. This separation improved system reliability by ensuring that the automation sequence remained independent of the SCADA interface while still allowing operators to monitor and interact with the system through OPC UA communication.</p>
+<p>The pneumatic sequence architecture also evolved throughout development. The original project concept relied heavily on robotic handling integration; however, communication hardware delays required the sequence to be redesigned around a pneumatic-only automated workflow. The final implementation focused on preserving the core industrial automation objectives of the project while simplifying the physical handling architecture to maintain a stable and demonstrable system.</p>
+<p>Several design decisions were also driven by communication reliability. During scanner integration, QR payload formatting was restructured to reduce message size and fit within Profinet communication buffer limitations. The final reduced payload maintained the required battery traceability information while significantly improving communication stability and parser reliability inside the PLC.</p>
+<p>The SCADA architecture was designed around a structured tag-mapping approach that separated user commands, PLC-controlled values, and status outputs into organized groups. This improved readability, troubleshooting, and long-term maintainability during development and testing.</p>
+<p>Additional design priorities included:
+- Maintaining deterministic PLC control
+- Preserving safe reset behavior
+- Preventing conflicting pneumatic outputs
+- Supporting both manual and automatic operation
+- Simplifying subsystem troubleshooting
+- Improving communication reliability
+- Maintaining modular subsystem integration</p>
+<hr>
 <h2 id="architecture-challenges">Architecture Challenges</h2>
-<p>Overview of integration and system-level challenges.</p>
-<p>Possible topics:
-- Robot communication limitations
-- Profinet compatibility issues
-- QR message size limitations
-- Device integration troubleshooting
-- Hardware delays and redesigns</p>
+<p>A major portion of the project involved overcoming real-world industrial integration challenges across networking, communication, sequencing logic, hardware coordination, and system redesign.</p>
+<p>One of the largest challenges involved the planned integration between the Siemens PLC and the FANUC robotic system. Although the robot supported Ethernet/IP communication, the project required Profinet integration to align with the rest of the industrial network architecture. Delays involving the required Profinet communication hardware ultimately prevented full robot integration within the project timeline and forced a redesign of the final system architecture.</p>
+<p>The vision system integration process also introduced several communication challenges. Initial scanner communication was limited by incorrect Profinet module sizing, which caused QR messages to truncate before the full payload could be received by the PLC. Troubleshooting these issues required reconfiguring module lengths, remapping PLC input ranges, and restructuring the QR payload format to reduce communication overhead while preserving required data fields.</p>
+<p>Additional communication challenges included:
+- Profinet device configuration
+- GSD installation and mapping
+- Device naming and IP assignment
+- OPC UA tag configuration
+- PLC string-handling limitations
+- SCADA tag import issues
+- SQL database integration troubleshooting</p>
+<p>The pneumatic subsystem introduced several sequencing and coordination challenges as well. Reliable battery transfer required careful tuning of vacuum overlap timing, extend/retract sequencing, reset behavior, and interlock logic to prevent unstable transfer conditions or conflicting outputs during operation.</p>
+<p>A significant engineering challenge throughout the project involved adapting the system architecture under evolving constraints while preserving the core technical objectives of the project. Hardware delays, software licensing delays, compressed integration schedules, and subsystem communication issues required continuous redesigns and iterative troubleshooting throughout development.</p>
+<p>Despite these challenges, the final implementation successfully demonstrated a stable and integrated industrial automation platform combining PLC control, SCADA monitoring, machine vision communication, pneumatic automation, industrial networking, and database logging into a coordinated working system.</p>
 
 
 
