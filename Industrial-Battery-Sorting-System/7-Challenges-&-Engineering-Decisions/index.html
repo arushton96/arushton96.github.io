@@ -89,6 +89,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#challenges-engineering-decisions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -568,6 +573,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Challenges &amp; Engineering Decisions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -578,6 +596,292 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-scope-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Scope Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Scope Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-system-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Original System Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-delays-and-scope-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Delays and Scope Reduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Delays and Scope Reduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#robot-integration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robot Integration Challenges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#industrial-networking-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Industrial Networking Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Industrial Networking Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profinet-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profinet Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qr-communication-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      QR Communication Limitations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QR Communication Limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profinet-buffer-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profinet Buffer Constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plc-logic-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLC Logic Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PLC Logic Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-machine-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Machine Development
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pneumatic-coordination-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pneumatic Coordination Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pneumatic Coordination Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vacuum-transfer-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vacuum Transfer Timing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scada-integration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCADA Integration Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SCADA Integration Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ignition-communication-tag-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignition Communication &amp; Tag Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engineering-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Tradeoffs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engineering Tradeoffs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions-and-prioritization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Decisions and Prioritization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-reliability-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Reliability Improvements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Reliability Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterative-refinement-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Refinement Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-engineering-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Engineering Constraints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Engineering Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adapting-to-project-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adapting to Project Limitations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lessons-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lessons Learned
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Outcome
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -650,6 +954,283 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-scope-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Scope Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Scope Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-system-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Original System Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-delays-and-scope-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Delays and Scope Reduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Delays and Scope Reduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#robot-integration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robot Integration Challenges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#industrial-networking-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Industrial Networking Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Industrial Networking Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profinet-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profinet Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qr-communication-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      QR Communication Limitations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QR Communication Limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profinet-buffer-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profinet Buffer Constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plc-logic-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLC Logic Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PLC Logic Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-machine-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Machine Development
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pneumatic-coordination-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pneumatic Coordination Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pneumatic Coordination Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vacuum-transfer-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vacuum Transfer Timing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scada-integration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCADA Integration Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SCADA Integration Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ignition-communication-tag-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignition Communication &amp; Tag Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engineering-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Tradeoffs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engineering Tradeoffs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions-and-prioritization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Decisions and Prioritization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-reliability-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Reliability Improvements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Reliability Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterative-refinement-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Refinement Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-engineering-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Engineering Constraints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Engineering Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adapting-to-project-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adapting to Project Limitations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lessons-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lessons Learned
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Outcome
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -672,9 +1253,159 @@
   
 
 
-  <h1>Challenges &amp; Engineering Decisions</h1>
-
-
+<h1 id="challenges-engineering-decisions">Challenges &amp; Engineering Decisions</h1>
+<h2 id="overview">Overview</h2>
+<p>This project involved significant system integration challenges across industrial networking, PLC programming, machine vision, SCADA development, pneumatic sequencing, and hardware coordination.</p>
+<p>Many of the final engineering decisions were shaped by real-world constraints including hardware delays, communication limitations, software integration issues, and evolving project scope requirements.</p>
+<h2 id="project-scope-evolution">Project Scope Evolution</h2>
+<h3 id="original-system-design">Original System Design</h3>
+<p>Overview of the original project concept and intended functionality.</p>
+<p>Topics:
+- FANUC robot integration
+- PLC-to-robot communication
+- Automated battery transfer
+- Vision-based identification
+- Full integrated automation workflow</p>
+<p>Insert original system concept diagram if available.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/OriginalConcept.png" data-desc-position="bottom"><img alt="Original System Concept" src="Images/OriginalConcept.png"></a></p>
+<h2 id="hardware-delays-and-scope-reduction">Hardware Delays and Scope Reduction</h2>
+<h3 id="robot-integration-challenges">Robot Integration Challenges</h3>
+<p>Discussion of how hardware availability impacted the project.</p>
+<p>Topics:
+- Delayed robot communication hardware
+- Profinet upgrade limitations
+- Inability to complete planned robot integration
+- Schedule impact
+- Redesign of demonstration scope</p>
+<p>Discuss:
+- Transition to pneumatic-only automated sequence
+- Preserving core automation functionality
+- Maintaining system integration goals despite reduced scope</p>
+<h2 id="industrial-networking-challenges">Industrial Networking Challenges</h2>
+<h3 id="profinet-integration">Profinet Integration</h3>
+<p>Discussion of networking and industrial communication issues encountered during development.</p>
+<p>Topics:
+- Device configuration issues
+- GSD installation and setup
+- Input/output module sizing
+- Device naming and IP assignment
+- PLC communication troubleshooting</p>
+<p>Discuss:
+- Accessible devices configuration
+- Communication validation
+- Ethernet troubleshooting workflow</p>
+<h2 id="qr-communication-limitations">QR Communication Limitations</h2>
+<h3 id="profinet-buffer-constraints">Profinet Buffer Constraints</h3>
+<p>Discussion of QR message-size limitations and communication redesign.</p>
+<p>Topics:
+- Initial message truncation
+- 32-byte vs 128-byte buffer issues
+- Scanner module configuration
+- Message restructuring</p>
+<p>Discuss:
+- Reduction of QR payload size
+- Communication reliability improvements
+- Tradeoffs between data size and traceability information</p>
+<h2 id="plc-logic-challenges">PLC Logic Challenges</h2>
+<h3 id="state-machine-development">State Machine Development</h3>
+<p>Discussion of difficulties encountered while developing the automated sequence logic.</p>
+<p>Topics:
+- Sequence restructuring
+- Reset handling
+- Auto/manual interaction
+- Timing coordination
+- Interlock management
+- Vacuum handoff logic</p>
+<p>Discuss:
+- Evolution of the sequence architecture
+- Debugging process
+- Safety considerations</p>
+<h2 id="pneumatic-coordination-challenges">Pneumatic Coordination Challenges</h2>
+<h3 id="vacuum-transfer-timing">Vacuum Transfer Timing</h3>
+<p>Discussion of challenges related to pneumatic handling.</p>
+<p>Topics:
+- Battery transfer stability
+- Vacuum overlap timing
+- Extend/retract synchronization
+- Scan-position consistency
+- Preventing dropped batteries</p>
+<p>Discuss:
+- Handoff timing adjustments
+- Sequence tuning
+- Transfer reliability improvements</p>
+<h2 id="scada-integration-challenges">SCADA Integration Challenges</h2>
+<h3 id="ignition-communication-tag-management">Ignition Communication &amp; Tag Management</h3>
+<p>Discussion of SCADA-related integration problems.</p>
+<p>Topics:
+- OPC UA configuration
+- Tag import limitations
+- PLC string handling
+- Database integration
+- Perspective scripting issues</p>
+<p>Discuss:
+- String-size limitations
+- Manual tag mapping
+- Gateway troubleshooting
+- Interface redesign decisions</p>
+<h2 id="engineering-tradeoffs">Engineering Tradeoffs</h2>
+<h3 id="design-decisions-and-prioritization">Design Decisions and Prioritization</h3>
+<p>Discussion of major engineering decisions made throughout the project.</p>
+<p>Possible topics:
+- Centralized PLC architecture
+- Pneumatic-only fallback operation
+- Simplified demonstration scope
+- QR payload optimization
+- Manual vs automatic operation separation
+- Safety-focused reset behavior
+- SCADA architecture organization</p>
+<h2 id="system-reliability-improvements">System Reliability Improvements</h2>
+<h3 id="iterative-refinement-process">Iterative Refinement Process</h3>
+<p>Discussion of how the system was improved throughout development.</p>
+<p>Topics:
+- Logic refinements
+- Sequence stabilization
+- Communication improvements
+- UI redesigns
+- Diagnostic tooling
+- Testing workflow</p>
+<p>Discuss:
+- Incremental debugging process
+- Integration testing
+- Lessons learned from failed implementations</p>
+<h2 id="real-world-engineering-constraints">Real-World Engineering Constraints</h2>
+<h3 id="adapting-to-project-limitations">Adapting to Project Limitations</h3>
+<p>Discussion of how external constraints shaped the final project.</p>
+<p>Topics:
+- Shipping delays
+- Licensing delays
+- Hardware availability
+- Schedule compression
+- Scope management
+- Team coordination</p>
+<p>Discuss:
+- Maintaining project viability
+- Reprioritizing objectives
+- Preserving technical value despite constraints</p>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<p>Reflection on technical and engineering lessons gained from the project.</p>
+<p>Possible topics:
+- Industrial networking experience
+- PLC system design
+- SCADA integration
+- Systems-level troubleshooting
+- Communication architecture
+- Hardware/software coordination
+- Managing evolving requirements</p>
+<h2 id="final-outcome">Final Outcome</h2>
+<p>Summary of the engineering results achieved despite project constraints.</p>
+<p>Describe:
+- Successful subsystem integration
+- Functional automated sequence
+- Reliable vision communication
+- Operational SCADA system
+- Database logging implementation
+- Stable industrial control architecture
+- Adaptation to real-world engineering challenges</p>
 
 
 
