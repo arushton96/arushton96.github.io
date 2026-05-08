@@ -293,8 +293,3 @@ The final implementation demonstrated:
 - Deterministic system control
 
 The PLC subsystem ultimately became the central integration layer that connected machine vision, pneumatic automation, SCADA monitoring, industrial networking, and database logging into a unified industrial automation platform.
-- QR data processing
-- Safe reset and stop behavior
-
-```markdown
-![PLC State Machine](Images/PLCStateMachine.png)
