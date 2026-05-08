@@ -551,9 +551,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scada-hmi" class="md-nav__link">
+  <a href="#scada-hmi-system" class="md-nav__link">
     <span class="md-ellipsis">
-      SCADA / HMI
+      SCADA / HMI System
     </span>
   </a>
   
@@ -875,9 +875,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scada-hmi" class="md-nav__link">
+  <a href="#scada-hmi-system" class="md-nav__link">
     <span class="md-ellipsis">
-      SCADA / HMI
+      SCADA / HMI System
     </span>
   </a>
   
@@ -986,15 +986,25 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/SystemArchitecture.png" data-desc-position="bottom"><img alt="System Architecture" src="Images/SystemArchitecture.png"></a></p>
 <h2 id="major-subsystems">Major Subsystems</h2>
 <h3 id="plc-control-system">PLC Control System</h3>
-<p>Brief overview of the Siemens PLC and overall control responsibilities.</p>
+<p>The Siemens S7-1200 PLC served as the central controller for the entire automation system. All automated sequencing, pneumatic output control, scanner communication, SCADA interaction, and status management were coordinated through the PLC.</p>
+<p>The PLC logic was structured around a state-machine architecture that controlled both automatic and manual operating modes. It managed sequence timing, vacuum handoff coordination, scanner triggering, reset behavior, and communication between the various industrial devices connected throughout the system.</p>
+<p>In addition to direct control responsibilities, the PLC also handled QR-code parsing and mapped system information to the SCADA interface for operator monitoring and database logging.</p>
 <h3 id="vision-system">Vision System</h3>
-<p>Brief overview of the Banner QR scanner and identification process.</p>
+<p>The vision subsystem used a Banner ABR3000 vision sensor to scan QR-coded battery cells during operation. The scanner communicated with the PLC over Profinet and returned identification data that was processed and parsed inside the PLC logic.</p>
+<p>The system was designed to trigger scans automatically during the pneumatic handling sequence and verify successful reads using dedicated good-read and no-read status signals.</p>
+<p>A significant portion of the vision-system development focused on industrial communication reliability, including Profinet configuration, message-size optimization, and QR payload restructuring to fit within communication buffer limitations while preserving required traceability information.</p>
 <h3 id="pneumatic-handling-system">Pneumatic Handling System</h3>
-<p>Brief overview of vacuum handling and flipper operation.</p>
-<h3 id="scada-hmi">SCADA / HMI</h3>
-<p>Brief overview of the Ignition interface and operator interaction.</p>
+<p>The pneumatic subsystem handled the physical transfer and positioning of battery cells throughout the automated sequence. Vacuum generators, pneumatic solenoids, and a flipper transfer mechanism were used to coordinate battery movement between handling stages.</p>
+<p>The system used multiple vacuum channels to maintain controlled handoffs during battery transfer operations. Timing coordination between vacuum outputs, flipper movement, and scanner positioning was managed directly by the PLC.</p>
+<p>The final implementation focused heavily on reliable sequencing, vacuum overlap timing, reset behavior, and safe operation during both automatic and manual modes.</p>
+<h3 id="scada-hmi-system">SCADA / HMI System</h3>
+<p>The SCADA subsystem was developed using Ignition Perspective and provided the primary operator interface for the project. The interface allowed users to control the automated sequence, monitor system status, manually actuate pneumatic outputs, and view scanned battery information in real time.</p>
+<p>Communication between the PLC and SCADA system was handled through OPC UA, allowing Ignition to monitor PLC tags and exchange system commands and status information.</p>
+<p>The SCADA interface also integrated with a SQL database to log battery scan information for traceability and system monitoring purposes. Additional diagnostic and testing pages were created throughout development to support troubleshooting and subsystem validation.</p>
 <h3 id="networking-communications">Networking &amp; Communications</h3>
-<p>Brief overview of Profinet, OPC UA, Ethernet devices, and database communication.</p>
+<p>The project used an industrial Ethernet architecture to connect the PLC, vision system, SCADA workstation, and pneumatic communication hardware.</p>
+<p>Profinet communication was used for real-time industrial device integration between the Siemens PLC and the Banner scanner as well as the pneumatic valve manifold. Static IP addressing and industrial network configuration were used to maintain reliable communication between all major subsystems.</p>
+<p>The networking architecture also supported OPC UA communication between the PLC and Ignition SCADA system, allowing real-time monitoring, control, and database logging throughout operation.</p>
 <h2 id="my-contributions">My Contributions</h2>
 <p>Short summary of the portions you personally designed or implemented.</p>
 <h2 id="project-evolution">Project Evolution</h2>
