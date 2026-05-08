@@ -108,7 +108,7 @@ The original project concept centered around a fully integrated industrial autom
 
 The planned system architecture included a FANUC robotic arm responsible for battery transfer operations, with the Siemens PLC coordinating robot communication, pneumatic sequencing, scanner interaction, and system monitoring through Profinet-based industrial communication.
 
-During development, the project encountered several real-world engineering constraints that significantly impacted the final system architecture. The most significant issue involved delays related to the robot communication hardware required for Profinet integration. Although the robot itself supported Ethernet/IP communication, the required Profinet upgrade hardware was repeatedly delayed and ultimately unavailable within the project timeline.
+During development, the project encountered several constraints that significantly impacted the final system architecture. The most significant issue involved delays related to the robot communication hardware required for Profinet integration. Although the robot itself supported Ethernet/IP communication, the required Profinet upgrade hardware was repeatedly delayed and ultimately unavailable within the project timeline.
 
 As a result, the project scope was restructured to remove direct PLC-to-robot integration while preserving the core automation objectives of the system. The final implementation shifted toward a pneumatic-focused automated sequence that simulated the intended battery transfer process using coordinated vacuum handling, flipper control, machine vision integration, and PLC-controlled sequencing.
 
@@ -129,7 +129,23 @@ Although portions of the original architecture were ultimately removed from scop
 
 ## Final Outcome
 
-Short concluding section describing:
-- what was successfully demonstrated
-- what subsystems were operational
-- what engineering goals were achieved
+The completed project successfully demonstrated a functional industrial automation platform integrating PLC-based control logic, machine vision communication, pneumatic automation, industrial networking, SCADA monitoring, and database logging into a unified system architecture.
+
+The final implementation operated as a coordinated automated sequence controlled by a Siemens S7-1200 PLC. Pneumatic vacuum hardware transferred battery cells through the handling sequence while a Banner vision sensor scanned QR-coded battery information over Profinet communication. Parsed battery data was transmitted to an Ignition SCADA interface through OPC UA, where operators could monitor system operation, control the sequence, and log scan information to a SQL database.
+
+The completed system demonstrated:
+- Automated pneumatic handling and transfer operations
+- PLC-based sequence control using a state-machine architecture
+- Profinet integration between industrial devices
+- QR-code scanning and parsing
+- Ignition SCADA integration
+- SQL database logging and traceability
+- Manual and automatic operating modes
+- Real-time operator monitoring and diagnostics
+- Industrial Ethernet communication architecture
+
+Beyond the functional system itself, the project provided extensive experience in industrial automation integration, systems-level troubleshooting, communication architecture design, PLC programming, SCADA development, pneumatic sequencing, and industrial networking.
+
+A major outcome of the project was the development of practical engineering problem-solving skills under real-world constraints. Hardware delays, communication limitations, integration issues, and evolving project requirements required continuous redesigns and technical tradeoff decisions throughout development.
+
+Although the final system differed from the original project concept in several areas, the completed implementation successfully preserved the core engineering objectives of the project and demonstrated a fully operational industrial control platform built using professional automation hardware and software tools.
