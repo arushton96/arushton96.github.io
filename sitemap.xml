@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://embedded-systems-design.github.io/template_report/Code/</loc>
-         <lastmod>2026-05-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://embedded-systems-design.github.io/template_report/Code/hmi-code/</loc>
          <lastmod>2026-05-08</lastmod>
          <changefreq>daily</changefreq>
@@ -72,6 +67,11 @@
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/8-Resources/</loc>
+         <lastmod>2026-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/Code/</loc>
          <lastmod>2026-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
