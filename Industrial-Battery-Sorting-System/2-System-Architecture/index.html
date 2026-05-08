@@ -1202,14 +1202,46 @@
 - SQL communication support</p>
 <p>The network structure was designed to support reliable subsystem communication while maintaining separation between industrial device communication and SCADA-level monitoring and control functionality.</p>
 <h2 id="communication-flow">Communication Flow</h2>
-<p>Step-by-step description of how information moved through the system.</p>
-<p>Example:
-1. PLC triggers scanner
-2. Scanner reads QR code
-3. Scanner sends data over Profinet
-4. PLC parses message
-5. PLC updates SCADA tags
-6. Ignition logs battery information to database</p>
+<p>The Automated Battery Sorting System operated through coordinated communication between the PLC, vision system, pneumatic hardware, SCADA interface, and SQL database. The Siemens S7-1200 PLC acted as the central communication controller and coordinated all major subsystem interactions throughout operation.</p>
+<p>During automatic operation, the communication flow followed the sequence below:</p>
+<ol>
+<li>
+<p>A start command was issued through the Ignition SCADA interface or directly through PLC logic.</p>
+</li>
+<li>
+<p>The PLC initiated the automated pneumatic sequence and controlled the vacuum handling hardware through the SMC valve manifold over Profinet communication.</p>
+</li>
+<li>
+<p>Once the battery reached the scan position, the PLC triggered the Banner ABR3000 vision sensor using a dedicated trigger output.</p>
+</li>
+<li>
+<p>The vision sensor scanned the QR code attached to the battery cell and transmitted the resulting message data back to the PLC through Profinet input modules.</p>
+</li>
+<li>
+<p>The PLC validated the received message and parsed the QR payload into individual battery information fields including serial number, manufacturer information, voltage, capacity, resistance, and manufacturing data.</p>
+</li>
+<li>
+<p>Parsed battery information and system-status values were mapped to the SCADA interface through OPC UA communication between the Siemens PLC and Ignition Gateway.</p>
+</li>
+<li>
+<p>The Ignition SCADA interface displayed the battery information in real time while simultaneously logging the scan results into a SQL database for traceability and monitoring purposes.</p>
+</li>
+<li>
+<p>The PLC completed the remainder of the pneumatic transfer sequence and returned the system to a ready state for the next cycle.</p>
+</li>
+</ol>
+<p>Throughout operation, communication between subsystems remained continuous. The PLC continuously exchanged:
+- Status information with Ignition
+- Control commands with pneumatic hardware
+- Scanner trigger and acknowledgment signals with the vision system
+- Sequence-state information with the SCADA interface
+- Parsed battery data for database logging</p>
+<p>The communication architecture combined:
+- Profinet industrial communication
+- OPC UA SCADA communication
+- Industrial Ethernet networking
+- SQL database integration</p>
+<p>This layered communication structure allowed the system to coordinate real-time automation control, operator interaction, machine vision processing, and persistent data logging within a single integrated industrial automation platform.</p>
 <h2 id="design-decisions">Design Decisions</h2>
 <p>Discussion of major architectural decisions and why they were made.</p>
 <p>Possible topics:
