@@ -1,4 +1,4 @@
-# Automated Battery Sorting System
+# Industrial Battery Sorting System
 
 ## Project Overview
 
