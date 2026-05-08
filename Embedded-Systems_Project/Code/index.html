@@ -15,7 +15,7 @@
         <link rel="prev" href="../8-Resources/">
       
       
-        <link rel="next" href="sensor-code/">
+        <link rel="next" href="hmi-code/">
       
       
       <link rel="icon" href="../../static/logo.png">
@@ -218,8 +218,14 @@
   
     
     
+      
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
-        <a href="../../Code/hmi-code/" class="md-tabs__link">
+        <a href="../../Code/mqtt-code/" class="md-tabs__link">
           
   
     
@@ -228,6 +234,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -373,8 +382,6 @@
       
         
       
-        
-      
     
     
       
@@ -391,7 +398,10 @@
         
   
   
-    <a href="../../Code/hmi-code/" class="md-nav__link">
+    
+  
+  
+    <a href="../../Code/mqtt-code/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -403,6 +413,8 @@
         <span class="md-nav__icon md-icon"></span>
       
     </a>
+  
+
   
 
       
@@ -660,6 +672,8 @@
       
         
       
+        
+      
     
     
       
@@ -701,6 +715,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hmi-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HMI Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -891,7 +926,7 @@
 <h2 id="hmi-subsystem-mqtt-visualization">HMI Subsystem (MQTT Visualization)</h2>
 <p>To support UART backup functionality and MQTT-based system visualization, I modified the HMI subsystem code to publish messages over MQTT for my subsystems use. The base structure was written by a teammate; I incorporated MQTT logic and display rendering to support testing and integration.</p>
 <p>The code shown here does not exactly match the final version submitted by the teammate responsible for the HMI subsystem. I rewrote portions of the code for my at-home testing environment and have highlighted the sections that reflect my contributions. These highlighted areas represent the full scope of my work on this subsystem and were functionally validated during integration.</p>
-<p><a href="hmi-code.md">📄 View HMI Code</a></p>
+<p><a href="hmi-code/">📄 View HMI Code</a></p>
 
 
 
@@ -944,13 +979,13 @@
         
         
           
-          <a href="sensor-code/" class="md-footer__link md-footer__link--next" aria-label="Next: Sensor Code">
+          <a href="hmi-code/" class="md-footer__link md-footer__link--next" aria-label="Next: HMI Code">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Sensor Code
+                HMI Code
               </div>
             </div>
             <div class="md-footer__button md-icon">
