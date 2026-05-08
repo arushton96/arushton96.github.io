@@ -100,7 +100,24 @@ The networking architecture also supported OPC UA communication between the PLC 
 
 ## My Contributions
 
-Short summary of the portions you personally designed or implemented.
+My primary responsibility on this project was the development and integration of the industrial control system architecture. This included PLC programming, pneumatic sequence development, machine vision integration, industrial networking configuration, SCADA communication, and overall subsystem coordination.
+
+I designed and implemented the PLC control logic used throughout the project, including the automated pneumatic sequence, manual operating mode, state-machine architecture, reset behavior, vacuum handoff timing, scanner trigger logic, and SCADA interface mapping.
+
+I also handled the integration of the Banner vision system with the Siemens PLC over Profinet communication. This included configuring industrial communication modules, troubleshooting device integration issues, restructuring QR payload formats to fit communication buffer limitations, and developing the PLC-based QR parsing logic used to process battery information.
+
+On the SCADA side, I developed the Ignition Perspective interface used for system control, monitoring, diagnostics, and SQL database logging. This included PLC tag integration through OPC UA, operator interface design, manual testing controls, and database interaction for battery traceability logging.
+
+Additional responsibilities included:
+- Industrial Ethernet network configuration
+- Static IP addressing and device communication setup
+- Pneumatic sequence testing and debugging
+- PLC/SCADA integration troubleshooting
+- Database logging implementation
+- Hardware integration and validation
+- Technical documentation and system organization
+
+Throughout development, I also played a major role in adapting the project architecture in response to hardware delays, communication limitations, and evolving project constraints. This included redesigning portions of the automation sequence, restructuring subsystem interactions, and preserving the core functionality of the project despite multiple scope and integration challenges.
 
 ## Project Evolution
 
