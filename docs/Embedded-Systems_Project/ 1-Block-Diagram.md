@@ -8,4 +8,4 @@ The block diagram for my subsystem was developed based on the need for both UART
 
 ![Block Diagram](.../Images/BlockDiagram.png)
 
-[Block Diagram PDF](Embedded-Systems_Project/Images/BlockDiagram.pdf)
+[Block Diagram PDF](docs/Embedded-Systems_Project/Images/BlockDiagram.pdf)
