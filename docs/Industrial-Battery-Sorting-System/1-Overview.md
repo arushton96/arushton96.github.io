@@ -59,19 +59,44 @@ System-level block diagram or architecture image.
 ## Major Subsystems
 
 ### PLC Control System
-Brief overview of the Siemens PLC and overall control responsibilities.
+
+The Siemens S7-1200 PLC served as the central controller for the entire automation system. All automated sequencing, pneumatic output control, scanner communication, SCADA interaction, and status management were coordinated through the PLC.
+
+The PLC logic was structured around a state-machine architecture that controlled both automatic and manual operating modes. It managed sequence timing, vacuum handoff coordination, scanner triggering, reset behavior, and communication between the various industrial devices connected throughout the system.
+
+In addition to direct control responsibilities, the PLC also handled QR-code parsing and mapped system information to the SCADA interface for operator monitoring and database logging.
 
 ### Vision System
-Brief overview of the Banner QR scanner and identification process.
+
+The vision subsystem used a Banner ABR3000 vision sensor to scan QR-coded battery cells during operation. The scanner communicated with the PLC over Profinet and returned identification data that was processed and parsed inside the PLC logic.
+
+The system was designed to trigger scans automatically during the pneumatic handling sequence and verify successful reads using dedicated good-read and no-read status signals.
+
+A significant portion of the vision-system development focused on industrial communication reliability, including Profinet configuration, message-size optimization, and QR payload restructuring to fit within communication buffer limitations while preserving required traceability information.
 
 ### Pneumatic Handling System
-Brief overview of vacuum handling and flipper operation.
 
-### SCADA / HMI
-Brief overview of the Ignition interface and operator interaction.
+The pneumatic subsystem handled the physical transfer and positioning of battery cells throughout the automated sequence. Vacuum generators, pneumatic solenoids, and a flipper transfer mechanism were used to coordinate battery movement between handling stages.
+
+The system used multiple vacuum channels to maintain controlled handoffs during battery transfer operations. Timing coordination between vacuum outputs, flipper movement, and scanner positioning was managed directly by the PLC.
+
+The final implementation focused heavily on reliable sequencing, vacuum overlap timing, reset behavior, and safe operation during both automatic and manual modes.
+
+### SCADA / HMI System
+
+The SCADA subsystem was developed using Ignition Perspective and provided the primary operator interface for the project. The interface allowed users to control the automated sequence, monitor system status, manually actuate pneumatic outputs, and view scanned battery information in real time.
+
+Communication between the PLC and SCADA system was handled through OPC UA, allowing Ignition to monitor PLC tags and exchange system commands and status information.
+
+The SCADA interface also integrated with a SQL database to log battery scan information for traceability and system monitoring purposes. Additional diagnostic and testing pages were created throughout development to support troubleshooting and subsystem validation.
 
 ### Networking & Communications
-Brief overview of Profinet, OPC UA, Ethernet devices, and database communication.
+
+The project used an industrial Ethernet architecture to connect the PLC, vision system, SCADA workstation, and pneumatic communication hardware.
+
+Profinet communication was used for real-time industrial device integration between the Siemens PLC and the Banner scanner as well as the pneumatic valve manifold. Static IP addressing and industrial network configuration were used to maintain reliable communication between all major subsystems.
+
+The networking architecture also supported OPC UA communication between the PLC and Ignition SCADA system, allowing real-time monitoring, control, and database logging throughout operation.
 
 ## My Contributions
 
