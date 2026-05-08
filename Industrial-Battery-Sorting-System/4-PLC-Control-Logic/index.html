@@ -89,6 +89,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#plc-control-logic" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -505,6 +510,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PLC Control Logic
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -515,6 +533,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#plc-logic-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLC Logic Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plc-program-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLC Program Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-machine-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Machine Architecture
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -650,6 +714,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#plc-logic-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLC Logic Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plc-program-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLC Program Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-machine-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Machine Architecture
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -672,9 +773,44 @@
   
 
 
-  <h1>PLC Control Logic</h1>
-
-
+<h1 id="plc-control-logic">PLC Control Logic</h1>
+<h2 id="plc-logic-overview">PLC Logic Overview</h2>
+<p>High-level explanation of the PLC’s role as the main controller for the automated system.</p>
+<p>Describe:
+- Sequence control
+- Pneumatic output control
+- Vision system triggering
+- SCADA command handling
+- Status reporting
+- Safety and reset behavior</p>
+<h2 id="plc-program-structure">PLC Program Structure</h2>
+<p>Overview of the major PLC blocks and how the program was organized.</p>
+<p>Topics:
+- Main cyclic logic
+- Function blocks
+- Data blocks
+- SCADA interface mapping
+- QR parsing blocks
+- Pneumatic sequence logic</p>
+<p>Possible blocks:
+- <code>OB1</code>
+- <code>DB_SCADA_Interface</code>
+- <code>FB_PneuSequence</code>
+- <code>FB_QR_Parse</code>
+- <code>FC_SCADA_Interface_Mapping</code>
+- <code>FC_GetFieldValue</code></p>
+<h2 id="state-machine-architecture">State Machine Architecture</h2>
+<p>Explanation of the automated sequence structure.</p>
+<p>Topics:
+- Step-based control
+- State transitions
+- Timers
+- Interlocks
+- Reset behavior
+- Cycle completion</p>
+<p>Insert state machine diagram or screenshot.</p>
+<p>```markdown
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/PLCStateMachine.png" data-desc-position="bottom"><img alt="PLC State Machine" src="Images/PLCStateMachine.png"></a></p>
 
 
 
