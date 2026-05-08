@@ -104,15 +104,28 @@ Short summary of the portions you personally designed or implemented.
 
 ## Project Evolution
 
-Short discussion of how the system changed throughout development.
+The original project concept centered around a fully integrated industrial automation system that combined robotic handling, pneumatic transfer hardware, machine vision, industrial networking, and SCADA integration into a single automated workflow.
 
-Topics:
-- Original robot integration plan
-- Hardware delays
-- Scope reduction
-- Pneumatic-only automated sequence
-- Communication redesigns
-- Integration challenges
+The planned system architecture included a FANUC robotic arm responsible for battery transfer operations, with the Siemens PLC coordinating robot communication, pneumatic sequencing, scanner interaction, and system monitoring through Profinet-based industrial communication.
+
+During development, the project encountered several real-world engineering constraints that significantly impacted the final system architecture. The most significant issue involved delays related to the robot communication hardware required for Profinet integration. Although the robot itself supported Ethernet/IP communication, the required Profinet upgrade hardware was repeatedly delayed and ultimately unavailable within the project timeline.
+
+As a result, the project scope was restructured to remove direct PLC-to-robot integration while preserving the core automation objectives of the system. The final implementation shifted toward a pneumatic-focused automated sequence that simulated the intended battery transfer process using coordinated vacuum handling, flipper control, machine vision integration, and PLC-controlled sequencing.
+
+This redesign allowed the project to maintain its primary technical goals:
+- Industrial device integration
+- PLC-based automation control
+- Pneumatic sequencing
+- Machine vision communication
+- SCADA integration
+- Database logging
+- Industrial networking architecture
+
+Additional project challenges included industrial communication troubleshooting, scanner integration issues, QR message-size limitations, software licensing delays, and hardware shipping delays that compressed the available integration and testing timeline.
+
+Throughout development, the system architecture continued to evolve as testing exposed new timing, communication, and sequencing challenges. Pneumatic handoff logic, scanner communication structures, reset behavior, and SCADA interaction were refined iteratively through subsystem testing and full-system integration.
+
+Although portions of the original architecture were ultimately removed from scope, the final system successfully demonstrated a functional industrial automation platform capable of automated sequencing, QR-code scanning, SCADA interaction, industrial communication, and database logging using real industrial control hardware and software tools.
 
 ## Final Outcome
 
