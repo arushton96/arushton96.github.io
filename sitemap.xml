@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://embedded-systems-design.github.io/template_report/4-Bill-Of-Materials/</loc>
-         <lastmod>2026-05-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://embedded-systems-design.github.io/template_report/5-API/</loc>
          <lastmod>2026-05-08</lastmod>
          <changefreq>daily</changefreq>
@@ -77,6 +72,11 @@
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/3-esp-32-table/</loc>
+         <lastmod>2026-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/4-Bill-Of-Materials/</loc>
          <lastmod>2026-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
