@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://embedded-systems-design.github.io/template_report/8-Reflections/</loc>
-         <lastmod>2026-05-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://embedded-systems-design.github.io/template_report/9-Resources/</loc>
          <lastmod>2026-05-08</lastmod>
          <changefreq>daily</changefreq>
@@ -77,6 +72,11 @@
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/6-Schematic-Diagram/</loc>
+         <lastmod>2026-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://embedded-systems-design.github.io/template_report/Embedded-Systems_Project/7-Reflections/</loc>
          <lastmod>2026-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
