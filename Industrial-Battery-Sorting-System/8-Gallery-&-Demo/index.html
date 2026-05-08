@@ -89,6 +89,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#gallery-demonstrations" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -589,6 +594,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Gallery &amp; Demo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -599,6 +617,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -650,6 +696,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -672,9 +737,176 @@
   
 
 
-  <h1>Gallery &amp; Demo</h1>
-
-
+<h1 id="gallery-demonstrations">Gallery &amp; Demonstrations</h1>
+<h2 id="overview">Overview</h2>
+<p>This section contains system screenshots, hardware photos, development images, PLC screenshots, SCADA interfaces, pneumatic-system visuals, and demonstration media captured throughout the development of the Automated Battery Sorting System.</p>
+<p>The images and demonstrations below highlight the final integrated system, subsystem development, testing workflow, and key engineering features implemented during the project.</p>
+<hr>
+<h1 id="final-system">Final System</h1>
+<h2 id="completed-system-assembly">Completed System Assembly</h2>
+<p>Images of the final integrated project setup.</p>
+<p>Include:
+- Full system overview
+- Pneumatic assembly
+- PLC hardware
+- Vision system
+- Control hardware
+- Wiring and networking components</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/FinalSystem.png" data-desc-position="bottom"><img alt="Final System Overview" src="Images/FinalSystem.png"></a></p>
+<h2 id="system-demonstration">System Demonstration</h2>
+<p>Overview of the completed demonstration sequence.</p>
+<p>Topics:
+- Automated pneumatic cycle
+- QR scanning process
+- SCADA monitoring
+- Manual and automatic operation
+- Database logging demonstration</p>
+<p>Optional:
+- Embedded demonstration video
+- Linked YouTube/demo video
+- GIF sequence of operation</p>
+<hr>
+<h1 id="scada-interface">SCADA Interface</h1>
+<h2 id="main-operator-interface">Main Operator Interface</h2>
+<p>Screenshots of the Ignition Perspective operator interface.</p>
+<p>Topics:
+- System controls
+- Status indicators
+- Battery information display
+- Auto/manual mode selection
+- Cycle-state visualization</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/MainSCADA.png" data-desc-position="bottom"><img alt="Main SCADA Interface" src="Images/MainSCADA.png"></a></p>
+<h2 id="manual-control-interface">Manual Control Interface</h2>
+<p>Screenshots of the manual testing and diagnostic interface.</p>
+<p>Topics:
+- Direct valve controls
+- Pneumatic diagnostics
+- Testing workflow
+- Manual override functionality</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/ManualSCADA.png" data-desc-position="bottom"><img alt="Manual Control Interface" src="Images/ManualSCADA.png"></a></p>
+<h2 id="database-logging">Database Logging</h2>
+<p>Screenshots of database logging and scan-history functionality.</p>
+<p>Topics:
+- Logged battery information
+- SQL database integration
+- Query results
+- Traceability records</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/DatabaseLogging.png" data-desc-position="bottom"><img alt="Database Logging" src="Images/DatabaseLogging.png"></a></p>
+<hr>
+<h1 id="plc-development">PLC Development</h1>
+<h2 id="plc-program-structure">PLC Program Structure</h2>
+<p>Screenshots of PLC program organization and logic structure.</p>
+<p>Topics:
+- OB/FB organization
+- State-machine architecture
+- Data blocks
+- SCADA mapping structure</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/PLCProgramStructure.png" data-desc-position="bottom"><img alt="PLC Program Structure" src="Images/PLCProgramStructure.png"></a></p>
+<h2 id="state-machine-logic">State Machine Logic</h2>
+<p>Screenshots of automated sequence logic.</p>
+<p>Topics:
+- Step transitions
+- Sequence control
+- Timers
+- Interlocks</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/PLCStateMachine.png" data-desc-position="bottom"><img alt="PLC State Machine" src="Images/PLCStateMachine.png"></a></p>
+<h2 id="qr-parsing-logic">QR Parsing Logic</h2>
+<p>Screenshots of QR parsing and message-handling logic.</p>
+<p>Topics:
+- String parsing
+- Message validation
+- Field extraction
+- PLC communication structure</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/QRParsing.png" data-desc-position="bottom"><img alt="QR Parsing Logic" src="Images/QRParsing.png"></a></p>
+<hr>
+<h1 id="vision-system">Vision System</h1>
+<h2 id="banner-scanner-integration">Banner Scanner Integration</h2>
+<p>Images of the vision system and scanner installation.</p>
+<p>Topics:
+- Scanner positioning
+- QR scanning setup
+- Profinet integration
+- Scan testing</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/BannerScanner.png" data-desc-position="bottom"><img alt="Banner Vision Scanner" src="Images/BannerScanner.png"></a></p>
+<h2 id="qr-scan-results">QR Scan Results</h2>
+<p>Examples of scanned QR data and parsed information.</p>
+<p>Topics:
+- Raw scan messages
+- Parsed battery information
+- Good read / no read handling
+- Reduced payload implementation</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/QRResults.png" data-desc-position="bottom"><img alt="QR Scan Results" src="Images/QRResults.png"></a></p>
+<hr>
+<h1 id="pneumatic-system">Pneumatic System</h1>
+<h2 id="pneumatic-assembly">Pneumatic Assembly</h2>
+<p>Images of the pneumatic hardware and vacuum handling system.</p>
+<p>Topics:
+- Valve manifold
+- Vacuum routing
+- Pneumatic tubing
+- Flipper mechanism</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/PneumaticAssembly.png" data-desc-position="bottom"><img alt="Pneumatic Assembly" src="Images/PneumaticAssembly.png"></a></p>
+<h2 id="flipper-mechanism">Flipper Mechanism</h2>
+<p>Detailed images of the flipper transfer system.</p>
+<p>Topics:
+- Extend/retract positions
+- Vacuum transfer points
+- Battery handoff process</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/FlipperMechanism.png" data-desc-position="bottom"><img alt="Flipper Mechanism" src="Images/FlipperMechanism.png"></a></p>
+<h2 id="pneumatic-testing">Pneumatic Testing</h2>
+<p>Images captured during sequence testing and troubleshooting.</p>
+<p>Topics:
+- Manual operation
+- Timing validation
+- Vacuum testing
+- Transfer debugging</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/PneumaticTesting.png" data-desc-position="bottom"><img alt="Pneumatic Testing" src="Images/PneumaticTesting.png"></a></p>
+<hr>
+<h1 id="networking-hardware">Networking &amp; Hardware</h1>
+<h2 id="industrial-network-setup">Industrial Network Setup</h2>
+<p>Images of the networking hardware and communication layout.</p>
+<p>Topics:
+- Ethernet switch
+- PLC communication
+- Scanner networking
+- Device layout</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/NetworkSetup.png" data-desc-position="bottom"><img alt="Network Setup" src="Images/NetworkSetup.png"></a></p>
+<h2 id="control-hardware">Control Hardware</h2>
+<p>Images of PLC hardware, power supplies, and control components.</p>
+<p>Topics:
+- Siemens PLC
+- SITOP power supply
+- Valve manifold
+- Wiring and I/O</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/ControlHardware.png" data-desc-position="bottom"><img alt="Control Hardware" src="Images/ControlHardware.png"></a></p>
+<hr>
+<h1 id="development-process">Development Process</h1>
+<h2 id="integration-and-testing">Integration and Testing</h2>
+<p>Images captured during subsystem integration and debugging.</p>
+<p>Topics:
+- Early development stages
+- Hardware integration
+- Troubleshooting workflow
+- Incremental testing</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/DevelopmentProcess.png" data-desc-position="bottom"><img alt="Development Process" src="Images/DevelopmentProcess.png"></a></p>
+<h2 id="project-evolution">Project Evolution</h2>
+<p>Images showing how the project evolved throughout development.</p>
+<p>Topics:
+- Original robot integration plans
+- Pneumatic redesigns
+- Updated sequence architecture
+- Final demonstration configuration</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/ProjectEvolution.png" data-desc-position="bottom"><img alt="Project Evolution" src="Images/ProjectEvolution.png"></a></p>
+<hr>
+<h1 id="final-demonstration-summary">Final Demonstration Summary</h1>
+<p>Summary of the completed system capabilities demonstrated during final testing and presentation.</p>
+<p>Describe:
+- Automated sequence operation
+- Vision-system communication
+- SCADA functionality
+- Pneumatic handling
+- Database logging
+- Industrial system integration</p>
 
 
 
