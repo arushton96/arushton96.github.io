@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#technical-resources" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -608,6 +613,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Technical Resources
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -618,6 +636,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -648,6 +694,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -670,9 +735,200 @@
   
 
 
-  <h1>Technical Resources</h1>
-
-
+<h1 id="technical-resources">Technical Resources</h1>
+<h2 id="overview">Overview</h2>
+<p>This section contains supporting technical documentation, configuration references, hardware information, project files, and engineering resources used throughout the development of the Automated Battery Sorting System.</p>
+<p>The resources below document the hardware, software, networking, industrial communication setup, and development environment used during the project.</p>
+<hr>
+<h1 id="hardware-documentation">Hardware Documentation</h1>
+<h2 id="plc-hardware">PLC Hardware</h2>
+<p>Documentation related to the Siemens PLC and associated control hardware.</p>
+<p>Possible resources:
+- Siemens S7-1200 documentation
+- CPU specifications
+- I/O configuration references
+- TIA Portal hardware configuration screenshots</p>
+<p>Topics:
+- PLC model information
+- Firmware configuration
+- I/O addressing
+- Industrial communication support</p>
+<h2 id="vision-system-hardware">Vision System Hardware</h2>
+<p>Documentation related to the Banner vision system.</p>
+<p>Possible resources:
+- Banner ABR3000 datasheets
+- Scanner configuration documentation
+- Profinet communication references
+- GSD installation references</p>
+<p>Topics:
+- Scanner configuration
+- Trigger setup
+- Communication modules
+- QR-code capabilities</p>
+<h2 id="pneumatic-hardware">Pneumatic Hardware</h2>
+<p>Documentation related to the pneumatic subsystem.</p>
+<p>Possible resources:
+- SMC valve manifold datasheets
+- Vacuum generator documentation
+- Pneumatic fitting references
+- Solenoid specifications</p>
+<p>Topics:
+- Valve configuration
+- Pneumatic routing
+- Vacuum system specifications
+- Operating pressure ranges</p>
+<h2 id="networking-hardware">Networking Hardware</h2>
+<p>Documentation related to the industrial Ethernet network.</p>
+<p>Topics:
+- Ethernet switch configuration
+- Static IP addressing
+- Profinet networking
+- Device communication layout</p>
+<hr>
+<h1 id="software-development-resources">Software &amp; Development Resources</h1>
+<h2 id="tia-portal">TIA Portal</h2>
+<p>Overview of the PLC development environment.</p>
+<p>Topics:
+- TIA Portal version
+- PLC programming environment
+- Hardware configuration tools
+- Online diagnostics</p>
+<p>Possible resources:
+- Project structure screenshots
+- PLC configuration exports
+- Hardware compile/download process</p>
+<h2 id="ignition-scada">Ignition SCADA</h2>
+<p>Overview of the SCADA development environment.</p>
+<p>Topics:
+- Ignition version
+- Perspective module usage
+- Gateway configuration
+- OPC UA communication</p>
+<p>Possible resources:
+- Perspective configuration screenshots
+- Tag configuration references
+- Database setup information</p>
+<h2 id="database-resources">Database Resources</h2>
+<p>Documentation related to SQL logging functionality.</p>
+<p>Topics:
+- Database schema
+- Table structure
+- Query examples
+- Logging implementation</p>
+<p>Example resources:
+- Table creation scripts
+- Insert query examples
+- Query browser screenshots</p>
+<hr>
+<h1 id="communication-networking-references">Communication &amp; Networking References</h1>
+<h2 id="profinet-communication">Profinet Communication</h2>
+<p>Documentation related to industrial communication setup.</p>
+<p>Topics:
+- Device integration
+- GSD installation
+- Input/output configuration
+- Address mapping</p>
+<p>Possible resources:
+- Network architecture diagrams
+- Profinet configuration screenshots
+- Device mapping references</p>
+<h2 id="opc-ua-integration">OPC UA Integration</h2>
+<p>Documentation related to SCADA communication.</p>
+<p>Topics:
+- PLC device configuration
+- Tag mapping
+- Read/write access
+- Gateway communication</p>
+<h2 id="qr-message-structure">QR Message Structure</h2>
+<p>Reference documentation for QR-code payload handling.</p>
+<p>Topics:
+- Message formatting
+- Payload structure
+- Delimiters
+- Field parsing</p>
+<p>Discuss:
+- Long-form vs short-form payloads
+- Buffer limitations
+- Communication optimization</p>
+<hr>
+<h1 id="project-files">Project Files</h1>
+<h2 id="plc-program-files">PLC Program Files</h2>
+<p>Overview of PLC project packaging and export structure.</p>
+<p>Topics:
+- <code>.ap20</code> project packaging
+- Project retrieval process
+- TIA compatibility considerations
+- Project migration</p>
+<h2 id="scada-project-files">SCADA Project Files</h2>
+<p>Overview of Ignition project resources.</p>
+<p>Topics:
+- Perspective project structure
+- Tag exports
+- Database resources
+- Backup/export considerations</p>
+<h2 id="supporting-documentation">Supporting Documentation</h2>
+<p>Links to additional project documentation and references.</p>
+<p>Possible resources:
+- Architecture diagrams
+- Test plans
+- Risk logs
+- Project reports
+- Presentation slides</p>
+<hr>
+<h1 id="engineering-standards-references">Engineering Standards &amp; References</h1>
+<h2 id="industrial-standards">Industrial Standards</h2>
+<p>Relevant industrial or engineering standards referenced during development.</p>
+<p>Possible topics:
+- Industrial control system standards
+- Electrical safety considerations
+- Pneumatic design considerations
+- Industrial networking practices</p>
+<h2 id="development-references">Development References</h2>
+<p>Helpful technical references used during implementation.</p>
+<p>Possible topics:
+- Siemens documentation
+- Banner documentation
+- Ignition documentation
+- SQL references
+- Profinet troubleshooting resources</p>
+<hr>
+<h1 id="troubleshooting-resources">Troubleshooting Resources</h1>
+<h2 id="common-integration-issues">Common Integration Issues</h2>
+<p>Reference information for major issues encountered during development.</p>
+<p>Possible topics:
+- Scanner communication troubleshooting
+- PLC string handling limitations
+- OPC communication issues
+- Profinet module sizing
+- Database connectivity
+- Pneumatic sequence debugging</p>
+<h2 id="diagnostic-tools">Diagnostic Tools</h2>
+<p>Overview of tools and methods used for debugging.</p>
+<p>Topics:
+- Watch tables
+- Online diagnostics
+- Ignition tag browser
+- Database query browser
+- Ethernet diagnostics</p>
+<hr>
+<h1 id="downloads-supporting-files">Downloads &amp; Supporting Files</h1>
+<h2 id="downloadable-resources">Downloadable Resources</h2>
+<p>Section for downloadable project materials.</p>
+<p>Possible downloads:
+- PDFs
+- Architecture diagrams
+- Presentation slides
+- Hardware references
+- Technical reports</p>
+<p>Example links:</p>
+<ul>
+<li><a href="Files/Presentation.pdf">Project Presentation</a></li>
+<li><a href="Files/SystemArchitecture.pdf">System Architecture Diagram</a></li>
+<li><a href="Files/PLCConfig.pdf">PLC Hardware Configuration</a></li>
+</ul>
+<hr>
+<h1 id="final-notes">Final Notes</h1>
+<p>Summary of how these resources supported the overall project development process and final system integration.</p>
 
 
 
