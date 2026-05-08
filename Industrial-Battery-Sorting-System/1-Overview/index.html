@@ -637,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-PLC-Control-Logic/" class="md-nav__link">
+      <a href="../3-PLC-Control-Logic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,9 +949,31 @@
 
 <h1 id="system-overview">System Overview</h1>
 <h2 id="project-objective">Project Objective</h2>
-<p>Brief explanation of the original project goals and intended system functionality.</p>
+<p>The objective of this project was to design and integrate an industrial automation system capable of identifying, tracking, and handling battery cells through a combination of machine vision, PLC-based control logic, pneumatic automation, and SCADA integration.</p>
+<p>The original system concept centered around a fully integrated automated handling process using a FANUC robotic arm, pneumatic transfer hardware, QR-code scanning, and industrial networking. Battery cells would be transferred through the system, scanned using a machine vision sensor, and logged through a SCADA interface connected to a SQL database.</p>
+<p>As the project evolved, hardware availability and communication limitations required portions of the system architecture to be redesigned. The final implementation shifted toward a pneumatic-focused automation platform while preserving the core goals of industrial device integration, automated sequencing, vision-system communication, operator interaction, and data logging.</p>
+<p>The completed system successfully demonstrated:
+- PLC-controlled automated sequencing
+- QR-code scanning and parsing
+- Profinet industrial communication
+- Ignition SCADA integration
+- SQL database logging
+- Manual and automatic operating modes
+- Pneumatic battery handling and transfer</p>
 <h2 id="system-summary">System Summary</h2>
-<p>High-level description of how the system operates from start to finish.</p>
+<p>The completed system operated as a coordinated industrial automation platform centered around a Siemens S7-1200 PLC.</p>
+<p>During operation, a battery cell would enter the handling sequence and be transferred through a pneumatic vacuum system controlled by the PLC. The PLC coordinated vacuum actuation, flipper movement, sequence timing, and communication between all major subsystems.</p>
+<p>Once positioned within the scanning area, the PLC triggered a Banner vision sensor over Profinet to read the QR code attached to the battery cell. The scanner returned identification data to the PLC, where the message was parsed and processed into individual battery information fields such as serial number, voltage, capacity, and manufacturing data.</p>
+<p>The PLC then transmitted system status and parsed battery information to an Ignition SCADA interface through OPC communication. The SCADA system provided operator controls, real-time monitoring, diagnostic visibility, and SQL database logging for scanned battery information.</p>
+<p>The final system integrated:
+- Siemens S7-1200 PLC
+- Banner ABR3000 vision sensor
+- Ignition Perspective SCADA interface
+- SQL database logging
+- Pneumatic vacuum handling hardware
+- Profinet industrial networking
+- Manual and automatic sequence control</p>
+<p>The project emphasized real-world industrial integration challenges including industrial networking, PLC programming, machine vision communication, pneumatic coordination, SCADA architecture, and system-level troubleshooting.</p>
 <p>Example flow:
 1. Battery enters system
 2. Vision system scans QR code
