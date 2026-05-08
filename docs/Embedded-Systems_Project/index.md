@@ -1,23 +1,36 @@
----
-title: Welcome
-tags:
-- tag1
-- tag2
----
+# Embedded Systems Project
 
-## Introduction
+## Project Overview
 
-My name is Andrew, and I am a member of team 305. This webpage is for my EGR314 Spring Semester class project.
+This project was a line-following robot built for EGR314 using an ESP32-based embedded control system. The robot used color sensors to detect and follow a line path, servo motors to control motion, and a local human-machine interface to display operating data.
 
-## Project Summary
+My portion of the project focused on wireless communication, data handling, and the user interface. I developed the MQTT-based communication path that allowed the robot to transmit operating data over Wi-Fi and display useful information to the user.
 
-For team 305's project we are creating a line-following robot [like this one](https://pcbwayfile.s3-us-west-2.amazonaws.com/web/20/12/21/1129065663881t.gif). It will use color sensors to detect the location and curve of a line drawn in front of it, and servo motors to control the wheels of the machine. 
-Currently the plan is to 3D-print a small chassis to hold the components of the car such as the PC boards, sensors, and motors. The user will be able to interface with the robot through both an LCD screen and a Wi-Fi connection.
+## My Role
 
-## My contribution
+My primary responsibility was creating the Wi-Fi and MQTT communication system for the robot. This included configuring the ESP32 communication logic, handling sensor and status data, and supporting the HMI features used to monitor the robot during operation.
 
-My part in this project is to create a Wi-Fi connection using MQTT protocol. The connection will be used in part with the human-machine interface (HMI) to allow diagnostic control over the robot, as well as provide an output for different data from the machine, such as speed, processing time, battery life, and data from the sensors. As the project progresses and I discover more things I can do with MQTT, the scope of what my subsystem does might change, but for the time being it will act as a more user-friendly extension of the HMI system, and will use much of the data collected in that system.
+I also contributed to the documentation and organization of the project, including the code structure, API documentation, schematic references, bill of materials, and supporting technical resources shown throughout this site.
 
-## Continuation
+## Key Contributions
 
-Feel free to please peruse through my webpage to see the current progress and workflow of my part of the project. If you would like to navigate back to the group 305's team webpage you can access it [right here](https://asu-egr314-2025-s-305.github.io/). There you will find our group contributions and overall structure to our project, as well as links to the individual pages of the rest of the group.
+- Developed the MQTT communication structure for wireless data transfer
+- Supported HMI functionality for displaying robot status and diagnostic information
+- Helped organize project documentation into clear technical sections
+- Documented code, hardware selections, API behavior, schematic references, and project resources
+- Contributed to the integration of embedded hardware, sensors, motors, and user-facing controls
+
+## Technologies Used
+
+- ESP32 microcontroller
+- MQTT communication protocol
+- Wi-Fi networking
+- Color sensors
+- Servo motors
+- LCD/HMI display
+- Embedded C/C++ / Arduino-style development
+- MkDocs documentation site
+
+## Project Documentation
+
+The pages in this section provide the technical documentation for the embedded systems project, including the block diagram, component selection, ESP32 pin table, bill of materials, API documentation, schematic, code, and project resources.
