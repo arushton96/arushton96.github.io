@@ -1006,7 +1006,19 @@
 <p>Profinet communication was used for real-time industrial device integration between the Siemens PLC and the Banner scanner as well as the pneumatic valve manifold. Static IP addressing and industrial network configuration were used to maintain reliable communication between all major subsystems.</p>
 <p>The networking architecture also supported OPC UA communication between the PLC and Ignition SCADA system, allowing real-time monitoring, control, and database logging throughout operation.</p>
 <h2 id="my-contributions">My Contributions</h2>
-<p>Short summary of the portions you personally designed or implemented.</p>
+<p>My primary responsibility on this project was the development and integration of the industrial control system architecture. This included PLC programming, pneumatic sequence development, machine vision integration, industrial networking configuration, SCADA communication, and overall subsystem coordination.</p>
+<p>I designed and implemented the PLC control logic used throughout the project, including the automated pneumatic sequence, manual operating mode, state-machine architecture, reset behavior, vacuum handoff timing, scanner trigger logic, and SCADA interface mapping.</p>
+<p>I also handled the integration of the Banner vision system with the Siemens PLC over Profinet communication. This included configuring industrial communication modules, troubleshooting device integration issues, restructuring QR payload formats to fit communication buffer limitations, and developing the PLC-based QR parsing logic used to process battery information.</p>
+<p>On the SCADA side, I developed the Ignition Perspective interface used for system control, monitoring, diagnostics, and SQL database logging. This included PLC tag integration through OPC UA, operator interface design, manual testing controls, and database interaction for battery traceability logging.</p>
+<p>Additional responsibilities included:
+- Industrial Ethernet network configuration
+- Static IP addressing and device communication setup
+- Pneumatic sequence testing and debugging
+- PLC/SCADA integration troubleshooting
+- Database logging implementation
+- Hardware integration and validation
+- Technical documentation and system organization</p>
+<p>Throughout development, I also played a major role in adapting the project architecture in response to hardware delays, communication limitations, and evolving project constraints. This included redesigning portions of the automation sequence, restructuring subsystem interactions, and preserving the core functionality of the project despite multiple scope and integration challenges.</p>
 <h2 id="project-evolution">Project Evolution</h2>
 <p>The original project concept centered around a fully integrated industrial automation system that combined robotic handling, pneumatic transfer hardware, machine vision, industrial networking, and SCADA integration into a single automated workflow.</p>
 <p>The planned system architecture included a FANUC robotic arm responsible for battery transfer operations, with the Siemens PLC coordinating robot communication, pneumatic sequencing, scanner interaction, and system monitoring through Profinet-based industrial communication.</p>
