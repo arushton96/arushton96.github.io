@@ -6,275 +6,347 @@ title: Technical Resources
 
 ## Overview
 
-This section contains supporting technical documentation, configuration references, hardware information, project files, and engineering resources used throughout the development of the Automated Battery Sorting System.
+This section contains technical references, documentation resources, software tools, hardware platforms, communication standards, and development environments used throughout the Automated Battery Sorting System project.
 
-The resources below document the hardware, software, networking, industrial communication setup, and development environment used during the project.
+The project combined industrial automation hardware, PLC programming, machine vision integration, SCADA development, pneumatic control, industrial networking, and SQL database interaction into a unified industrial control architecture.
 
 ---
 
-# Hardware Documentation
+# Software Platforms
 
-## PLC Hardware
+## Siemens TIA Portal
 
-Documentation related to the Siemens PLC and associated control hardware.
+### PLC Development Environment
 
-Possible resources:
-- Siemens S7-1200 documentation
-- CPU specifications
-- I/O configuration references
-- TIA Portal hardware configuration screenshots
+The Siemens Totally Integrated Automation (TIA) Portal environment was used for:
+- PLC hardware configuration
+- Profinet device integration
+- Ladder logic development
+- Structured Text (SCL) programming
+- Device diagnostics
+- Network configuration
+- PLC deployment and testing
+
+### Major Features Used
 
 Topics:
-- PLC model information
-- Firmware configuration
-- I/O addressing
-- Industrial communication support
+- Hardware configuration
+- Profinet integration
+- Data block management
+- PLC diagnostics
+- Watch tables
+- Online monitoring
+- Device naming and addressing
 
-## Vision System Hardware
+Software:
+- Siemens TIA Portal
 
-Documentation related to the Banner vision system.
+---
 
-Possible resources:
-- Banner ABR3000 datasheets
-- Scanner configuration documentation
-- Profinet communication references
-- GSD installation references
+## Ignition Perspective
+
+### SCADA Development Platform
+
+Ignition Perspective was used to develop the SCADA and operator-interface subsystem.
+
+The platform provided:
+- Browser-based operator interfaces
+- OPC UA communication
+- Real-time monitoring
+- Database interaction
+- Diagnostic interfaces
+- Perspective scripting
+
+### Major Features Used
+
+Topics:
+- Perspective views
+- Tag bindings
+- Device connections
+- Database integration
+- Event scripting
+- Real-time status monitoring
+
+Software:
+- Ignition Perspective
+- Ignition Gateway
+
+---
+
+# PLC Technologies
+
+## Siemens S7-1200 PLC
+
+### Central Control Platform
+
+The Siemens S7-1200 PLC served as the primary controller for the entire automation system.
+
+Responsibilities included:
+- Sequence control
+- Pneumatic coordination
+- Scanner communication
+- QR parsing
+- SCADA communication
+- System-state management
+
+### PLC Development Topics
+
+Topics:
+- Ladder logic
+- State-machine programming
+- Structured Text (SCL)
+- Data blocks
+- Industrial communication
+- IO mapping
+- Sequence timing
+
+---
+
+# Machine Vision Resources
+
+## Banner ABR3000 Vision Sensor
+
+### QR-Code Scanning Platform
+
+The Banner ABR3000 vision sensor provided:
+- QR-code scanning
+- Profinet communication
+- Good-read/no-read handling
+- Industrial Ethernet integration
+
+### Topics
 
 Topics:
 - Scanner configuration
-- Trigger setup
-- Communication modules
-- QR-code capabilities
-
-## Pneumatic Hardware
-
-Documentation related to the pneumatic subsystem.
-
-Possible resources:
-- SMC valve manifold datasheets
-- Vacuum generator documentation
-- Pneumatic fitting references
-- Solenoid specifications
-
-Topics:
-- Valve configuration
-- Pneumatic routing
-- Vacuum system specifications
-- Operating pressure ranges
-
-## Networking Hardware
-
-Documentation related to the industrial Ethernet network.
-
-Topics:
-- Ethernet switch configuration
-- Static IP addressing
-- Profinet networking
-- Device communication layout
+- Profinet communication
+- Triggered acquisition
+- IO module sizing
+- Industrial Ethernet diagnostics
 
 ---
 
-# Software & Development Resources
+# SCADA & Communication Standards
 
-## TIA Portal
+## OPC UA
 
-Overview of the PLC development environment.
+### SCADA Communication
 
-Topics:
-- TIA Portal version
-- PLC programming environment
-- Hardware configuration tools
-- Online diagnostics
+OPC UA was used for communication between:
+- Ignition SCADA
+- Siemens PLC
 
-Possible resources:
-- Project structure screenshots
-- PLC configuration exports
-- Hardware compile/download process
-
-## Ignition SCADA
-
-Overview of the SCADA development environment.
-
-Topics:
-- Ignition version
-- Perspective module usage
-- Gateway configuration
-- OPC UA communication
-
-Possible resources:
-- Perspective configuration screenshots
-- Tag configuration references
-- Database setup information
-
-## Database Resources
-
-Documentation related to SQL logging functionality.
-
-Topics:
-- Database schema
-- Table structure
-- Query examples
-- Logging implementation
-
-Example resources:
-- Table creation scripts
-- Insert query examples
-- Query browser screenshots
-
----
-
-# Communication & Networking References
-
-## Profinet Communication
-
-Documentation related to industrial communication setup.
-
-Topics:
-- Device integration
-- GSD installation
-- Input/output configuration
-- Address mapping
-
-Possible resources:
-- Network architecture diagrams
-- Profinet configuration screenshots
-- Device mapping references
-
-## OPC UA Integration
-
-Documentation related to SCADA communication.
-
-Topics:
-- PLC device configuration
+The communication architecture supported:
+- Real-time monitoring
+- Read/write operations
 - Tag mapping
-- Read/write access
-- Gateway communication
+- Diagnostic visibility
 
-## QR Message Structure
-
-Reference documentation for QR-code payload handling.
+### Topics
 
 Topics:
-- Message formatting
-- Payload structure
-- Delimiters
-- Field parsing
-
-Discuss:
-- Long-form vs short-form payloads
-- Buffer limitations
-- Communication optimization
+- OPC UA configuration
+- Tag browsing
+- DB-offset addressing
+- Read/write tag structures
 
 ---
 
-# Project Files
+## Profinet
 
-## PLC Program Files
+### Industrial Ethernet Communication
 
-Overview of PLC project packaging and export structure.
+Profinet communication connected:
+- Siemens PLC
+- Banner scanner
+- SMC valve manifold
 
-Topics:
-- `.ap20` project packaging
-- Project retrieval process
-- TIA compatibility considerations
-- Project migration
-
-## SCADA Project Files
-
-Overview of Ignition project resources.
+### Topics
 
 Topics:
-- Perspective project structure
-- Tag exports
-- Database resources
-- Backup/export considerations
-
-## Supporting Documentation
-
-Links to additional project documentation and references.
-
-Possible resources:
-- Architecture diagrams
-- Test plans
-- Risk logs
-- Project reports
-- Presentation slides
+- Industrial Ethernet
+- Device configuration
+- GSD installation
+- IO addressing
+- Static IP configuration
+- Device diagnostics
 
 ---
 
-# Engineering Standards & References
+# Database Technologies
 
-## Industrial Standards
+## SQL Database Logging
 
-Relevant industrial or engineering standards referenced during development.
+The project used SQL database integration through Ignition for:
+- Battery traceability
+- Scan-history logging
+- Data validation
+- System demonstration
 
-Possible topics:
-- Industrial control system standards
-- Electrical safety considerations
-- Pneumatic design considerations
-- Industrial networking practices
+### Database Topics
 
-## Development References
-
-Helpful technical references used during implementation.
-
-Possible topics:
-- Siemens documentation
-- Banner documentation
-- Ignition documentation
-- SQL references
-- Profinet troubleshooting resources
+Topics:
+- SQL insert queries
+- Table creation
+- Database connections
+- Query validation
+- SCADA database interaction
 
 ---
 
-# Troubleshooting Resources
+# Pneumatic Hardware
 
-## Common Integration Issues
+## SMC Pneumatic Components
 
-Reference information for major issues encountered during development.
+The pneumatic subsystem utilized:
+- SMC valve manifolds
+- Vacuum generators
+- Pneumatic transfer hardware
+- Solenoid-controlled outputs
 
-Possible topics:
-- Scanner communication troubleshooting
-- PLC string handling limitations
-- OPC communication issues
-- Profinet module sizing
-- Database connectivity
-- Pneumatic sequence debugging
-
-## Diagnostic Tools
-
-Overview of tools and methods used for debugging.
+### Topics
 
 Topics:
-- Watch tables
+- Pneumatic sequencing
+- Vacuum timing
+- Solenoid control
+- Transfer coordination
+- PLC-controlled actuation
+
+---
+
+# Networking Architecture
+
+## Industrial Ethernet Network
+
+The system used a static-IP industrial Ethernet architecture connecting:
+- PLC hardware
+- Vision system
+- Pneumatic communication hardware
+- SCADA workstation
+
+### Topics
+
+Topics:
+- Static IP assignment
+- Ethernet configuration
+- Device communication
+- Industrial networking
+- Gateway configuration
+
+---
+
+# Development & Debugging Tools
+
+## Testing & Validation
+
+Several tools and techniques were used throughout development and troubleshooting.
+
+### PLC Debugging
+
+Methods included:
+- Watch-table monitoring
 - Online diagnostics
-- Ignition tag browser
-- Database query browser
-- Ethernet diagnostics
+- IO testing
+- Sequence-state monitoring
+- Timer validation
+
+### SCADA Debugging
+
+Methods included:
+- Tag diagnostics
+- Perspective testing
+- Database query validation
+- OPC communication testing
+
+### Vision-System Validation
+
+Methods included:
+- Scanner diagnostics
+- IO verification
+- Trigger validation
+- QR-data monitoring
+- Communication testing
 
 ---
 
-# Downloads & Supporting Files
+# Engineering Standards & Practices
 
-## Downloadable Resources
+## Industrial Automation Design
 
-Section for downloadable project materials.
+The project followed common industrial automation design practices including:
+- Centralized PLC control
+- Structured tag naming
+- Modular subsystem separation
+- Industrial Ethernet communication
+- Deterministic sequence logic
+- Operator-interface separation
+- Real-time diagnostics
 
-Possible downloads:
-- PDFs
-- Architecture diagrams
-- Presentation slides
-- Hardware references
-- Technical reports
+### Topics
 
-Example links:
+Topics:
+- State-machine architecture
+- Read/write separation
+- Subsystem modularity
+- Industrial communication standards
+- System integration practices
 
-- [Project Presentation](Files/Presentation.pdf)
-- [System Architecture Diagram](Files/SystemArchitecture.pdf)
-- [PLC Hardware Configuration](Files/PLCConfig.pdf)
+---
+
+# Documentation Resources
+
+## Technical References
+
+Development relied heavily on:
+- Siemens documentation
+- Banner engineering resources
+- Ignition documentation
+- Industrial communication manuals
+- Device datasheets
+- Profinet configuration references
+
+### Major Reference Areas
+
+Topics:
+- PLC programming
+- Profinet configuration
+- OPC UA communication
+- Scanner integration
+- Pneumatic hardware
+- Ignition Perspective scripting
+
+---
+
+# Project Skills Demonstrated
+
+## Technical Competencies
+
+The completed project demonstrated experience with:
+- Industrial automation integration
+- PLC programming
+- SCADA development
+- Machine vision integration
+- Industrial networking
+- Pneumatic automation
+- SQL database interaction
+- Real-time communication systems
+- Systems-level troubleshooting
 
 ---
 
 # Final Notes
 
-Summary of how these resources supported the overall project development process and final system integration.
+## Project Scope
+
+This project represented a full industrial automation integration workflow combining multiple industrial hardware and software platforms into a coordinated and functional control system.
+
+The final implementation emphasized:
+- Real-world subsystem integration
+- Practical industrial communication
+- Deterministic PLC control
+- Industrial networking
+- Operator-interface development
+- System-level troubleshooting
+- Engineering adaptability under changing constraints
+
+The project ultimately served as a large-scale systems integration and industrial automation engineering experience using professional industrial hardware and software tools.
