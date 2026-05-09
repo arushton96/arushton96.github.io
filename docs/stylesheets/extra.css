@@ -11,15 +11,3 @@ blockquote{
     }
 }
 
-:root {
-    --md-default-bg-color: #f7e3f6;
-}
-body,
-.md-main,
-.md-main__inner,
-.md-content,
-.md-content__inner,
-.md-sidebar,
-.md-sidebar__scrollwrap {
-    background-color: #f7e3f6;
-}
