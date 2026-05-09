@@ -10,3 +10,7 @@ blockquote{
         color: var(--md-typeset-color);
     }
 }
+
+:root {
+    --md-default-bg-color: #f7e3f6;
+}
