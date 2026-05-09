@@ -1,48 +1,75 @@
 ---
-title: Gallery & Demo
+title: Gallery & Demonstrations
 ---
 
 # Gallery & Demonstrations
 
 ## Overview
 
-This section contains system screenshots, hardware photos, development images, PLC screenshots, SCADA interfaces, pneumatic-system visuals, and demonstration media captured throughout the development of the Automated Battery Sorting System.
+This section contains screenshots, hardware images, development captures, PLC logic screenshots, SCADA interfaces, pneumatic-system photos, and demonstration media captured throughout development of the Automated Battery Sorting System.
 
-The images and demonstrations below highlight the final integrated system, subsystem development, testing workflow, and key engineering features implemented during the project.
+The gallery highlights:
+- Final system integration
+- PLC development
+- SCADA functionality
+- Machine vision integration
+- Pneumatic automation
+- Industrial networking
+- Testing and troubleshooting workflows
+
+The images below document both the completed system and the engineering process used throughout subsystem integration and validation.
 
 ---
 
-# Final System
+# Final Integrated System
 
 ## Completed System Assembly
 
-Images of the final integrated project setup.
+The completed system integrated:
+- Siemens S7-1200 PLC
+- Banner ABR3000 vision sensor
+- Ignition Perspective SCADA system
+- Pneumatic vacuum handling hardware
+- SMC valve manifold
+- Industrial Ethernet communication
+- SQL database logging
 
-Include:
-- Full system overview
-- Pneumatic assembly
-- PLC hardware
-- Vision system
-- Control hardware
-- Wiring and networking components
+The final architecture demonstrated coordinated operation between all major industrial subsystems within a single automated workflow.
 
 ![Final System Overview](Images/FinalSystem.png)
 
-## System Demonstration
+---
 
-Overview of the completed demonstration sequence.
+# System Demonstration
 
-Topics:
-- Automated pneumatic cycle
-- QR scanning process
-- SCADA monitoring
-- Manual and automatic operation
-- Database logging demonstration
+## Automated Sequence Operation
 
-Optional:
-- Embedded demonstration video
-- Linked YouTube/demo video
-- GIF sequence of operation
+During operation, the system performed:
+1. Pneumatic battery pickup and transfer
+2. Scanner positioning
+3. QR-code acquisition
+4. PLC-based message parsing
+5. SCADA visualization
+6. SQL database logging
+7. Sequence completion and reset
+
+The automated sequence demonstrated coordinated interaction between the PLC, scanner, pneumatic hardware, and SCADA system.
+
+### Demonstration Features
+
+The final demonstration included:
+- Automatic operation
+- Manual operation
+- Real-time SCADA monitoring
+- Scanner-status handling
+- Database logging
+- Pneumatic diagnostics
+- QR-data visualization
+
+Optional media:
+- Demonstration video
+- Animated sequence capture
+- Integrated system walkthrough
 
 ---
 
@@ -50,38 +77,52 @@ Optional:
 
 ## Main Operator Interface
 
-Screenshots of the Ignition Perspective operator interface.
-
-Topics:
-- System controls
-- Status indicators
-- Battery information display
+The primary SCADA interface provided:
+- Start/stop/reset controls
 - Auto/manual mode selection
-- Cycle-state visualization
+- Real-time status monitoring
+- Pneumatic-state indicators
+- Battery scan information
+- Scanner diagnostics
+
+The interface was designed to provide centralized visibility into the overall system state during operation.
 
 ![Main SCADA Interface](Images/MainSCADA.png)
 
+---
+
 ## Manual Control Interface
 
-Screenshots of the manual testing and diagnostic interface.
+A dedicated manual-control page was developed to support:
+- Pneumatic testing
+- Output verification
+- Sequence debugging
+- Hardware validation
+- Scanner integration testing
 
-Topics:
-- Direct valve controls
-- Pneumatic diagnostics
-- Testing workflow
-- Manual override functionality
+This interface became one of the primary debugging tools used throughout subsystem integration and testing.
 
 ![Manual Control Interface](Images/ManualSCADA.png)
 
+---
+
 ## Database Logging
 
-Screenshots of database logging and scan-history functionality.
+The Ignition SCADA interface integrated directly with a SQL database used for battery traceability logging.
 
-Topics:
-- Logged battery information
-- SQL database integration
-- Query results
-- Traceability records
+Logged information included:
+- Battery serial numbers
+- Manufacturer information
+- Voltage
+- Capacity
+- Resistance
+- Scan timestamps
+
+The database interface was used to validate:
+- Scanner communication
+- PLC parsing logic
+- Database connectivity
+- End-to-end subsystem integration
 
 ![Database Logging](Images/DatabaseLogging.png)
 
@@ -91,37 +132,54 @@ Topics:
 
 ## PLC Program Structure
 
-Screenshots of PLC program organization and logic structure.
+The PLC architecture was organized around:
+- State-machine sequencing
+- Pneumatic coordination
+- QR parsing logic
+- SCADA interface mapping
+- Industrial communication handling
 
-Topics:
-- OB/FB organization
-- State-machine architecture
-- Data blocks
-- SCADA mapping structure
+The project utilized structured PLC organization through:
+- Organizational blocks
+- Function blocks
+- Structured data blocks
+- SCL parsing functions
 
 ![PLC Program Structure](Images/PLCProgramStructure.png)
 
+---
+
 ## State Machine Logic
 
-Screenshots of automated sequence logic.
+The automated sequence was controlled through a PLC-based state-machine architecture coordinating:
+- Pneumatic outputs
+- Scanner timing
+- Vacuum handoffs
+- Reset behavior
+- Sequence-state transitions
 
-Topics:
-- Step transitions
-- Sequence control
-- Timers
-- Interlocks
+The final sequence architecture evolved significantly throughout development as subsystem testing exposed new timing and synchronization challenges.
 
 ![PLC State Machine](Images/PLCStateMachine.png)
 
+---
+
 ## QR Parsing Logic
 
-Screenshots of QR parsing and message-handling logic.
+Custom SCL parsing functions were developed to process incoming QR messages directly within the PLC.
 
-Topics:
+The parser extracted:
+- Battery identification data
+- Voltage information
+- Capacity values
+- Resistance values
+- Manufacturing information
+
+Significant engineering effort was spent optimizing:
+- Message structure
+- Buffer handling
 - String parsing
-- Message validation
-- Field extraction
-- PLC communication structure
+- Communication reliability
 
 ![QR Parsing Logic](Images/QRParsing.png)
 
@@ -131,25 +189,28 @@ Topics:
 
 ## Banner Scanner Integration
 
-Images of the vision system and scanner installation.
+The Banner ABR3000 vision sensor was integrated with the Siemens PLC through Profinet communication and served as the primary battery-identification subsystem.
 
-Topics:
-- Scanner positioning
-- QR scanning setup
-- Profinet integration
-- Scan testing
+The scanner architecture included:
+- PLC-triggered acquisition
+- Good-read/no-read handling
+- QR-code parsing
+- Industrial Ethernet communication
+- SCADA integration
 
-![Banner Vision Scanner](Images/BannerScanner.png)
+![Banner Vision Sensor](Images/BannerScanner.png)
+
+---
 
 ## QR Scan Results
 
-Examples of scanned QR data and parsed information.
+The scanner transmitted raw QR payloads to the PLC, where the message was parsed into structured battery information fields for display and logging.
 
-Topics:
-- Raw scan messages
-- Parsed battery information
-- Good read / no read handling
-- Reduced payload implementation
+The final implementation optimized QR payload structure to improve:
+- Communication reliability
+- Parser stability
+- Profinet compatibility
+- Scan consistency
 
 ![QR Scan Results](Images/QRResults.png)
 
@@ -157,66 +218,86 @@ Topics:
 
 # Pneumatic System
 
-## Pneumatic Assembly
+## Pneumatic Hardware
 
-Images of the pneumatic hardware and vacuum handling system.
+The pneumatic subsystem utilized:
+- Vacuum generators
+- SMC valve manifold control
+- Pneumatic transfer hardware
+- PLC-controlled sequencing
 
-Topics:
-- Valve manifold
-- Vacuum routing
-- Pneumatic tubing
-- Flipper mechanism
+The pneumatic architecture coordinated:
+- Battery transfer
+- Vacuum overlap timing
+- Scanner positioning
+- Sequence-state synchronization
 
 ![Pneumatic Assembly](Images/PneumaticAssembly.png)
 
-## Flipper Mechanism
+---
 
-Detailed images of the flipper transfer system.
+## Flipper Transfer Mechanism
 
-Topics:
-- Extend/retract positions
-- Vacuum transfer points
-- Battery handoff process
+A pneumatic flipper assembly coordinated battery transfer between handling stages and maintained stable positioning during scanning operations.
+
+The mechanism relied heavily on:
+- Vacuum overlap timing
+- Extend/retract coordination
+- PLC-controlled sequencing
+- Deterministic transfer behavior
 
 ![Flipper Mechanism](Images/FlipperMechanism.png)
 
+---
+
 ## Pneumatic Testing
 
-Images captured during sequence testing and troubleshooting.
+Extensive subsystem testing was performed throughout development to validate:
+- Vacuum timing
+- Transfer stability
+- Reset behavior
+- Sequence reliability
+- Scanner synchronization
 
-Topics:
-- Manual operation
-- Timing validation
-- Vacuum testing
-- Transfer debugging
+Manual testing interfaces were heavily used during subsystem integration and troubleshooting.
 
 ![Pneumatic Testing](Images/PneumaticTesting.png)
 
 ---
 
-# Networking & Hardware
+# Industrial Networking
 
-## Industrial Network Setup
+## Ethernet & Communication Architecture
 
-Images of the networking hardware and communication layout.
-
-Topics:
-- Ethernet switch
-- PLC communication
-- Scanner networking
-- Device layout
-
-![Network Setup](Images/NetworkSetup.png)
-
-## Control Hardware
-
-Images of PLC hardware, power supplies, and control components.
-
-Topics:
+The system utilized an industrial Ethernet architecture connecting:
 - Siemens PLC
+- Banner scanner
+- SMC valve manifold
+- Ignition SCADA workstation
+
+Communication technologies included:
+- Profinet IO
+- OPC UA
+- Industrial Ethernet
+- SQL database integration
+
+![Network Architecture](Images/NetworkSetup.png)
+
+---
+
+# Hardware Integration
+
+## Industrial Control Hardware
+
+The completed system integrated several industrial hardware platforms into a unified automation architecture.
+
+Major hardware components included:
+- Siemens S7-1200 PLC
 - SITOP power supply
-- Valve manifold
-- Wiring and I/O
+- Banner scanner
+- SMC valve manifold
+- Ethernet switch
+- Pneumatic hardware
 
 ![Control Hardware](Images/ControlHardware.png)
 
@@ -224,27 +305,32 @@ Topics:
 
 # Development Process
 
-## Integration and Testing
+## Integration & Troubleshooting
 
-Images captured during subsystem integration and debugging.
+Development involved extensive subsystem testing and iterative troubleshooting across:
+- PLC logic
+- Scanner communication
+- Pneumatic timing
+- SCADA integration
+- Database logging
+- Industrial networking
 
-Topics:
-- Early development stages
-- Hardware integration
-- Troubleshooting workflow
-- Incremental testing
+The final implementation evolved significantly throughout development as testing exposed new sequencing and communication challenges.
 
 ![Development Process](Images/DevelopmentProcess.png)
 
+---
+
 ## Project Evolution
 
-Images showing how the project evolved throughout development.
-
-Topics:
-- Original robot integration plans
+The project architecture evolved considerably throughout development due to:
+- Communication hardware delays
+- Industrial integration challenges
 - Pneumatic redesigns
-- Updated sequence architecture
-- Final demonstration configuration
+- Sequence refinements
+- Real-world engineering constraints
+
+The final implementation preserved the core industrial automation objectives of the project while adapting the physical handling architecture to maintain a stable and demonstrable system.
 
 ![Project Evolution](Images/ProjectEvolution.png)
 
@@ -252,12 +338,16 @@ Topics:
 
 # Final Demonstration Summary
 
-Summary of the completed system capabilities demonstrated during final testing and presentation.
+## Completed System Demonstration
 
-Describe:
-- Automated sequence operation
-- Vision-system communication
-- SCADA functionality
-- Pneumatic handling
-- Database logging
-- Industrial system integration
+The completed project successfully demonstrated:
+- PLC-controlled automation
+- Industrial Ethernet integration
+- Machine vision communication
+- Pneumatic sequencing
+- Ignition SCADA functionality
+- SQL database logging
+- Manual and automatic operation
+- Real-time subsystem coordination
+
+The final implementation served as a fully integrated industrial automation platform combining multiple industrial hardware and software systems into a coordinated working system.
