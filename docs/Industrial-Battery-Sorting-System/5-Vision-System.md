@@ -2,181 +2,324 @@
 title: Vision System
 ---
 
-# Vision System Integration
+# Vision System
 
 ## Vision System Overview
 
-Overview of the machine vision subsystem and its role within the project.
+The vision subsystem was responsible for identifying and processing QR-coded battery cells during operation. A Banner ABR3000 industrial vision sensor was integrated with the Siemens S7-1200 PLC over Profinet to provide real-time scan results and battery identification data to the control system.
 
-Describe:
-- QR-code identification of battery cells
-- Communication with the PLC
-- Scan validation
-- Data transfer to SCADA and database systems
+The scanner acted as the primary source of battery information within the system. Once a battery was positioned at the scanning station, the camera captured and decoded the QR label, transmitted the raw scan data to the PLC, and allowed the control logic to process the battery information for display, logging, and system tracking.
 
-## Vision Hardware
+The vision system was designed around:
+- Industrial Ethernet communication
+- PLC-based QR parsing
+- Real-time scan verification
+- Structured battery data extraction
+- SCADA/database integration
 
-### Banner ABR3000 Vision Sensor
+---
 
-Overview of the vision hardware used in the project.
+# Vision Hardware
 
-Topics:
-- Scanner model and capabilities
-- QR-code scanning functionality
-- Industrial communication support
-- Physical mounting and positioning
+## Banner ABR3000 Vision Sensor
 
-Insert images of the scanner and system setup.
+The system utilized a Banner ABR3000 industrial barcode and vision sensor configured for Profinet communication.
 
-![Banner Vision Sensor](Images/BannerScanner.png)
+### Scanner Responsibilities
 
-## System Role
+The scanner was responsible for:
+- Detecting QR-coded battery labels
+- Capturing scan data
+- Transmitting scan results to the PLC
+- Indicating successful or failed reads
+- Supporting repeated automated scans during operation
 
-Explanation of how the scanner interacted with the automated sequence.
+### Hardware Integration
 
-Topics:
-- Scan trigger timing
-- Battery positioning
-- Scan verification
-- Good read / no read handling
-- Interaction with pneumatic sequence
+The scanner was connected to the industrial Ethernet network alongside the Siemens PLC and pneumatic valve manifold.
 
-## Profinet Integration
+System connections included:
+- Ethernet / Profinet communication
+- 24 VDC industrial power
+- PLC-controlled trigger signals
+- PLC status feedback handling
 
-### PLC Communication Setup
+### Industrial Network Configuration
 
-Overview of how the vision system was integrated with the Siemens PLC.
-
-Topics:
-- Profinet device configuration
-- GSD installation in TIA Portal
-- Device naming and IP assignment
-- Input/output module configuration
-- Industrial Ethernet integration
-
-Discuss:
-- Accessible devices configuration
-- Online diagnostics
-- Hardware compile/download requirements
-
-## Scanner Trigger Logic
-
-Explanation of how the PLC initiated scans.
+The camera was assigned a static IP address within the system network and configured as a Profinet IO device within TIA Portal.
 
 Topics:
-- Trigger command outputs
-- One-shot trigger behavior
-- Trigger timing
-- Scanner acknowledgment signals
-- Good read / no read bits
+- Static IP configuration
+- Device naming
+- Profinet device assignment
+- GSD installation
+- IO module configuration
 
-Possible signals:
-- `TriggerCmd_Out`
-- `Good_Read`
-- `No_Read`
+---
 
-## QR Data Structure
+# Profinet Integration
 
-### QR Message Format
+## PLC Communication
 
-Overview of the QR-code payload structure.
+The Banner scanner communicated directly with the Siemens PLC through Profinet IO communication rather than serial or TCP socket-based messaging.
+
+This allowed the scanner to behave as a cyclic industrial IO device inside the PLC hardware configuration.
+
+### Communication Architecture
+
+The scanner exchanged:
+- Trigger commands from the PLC
+- Good read / no read status bits
+- Raw scan message data
+- Device status information
+
+The PLC handled all higher-level message processing and parsing logic internally.
+
+### GSD Configuration
+
+A Banner Profinet GSD file was imported into TIA Portal in order to configure the scanner as an industrial IO device.
+
+Challenges included:
+- Correct module selection
+- IO length configuration
+- Address allocation
+- Matching scanner-side communication settings
+
+---
+
+# Scanner Triggering Logic
+
+## PLC-Controlled Acquisition
+
+The scanner was configured for externally triggered acquisition. The PLC generated a trigger pulse once the pneumatic sequence positioned a battery at the scan station.
+
+### Trigger Sequence
+
+The scanning process followed this general sequence:
+1. Pneumatic system positions the battery
+2. PLC enables scan state
+3. PLC issues trigger pulse
+4. Scanner captures QR code
+5. Scanner transmits decoded message
+6. PLC verifies read result
+7. Parsed data becomes available to SCADA/database systems
+
+### Trigger Output
+
+The scanner trigger was controlled using a dedicated PLC output bit mapped to the Profinet device output area.
 
 Topics:
-- Original long-form payload
-- Reduced short-form payload
-- Field formatting
-- Delimiters and message structure
+- One-shot trigger logic
+- Scan timing coordination
+- Synchronization with pneumatics
+- Read verification timing
+
+---
+
+# QR Message Processing
+
+## Raw Data Handling
+
+The scanner transmitted raw QR message data into the PLC through the Profinet input buffer.
+
+The PLC received:
+- Status bytes
+- Message control characters
+- QR payload data
+- Read status indicators
+
+The incoming message was processed entirely within PLC logic using SCL string parsing functions.
+
+### Message Buffer Structure
+
+The message buffer contained:
+- Header/status bytes
+- Start-of-text characters
+- QR payload content
+- End-of-message delimiters
+
+The parser monitored the input buffer and extracted usable text data from the incoming byte stream.
+
+---
+
+# QR Parsing Logic
+
+## PLC-Based String Parsing
+
+A custom SCL parsing routine was developed to process incoming QR messages directly within the PLC.
+
+The parser extracted:
+- Battery make
+- Model information
+- Serial number
+- Date information
+- Voltage
+- Capacity
+- Resistance data
+
+### Parsing Architecture
+
+Custom PLC functions were developed for:
+- Field extraction
+- Delimiter detection
+- String assembly
+- Message validation
 - Data organization
 
-Describe:
-- Make
-- Model
-- Serial number
-- Date of manufacture
+Topics:
+- SCL string handling
+- Character-by-character parsing
+- Delimiter-based extraction
+- Structured data formatting
+- Parse validation
+
+### Scan Verification
+
+The parser validated:
+- Proper message structure
+- Expected delimiters
+- Valid scan formatting
+- Successful read conditions
+
+The system rejected invalid or incomplete messages.
+
+---
+
+# Buffer Size Optimization
+
+## Profinet Message Limitations
+
+One of the major engineering challenges during development involved Profinet message buffer sizing and scanner communication limits.
+
+Initial scanner configurations produced QR payloads that exceeded the configured PLC input buffer size, resulting in truncated scan messages.
+
+### Original Problem
+
+Issues encountered included:
+- Partial message reads
+- Truncated QR payloads
+- Inconsistent parsing
+- Lost data fields
+- PLC/scanner IO mismatches
+
+### Solution
+
+The final solution involved:
+- Increasing Profinet input buffer allocation
+- Correcting IO address mapping
+- Reducing QR payload length
+- Optimizing transmitted data formatting
+
+The QR format was redesigned into a shorter structured format that preserved required information while reducing message size significantly.
+
+### Final Result
+
+The final communication implementation:
+- Fit reliably within the PLC buffer
+- Maintained scan consistency
+- Improved parser reliability
+- Reduced communication overhead
+
+---
+
+# Read Status Handling
+
+## Good Read / No Read Logic
+
+The scanner transmitted dedicated status bits indicating successful or failed scans.
+
+These signals were integrated into PLC logic and SCADA monitoring systems.
+
+### Status Indicators
+
+The system monitored:
+- Good read conditions
+- No read conditions
+- Trigger acknowledgement
+- Scanner activity states
+
+### PLC Integration
+
+Read status bits were used for:
+- Scan validation
+- State transitions
+- Error handling
+- Retry logic
+- Operator feedback
+
+The SCADA system displayed scanner state information in real time during operation.
+
+---
+
+# SCADA Integration
+
+## Vision Data in Ignition
+
+Parsed battery information was transferred from the PLC into the Ignition SCADA system for display and logging.
+
+### Displayed Information
+
+The SCADA interface displayed:
+- Battery serial number
 - Voltage
 - Capacity
 - Resistance
+- Scan status
+- Current battery information
 
-## QR Payload Optimization
+### Database Logging
 
-Discussion of why the QR payload was reduced and how the final structure was designed.
+Battery scan information was also logged into the SQL database system through Ignition.
 
-Topics:
-- Profinet buffer limitations
-- 128-byte communication limits
-- Original message size issues
-- Reduced payload implementation
-- Improved communication reliability
+Logged information included:
+- Battery identification data
+- Scan timestamps
+- System status information
+- Operator-visible scan results
 
-Discuss:
-- Reduction from approximately 130 bytes to approximately 68 bytes
-- Maintaining required traceability information
-- Buffer headroom considerations
+---
 
-## PLC Parsing Integration
+# Vision System Challenges
 
-Overview of how scanner data was processed inside the PLC.
+## Engineering Challenges
 
-Topics:
-- Input buffer handling
-- STX/CR message validation
-- Field extraction
-- String handling
-- Parsed value storage
+Several technical challenges were encountered during development of the vision subsystem.
 
-Mention:
-- `FB_QR_Parse`
-- `FC_GetFieldValue`
-- Message comparison logic
+### Major Challenges
 
-## Good Read / No Read Handling
+Key development issues included:
+- Profinet module configuration mismatches
+- Scanner IO sizing limitations
+- PLC string handling limitations
+- Truncated scan data
+- Trigger synchronization
+- Message parsing reliability
+- Industrial Ethernet configuration
 
-Explanation of scan validation logic.
+### Troubleshooting Process
 
-Topics:
-- Successful scan behavior
-- Failed scan behavior
-- PLC status handling
-- Scanner output mapping
-- Scan retry considerations
+Development required:
+- Packet sizing verification
+- Address remapping
+- Scanner-side configuration changes
+- PLC parser redesign
+- IO module testing
+- Real-time scan validation
 
-Discuss:
-- Good read status bit
-- No read status bit
-- Last-message comparison logic
+The majority of troubleshooting focused on ensuring reliable communication between the scanner and PLC while maintaining deterministic industrial control behavior.
 
-## Scanner Communication Challenges
+---
 
-Discussion of integration and communication problems encountered during development.
+# Final Outcome
 
-Possible topics:
-- Incorrect module sizing
-- 32-byte truncation issue
-- Input address remapping
-- GSD configuration issues
-- Device naming problems
-- Ethernet communication troubleshooting
+## Completed Vision System
 
-## Testing and Validation
-
-Description of how the vision system was tested.
-
-Topics:
-- QR-code readability testing
-- Lighting condition testing
-- Reflective material testing
-- Communication validation
-- PLC integration testing
-- SCADA data verification
-
-## Final Outcome
-
-Summary of completed vision-system functionality.
-
-Describe:
+The final vision subsystem successfully provided:
 - Reliable QR scanning
-- Stable PLC communication
-- Successful QR parsing
+- Real-time Profinet communication
+- PLC-based message parsing
+- Structured battery data extraction
 - SCADA integration
 - Database logging support
-- Reduced communication overhead
+
+The completed implementation demonstrated reliable industrial machine vision integration using PLC-controlled industrial Ethernet communication and custom structured-text parsing logic.
