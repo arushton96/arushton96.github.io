@@ -578,9 +578,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#system-workflow" class="md-nav__link">
+  <a href="#project-objectives" class="md-nav__link">
     <span class="md-ellipsis">
-      System Workflow
+      Project Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Configuration
     </span>
   </a>
   
@@ -596,6 +614,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#object-localization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Localization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#coordinate-transformation" class="md-nav__link">
     <span class="md-ellipsis">
       Coordinate Transformation
@@ -605,18 +632,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inverse-kinematics" class="md-nav__link">
+  <a href="#manipulator-geometry-inverse-kinematics" class="md-nav__link">
     <span class="md-ellipsis">
-      Inverse Kinematics
+      Manipulator Geometry &amp; Inverse Kinematics
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#embedded-motor-control" class="md-nav__link">
+  <a href="#embedded-communication-motor-control" class="md-nav__link">
     <span class="md-ellipsis">
-      Embedded Motor Control
+      Embedded Communication &amp; Motor Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engineering-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Challenges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Demonstration Media
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-planned-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Planned Diagrams
     </span>
   </a>
   
@@ -715,9 +769,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#system-workflow" class="md-nav__link">
+  <a href="#project-objectives" class="md-nav__link">
     <span class="md-ellipsis">
-      System Workflow
+      Project Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Configuration
     </span>
   </a>
   
@@ -733,6 +805,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#object-localization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Localization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#coordinate-transformation" class="md-nav__link">
     <span class="md-ellipsis">
       Coordinate Transformation
@@ -742,18 +823,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inverse-kinematics" class="md-nav__link">
+  <a href="#manipulator-geometry-inverse-kinematics" class="md-nav__link">
     <span class="md-ellipsis">
-      Inverse Kinematics
+      Manipulator Geometry &amp; Inverse Kinematics
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#embedded-motor-control" class="md-nav__link">
+  <a href="#embedded-communication-motor-control" class="md-nav__link">
     <span class="md-ellipsis">
-      Embedded Motor Control
+      Embedded Communication &amp; Motor Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engineering-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Challenges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Demonstration Media
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-planned-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Planned Diagrams
     </span>
   </a>
   
@@ -802,17 +910,32 @@
 
 <h1 id="vision-guided-object-pickup-system">Vision-Guided Object Pickup System<a class="headerlink" href="#vision-guided-object-pickup-system" title="Permanent link">¶</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>This project focused on integrating machine vision, coordinate transformation, inverse kinematics, and embedded motor control into a vision-guided planar manipulator system. A Python-based vision pipeline detected an object's position within the camera frame, transformed the measured coordinates into the robot base frame, calculated the required joint angles for a two-link arm, and transmitted the resulting motor commands to a PSOC-based embedded controller over UART communication.</p>
-<p>The project emphasized the mathematical and algorithmic side of robotics, including image processing, homogeneous transformations, workspace coordinate mapping, and inverse kinematics.</p>
+<p>This project focused on integrating machine vision, coordinate transformation, inverse kinematics, and embedded motor control into a complete vision-guided robotic motion system. A Python-based image-processing pipeline detected an object's location within the camera frame, transformed the measured coordinates into the robot workspace coordinate system, calculated the required manipulator joint angles, and transmitted motion commands to a PSOC-based embedded controller over UART communication.</p>
+<p>The project combined multiple robotics concepts into a single end-to-end control pipeline, including image segmentation, centroid extraction, homogeneous transformations, planar inverse kinematics, and embedded actuator control.</p>
+<p>Unlike industrial automation systems that rely on predefined positions and fixed logic, this project dynamically interpreted visual information from the environment and converted that data into real-time robotic motion commands.</p>
 <hr>
-<h2 id="system-workflow">System Workflow<a class="headerlink" href="#system-workflow" title="Permanent link">¶</a></h2>
+<h2 id="project-objectives">Project Objectives<a class="headerlink" href="#project-objectives" title="Permanent link">¶</a></h2>
+<p>The primary objectives of the project were:</p>
+<ul>
+<li>Develop a machine-vision-based object localization system</li>
+<li>Detect object position within the camera frame using OpenCV</li>
+<li>Transform camera coordinates into robot workspace coordinates</li>
+<li>Implement planar inverse kinematics for a multi-link manipulator</li>
+<li>Transmit calculated motion data to an embedded controller</li>
+<li>Integrate image processing, robotics mathematics, and actuator control into a unified motion pipeline</li>
+</ul>
+<p>The project emphasized the mathematical and algorithmic foundations of robotics while also incorporating practical embedded communication and motor-control implementation.</p>
+<hr>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">¶</a></h2>
+<p>The system combined machine vision, coordinate transformation, inverse kinematics, serial communication, and embedded motor control into a unified processing pipeline.</p>
+<h3 id="high-level-system-workflow">High-Level System Workflow<a class="headerlink" href="#high-level-system-workflow" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>USB Camera
     ↓
 OpenCV Image Processing
     ↓
 Object Detection &amp; Centroid Extraction
     ↓
-Homogeneous Coordinate Transformation
+Camera-to-Base Coordinate Transformation
     ↓
 Inverse Kinematics Calculation
     ↓
@@ -822,91 +945,222 @@ PSOC Embedded Controller
     ↓
 Servo Motor Actuation
 </code></pre></div>
+<p>The Python control layer handled all image processing and mathematical calculations, while the PSOC microcontroller handled low-level motor actuation and serial communication.</p>
+<hr>
+<h2 id="hardware-configuration">Hardware Configuration<a class="headerlink" href="#hardware-configuration" title="Permanent link">¶</a></h2>
+<p>The system used a simple planar robotic manipulator combined with a USB camera and embedded motor controller.</p>
+<h3 id="major-hardware-components">Major Hardware Components<a class="headerlink" href="#major-hardware-components" title="Permanent link">¶</a></h3>
+<ul>
+<li>USB camera</li>
+<li>PSOC microcontroller</li>
+<li>Dual servo motors</li>
+<li>Planar robotic arm assembly</li>
+<li>Embedded LCD/debug interface</li>
+<li>UART serial communication link</li>
+</ul>
+<p>The robotic arm was modeled as a planar multi-link manipulator with fixed link lengths and rotational joints.</p>
 <hr>
 <h2 id="vision-processing-pipeline">Vision Processing Pipeline<a class="headerlink" href="#vision-processing-pipeline" title="Permanent link">¶</a></h2>
-<p>The vision system was implemented in Python using OpenCV. Object localization was performed using background subtraction and threshold-based image segmentation.</p>
-<p>The process included:</p>
+<p>The machine vision system was implemented using Python and OpenCV.</p>
+<p>Object localization was performed through a multi-stage image-processing pipeline that isolated the target object from the environment and calculated its centroid location within the image frame.</p>
+<h3 id="image-processing-stages">Image Processing Stages<a class="headerlink" href="#image-processing-stages" title="Permanent link">¶</a></h3>
+<p>The processing pipeline included:</p>
 <ul>
 <li>Grayscale image conversion</li>
-<li>Foreground/background differencing</li>
-<li>Absolute-value image subtraction</li>
+<li>Background image capture</li>
+<li>Foreground/background subtraction</li>
 <li>Threshold filtering</li>
 <li>Contour filtering</li>
-<li>Centroid calculation using weighted pixel sums</li>
+<li>Centroid extraction</li>
 </ul>
-<p>This approach allowed the system to isolate a target object from the scene and determine its position within the camera frame.</p>
-<h3 id="example-processing-stages">Example Processing Stages<a class="headerlink" href="#example-processing-stages" title="Permanent link">¶</a></h3>
+<p>The system first captured a reference background image and then compared subsequent frames against that reference to isolate newly introduced objects.</p>
+<h3 id="background-subtraction">Background Subtraction<a class="headerlink" href="#background-subtraction" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">Difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span>
     <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">(</span><span class="n">gray_image_1</span><span class="p">))</span>
     <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">(</span><span class="n">gray_image_2</span><span class="p">))</span>
 <span class="p">)</span>
-
-<span class="n">BW</span><span class="p">[</span><span class="n">BW</span> <span class="o">&lt;</span> <span class="mi">75</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div>
-<p>Contour filtering was then used to remove noise and isolate the target object before calculating the object's centroid location.</p>
+<p>Absolute-value differencing allowed the system to detect both light and dark objects relative to the original background image.</p>
+<h3 id="threshold-filtering">Threshold Filtering<a class="headerlink" href="#threshold-filtering" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">BW</span><span class="p">[</span><span class="n">BW</span> <span class="o">&lt;</span> <span class="mi">75</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<p>Thresholding removed low-intensity noise and simplified the image into a binary representation suitable for contour extraction and centroid calculation.</p>
+<h3 id="contour-filtering">Contour Filtering<a class="headerlink" href="#contour-filtering" title="Permanent link">¶</a></h3>
+<p>Contour filtering was then used to isolate valid object regions while rejecting smaller noise artifacts:</p>
+<div class="highlight"><pre><span></span><code><span class="n">contours</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span>
+    <span class="n">BW</span><span class="p">,</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr>
+<h2 id="object-localization">Object Localization<a class="headerlink" href="#object-localization" title="Permanent link">¶</a></h2>
+<p>After thresholding and contour filtering, the object's center location was calculated using weighted pixel sums.</p>
+<p>The system calculated centroid location independently in both the X and Y image dimensions using intensity-weighted coordinate averaging.</p>
+<p>This process allowed the robotic system to determine the object's position within the camera frame before converting that position into robot workspace coordinates.</p>
+<h3 id="planned-diagram-placeholder">Planned Diagram Placeholder<a class="headerlink" href="#planned-diagram-placeholder" title="Permanent link">¶</a></h3>
+<!-- Insert image-processing pipeline diagram here -->
+
+<p>Suggested diagram content:</p>
+<ul>
+<li>Original camera image</li>
+<li>Difference image</li>
+<li>Thresholded image</li>
+<li>Contour-filtered result</li>
+<li>Final centroid extraction</li>
+</ul>
 <hr>
 <h2 id="coordinate-transformation">Coordinate Transformation<a class="headerlink" href="#coordinate-transformation" title="Permanent link">¶</a></h2>
-<p>After detecting the object's position within the camera frame, the measured coordinates were transformed into the robot base coordinate system using a homogeneous transformation matrix.</p>
-<p>The transformation included:</p>
+<p>After detecting the object within the image frame, the measured camera coordinates were transformed into the robot base coordinate system using a homogeneous transformation matrix.</p>
+<p>This transformation compensated for:</p>
 <ul>
-<li>Camera rotation compensation</li>
-<li>Base-frame alignment</li>
-<li>Translational offsets between the camera and robot origin</li>
+<li>Camera orientation</li>
+<li>Coordinate-frame alignment</li>
+<li>Physical displacement between the camera and manipulator origin</li>
 </ul>
-<p>The transformation matrix was constructed using combined rotation matrices and displacement vectors.</p>
+<h3 id="homogeneous-transformation-matrix">Homogeneous Transformation Matrix<a class="headerlink" href="#homogeneous-transformation-matrix" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">R0_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_Z</span><span class="p">,</span> <span class="n">R_Y</span><span class="p">)</span>
 
 <span class="n">H0_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">R0_C</span><span class="p">,</span> <span class="n">D0_C</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">H0_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">H0_C</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-<p>The resulting homogeneous transformation allowed camera-space coordinates to be converted into manipulator workspace coordinates before inverse kinematic calculations were performed.</p>
+<p>The transformation matrix combined rotational and translational offsets into a single coordinate transformation system.</p>
+<p>The resulting matrix allowed the system to convert image-space coordinates into manipulator workspace coordinates before performing inverse kinematic calculations.</p>
+<h3 id="coordinate-transformation-step">Coordinate Transformation Step<a class="headerlink" href="#coordinate-transformation-step" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">P0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H0_C</span><span class="p">,</span> <span class="n">PC</span><span class="p">)</span>
+</code></pre></div>
+<p>This transformation process represented one of the most important mathematical components of the project because it linked the vision system directly to the robotic workspace.</p>
 <hr>
-<h2 id="inverse-kinematics">Inverse Kinematics<a class="headerlink" href="#inverse-kinematics" title="Permanent link">¶</a></h2>
-<p>The robotic arm used a planar multi-link geometry model. Joint angles were calculated from the transformed target coordinates using trigonometric inverse-kinematic relationships.</p>
-<p>The inverse kinematics implementation included:</p>
+<h2 id="manipulator-geometry-inverse-kinematics">Manipulator Geometry &amp; Inverse Kinematics<a class="headerlink" href="#manipulator-geometry-inverse-kinematics" title="Permanent link">¶</a></h2>
+<p>The robotic arm was modeled as a planar multi-link manipulator with fixed link lengths.</p>
+<p>After transforming the object location into workspace coordinates, the system calculated the required joint angles needed to move the manipulator toward the target location.</p>
+<h3 id="inverse-kinematic-solution">Inverse Kinematic Solution<a class="headerlink" href="#inverse-kinematic-solution" title="Permanent link">¶</a></h3>
+<p>The inverse kinematics implementation used trigonometric geometry relationships including:</p>
 <ul>
 <li>Workspace distance calculations</li>
 <li>Link-length geometry</li>
-<li>Quadrant-dependent angle solutions</li>
-<li>Trigonometric joint-angle solving using <code>atan2()</code> and <code>acos()</code></li>
+<li>Quadrant-dependent angle handling</li>
+<li>Trigonometric angle solving using <code>atan2()</code> and <code>acos()</code></li>
 </ul>
+<h3 id="example-calculations">Example Calculations<a class="headerlink" href="#example-calculations" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">phi_1</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">y_end</span><span class="p">,</span> <span class="n">abs_x_end</span><span class="p">)</span>
 
 <span class="n">phi_2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">a1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">r2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">r1</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">a1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">r2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">r1</span><span class="p">)</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>The calculated joint angles were then converted into motor commands for the embedded controller.</p>
-<hr>
-<h2 id="embedded-motor-control">Embedded Motor Control<a class="headerlink" href="#embedded-motor-control" title="Permanent link">¶</a></h2>
-<p>A PSOC microcontroller handled low-level motor control and serial communication.</p>
-<p>The embedded controller:</p>
+<p>The system then generated the corresponding joint angles:</p>
+<div class="highlight"><pre><span></span><code><span class="n">theta_1</span>
+<span class="n">theta_2</span>
+</code></pre></div>
+<p>Quadrant-dependent handling logic was used to ensure correct manipulator motion throughout the workspace.</p>
+<h3 id="planned-diagram-placeholder_1">Planned Diagram Placeholder<a class="headerlink" href="#planned-diagram-placeholder_1" title="Permanent link">¶</a></h3>
+<!-- Insert manipulator geometry diagram here -->
+
+<p>Suggested diagram content:</p>
 <ul>
-<li>Received position data over UART</li>
-<li>Reconstructed transmitted floating-point values</li>
-<li>Applied offset correction for signed values</li>
-<li>Controlled the servo motors</li>
-<li>Displayed received coordinates on an onboard LCD for debugging</li>
+<li>Link lengths</li>
+<li>Joint angles</li>
+<li>Workspace coordinates</li>
+<li>End-effector location</li>
+<li>Coordinate-frame labels</li>
 </ul>
-<p>Because UART communication was limited to byte-wise transmission, floating-point values were separated into integer and decimal components before transmission.</p>
-<p>This created a reliable communication pipeline between the Python control system and the embedded actuator controller.</p>
+<hr>
+<h2 id="embedded-communication-motor-control">Embedded Communication &amp; Motor Control<a class="headerlink" href="#embedded-communication-motor-control" title="Permanent link">¶</a></h2>
+<p>The calculated joint-angle values were transmitted from Python to the PSOC microcontroller using UART serial communication.</p>
+<p>The embedded controller handled:</p>
+<ul>
+<li>Serial data reception</li>
+<li>Coordinate reconstruction</li>
+<li>Offset correction</li>
+<li>Servo actuation</li>
+<li>LCD-based debugging display</li>
+</ul>
+<h3 id="uart-transmission-strategy">UART Transmission Strategy<a class="headerlink" href="#uart-transmission-strategy" title="Permanent link">¶</a></h3>
+<p>Because the serial communication system was limited to byte-wise transmission, floating-point values were separated into integer and decimal components before transmission.</p>
+<p>Negative values were handled by applying offsets prior to transmission and removing those offsets on the embedded controller.</p>
+<h3 id="example-embedded-reconstruction">Example Embedded Reconstruction<a class="headerlink" href="#example-embedded-reconstruction" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">xReceived</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xReceiveD1D</span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="n">xDecReceived</span>
+<span class="w">                </span><span class="o">-</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
+</code></pre></div>
+<p>This communication pipeline allowed reliable transmission of signed floating-point coordinate data between the Python vision system and the embedded actuator controller.</p>
+<hr>
+<h2 id="engineering-challenges">Engineering Challenges<a class="headerlink" href="#engineering-challenges" title="Permanent link">¶</a></h2>
+<p>Several engineering challenges were encountered throughout development.</p>
+<h3 id="vision-noise-object-isolation">Vision Noise &amp; Object Isolation<a class="headerlink" href="#vision-noise-object-isolation" title="Permanent link">¶</a></h3>
+<p>Lighting conditions and image noise created instability during early object-detection testing. Threshold filtering and contour cleanup routines were introduced to improve object isolation reliability.</p>
+<h3 id="coordinate-frame-alignment">Coordinate-Frame Alignment<a class="headerlink" href="#coordinate-frame-alignment" title="Permanent link">¶</a></h3>
+<p>Accurately mapping camera coordinates into robot workspace coordinates required careful calibration of rotational offsets and translational displacement values.</p>
+<p>Small calibration errors significantly affected manipulator positioning accuracy.</p>
+<h3 id="workspace-quadrant-handling">Workspace &amp; Quadrant Handling<a class="headerlink" href="#workspace-quadrant-handling" title="Permanent link">¶</a></h3>
+<p>Inverse kinematic calculations required special handling across multiple workspace quadrants to ensure the manipulator produced physically correct motion solutions.</p>
+<h3 id="embedded-communication-constraints">Embedded Communication Constraints<a class="headerlink" href="#embedded-communication-constraints" title="Permanent link">¶</a></h3>
+<p>UART communication constraints required custom handling for signed floating-point transmission between Python and the embedded controller.</p>
+<p>The communication pipeline was redesigned to separate whole-number and decimal components into individual byte transmissions.</p>
+<hr>
+<h2 id="demonstration-media">Demonstration Media<a class="headerlink" href="#demonstration-media" title="Permanent link">¶</a></h2>
+<h3 id="planned-demonstration-media">Planned Demonstration Media<a class="headerlink" href="#planned-demonstration-media" title="Permanent link">¶</a></h3>
+<!-- Add demonstration images/videos here -->
+
+<p>Suggested content:</p>
+<ul>
+<li>Camera view screenshots</li>
+<li>Thresholded image examples</li>
+<li>Coordinate-overlay images</li>
+<li>Manipulator motion demonstrations</li>
+<li>Embedded LCD debugging display</li>
+</ul>
+<hr>
+<h2 id="additional-planned-diagrams">Additional Planned Diagrams<a class="headerlink" href="#additional-planned-diagrams" title="Permanent link">¶</a></h2>
+<h3 id="vision-to-motion-pipeline-diagram">Vision-to-Motion Pipeline Diagram<a class="headerlink" href="#vision-to-motion-pipeline-diagram" title="Permanent link">¶</a></h3>
+<p>Suggested content:</p>
+<div class="highlight"><pre><span></span><code>Camera Image
+    ↓
+Image Processing
+    ↓
+Centroid Extraction
+    ↓
+Coordinate Transformation
+    ↓
+Inverse Kinematics
+    ↓
+Joint Angle Commands
+    ↓
+Embedded Motor Control
+</code></pre></div>
+<hr>
+<h3 id="coordinate-transformation-diagram">Coordinate Transformation Diagram<a class="headerlink" href="#coordinate-transformation-diagram" title="Permanent link">¶</a></h3>
+<p>Suggested content:</p>
+<ul>
+<li>Camera coordinate frame</li>
+<li>Robot base frame</li>
+<li>Translation offsets</li>
+<li>Rotation alignment</li>
+<li>Workspace coordinate conversion</li>
+</ul>
 <hr>
 <h2 id="technical-concepts-demonstrated">Technical Concepts Demonstrated<a class="headerlink" href="#technical-concepts-demonstrated" title="Permanent link">¶</a></h2>
+<p>This project demonstrated practical implementation of several robotics and machine-vision concepts:</p>
 <ul>
 <li>OpenCV image processing</li>
-<li>Background subtraction and thresholding</li>
-<li>Object centroid extraction</li>
-<li>Homogeneous coordinate transformations</li>
-<li>Planar inverse kinematics</li>
+<li>Background subtraction</li>
+<li>Threshold filtering</li>
+<li>Contour extraction</li>
+<li>Object centroid calculation</li>
+<li>Homogeneous transformations</li>
 <li>Coordinate-frame conversion</li>
+<li>Planar inverse kinematics</li>
 <li>UART serial communication</li>
 <li>Embedded motor control</li>
 <li>Python-to-microcontroller integration</li>
 </ul>
 <hr>
 <h2 id="project-outcome">Project Outcome<a class="headerlink" href="#project-outcome" title="Permanent link">¶</a></h2>
-<p>The completed system successfully detected object locations within the camera frame, transformed those coordinates into robot workspace coordinates, calculated corresponding arm joint angles, and transmitted motor commands to an embedded controller for physical arm actuation.</p>
-<p>This project provided hands-on experience with the mathematical foundations of robotics and demonstrated the integration of machine vision, kinematic modeling, and embedded control into a single autonomous motion-control pipeline.</p>
+<p>The completed system successfully detected object locations within the camera frame, transformed those measurements into robot workspace coordinates, calculated corresponding manipulator joint angles, and transmitted motion commands to an embedded actuator controller.</p>
+<p>The project provided hands-on experience with machine vision, coordinate transformation, robotics mathematics, embedded communication, and manipulator control while demonstrating the integration of sensing, computation, and physical robotic motion into a unified control system.</p>
+<p>This project complements the more industrial automation-focused systems elsewhere in this portfolio by emphasizing the algorithmic, mathematical, and perception-oriented side of robotics engineering.</p>
 
 
 
