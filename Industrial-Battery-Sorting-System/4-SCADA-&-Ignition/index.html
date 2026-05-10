@@ -534,9 +534,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-control-interface" class="md-nav__link">
+  <a href="#pneumatic-control-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      Manual Control Interface
+      Pneumatic Control Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#battery-scan-qc-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Battery Scan &amp; QC Interface
     </span>
   </a>
   
@@ -853,9 +862,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-control-interface" class="md-nav__link">
+  <a href="#pneumatic-control-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      Manual Control Interface
+      Pneumatic Control Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#battery-scan-qc-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Battery Scan &amp; QC Interface
     </span>
   </a>
   
@@ -998,68 +1016,146 @@
 <p>Despite these challenges, the final OPC UA integration provided stable and reliable communication between the PLC and Ignition throughout operation.</p>
 <hr>
 <h2 id="scada-page-layout">SCADA Page Layout<a class="headerlink" href="#scada-page-layout" title="Permanent link">¶</a></h2>
-<h3 id="main-operator-interface">Main Operator Interface<a class="headerlink" href="#main-operator-interface" title="Permanent link">¶</a></h3>
-<p>The primary operator interface was designed to provide centralized control and monitoring for the automated sequence while maintaining a simple and readable layout.</p>
-<p>The main page displayed:</p>
-<ul>
-<li>System operating mode</li>
-<li>Cycle-state information</li>
-<li>Scanner status</li>
-<li>Pneumatic status indicators</li>
-<li>Battery scan information</li>
-<li>Operator command controls</li>
-<li>Sequence activity indicators</li>
-</ul>
-<p>Operators could start, stop, and reset the automation sequence directly from the interface while monitoring real-time system behavior throughout operation.</p>
-<p>The page layout emphasized readability and quick status visibility, allowing important system information to remain visible without overwhelming the interface with unnecessary controls or diagnostics.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/MainSCADA.png" data-desc-position="bottom"><img alt="Main SCADA Page" src="Images/MainSCADA.png"></a></p>
+<p>The SCADA system was organized into two primary operator interfaces designed around the major functional subsystems of the project.</p>
+<p>The first interface focused on pneumatic operation and sequence control, while the second interface focused on battery scanning, QR-data visualization, and quality-control interaction.</p>
+<p>This separation simplified subsystem debugging and improved operator readability throughout development and testing.</p>
 <hr>
-<h2 id="manual-control-interface">Manual Control Interface<a class="headerlink" href="#manual-control-interface" title="Permanent link">¶</a></h2>
-<h3 id="pneumatic-testing-diagnostics">Pneumatic Testing &amp; Diagnostics<a class="headerlink" href="#pneumatic-testing-diagnostics" title="Permanent link">¶</a></h3>
-<p>A dedicated manual-control page was developed to support subsystem testing and pneumatic debugging throughout development.</p>
-<p>The manual interface allowed operators to directly actuate pneumatic outputs independently of the automatic sequence and was heavily used during:</p>
+<h2 id="pneumatic-control-interface">Pneumatic Control Interface<a class="headerlink" href="#pneumatic-control-interface" title="Permanent link">¶</a></h2>
+<h3 id="sequence-control-pneumatic-diagnostics">Sequence Control &amp; Pneumatic Diagnostics<a class="headerlink" href="#sequence-control-pneumatic-diagnostics" title="Permanent link">¶</a></h3>
+<p>The pneumatic-control interface served as the primary operator page for system operation, sequence control, and pneumatic testing.</p>
+<p>The page provided:</p>
 <ul>
-<li>Pneumatic testing</li>
-<li>Vacuum tuning</li>
+<li>Automatic/manual mode selection</li>
+<li>Start, stop, and reset controls</li>
+<li>Pneumatic output monitoring</li>
+<li>Vacuum-state indicators</li>
+<li>Manual pneumatic actuation</li>
+<li>Sequence-state visibility</li>
+<li>System-status feedback</li>
+<li>Operator diagnostics</li>
+</ul>
+<p>This interface was heavily used throughout subsystem integration and final testing.</p>
+<p>Primary development uses included:</p>
+<ul>
+<li>Pneumatic timing validation</li>
 <li>Sequence debugging</li>
-<li>Output verification</li>
-<li>Scanner integration</li>
-<li>Hardware validation</li>
+<li>Vacuum-system testing</li>
+<li>Reset-sequence verification</li>
+<li>Manual subsystem operation</li>
+<li>Hardware troubleshooting</li>
 </ul>
-<p>The page exposed direct controls for:</p>
+<p>Additional safeguards and PLC-side permissive logic were implemented to prevent conflicts between automatic and manual operation while maintaining safe system behavior during testing.</p>
+<p>The interface layout emphasized readability and quick status visibility while minimizing unnecessary operator complexity during development and demonstration.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/SCADA-Pneumatics.png" data-desc-position="bottom"><img alt="Pneumatic Control Interface" src="Images/SCADA-Pneumatics.png"></a></p>
+<hr>
+<h2 id="battery-scan-qc-interface">Battery Scan &amp; QC Interface<a class="headerlink" href="#battery-scan-qc-interface" title="Permanent link">¶</a></h2>
+<h3 id="scanner-interaction-battery-data">Scanner Interaction &amp; Battery Data<a class="headerlink" href="#scanner-interaction-battery-data" title="Permanent link">¶</a></h3>
+<p>A dedicated battery-scan and quality-control interface was developed to support scanner interaction, QR-data visualization, and database functionality throughout development and final operation.</p>
+<p>The page displayed:</p>
 <ul>
-<li>Vacuum outputs</li>
-<li>Flipper extension/retraction</li>
-<li>Scanner triggering</li>
-<li>Pneumatic diagnostics</li>
-<li>Sequence-state testing</li>
+<li>Parsed QR battery information</li>
+<li>Quality-control validation values</li>
+<li>Pass/fail status indicators</li>
+<li>Scanner trigger controls</li>
+<li>Battery identification data</li>
+<li>Database logging controls</li>
+<li>Scanner-status feedback</li>
+<li>Error-state indicators</li>
 </ul>
-<p>Additional safeguards and lockouts were implemented to prevent conflicts between automatic and manual operation while maintaining safe output behavior during testing.</p>
-<p>The manual-control architecture became one of the most useful debugging tools throughout subsystem integration and final sequence tuning.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/ManualSCADA.png" data-desc-position="bottom"><img alt="Manual Control Page" src="Images/ManualSCADA.png"></a></p>
+<p>This interface became especially important during:</p>
+<ul>
+<li>QR parser validation</li>
+<li>Scanner communication debugging</li>
+<li>Database testing</li>
+<li>Profinet integration troubleshooting</li>
+<li>Traceability validation</li>
+<li>Final-system demonstrations</li>
+</ul>
+<p>The separation between pneumatic controls and scanner interaction simplified troubleshooting and allowed subsystem-specific diagnostics to remain organized throughout development.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/SCADA-Camera.png" data-desc-position="bottom"><img alt="Battery Scan &amp; QC Interface" src="Images/SCADA-Camera.png"></a></p>
 <hr>
 <h2 id="tag-architecture">Tag Architecture<a class="headerlink" href="#tag-architecture" title="Permanent link">¶</a></h2>
 <h3 id="plc-to-scada-mapping">PLC to SCADA Mapping<a class="headerlink" href="#plc-to-scada-mapping" title="Permanent link">¶</a></h3>
-<p>The PLC-to-SCADA interface was organized using a structured tag-mapping architecture designed to separate operator commands, PLC-controlled values, status indicators, and parsed battery information into clearly defined groups.</p>
-<p>A naming convention was implemented throughout the project to improve readability and simplify troubleshooting.</p>
-<p>Major tag groups included:</p>
+<p>The PLC-to-SCADA interface was organized using a structured data-block architecture designed to separate operator commands, system status values, parsed QR information, and pneumatic diagnostics into clearly defined groups within the PLC.</p>
+<p>The primary interface block exposed data to Ignition through OPC UA and acted as the communication bridge between the Siemens S7-1200 PLC and the Perspective operator interface.</p>
+<p>The exported tag structure was divided into several major sections:</p>
 <ul>
-<li><code>usr_</code> tags for user and SCADA commands</li>
-<li><code>plc_</code> tags for internal PLC logic</li>
-<li><code>sts_</code> tags for system status outputs</li>
-<li><code>QR_</code> tags for parsed battery information</li>
-<li>Camera and scanner status tags</li>
-<li>Database logging values</li>
+<li><code>Commands</code></li>
+<li><code>Status</code></li>
+<li><code>ParsedValues</code></li>
+<li><code>ParsedStrings</code></li>
+<li><code>PneumaticStatus</code></li>
 </ul>
 <p>This structure simplified:</p>
 <ul>
-<li>Tag browsing</li>
-<li>OPC mapping</li>
-<li>Debugging</li>
-<li>Interface development</li>
+<li>OPC UA mapping</li>
+<li>Ignition tag importing</li>
+<li>Troubleshooting</li>
+<li>Interface organization</li>
+<li>PLC-to-SCADA communication</li>
 <li>Database integration</li>
 </ul>
-<p>Read/write separation was also maintained throughout the architecture to prevent unintended operator interaction with internal PLC-controlled values.</p>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">¶</a></h3>
+<p>The <code>Commands</code> structure contained operator-driven control inputs written from Ignition to the PLC.</p>
+<p>These tags included:</p>
+<ul>
+<li>Camera trigger commands</li>
+<li>Start-cycle requests</li>
+<li>Stop-cycle requests</li>
+<li>Reset requests</li>
+<li>Operating-mode selection</li>
+<li>Manual pneumatic controls</li>
+<li>Manual vacuum controls</li>
+</ul>
+<p>This section allowed the SCADA interface to issue commands while the PLC maintained control over sequence validation, permissives, and execution logic.</p>
+<h3 id="status">Status<a class="headerlink" href="#status" title="Permanent link">¶</a></h3>
+<p>The <code>Status</code> structure contained scanner feedback, message-processing information, and system-level scan results.</p>
+<p>Exported status information included:</p>
+<ul>
+<li>Current scanner message data</li>
+<li>Good-read indicators</li>
+<li>No-read indicators</li>
+<li>Error-code reporting</li>
+</ul>
+<p>These values were used throughout the SCADA interface to provide scanner diagnostics and operator feedback during system operation and testing.</p>
+<h3 id="parsedvalues">ParsedValues<a class="headerlink" href="#parsedvalues" title="Permanent link">¶</a></h3>
+<p>The <code>ParsedValues</code> structure contained numeric battery information extracted from the QR-code parser logic.</p>
+<p>Exported values included:</p>
+<ul>
+<li>Battery voltage</li>
+<li>Capacity</li>
+<li>Resistance</li>
+<li>Parse-valid indicators</li>
+<li>QC validation results</li>
+<li>Overall pass/fail status</li>
+</ul>
+<p>These tags allowed Ignition to display battery data and quality-control results directly from the PLC parsing subsystem.</p>
+<h3 id="parsedstrings">ParsedStrings<a class="headerlink" href="#parsedstrings" title="Permanent link">¶</a></h3>
+<p>The <code>ParsedStrings</code> structure contained the string-based battery information extracted from the QR payload.</p>
+<p>Displayed values included:</p>
+<ul>
+<li>Battery manufacturer</li>
+<li>Model information</li>
+<li>Serial number</li>
+<li>Date of manufacture</li>
+<li>String-formatted electrical values</li>
+</ul>
+<p>Special consideration was required when handling these string tags through OPC UA due to Siemens string formatting behavior and Ignition import limitations.</p>
+<h3 id="pneumaticstatus">PneumaticStatus<a class="headerlink" href="#pneumaticstatus" title="Permanent link">¶</a></h3>
+<p>The <code>PneumaticStatus</code> structure exposed real-time pneumatic and sequence-state information to the SCADA interface.</p>
+<p>Exported status values included:</p>
+<ul>
+<li>Automatic/manual mode states</li>
+<li>Pneumatic valve states</li>
+<li>Vacuum-output states</li>
+<li>Reset availability</li>
+<li>Reset activity</li>
+<li>Stop conditions</li>
+<li>Cycle-active status</li>
+<li>Mode-permissive status</li>
+<li>Current sequence step</li>
+</ul>
+<p>These tags were heavily used throughout development and testing to validate pneumatic timing, sequence transitions, and subsystem behavior during both automatic and manual operation.</p>
 <hr>
 <h2 id="user-controls">User Controls<a class="headerlink" href="#user-controls" title="Permanent link">¶</a></h2>
 <h3 id="system-commands">System Commands<a class="headerlink" href="#system-commands" title="Permanent link">¶</a></h3>
@@ -1072,6 +1168,7 @@
 <li>Automatic/manual mode selection</li>
 <li>Manual pneumatic controls</li>
 <li>Scanner trigger controls</li>
+<li>Database logging controls</li>
 </ul>
 <p>A significant portion of the interface design focused on preventing unsafe or misleading operator interaction. Mode changes and manual controls were restricted using PLC-side permissive logic to prevent invalid state transitions during active sequences.</p>
 <p>Additional consideration was given to:</p>
@@ -1097,6 +1194,8 @@
 <li>Vacuum activity</li>
 <li>Reset and stop conditions</li>
 <li>Communication status indicators</li>
+<li>Battery QC results</li>
+<li>QR parsing feedback</li>
 </ul>
 <p>Additional diagnostic indicators were developed throughout integration testing to simplify troubleshooting and validate subsystem communication during development.</p>
 <p>The status architecture became especially important during:</p>
@@ -1130,7 +1229,6 @@
 <li>Store scan-history information</li>
 </ul>
 <p>Additional testing and validation were performed using Ignition’s built-in database query browser throughout development.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/DatabaseLogging.png" data-desc-position="bottom"><img alt="Database Logging" src="Images/DatabaseLogging.png"></a></p>
 <hr>
 <h2 id="ui-design-decisions">UI Design Decisions<a class="headerlink" href="#ui-design-decisions" title="Permanent link">¶</a></h2>
 <p>Several design decisions were made throughout development to improve usability, readability, and system visibility within the SCADA interface.</p>
@@ -1174,7 +1272,8 @@
 <li>Integrated operator controls</li>
 <li>Development and troubleshooting support</li>
 </ul>
-<p>The SCADA subsystem ultimately became one of the primary integration layers connecting the PLC, operator interface, machine vision system, and database architecture into a unified industrial automation platform.</p>
+<p>The SCADA subsystem ultimately became one of the primary integration layers connecting the PLC, operator interface, machine vision system, and database architecture into a unified industrial automation platform.
+```</p>
 
 
 
