@@ -21,6 +21,7 @@ The SCADA subsystem also integrated with a SQL database used to log scanned batt
 Industrial Ethernet networking connected all major hardware devices throughout the system. Static IP addressing and Profinet communication were used to maintain reliable communication between the PLC, vision system, pneumatic communication hardware, and SCADA workstation.
 
 The final architecture emphasized:
+
 - Centralized PLC-based control
 - Industrial communication integration
 - Modular subsystem coordination
@@ -46,6 +47,7 @@ The Siemens S7-1200 PLC served as the central controller for the entire automati
 The control architecture was designed around a state-machine sequence structure that managed both automatic and manual operating modes. The PLC handled communication between all major subsystems while maintaining deterministic control over pneumatic sequencing, scan timing, reset behavior, and operator interaction.
 
 The PLC also acted as the primary communication hub for the system by:
+
 - Triggering the vision system
 - Parsing incoming QR-code data
 - Mapping tags to the SCADA interface
@@ -64,6 +66,7 @@ The vision subsystem used a Banner ABR3000 vision sensor to scan QR-coded batter
 During the automated sequence, the PLC triggered the scanner once the battery reached the correct scan position. The scanner then processed the QR code and transmitted the resulting message back to the PLC for parsing and validation.
 
 The vision-system architecture included:
+
 - Profinet-based industrial communication
 - Trigger-based scan control
 - Good-read and no-read status handling
@@ -84,6 +87,7 @@ The pneumatic subsystem was responsible for the physical handling and transfer o
 The system used multiple vacuum channels to maintain controlled battery handoffs during transfer operations. Extend/retract motion and vacuum timing were synchronized through PLC-controlled sequencing to maintain stable battery positioning during scanner operations.
 
 The pneumatic architecture included:
+
 - SMC valve manifold control
 - Vacuum generation hardware
 - Robot vacuum simulation
@@ -104,6 +108,7 @@ The SCADA subsystem was developed using Ignition Perspective and provided the pr
 Communication between Ignition and the PLC was handled through OPC UA, allowing the SCADA system to exchange commands and status information with the control system.
 
 The SCADA architecture included:
+
 - Real-time operator controls
 - System status monitoring
 - Manual and automatic operating modes
@@ -123,12 +128,14 @@ Additional diagnostic pages were developed throughout integration and testing to
 The database subsystem was used to store scanned battery information for traceability and system monitoring purposes. Parsed QR-code data received by the PLC was transmitted to Ignition and inserted into a SQL database table through the SCADA interface.
 
 The logging architecture allowed scanned battery information to be:
+
 - Recorded automatically during operation
 - Viewed through Ignition
 - Queried for testing and validation
 - Used for traceability demonstrations
 
 The database structure included fields for:
+
 - Battery serial number
 - Manufacturer information
 - Voltage
@@ -150,6 +157,7 @@ The system used an industrial Ethernet architecture to connect all major devices
 The PLC acted as the primary communication coordinator for the industrial network while Ignition interfaced with the control system through OPC UA communication.
 
 The networking architecture included:
+
 - Static IP device configuration
 - Industrial Ethernet communication
 - Profinet device integration
@@ -183,6 +191,7 @@ During automatic operation, the communication flow followed the sequence below:
 8. The PLC completed the remainder of the pneumatic transfer sequence and returned the system to a ready state for the next cycle.
 
 Throughout operation, communication between subsystems remained continuous. The PLC continuously exchanged:
+
 - Status information with Ignition
 - Control commands with pneumatic hardware
 - Scanner trigger and acknowledgment signals with the vision system
@@ -190,6 +199,7 @@ Throughout operation, communication between subsystems remained continuous. The 
 - Parsed battery data for database logging
 
 The communication architecture combined:
+
 - Profinet industrial communication
 - OPC UA SCADA communication
 - Industrial Ethernet networking
@@ -212,6 +222,7 @@ Several design decisions were also driven by communication reliability. During s
 The SCADA architecture was designed around a structured tag-mapping approach that separated user commands, PLC-controlled values, and status outputs into organized groups. This improved readability, troubleshooting, and long-term maintainability during development and testing.
 
 Additional design priorities included:
+
 - Maintaining deterministic PLC control
 - Preserving safe reset behavior
 - Preventing conflicting pneumatic outputs
@@ -231,6 +242,7 @@ One of the largest challenges involved the planned integration between the Sieme
 The vision system integration process also introduced several communication challenges. Initial scanner communication was limited by incorrect Profinet module sizing, which caused QR messages to truncate before the full payload could be received by the PLC. Troubleshooting these issues required reconfiguring module lengths, remapping PLC input ranges, and restructuring the QR payload format to reduce communication overhead while preserving required data fields.
 
 Additional communication challenges included:
+
 - Profinet device configuration
 - GSD installation and mapping
 - Device naming and IP assignment
