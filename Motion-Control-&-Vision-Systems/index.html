@@ -635,46 +635,93 @@
 
 
 <h1 id="motion-control-vision-systems">Motion Control &amp; Vision Systems<a class="headerlink" href="#motion-control-vision-systems" title="Permanent link">¶</a></h1>
-<p>This section contains two academically focused robotics and motion-control projects developed using Python, OpenCV, inverse kinematics, and PSOC-based embedded motor control.</p>
-<p>These projects are smaller in scope than the Battery Sorting System, but they demonstrate a different side of my engineering work: mathematical modeling, coordinate transformation, camera-based sensing, and low-level actuator control.</p>
+<p>This section contains two robotics-focused projects centered around machine vision, embedded control, inverse kinematics, and motion-planning algorithms. These projects were developed as part of advanced robotics coursework and focused heavily on the mathematical and controls-oriented side of robotics engineering.</p>
+<p>While the Battery Sorting System elsewhere in this portfolio emphasized industrial automation, PLC integration, SCADA development, and systems engineering, the projects in this section focused more heavily on robotics mathematics, coordinate transformation, trajectory generation, and embedded motion control.</p>
+<p>Together, these projects demonstrate practical implementation of:</p>
+<ul>
+<li>Machine vision and object localization</li>
+<li>Coordinate-frame transformation</li>
+<li>Inverse kinematics and Jacobian-based motion control</li>
+<li>Embedded robotics programming</li>
+<li>Cartesian-to-joint coordinate conversion</li>
+<li>Servo synchronization and trajectory generation</li>
+<li>PSOC-based actuator control</li>
+</ul>
 <hr>
 <h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">¶</a></h2>
 <h3 id="vision-guided-object-pickup-system">Vision-Guided Object Pickup System<a class="headerlink" href="#vision-guided-object-pickup-system" title="Permanent link">¶</a></h3>
-<p>A camera-based object localization system that used Python and OpenCV to detect an object's position, transform camera-frame coordinates into the robot base frame, calculate joint angles using inverse kinematics, and send motion commands to a PSOC controller over UART.</p>
-<p><strong>Key topics:</strong></p>
+<p>A machine-vision-based robotic control system that detected object locations using OpenCV image processing, transformed camera-frame coordinates into robot workspace coordinates using homogeneous transformations, calculated manipulator joint angles through inverse kinematics, and transmitted motion commands to a PSOC-based embedded controller over UART communication.</p>
+<p>The project combined computer vision, robotics mathematics, and embedded control into a single end-to-end motion pipeline.</p>
+<h4 id="technical-highlights">Technical Highlights<a class="headerlink" href="#technical-highlights" title="Permanent link">¶</a></h4>
 <ul>
 <li>OpenCV image processing</li>
-<li>Background subtraction</li>
-<li>Centroid extraction</li>
+<li>Background subtraction and thresholding</li>
+<li>Object centroid extraction</li>
 <li>Homogeneous coordinate transformation</li>
 <li>Planar inverse kinematics</li>
+<li>Camera-to-base frame conversion</li>
 <li>UART communication</li>
-<li>Embedded motor control</li>
+<li>Embedded servo control</li>
 </ul>
-<p><a href="vision-guided-object-pickup.md">View project</a></p>
+<h4 id="system-workflow">System Workflow<a class="headerlink" href="#system-workflow" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code>Camera Capture
+    ↓
+OpenCV Vision Processing
+    ↓
+Object Localization
+    ↓
+Coordinate Transformation
+    ↓
+Inverse Kinematics
+    ↓
+UART Communication
+    ↓
+PSOC Motor Control
+</code></pre></div>
+<p><a href="Vision-Guided-Object-Pickup-System/">View project</a></p>
 <hr>
 <h3 id="servo-based-shape-drawing-system">Servo-Based Shape Drawing System<a class="headerlink" href="#servo-based-shape-drawing-system" title="Permanent link">¶</a></h3>
-<p>A two-servo drawing arm that used Python-generated motion commands and PSOC-based motor control to trace predefined shapes. The project focused on inverse kinematics, coordinated servo motion, and translating geometric paths into actuator movement.</p>
-<p><strong>Key topics:</strong></p>
+<p>A fully embedded motion-control system that generated and executed geometric drawing trajectories using a two-link planar robotic arm driven by coordinated servo motion. The project implemented inverse differential kinematics and Jacobian-based trajectory control directly on a PSOC microcontroller.</p>
+<p>Rather than using simple point-to-point servo commands, the system generated continuous Cartesian motion trajectories, converted workspace velocities into joint angular velocities, buffered trajectory points, and executed smooth repeatable drawing operations entirely within embedded firmware.</p>
+<h4 id="technical-highlights_1">Technical Highlights<a class="headerlink" href="#technical-highlights_1" title="Permanent link">¶</a></h4>
 <ul>
-<li>Python motion generation</li>
-<li>Two-link arm kinematics</li>
-<li>Servo control</li>
-<li>Coordinate-based drawing</li>
-<li>Embedded control through PSOC</li>
-<li>Physical motion validation</li>
+<li>Embedded motion planning</li>
+<li>Inverse differential kinematics</li>
+<li>Jacobian matrix implementation</li>
+<li>Cartesian velocity generation</li>
+<li>Trajectory buffering</li>
+<li>Coordinated dual-servo control</li>
+<li>Real-time path execution</li>
+<li>Embedded robotics control</li>
 </ul>
-<p><a href="servo-shape-drawing.md">View project</a></p>
+<h4 id="motion-control-pipeline">Motion-Control Pipeline<a class="headerlink" href="#motion-control-pipeline" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code>Shape Generation
+    ↓
+Cartesian Velocity Commands
+    ↓
+Inverse Jacobian Solution
+    ↓
+Joint Velocity Calculation
+    ↓
+Trajectory Buffering
+    ↓
+Servo Motor Execution
+</code></pre></div>
+<p><a href="Servo-Based-Shape-Drawing-System/">View project</a></p>
 <hr>
 <h2 id="technical-focus">Technical Focus<a class="headerlink" href="#technical-focus" title="Permanent link">¶</a></h2>
-<p>Together, these projects demonstrate the academic and mathematical side of robotics and motion control. While the Battery Sorting System emphasized industrial controls, PLC programming, SCADA integration, and system-level implementation, these projects focused more heavily on robotics fundamentals:</p>
+<p>These projects focused on robotics concepts that are mathematically and algorithmically intensive, including:</p>
 <ul>
-<li>Mapping camera or path coordinates into actuator motion</li>
-<li>Solving position-based motion problems mathematically</li>
-<li>Translating calculated values into embedded motor commands</li>
-<li>Testing physical motion against expected geometric behavior</li>
+<li>Workspace coordinate transformation</li>
+<li>Manipulator kinematics</li>
+<li>Jacobian-based motion control</li>
+<li>Trajectory generation</li>
+<li>Coordinate-system alignment</li>
+<li>Embedded actuator control</li>
+<li>Continuous motion execution</li>
 </ul>
-<p>They serve as supporting projects within this portfolio, showing experience with robotics concepts alongside the larger industrial automation work.</p>
+<p>The projects also provided practical experience implementing robotics concepts directly in software and embedded hardware rather than relying solely on simulation environments.</p>
+<p>Together, they complement the larger industrial automation systems within this portfolio by demonstrating experience with both high-level robotics mathematics and low-level embedded motion control implementation.</p>
 
 
 
