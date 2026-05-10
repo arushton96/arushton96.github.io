@@ -14,9 +14,9 @@ Many portions of the final architecture evolved significantly as testing exposed
 
 ---
 
-# Original Project Architecture
+## Original Project Architecture
 
-## Initial System Concept
+### Initial System Concept
 
 The original project architecture centered around a fully integrated industrial automation platform combining:
 
@@ -36,15 +36,15 @@ The intended architecture represented a more traditional industrial automation w
 
 ---
 
-# Hardware & Communication Delays
+## Hardware & Communication Delays
 
-## Robot Integration Limitations
+### Robot Integration Limitations
 
 One of the largest project challenges involved the planned integration between the Siemens PLC and the FANUC robotic system.
 
 Although the robot itself supported Ethernet/IP communication, the project architecture required Profinet integration in order to maintain compatibility with the rest of the industrial communication network.
 
-### Profinet Upgrade Delays
+#### Profinet Upgrade Delays
 
 The required Profinet communication hardware experienced repeated delays and ultimately did not arrive within the project timeline.
 
@@ -56,7 +56,7 @@ This created several major impacts:
 - Required redesign of the automation sequence
 - Scope reduction near final integration stages
 
-### Engineering Response
+#### Engineering Response
 
 Rather than abandoning the automation workflow entirely, the project architecture was redesigned around a pneumatic-focused transfer sequence that simulated the intended battery-handling process while preserving the core integration objectives of the project.
 
@@ -74,9 +74,9 @@ despite the loss of robotic communication integration.
 
 ---
 
-# Industrial Networking Challenges
+## Industrial Networking Challenges
 
-## Profinet Integration
+### Profinet Integration
 
 Industrial communication integration became one of the largest technical portions of the project.
 
@@ -87,7 +87,7 @@ Several challenges were encountered while integrating:
 - SMC valve manifold
 - Ignition SCADA system
 
-### Device Configuration Issues
+#### Device Configuration Issues
 
 Challenges included:
 
@@ -100,7 +100,7 @@ Challenges included:
 
 Much of the troubleshooting process involved validating communication settings between the scanner, PLC hardware configuration, and Profinet IO modules inside TIA Portal.
 
-### Communication Validation
+#### Communication Validation
 
 Additional testing was required to:
 
@@ -114,13 +114,13 @@ The networking subsystem ultimately became one of the most integration-heavy por
 
 ---
 
-# QR Communication Challenges
+## QR Communication Challenges
 
-## Message Buffer Limitations
+### Message Buffer Limitations
 
 One of the most significant technical problems encountered during development involved scanner message-size limitations and Profinet communication buffers.
 
-### Original Problem
+#### Original Problem
 
 Initial QR payload formats exceeded the configured Profinet input-buffer allocation, causing:
 
@@ -131,7 +131,7 @@ Initial QR payload formats exceeded the configured Profinet input-buffer allocat
 
 The issue initially appeared to be inconsistent scanner behavior before being traced back to IO module sizing and communication mapping limitations.
 
-### Engineering Solution
+#### Engineering Solution
 
 Several engineering decisions were made to improve communication reliability:
 
@@ -145,9 +145,9 @@ The final QR payload format preserved the required traceability information whil
 
 ---
 
-# PLC Architecture Challenges
+## PLC Architecture Challenges
 
-## State-Machine Development
+### State-Machine Development
 
 The PLC sequence architecture evolved significantly throughout development.
 
@@ -159,7 +159,7 @@ Initial implementations became increasingly difficult to maintain as:
 - Manual controls were introduced
 - Scanner integration requirements increased
 
-### Sequence Refinement
+#### Sequence Refinement
 
 The final state-machine architecture focused heavily on:
 
@@ -174,13 +174,13 @@ Large portions of the sequence logic were repeatedly restructured throughout dev
 
 ---
 
-# Pneumatic Coordination Challenges
+## Pneumatic Coordination Challenges
 
-## Vacuum Handoff Timing
+### Vacuum Handoff Timing
 
 Reliable battery transfer required significantly more timing coordination than originally expected.
 
-### Transfer Stability Issues
+#### Transfer Stability Issues
 
 Early implementations encountered:
 
@@ -190,7 +190,7 @@ Early implementations encountered:
 - Reset-state complications
 - Transfer synchronization issues
 
-### Engineering Improvements
+#### Engineering Improvements
 
 The final implementation introduced:
 
@@ -204,13 +204,13 @@ These changes significantly improved transfer reliability and overall sequence s
 
 ---
 
-# SCADA Integration Challenges
+## SCADA Integration Challenges
 
-## Ignition & OPC UA
+### Ignition & OPC UA
 
 Several integration challenges were encountered while connecting Ignition to the Siemens PLC through OPC UA communication.
 
-### Major Issues
+#### Major Issues
 
 Challenges included:
 
@@ -221,7 +221,7 @@ Challenges included:
 - Perspective scripting issues
 - Database configuration troubleshooting
 
-### String Handling Problems
+#### String Handling Problems
 
 One particularly difficult issue involved PLC string allocations and OPC communication reliability.
 
@@ -235,9 +235,9 @@ The final solution involved restructuring portions of the PLC data architecture 
 
 ---
 
-# Real-World Project Constraints
+## Real-World Project Constraints
 
-## Schedule Compression
+### Schedule Compression
 
 A major challenge throughout development involved adapting the project architecture while operating under compressed integration timelines.
 
@@ -256,7 +256,7 @@ These issues reduced the amount of available time for:
 - Sequence refinement
 - Hardware testing
 
-### Engineering Adaptation
+#### Engineering Adaptation
 
 The project required continuous reprioritization and scope management throughout development in order to preserve the most technically valuable portions of the system architecture.
 
@@ -274,13 +274,13 @@ while removing or simplifying portions of the original scope that could no longe
 
 ---
 
-# Engineering Decisions
+## Engineering Decisions
 
-## Architectural Priorities
+### Architectural Priorities
 
 Several major engineering decisions shaped the final system architecture.
 
-### Centralized PLC Control
+#### Centralized PLC Control
 
 The project used the Siemens PLC as the centralized controller for:
 
@@ -292,7 +292,7 @@ The project used the Siemens PLC as the centralized controller for:
 
 This simplified subsystem coordination and improved deterministic control behavior.
 
-### Separation of Control & Interface Layers
+#### Separation of Control & Interface Layers
 
 The PLC retained all real-time automation logic while Ignition handled:
 
@@ -303,15 +303,15 @@ The PLC retained all real-time automation logic while Ignition handled:
 
 This separation improved system stability and simplified troubleshooting.
 
-### Pneumatic-Only Fallback Architecture
+#### Pneumatic-Only Fallback Architecture
 
 The redesign away from robotic integration preserved the majority of the industrial automation architecture while simplifying the physical handling process enough to maintain a stable and demonstrable final system.
 
 ---
 
-# Lessons Learned
+## Lessons Learned
 
-## Engineering Experience
+### Engineering Experience
 
 The project provided extensive experience in:
 
@@ -324,7 +324,7 @@ The project provided extensive experience in:
 - Real-world troubleshooting
 - Systems-level debugging
 
-### Systems Integration
+#### Systems Integration
 
 One of the largest lessons learned throughout development involved the complexity of integrating multiple industrial subsystems into a coordinated and reliable automation platform.
 
@@ -339,9 +339,9 @@ Many of the project challenges were not isolated programming problems, but inste
 
 ---
 
-# Final Outcome
+## Final Outcome
 
-## Completed System Architecture
+### Completed System Architecture
 
 Despite multiple communication challenges, hardware limitations, and evolving project constraints, the final implementation successfully demonstrated:
 
