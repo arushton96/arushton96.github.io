@@ -13,3 +13,7 @@ article{
     --md-default-bg-color: #161922;
     --md-default-fg-color: #e6e6e6;
 }
+
+.md-typeset h1 {
+    color: #ffffff;
+}
