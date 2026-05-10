@@ -18,7 +18,7 @@ nav:
 
   - Embedded Systems Project:
       - Embedded Systems Project: Embedded-Systems_Project/index.md
-      - Block Diagram: Embedded-Systems_Project/Block-Diagram.md
+      - Block Diagram: docs/Embedded-Systems_Project/ Block-Diagram.md
       - Component Selection: Embedded-Systems_Project/2-Component-Selection.md
       - ESP32 Table: Embedded-Systems_Project/3-esp-32-table.md
       - BoM: Embedded-Systems_Project/4-Bill-Of-Materials.md
