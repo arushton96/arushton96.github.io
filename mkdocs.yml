@@ -30,6 +30,7 @@ nav:
   - Motion Control & Vision Systems:
       - Vision Guided Object Pickup System: Motion-Control-&-Vision-Systems/Vision-Guided-Object-Pickup-System.md
       - Motion Control & Vision Systems: Motion-Control-&-Vision-Systems/index.md
+      - Servo Based Shape Drawing System: Motion-Control-&-Vision-Systems/Servo-Based-Shape-Drawing-System.md
 
 theme:
   name: material
