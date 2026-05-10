@@ -754,46 +754,56 @@
 <h1 id="pneumatic-handling-system">Pneumatic Handling System</h1>
 <h2 id="pneumatic-system-overview">Pneumatic System Overview</h2>
 <p>The pneumatic subsystem was responsible for the physical handling and transfer of battery cells throughout the automated sequence. The system used vacuum-based gripping and PLC-controlled pneumatic actuation to simulate automated battery transfer operations between handling stages.</p>
-<p>The pneumatic architecture was designed to support:
-- Automated battery transfer
-- Controlled positioning during scanning
-- Vacuum-based handling
-- Coordinated state-machine sequencing
-- Manual testing and diagnostics
-- Safe reset and recovery behavior</p>
+<p>The pneumatic architecture was designed to support:</p>
+<ul>
+<li>Automated battery transfer</li>
+<li>Controlled positioning during scanning</li>
+<li>Vacuum-based handling</li>
+<li>Coordinated state-machine sequencing</li>
+<li>Manual testing and diagnostics</li>
+<li>Safe reset and recovery behavior</li>
+</ul>
 <p>The final implementation emphasized reliable subsystem integration and deterministic sequence control rather than high-speed motion or mechanical throughput.</p>
 <hr>
 <h1 id="system-purpose">System Purpose</h1>
 <h2 id="automated-battery-handling">Automated Battery Handling</h2>
 <p>The pneumatic subsystem served as the physical execution layer of the automation sequence.</p>
-<p>Its primary responsibilities included:
-- Picking up battery cells
-- Transferring batteries between handling positions
-- Positioning batteries for scanning
-- Coordinating vacuum handoffs
-- Returning the system to a safe idle state</p>
+<p>Its primary responsibilities included:</p>
+<ul>
+<li>Picking up battery cells</li>
+<li>Transferring batteries between handling positions</li>
+<li>Positioning batteries for scanning</li>
+<li>Coordinating vacuum handoffs</li>
+<li>Returning the system to a safe idle state</li>
+</ul>
 <p>The system simulated the transfer behavior originally intended to be performed through robotic handling integration while preserving the overall control-system architecture and subsystem interactions.</p>
 <hr>
 <h1 id="pneumatic-hardware">Pneumatic Hardware</h1>
 <h2 id="smc-valve-manifold">SMC Valve Manifold</h2>
 <p>The pneumatic outputs were controlled through an SMC Ethernet-based valve manifold integrated with the Siemens PLC over Profinet communication.</p>
-<p>The manifold provided centralized control of:
-- Vacuum outputs
-- Pneumatic extend/retract motion
-- Transfer timing coordination
-- Solenoid activation</p>
+<p>The manifold provided centralized control of:</p>
+<ul>
+<li>Vacuum outputs</li>
+<li>Pneumatic extend/retract motion</li>
+<li>Transfer timing coordination</li>
+<li>Solenoid activation</li>
+</ul>
 <h3 id="valve-configuration">Valve Configuration</h3>
-<p>The manifold contained:
-- Single-solenoid valves
-- Double-solenoid valves
-- Vacuum-control channels
-- Motion-control outputs</p>
+<p>The manifold contained:</p>
+<ul>
+<li>Single-solenoid valves</li>
+<li>Double-solenoid valves</li>
+<li>Vacuum-control channels</li>
+<li>Motion-control outputs</li>
+</ul>
 <p>The PLC controlled all pneumatic outputs through mapped Profinet output bytes inside TIA Portal.</p>
 <h3 id="industrial-integration">Industrial Integration</h3>
-<p>The manifold was integrated into the industrial Ethernet network alongside:
-- Siemens S7-1200 PLC
-- Banner vision sensor
-- Ignition SCADA workstation</p>
+<p>The manifold was integrated into the industrial Ethernet network alongside:</p>
+<ul>
+<li>Siemens S7-1200 PLC</li>
+<li>Banner vision sensor</li>
+<li>Ignition SCADA workstation</li>
+</ul>
 <p>This architecture allowed all major automation devices to communicate through a unified industrial network structure.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/ValveManifold.png" data-desc-position="bottom"><img alt="SMC Valve Manifold" src="Images/ValveManifold.png"></a></p>
 <hr>
@@ -802,18 +812,22 @@
 <p>Battery handling was performed using vacuum generators and pneumatic suction cups rather than mechanical grippers.</p>
 <p>The system used multiple vacuum channels to maintain controlled battery transfers throughout operation.</p>
 <h3 id="vacuum-channels">Vacuum Channels</h3>
-<p>The pneumatic architecture included:
-- Robot vacuum channel
-- Flipper vacuum A
-- Flipper vacuum B</p>
+<p>The pneumatic architecture included:</p>
+<ul>
+<li>Robot vacuum channel</li>
+<li>Flipper vacuum A</li>
+<li>Flipper vacuum B</li>
+</ul>
 <p>These channels coordinated handoffs between transfer stages during the automated sequence.</p>
 <h3 id="transfer-stability">Transfer Stability</h3>
-<p>Special consideration was given to:
-- Vacuum timing overlap
-- Stable transfer behavior
-- Preventing dropped batteries
-- Reset-state recovery
-- Coordinated release timing</p>
+<p>Special consideration was given to:</p>
+<ul>
+<li>Vacuum timing overlap</li>
+<li>Stable transfer behavior</li>
+<li>Preventing dropped batteries</li>
+<li>Reset-state recovery</li>
+<li>Coordinated release timing</li>
+</ul>
 <p>The final implementation relied heavily on overlapping vacuum states during handoffs to ensure reliable transfer behavior throughout the sequence.</p>
 <hr>
 <h1 id="flipper-mechanism">Flipper Mechanism</h1>
@@ -821,16 +835,20 @@
 <p>A pneumatic flipper mechanism was used to transfer batteries between handling positions and coordinate the scan process.</p>
 <p>The flipper assembly contained two vacuum positions offset by approximately 180 degrees and operated through pneumatic extend/retract motion controlled by the PLC.</p>
 <h3 id="flipper-operation">Flipper Operation</h3>
-<p>The flipper sequence coordinated:
-- Battery transfer between vacuum positions
-- Extend/retract motion
-- Scanner positioning
-- Vacuum overlap timing</p>
-<p>The PLC managed all sequencing logic and timing coordination between:
-- Flipper motion
-- Vacuum handoffs
-- Scanner triggering
-- Sequence-state transitions</p>
+<p>The flipper sequence coordinated:</p>
+<ul>
+<li>Battery transfer between vacuum positions</li>
+<li>Extend/retract motion</li>
+<li>Scanner positioning</li>
+<li>Vacuum overlap timing</li>
+</ul>
+<p>The PLC managed all sequencing logic and timing coordination between:</p>
+<ul>
+<li>Flipper motion</li>
+<li>Vacuum handoffs</li>
+<li>Scanner triggering</li>
+<li>Sequence-state transitions</li>
+</ul>
 <h3 id="motion-coordination">Motion Coordination</h3>
 <p>The system used mutually exclusive extend/retract logic to prevent conflicting pneumatic outputs and maintain predictable motion behavior during operation.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/FlipperMechanism.png" data-desc-position="bottom"><img alt="Flipper Mechanism" src="Images/FlipperMechanism.png"></a></p>
@@ -838,155 +856,185 @@
 <h1 id="pneumatic-sequence-operation">Pneumatic Sequence Operation</h1>
 <h2 id="automated-sequence">Automated Sequence</h2>
 <p>The automated pneumatic sequence was structured around a PLC-controlled state machine.</p>
-<p>The sequence coordinated:
-1. Battery pickup
-2. Transfer to flipper vacuum
-3. Flipper extension
-4. Scanner positioning
-5. Vacuum handoff coordination
-6. Flipper retraction
-7. Battery return/release
-8. Sequence completion</p>
+<p>The sequence coordinated:</p>
+<ol>
+<li>Battery pickup</li>
+<li>Transfer to flipper vacuum</li>
+<li>Flipper extension</li>
+<li>Scanner positioning</li>
+<li>Vacuum handoff coordination</li>
+<li>Flipper retraction</li>
+<li>Battery return/release</li>
+<li>Sequence completion</li>
+</ol>
 <h3 id="sequence-coordination">Sequence Coordination</h3>
-<p>The sequence relied heavily on:
-- Timer coordination
-- Vacuum overlap
-- State transitions
-- Scanner synchronization
-- Safe output sequencing</p>
+<p>The sequence relied heavily on:</p>
+<ul>
+<li>Timer coordination</li>
+<li>Vacuum overlap</li>
+<li>State transitions</li>
+<li>Scanner synchronization</li>
+<li>Safe output sequencing</li>
+</ul>
 <p>The final implementation evolved significantly throughout development as timing adjustments and transfer refinements were tested and validated.</p>
 <hr>
 <h1 id="plc-integration">PLC Integration</h1>
 <h2 id="pneumatic-output-control">Pneumatic Output Control</h2>
 <p>All pneumatic outputs were controlled directly through PLC logic using mapped Profinet outputs assigned to the SMC valve manifold.</p>
-<p>The PLC coordinated:
-- Vacuum activation
-- Extend/retract motion
-- Sequence timing
-- Reset behavior
-- Manual controls
-- Output interlocks</p>
+<p>The PLC coordinated:</p>
+<ul>
+<li>Vacuum activation</li>
+<li>Extend/retract motion</li>
+<li>Sequence timing</li>
+<li>Reset behavior</li>
+<li>Manual controls</li>
+<li>Output interlocks</li>
+</ul>
 <h3 id="output-mapping">Output Mapping</h3>
-<p>Dedicated PLC outputs were assigned to:
-- Robot vacuum
-- Flipper vacuum A
-- Flipper vacuum B
-- Flipper extend
-- Flipper retract</p>
+<p>Dedicated PLC outputs were assigned to:</p>
+<ul>
+<li>Robot vacuum</li>
+<li>Flipper vacuum A</li>
+<li>Flipper vacuum B</li>
+<li>Flipper extend</li>
+<li>Flipper retract</li>
+</ul>
 <p>The pneumatic architecture was tightly integrated with the overall PLC state-machine logic.</p>
 <hr>
 <h1 id="manual-pneumatic-control">Manual Pneumatic Control</h1>
 <h2 id="testing-diagnostics">Testing &amp; Diagnostics</h2>
 <p>A manual operating mode was developed to support subsystem testing and pneumatic debugging throughout development.</p>
-<p>Manual mode allowed operators to:
-- Individually actuate outputs
-- Test vacuum channels
-- Verify transfer behavior
-- Validate timing logic
-- Troubleshoot subsystem issues</p>
+<p>Manual mode allowed operators to:</p>
+<ul>
+<li>Individually actuate outputs</li>
+<li>Test vacuum channels</li>
+<li>Verify transfer behavior</li>
+<li>Validate timing logic</li>
+<li>Troubleshoot subsystem issues</li>
+</ul>
 <h3 id="scada-integration">SCADA Integration</h3>
 <p>Manual controls were exposed through the Ignition SCADA interface and became one of the primary debugging tools used during integration and testing.</p>
-<p>The manual-control interface simplified:
-- Pneumatic validation
-- Sequence troubleshooting
-- Hardware testing
-- Scanner integration testing
-- Output verification</p>
+<p>The manual-control interface simplified:</p>
+<ul>
+<li>Pneumatic validation</li>
+<li>Sequence troubleshooting</li>
+<li>Hardware testing</li>
+<li>Scanner integration testing</li>
+<li>Output verification</li>
+</ul>
 <hr>
 <h1 id="timing-handoff-logic">Timing &amp; Handoff Logic</h1>
 <h2 id="transfer-coordination">Transfer Coordination</h2>
 <p>One of the most important portions of the pneumatic architecture involved timing coordination between vacuum channels during battery handoff operations.</p>
 <h3 id="vacuum-overlap">Vacuum Overlap</h3>
-<p>The sequence intentionally maintained overlapping vacuum states during transfers to:
-- Prevent dropped batteries
-- Stabilize transfers
-- Maintain consistent positioning
-- Improve sequence reliability</p>
+<p>The sequence intentionally maintained overlapping vacuum states during transfers to:</p>
+<ul>
+<li>Prevent dropped batteries</li>
+<li>Stabilize transfers</li>
+<li>Maintain consistent positioning</li>
+<li>Improve sequence reliability</li>
+</ul>
 <h3 id="timer-coordination">Timer Coordination</h3>
-<p>The PLC coordinated:
-- Handoff timing
-- Extend/retract delays
-- Scanner wait states
-- Sequence transitions
-- Reset timing</p>
+<p>The PLC coordinated:</p>
+<ul>
+<li>Handoff timing</li>
+<li>Extend/retract delays</li>
+<li>Scanner wait states</li>
+<li>Sequence transitions</li>
+<li>Reset timing</li>
+</ul>
 <p>These timings were refined extensively throughout development to improve transfer consistency and overall system stability.</p>
 <hr>
 <h1 id="safety-interlocks">Safety &amp; Interlocks</h1>
 <h2 id="safe-pneumatic-operation">Safe Pneumatic Operation</h2>
 <p>The pneumatic subsystem included several interlocks and output protections designed to maintain safe and predictable system behavior.</p>
 <h3 id="output-interlocks">Output Interlocks</h3>
-<p>Logic protections were implemented to:
-- Prevent conflicting outputs
-- Enforce extend/retract exclusivity
-- Prevent invalid motion states
-- Restrict manual/automatic conflicts</p>
+<p>Logic protections were implemented to:</p>
+<ul>
+<li>Prevent conflicting outputs</li>
+<li>Enforce extend/retract exclusivity</li>
+<li>Prevent invalid motion states</li>
+<li>Restrict manual/automatic conflicts</li>
+</ul>
 <h3 id="reset-handling">Reset Handling</h3>
 <p>Reset behavior became one of the more complex portions of the sequence architecture.</p>
-<p>The reset sequence was designed to:
-- Preserve control of the battery
-- Safely reverse interrupted states
-- Return the system to idle
-- Prevent unstable transfer conditions</p>
+<p>The reset sequence was designed to:</p>
+<ul>
+<li>Preserve control of the battery</li>
+<li>Safely reverse interrupted states</li>
+<li>Return the system to idle</li>
+<li>Prevent unstable transfer conditions</li>
+</ul>
 <p>The final implementation emphasized deterministic recovery behavior rather than simply disabling all outputs during reset conditions.</p>
 <hr>
 <h1 id="pneumatic-challenges">Pneumatic Challenges</h1>
 <h2 id="engineering-challenges">Engineering Challenges</h2>
 <p>Several challenges were encountered during development of the pneumatic subsystem.</p>
 <h3 id="major-challenges">Major Challenges</h3>
-<p>Key issues included:
-- Vacuum timing coordination
-- Stable transfer behavior
-- Reset-state recovery
-- Sequence synchronization
-- Extend/retract timing
-- Manual/automatic interaction
-- Preventing conflicting outputs</p>
+<p>Key issues included:</p>
+<ul>
+<li>Vacuum timing coordination</li>
+<li>Stable transfer behavior</li>
+<li>Reset-state recovery</li>
+<li>Sequence synchronization</li>
+<li>Extend/retract timing</li>
+<li>Manual/automatic interaction</li>
+<li>Preventing conflicting outputs</li>
+</ul>
 <h3 id="sequence-evolution">Sequence Evolution</h3>
 <p>The pneumatic sequence evolved significantly throughout development as testing exposed new timing and transfer issues.</p>
-<p>Large portions of the final sequence architecture were refined iteratively through:
-- Manual testing
-- SCADA diagnostics
-- Watch-table monitoring
-- State-machine debugging
-- Full-system validation</p>
+<p>Large portions of the final sequence architecture were refined iteratively through:</p>
+<ul>
+<li>Manual testing</li>
+<li>SCADA diagnostics</li>
+<li>Watch-table monitoring</li>
+<li>State-machine debugging</li>
+<li>Full-system validation</li>
+</ul>
 <hr>
 <h1 id="system-redesign">System Redesign</h1>
 <h2 id="transition-from-robot-integration">Transition from Robot Integration</h2>
 <p>The original project architecture planned for direct integration with a FANUC robotic system. Due to hardware and communication limitations, the final implementation shifted toward a pneumatic-focused automation sequence while preserving the overall system integration architecture.</p>
 <p>The redesigned pneumatic sequence simulated the intended battery transfer process using coordinated vacuum handling and PLC-controlled state sequencing.</p>
-<p>This redesign allowed the project to preserve:
-- Industrial automation architecture
-- PLC control logic
-- Machine vision integration
-- SCADA functionality
-- Industrial networking
-- Database logging
-- Automated sequence behavior</p>
+<p>This redesign allowed the project to preserve:</p>
+<ul>
+<li>Industrial automation architecture</li>
+<li>PLC control logic</li>
+<li>Machine vision integration</li>
+<li>SCADA functionality</li>
+<li>Industrial networking</li>
+<li>Database logging</li>
+<li>Automated sequence behavior</li>
+</ul>
 <p>while adapting to real-world project constraints.</p>
 <hr>
 <h1 id="testing-validation">Testing &amp; Validation</h1>
 <h2 id="pneumatic-validation">Pneumatic Validation</h2>
 <p>Extensive subsystem testing was performed throughout development to validate pneumatic operation and sequence reliability.</p>
-<p>Testing included:
-- Vacuum hold testing
-- Manual output testing
-- Sequence timing validation
-- Reset-sequence testing
-- Transfer consistency validation
-- Scanner-position testing</p>
+<p>Testing included:</p>
+<ul>
+<li>Vacuum hold testing</li>
+<li>Manual output testing</li>
+<li>Sequence timing validation</li>
+<li>Reset-sequence testing</li>
+<li>Transfer consistency validation</li>
+<li>Scanner-position testing</li>
+</ul>
 <p>Additional testing was performed through the SCADA diagnostic interface during subsystem integration and final system validation.</p>
 <hr>
 <h1 id="final-outcome">Final Outcome</h1>
 <h2 id="completed-pneumatic-system">Completed Pneumatic System</h2>
-<p>The completed pneumatic subsystem successfully demonstrated:
-- Automated battery transfer
-- Vacuum-based handling
-- PLC-controlled sequencing
-- Stable vacuum handoffs
-- Integrated scanner positioning
-- Manual and automatic operation
-- Industrial Ethernet integration
-- Reliable subsystem coordination</p>
+<p>The completed pneumatic subsystem successfully demonstrated:</p>
+<ul>
+<li>Automated battery transfer</li>
+<li>Vacuum-based handling</li>
+<li>PLC-controlled sequencing</li>
+<li>Stable vacuum handoffs</li>
+<li>Integrated scanner positioning</li>
+<li>Manual and automatic operation</li>
+<li>Industrial Ethernet integration</li>
+<li>Reliable subsystem coordination</li>
+</ul>
 <p>The final implementation served as the physical automation layer of the project and successfully integrated with the PLC, scanner, SCADA system, and database architecture to form a complete industrial automation platform.</p>
 
 
