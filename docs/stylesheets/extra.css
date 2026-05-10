@@ -8,3 +8,8 @@ article{
     --md-default-bg-color: #161922;
     --md-default-fg-color: #e6e6e6;
 }
+
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: #161922;
+    --md-default-fg-color: #e6e6e6;
+}
