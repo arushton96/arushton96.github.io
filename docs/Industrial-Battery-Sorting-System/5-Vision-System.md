@@ -11,6 +11,7 @@ The vision subsystem was responsible for identifying and processing QR-coded bat
 The scanner acted as the primary source of battery information within the system. Once a battery was positioned at the scanning station, the camera captured and decoded the QR label, transmitted the raw scan data to the PLC, and allowed the control logic to process the battery information for display, logging, and system tracking.
 
 The vision system was designed around:
+
 - Industrial Ethernet communication
 - PLC-based QR parsing
 - Real-time scan verification
@@ -28,6 +29,7 @@ The system utilized a Banner ABR3000 industrial barcode and vision sensor config
 ### Scanner Responsibilities
 
 The scanner was responsible for:
+
 - Detecting QR-coded battery labels
 - Capturing scan data
 - Transmitting scan results to the PLC
@@ -39,6 +41,7 @@ The scanner was responsible for:
 The scanner was connected to the industrial Ethernet network alongside the Siemens PLC and pneumatic valve manifold.
 
 System connections included:
+
 - Ethernet / Profinet communication
 - 24 VDC industrial power
 - PLC-controlled trigger signals
@@ -49,6 +52,7 @@ System connections included:
 The camera was assigned a static IP address within the system network and configured as a Profinet IO device within TIA Portal.
 
 Topics:
+
 - Static IP configuration
 - Device naming
 - Profinet device assignment
@@ -68,6 +72,7 @@ This allowed the scanner to behave as a cyclic industrial IO device inside the P
 ### Communication Architecture
 
 The scanner exchanged:
+
 - Trigger commands from the PLC
 - Good read / no read status bits
 - Raw scan message data
@@ -80,6 +85,7 @@ The PLC handled all higher-level message processing and parsing logic internally
 A Banner Profinet GSD file was imported into TIA Portal in order to configure the scanner as an industrial IO device.
 
 Challenges included:
+
 - Correct module selection
 - IO length configuration
 - Address allocation
@@ -96,6 +102,7 @@ The scanner was configured for externally triggered acquisition. The PLC generat
 ### Trigger Sequence
 
 The scanning process followed this general sequence:
+
 1. Pneumatic system positions the battery
 2. PLC enables scan state
 3. PLC issues trigger pulse
@@ -109,6 +116,7 @@ The scanning process followed this general sequence:
 The scanner trigger was controlled using a dedicated PLC output bit mapped to the Profinet device output area.
 
 Topics:
+
 - One-shot trigger logic
 - Scan timing coordination
 - Synchronization with pneumatics
@@ -123,6 +131,7 @@ Topics:
 The scanner transmitted raw QR message data into the PLC through the Profinet input buffer.
 
 The PLC received:
+
 - Status bytes
 - Message control characters
 - QR payload data
@@ -133,6 +142,7 @@ The incoming message was processed entirely within PLC logic using SCL string pa
 ### Message Buffer Structure
 
 The message buffer contained:
+
 - Header/status bytes
 - Start-of-text characters
 - QR payload content
@@ -149,6 +159,7 @@ The parser monitored the input buffer and extracted usable text data from the in
 A custom SCL parsing routine was developed to process incoming QR messages directly within the PLC.
 
 The parser extracted:
+
 - Battery make
 - Model information
 - Serial number
@@ -160,6 +171,7 @@ The parser extracted:
 ### Parsing Architecture
 
 Custom PLC functions were developed for:
+
 - Field extraction
 - Delimiter detection
 - String assembly
@@ -167,6 +179,7 @@ Custom PLC functions were developed for:
 - Data organization
 
 Topics:
+
 - SCL string handling
 - Character-by-character parsing
 - Delimiter-based extraction
@@ -176,6 +189,7 @@ Topics:
 ### Scan Verification
 
 The parser validated:
+
 - Proper message structure
 - Expected delimiters
 - Valid scan formatting
@@ -196,6 +210,7 @@ Initial scanner configurations produced QR payloads that exceeded the configured
 ### Original Problem
 
 Issues encountered included:
+
 - Partial message reads
 - Truncated QR payloads
 - Inconsistent parsing
@@ -205,6 +220,7 @@ Issues encountered included:
 ### Solution
 
 The final solution involved:
+
 - Increasing Profinet input buffer allocation
 - Correcting IO address mapping
 - Reducing QR payload length
@@ -215,6 +231,7 @@ The QR format was redesigned into a shorter structured format that preserved req
 ### Final Result
 
 The final communication implementation:
+
 - Fit reliably within the PLC buffer
 - Maintained scan consistency
 - Improved parser reliability
@@ -233,6 +250,7 @@ These signals were integrated into PLC logic and SCADA monitoring systems.
 ### Status Indicators
 
 The system monitored:
+
 - Good read conditions
 - No read conditions
 - Trigger acknowledgement
@@ -241,6 +259,7 @@ The system monitored:
 ### PLC Integration
 
 Read status bits were used for:
+
 - Scan validation
 - State transitions
 - Error handling
@@ -260,6 +279,7 @@ Parsed battery information was transferred from the PLC into the Ignition SCADA 
 ### Displayed Information
 
 The SCADA interface displayed:
+
 - Battery serial number
 - Voltage
 - Capacity
@@ -272,6 +292,7 @@ The SCADA interface displayed:
 Battery scan information was also logged into the SQL database system through Ignition.
 
 Logged information included:
+
 - Battery identification data
 - Scan timestamps
 - System status information
@@ -288,6 +309,7 @@ Several technical challenges were encountered during development of the vision s
 ### Major Challenges
 
 Key development issues included:
+
 - Profinet module configuration mismatches
 - Scanner IO sizing limitations
 - PLC string handling limitations
@@ -299,6 +321,7 @@ Key development issues included:
 ### Troubleshooting Process
 
 Development required:
+
 - Packet sizing verification
 - Address remapping
 - Scanner-side configuration changes
@@ -315,6 +338,7 @@ The majority of troubleshooting focused on ensuring reliable communication betwe
 ## Completed Vision System
 
 The final vision subsystem successfully provided:
+
 - Reliable QR scanning
 - Real-time Profinet communication
 - PLC-based message parsing
