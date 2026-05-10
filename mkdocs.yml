@@ -28,7 +28,8 @@ nav:
       - Resources: Embedded-Systems_Project/8-Resources.md
 
   - Motion Control & Vision Systems:
-    -Vision Guided Object Pickup System: Motion-Control-&-Vision-Systems/Vision-Guided-Object-Pickup-System.md
+    - Vision Guided Object Pickup System: Motion-Control-&-Vision-Systems/Vision-Guided-Object-Pickup-System.md
+    - Motion Control & Vision Systems: Motion-Control-&-Vision-Systems/index.md
 
 theme:
   name: material
