@@ -21,9 +21,9 @@ The final implementation emphasized reliable subsystem integration and determini
 
 ---
 
-# System Purpose
+## System Purpose
 
-## Automated Battery Handling
+### Automated Battery Handling
 
 The pneumatic subsystem served as the physical execution layer of the automation sequence.
 
@@ -39,9 +39,9 @@ The system simulated the transfer behavior originally intended to be performed t
 
 ---
 
-# Pneumatic Hardware
+## Pneumatic Hardware
 
-## SMC Valve Manifold
+### SMC Valve Manifold
 
 The pneumatic outputs were controlled through an SMC Ethernet-based valve manifold integrated with the Siemens PLC over Profinet communication.
 
@@ -52,7 +52,7 @@ The manifold provided centralized control of:
 - Transfer timing coordination
 - Solenoid activation
 
-### Valve Configuration
+#### Valve Configuration
 
 The manifold contained:
 
@@ -63,7 +63,7 @@ The manifold contained:
 
 The PLC controlled all pneumatic outputs through mapped Profinet output bytes inside TIA Portal.
 
-### Industrial Integration
+#### Industrial Integration
 
 The manifold was integrated into the industrial Ethernet network alongside:
 
@@ -77,15 +77,15 @@ This architecture allowed all major automation devices to communicate through a 
 
 ---
 
-# Vacuum System
+## Vacuum System
 
-## Vacuum-Based Battery Transfer
+### Vacuum-Based Battery Transfer
 
 Battery handling was performed using vacuum generators and pneumatic suction cups rather than mechanical grippers.
 
 The system used multiple vacuum channels to maintain controlled battery transfers throughout operation.
 
-### Vacuum Channels
+#### Vacuum Channels
 
 The pneumatic architecture included:
 
@@ -95,7 +95,7 @@ The pneumatic architecture included:
 
 These channels coordinated handoffs between transfer stages during the automated sequence.
 
-### Transfer Stability
+#### Transfer Stability
 
 Special consideration was given to:
 
@@ -109,15 +109,15 @@ The final implementation relied heavily on overlapping vacuum states during hand
 
 ---
 
-# Flipper Mechanism
+## Flipper Mechanism
 
-## Battery Transfer Assembly
+### Battery Transfer Assembly
 
 A pneumatic flipper mechanism was used to transfer batteries between handling positions and coordinate the scan process.
 
 The flipper assembly contained two vacuum positions offset by approximately 180 degrees and operated through pneumatic extend/retract motion controlled by the PLC.
 
-### Flipper Operation
+#### Flipper Operation
 
 The flipper sequence coordinated:
 
@@ -133,7 +133,7 @@ The PLC managed all sequencing logic and timing coordination between:
 - Scanner triggering
 - Sequence-state transitions
 
-### Motion Coordination
+#### Motion Coordination
 
 The system used mutually exclusive extend/retract logic to prevent conflicting pneumatic outputs and maintain predictable motion behavior during operation.
 
@@ -141,9 +141,9 @@ The system used mutually exclusive extend/retract logic to prevent conflicting p
 
 ---
 
-# Pneumatic Sequence Operation
+## Pneumatic Sequence Operation
 
-## Automated Sequence
+### Automated Sequence
 
 The automated pneumatic sequence was structured around a PLC-controlled state machine.
 
@@ -158,7 +158,7 @@ The sequence coordinated:
 7. Battery return/release
 8. Sequence completion
 
-### Sequence Coordination
+#### Sequence Coordination
 
 The sequence relied heavily on:
 
@@ -172,9 +172,9 @@ The final implementation evolved significantly throughout development as timing 
 
 ---
 
-# PLC Integration
+## PLC Integration
 
-## Pneumatic Output Control
+### Pneumatic Output Control
 
 All pneumatic outputs were controlled directly through PLC logic using mapped Profinet outputs assigned to the SMC valve manifold.
 
@@ -187,7 +187,7 @@ The PLC coordinated:
 - Manual controls
 - Output interlocks
 
-### Output Mapping
+#### Output Mapping
 
 Dedicated PLC outputs were assigned to:
 
@@ -201,9 +201,9 @@ The pneumatic architecture was tightly integrated with the overall PLC state-mac
 
 ---
 
-# Manual Pneumatic Control
+## Manual Pneumatic Control
 
-## Testing & Diagnostics
+### Testing & Diagnostics
 
 A manual operating mode was developed to support subsystem testing and pneumatic debugging throughout development.
 
@@ -215,7 +215,7 @@ Manual mode allowed operators to:
 - Validate timing logic
 - Troubleshoot subsystem issues
 
-### SCADA Integration
+#### SCADA Integration
 
 Manual controls were exposed through the Ignition SCADA interface and became one of the primary debugging tools used during integration and testing.
 
@@ -229,13 +229,13 @@ The manual-control interface simplified:
 
 ---
 
-# Timing & Handoff Logic
+## Timing & Handoff Logic
 
-## Transfer Coordination
+### Transfer Coordination
 
 One of the most important portions of the pneumatic architecture involved timing coordination between vacuum channels during battery handoff operations.
 
-### Vacuum Overlap
+#### Vacuum Overlap
 
 The sequence intentionally maintained overlapping vacuum states during transfers to:
 
@@ -244,7 +244,7 @@ The sequence intentionally maintained overlapping vacuum states during transfers
 - Maintain consistent positioning
 - Improve sequence reliability
 
-### Timer Coordination
+#### Timer Coordination
 
 The PLC coordinated:
 
@@ -258,13 +258,13 @@ These timings were refined extensively throughout development to improve transfe
 
 ---
 
-# Safety & Interlocks
+## Safety & Interlocks
 
-## Safe Pneumatic Operation
+### Safe Pneumatic Operation
 
 The pneumatic subsystem included several interlocks and output protections designed to maintain safe and predictable system behavior.
 
-### Output Interlocks
+#### Output Interlocks
 
 Logic protections were implemented to:
 
@@ -273,7 +273,7 @@ Logic protections were implemented to:
 - Prevent invalid motion states
 - Restrict manual/automatic conflicts
 
-### Reset Handling
+#### Reset Handling
 
 Reset behavior became one of the more complex portions of the sequence architecture.
 
@@ -288,13 +288,13 @@ The final implementation emphasized deterministic recovery behavior rather than 
 
 ---
 
-# Pneumatic Challenges
+## Pneumatic Challenges
 
-## Engineering Challenges
+### Engineering Challenges
 
 Several challenges were encountered during development of the pneumatic subsystem.
 
-### Major Challenges
+#### Major Challenges
 
 Key issues included:
 
@@ -306,7 +306,7 @@ Key issues included:
 - Manual/automatic interaction
 - Preventing conflicting outputs
 
-### Sequence Evolution
+#### Sequence Evolution
 
 The pneumatic sequence evolved significantly throughout development as testing exposed new timing and transfer issues.
 
@@ -320,9 +320,9 @@ Large portions of the final sequence architecture were refined iteratively throu
 
 ---
 
-# System Redesign
+## System Redesign
 
-## Transition from Robot Integration
+### Transition from Robot Integration
 
 The original project architecture planned for direct integration with a FANUC robotic system. Due to hardware and communication limitations, the final implementation shifted toward a pneumatic-focused automation sequence while preserving the overall system integration architecture.
 
@@ -342,9 +342,9 @@ while adapting to real-world project constraints.
 
 ---
 
-# Testing & Validation
+## Testing & Validation
 
-## Pneumatic Validation
+### Pneumatic Validation
 
 Extensive subsystem testing was performed throughout development to validate pneumatic operation and sequence reliability.
 
@@ -361,9 +361,9 @@ Additional testing was performed through the SCADA diagnostic interface during s
 
 ---
 
-# Final Outcome
+## Final Outcome
 
-## Completed Pneumatic System
+### Completed Pneumatic System
 
 The completed pneumatic subsystem successfully demonstrated:
 
