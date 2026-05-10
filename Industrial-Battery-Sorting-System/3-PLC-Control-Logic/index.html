@@ -1012,199 +1012,239 @@
 <h2 id="plc-program-structure">PLC Program Structure</h2>
 <p>The PLC project was organized using a combination of organizational blocks, function blocks, function calls, and structured data blocks to separate subsystem responsibilities and improve maintainability throughout development.</p>
 <p>The main control logic executed through <code>OB1</code>, which coordinated the primary sequence execution, subsystem communication, and runtime state management. Additional logic was separated into dedicated function blocks and mapping functions to simplify debugging and organization.</p>
-<p>Major program components included:
-- Pneumatic sequence logic
-- QR parsing logic
-- SCADA interface mapping
-- State-machine control
-- Timing coordination
-- Scanner communication handling
-- Manual-control handling</p>
-<p>Key blocks included:
-- <code>OB1</code>
-- <code>DB_SCADA_Interface</code>
-- <code>FB_PneuSequence</code>
-- <code>FB_QR_Parse</code>
-- <code>FC_SCADA_Interface_Mapping</code>
-- <code>FC_GetFieldValue</code></p>
+<p>Major program components included:</p>
+<ul>
+<li>Pneumatic sequence logic</li>
+<li>QR parsing logic</li>
+<li>SCADA interface mapping</li>
+<li>State-machine control</li>
+<li>Timing coordination</li>
+<li>Scanner communication handling</li>
+<li>Manual-control handling</li>
+</ul>
+<p>Key blocks included:</p>
+<ul>
+<li><code>OB1</code></li>
+<li><code>DB_SCADA_Interface</code></li>
+<li><code>FB_PneuSequence</code></li>
+<li><code>FB_QR_Parse</code></li>
+<li><code>FC_SCADA_Interface_Mapping</code></li>
+<li><code>FC_GetFieldValue</code></li>
+</ul>
 <p>The overall architecture emphasized modular subsystem separation while maintaining centralized control through the PLC.</p>
 <hr>
 <h2 id="state-machine-architecture">State Machine Architecture</h2>
 <p>The automated sequence was structured around a PLC-controlled state machine that coordinated the pneumatic handling process step-by-step throughout operation.</p>
-<p>Each sequence state controlled a specific portion of the automation cycle, including:
-- Vacuum activation
-- Flipper movement
-- Scanner timing
-- Transfer coordination
-- Reset handling
-- Sequence completion</p>
-<p>The state-machine architecture allowed the system to:
-- Execute deterministic automated sequences
-- Prevent conflicting outputs
-- Simplify troubleshooting
-- Improve sequence readability
-- Coordinate timing between subsystems</p>
+<p>Each sequence state controlled a specific portion of the automation cycle, including:</p>
+<ul>
+<li>Vacuum activation</li>
+<li>Flipper movement</li>
+<li>Scanner timing</li>
+<li>Transfer coordination</li>
+<li>Reset handling</li>
+<li>Sequence completion</li>
+</ul>
+<p>The state-machine architecture allowed the system to:</p>
+<ul>
+<li>Execute deterministic automated sequences</li>
+<li>Prevent conflicting outputs</li>
+<li>Simplify troubleshooting</li>
+<li>Improve sequence readability</li>
+<li>Coordinate timing between subsystems</li>
+</ul>
 <p>Timers and interlocks were integrated throughout the sequence to ensure stable operation and prevent unsafe transitions between states.</p>
 <hr>
 <h2 id="automatic-mode">Automatic Mode</h2>
 <p>Automatic mode controlled the full pneumatic handling sequence without operator intervention after the cycle was started.</p>
-<p>During operation, the PLC coordinated:
-1. Battery pickup using the robot vacuum simulation
-2. Battery transfer to the flipper vacuum system
-3. Flipper extension into scan position
-4. Scanner triggering and QR-code processing
-5. Battery handoff between vacuum channels
-6. Flipper retraction and battery return
-7. Sequence completion and reset to idle</p>
+<p>During operation, the PLC coordinated:</p>
+<ol>
+<li>Battery pickup using the robot vacuum simulation</li>
+<li>Battery transfer to the flipper vacuum system</li>
+<li>Flipper extension into scan position</li>
+<li>Scanner triggering and QR-code processing</li>
+<li>Battery handoff between vacuum channels</li>
+<li>Flipper retraction and battery return</li>
+<li>Sequence completion and reset to idle</li>
+</ol>
 <p>The automated sequence relied heavily on coordinated timing between pneumatic outputs, vacuum overlap periods, scanner communication, and state transitions to maintain stable battery transfer throughout operation.</p>
 <p>The final automatic sequence architecture was refined extensively during testing to improve reliability, reset behavior, and transfer stability.</p>
 <hr>
 <h2 id="manual-mode">Manual Mode</h2>
 <p>Manual mode allowed operators to directly actuate pneumatic outputs and test subsystem behavior independently of the automatic sequence.</p>
-<p>The manual-control architecture was primarily developed to support:
-- Pneumatic testing
-- Hardware validation
-- Sequence debugging
-- Integration troubleshooting
-- Sensor and output verification</p>
-<p>Manual operation was integrated through the Ignition SCADA interface and allowed operators to individually control:
-- Vacuum outputs
-- Flipper extension/retraction
-- Scanner triggering
-- Sequence-control states</p>
+<p>The manual-control architecture was primarily developed to support:</p>
+<ul>
+<li>Pneumatic testing</li>
+<li>Hardware validation</li>
+<li>Sequence debugging</li>
+<li>Integration troubleshooting</li>
+<li>Sensor and output verification</li>
+</ul>
+<p>Manual operation was integrated through the Ignition SCADA interface and allowed operators to individually control:</p>
+<ul>
+<li>Vacuum outputs</li>
+<li>Flipper extension/retraction</li>
+<li>Scanner triggering</li>
+<li>Sequence-control states</li>
+</ul>
 <p>Interlocks were implemented to prevent conflicts between automatic and manual operation and to ensure outputs could not enter unsafe or contradictory states.</p>
 <hr>
 <h2 id="mode-management">Mode Management</h2>
 <p>The PLC logic included dedicated mode-management logic used to coordinate transitions between automatic and manual operation.</p>
 <p>Mode changes were restricted through permissive logic that verified the system was in a safe idle state before allowing transitions between operating modes.</p>
-<p>The mode-management structure prevented:
-- Mode switching during active sequences
-- Conflicting output control
-- Unsafe pneumatic states
-- Interrupted transfer operations</p>
+<p>The mode-management structure prevented:</p>
+<ul>
+<li>Mode switching during active sequences</li>
+<li>Conflicting output control</li>
+<li>Unsafe pneumatic states</li>
+<li>Interrupted transfer operations</li>
+</ul>
 <p>This logic improved overall system stability and simplified troubleshooting throughout development and testing.</p>
 <hr>
 <h2 id="safety-and-interlocks">Safety and Interlocks</h2>
 <p>A major focus of the PLC logic was maintaining safe and deterministic system behavior during all operating conditions.</p>
-<p>Interlocks were implemented throughout the pneumatic sequence to:
-- Prevent conflicting outputs
-- Maintain safe actuator states
-- Prevent unstable vacuum transfers
-- Coordinate extend/retract behavior
-- Support predictable reset handling</p>
+<p>Interlocks were implemented throughout the pneumatic sequence to:</p>
+<ul>
+<li>Prevent conflicting outputs</li>
+<li>Maintain safe actuator states</li>
+<li>Prevent unstable vacuum transfers</li>
+<li>Coordinate extend/retract behavior</li>
+<li>Support predictable reset handling</li>
+</ul>
 <p>Normally closed logic structures were used in several portions of the sequence to guarantee mutually exclusive output behavior between opposing pneumatic states.</p>
-<p>Additional safety-oriented logic included:
-- Stop-request handling
-- Reset sequencing
-- Vacuum overlap timing
-- Manual/automatic lockouts
-- Safe idle-state verification</p>
+<p>Additional safety-oriented logic included:</p>
+<ul>
+<li>Stop-request handling</li>
+<li>Reset sequencing</li>
+<li>Vacuum overlap timing</li>
+<li>Manual/automatic lockouts</li>
+<li>Safe idle-state verification</li>
+</ul>
 <p>The reset architecture was designed specifically to preserve control of the battery throughout reset conditions and prevent unstable transfer states during interruption of the automated sequence.</p>
 <hr>
 <h2 id="reset-logic">Reset Logic</h2>
 <p>Reset handling became one of the more complex portions of the control architecture due to the need to safely recover from interrupted transfer states.</p>
 <p>Rather than simply forcing all outputs off during reset conditions, the PLC logic evaluated the current transfer state and coordinated a controlled return to the idle position while preserving vacuum control of the battery when required.</p>
-<p>The reset sequence architecture focused on:
-- Safe return-to-home behavior
-- Preventing dropped batteries
-- Controlled vacuum release
-- Sequence-state recovery
-- Maintaining deterministic system behavior</p>
+<p>The reset sequence architecture focused on:</p>
+<ul>
+<li>Safe return-to-home behavior</li>
+<li>Preventing dropped batteries</li>
+<li>Controlled vacuum release</li>
+<li>Sequence-state recovery</li>
+<li>Maintaining deterministic system behavior</li>
+</ul>
 <p>Additional reset-status indicators and reset-active states were exposed to the SCADA interface for operator visibility and debugging support.</p>
 <hr>
 <h2 id="vision-system-trigger-logic">Vision System Trigger Logic</h2>
 <p>The PLC coordinated scanner communication through dedicated trigger outputs and scan-status monitoring logic.</p>
 <p>During operation, the PLC triggered the Banner scanner once the battery reached the correct scan position within the pneumatic sequence. The scanner then returned good-read or no-read status information through Profinet communication modules.</p>
-<p>Additional logic was implemented to:
-- Detect new scan messages
-- Validate message structure
-- Compare current and previous scan data
-- Coordinate scan timing within the automated sequence</p>
+<p>Additional logic was implemented to:</p>
+<ul>
+<li>Detect new scan messages</li>
+<li>Validate message structure</li>
+<li>Compare current and previous scan data</li>
+<li>Coordinate scan timing within the automated sequence</li>
+</ul>
 <p>The scanner integration logic became closely tied to the overall state-machine architecture and pneumatic timing structure.</p>
 <hr>
 <h2 id="qr-parsing-logic">QR Parsing Logic</h2>
 <p>QR-code data received from the scanner was processed directly inside the PLC using structured parsing logic.</p>
-<p>The parser validated incoming message structure and extracted battery information fields including:
-- Manufacturer information
-- Model identifiers
-- Serial numbers
-- Voltage
-- Capacity
-- Resistance
-- Manufacturing data</p>
-<p>Dedicated parsing functions were developed to:
-- Separate message fields
-- Handle delimiters
-- Validate scan data
-- Store parsed information for SCADA and database logging</p>
+<p>The parser validated incoming message structure and extracted battery information fields including:</p>
+<ul>
+<li>Manufacturer information</li>
+<li>Model identifiers</li>
+<li>Serial numbers</li>
+<li>Voltage</li>
+<li>Capacity</li>
+<li>Resistance</li>
+<li>Manufacturing data</li>
+</ul>
+<p>Dedicated parsing functions were developed to:</p>
+<ul>
+<li>Separate message fields</li>
+<li>Handle delimiters</li>
+<li>Validate scan data</li>
+<li>Store parsed information for SCADA and database logging</li>
+</ul>
 <p>Significant effort was spent optimizing message structure and buffer handling to support reliable Profinet communication within available communication-size limitations.</p>
 <hr>
 <h2 id="scada-interface-mapping">SCADA Interface Mapping</h2>
 <p>The PLC communicated with Ignition through structured SCADA interface mapping logic.</p>
-<p>Dedicated data blocks and mapping functions were used to expose:
-- Operator commands
-- System-status values
-- Sequence states
-- Pneumatic status
-- Scanner information
-- Parsed QR data</p>
-<p>A naming convention was implemented throughout the project to separate:
-- User/SCADA command tags
-- Internal PLC logic
-- Status outputs
-- Parsed data structures</p>
+<p>Dedicated data blocks and mapping functions were used to expose:</p>
+<ul>
+<li>Operator commands</li>
+<li>System-status values</li>
+<li>Sequence states</li>
+<li>Pneumatic status</li>
+<li>Scanner information</li>
+<li>Parsed QR data</li>
+</ul>
+<p>A naming convention was implemented throughout the project to separate:</p>
+<ul>
+<li>User/SCADA command tags</li>
+<li>Internal PLC logic</li>
+<li>Status outputs</li>
+<li>Parsed data structures</li>
+</ul>
 <p>This organization improved readability, debugging, and long-term maintainability throughout development.</p>
 <hr>
 <h2 id="timing-and-handoff-logic">Timing and Handoff Logic</h2>
 <p>A major portion of the PLC development process involved coordinating pneumatic timing and vacuum handoff behavior.</p>
 <p>Timed overlap periods were implemented between vacuum channels to prevent unstable transfers while batteries moved between handling stages.</p>
-<p>Additional timing logic coordinated:
-- Flipper extension/retraction
-- Scanner wait timing
-- State transitions
-- Vacuum overlap periods
-- Reset sequencing</p>
+<p>Additional timing logic coordinated:</p>
+<ul>
+<li>Flipper extension/retraction</li>
+<li>Scanner wait timing</li>
+<li>State transitions</li>
+<li>Vacuum overlap periods</li>
+<li>Reset sequencing</li>
+</ul>
 <p>Sequence timing was refined extensively during testing to improve transfer reliability and overall system stability.</p>
 <hr>
 <h2 id="plc-debugging-and-testing">PLC Debugging and Testing</h2>
 <p>PLC development involved extensive iterative testing throughout subsystem integration and full-system validation.</p>
-<p>Testing methods included:
-- Watch-table monitoring
-- Manual sequence stepping
-- SCADA-based diagnostics
-- Output verification
-- Communication testing
-- Pneumatic validation
-- Scanner integration testing</p>
+<p>Testing methods included:</p>
+<ul>
+<li>Watch-table monitoring</li>
+<li>Manual sequence stepping</li>
+<li>SCADA-based diagnostics</li>
+<li>Output verification</li>
+<li>Communication testing</li>
+<li>Pneumatic validation</li>
+<li>Scanner integration testing</li>
+</ul>
 <p>Additional temporary diagnostic logic and testing interfaces were developed throughout the project to simplify troubleshooting and isolate subsystem issues during integration.</p>
 <hr>
 <h2 id="plc-logic-challenges">PLC Logic Challenges</h2>
 <p>Several major engineering challenges were encountered during PLC development.</p>
-<p>These included:
-- State-machine restructuring
-- Reset-sequence complexity
-- Pneumatic timing coordination
-- Scanner communication troubleshooting
-- Profinet integration issues
-- SCADA tag mapping
-- QR parser debugging
-- Message-size limitations
-- Manual/automatic interaction conflicts</p>
+<p>These included:</p>
+<ul>
+<li>State-machine restructuring</li>
+<li>Reset-sequence complexity</li>
+<li>Pneumatic timing coordination</li>
+<li>Scanner communication troubleshooting</li>
+<li>Profinet integration issues</li>
+<li>SCADA tag mapping</li>
+<li>QR parser debugging</li>
+<li>Message-size limitations</li>
+<li>Manual/automatic interaction conflicts</li>
+</ul>
 <p>Many portions of the final control architecture evolved significantly throughout testing as subsystem integration exposed new timing, communication, and sequencing issues.</p>
 <p>The final implementation emphasized stability, readability, modularity, and reliable subsystem coordination under real-world integration constraints.</p>
 <hr>
 <h2 id="final-outcome">Final Outcome</h2>
 <p>The completed PLC architecture successfully coordinated all major automation behavior throughout the project and served as the foundation for the final integrated system.</p>
-<p>The final implementation demonstrated:
-- Stable automated sequencing
-- Pneumatic coordination
-- Reliable scanner communication
-- QR-code parsing
-- SCADA integration
-- SQL logging support
-- Manual and automatic operating modes
-- Industrial network communication
-- Deterministic system control</p>
+<p>The final implementation demonstrated:</p>
+<ul>
+<li>Stable automated sequencing</li>
+<li>Pneumatic coordination</li>
+<li>Reliable scanner communication</li>
+<li>QR-code parsing</li>
+<li>SCADA integration</li>
+<li>SQL logging support</li>
+<li>Manual and automatic operating modes</li>
+<li>Industrial network communication</li>
+<li>Deterministic system control</li>
+</ul>
 <p>The PLC subsystem ultimately became the central integration layer that connected machine vision, pneumatic automation, SCADA monitoring, industrial networking, and database logging into a unified industrial automation platform.</p>
 
 
