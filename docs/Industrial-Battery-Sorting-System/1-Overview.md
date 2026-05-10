@@ -55,8 +55,6 @@ Example flow:
 
 ## Final System Architecture
 
-System-level block diagram or architecture image.
-
 ![System Architecture](Images/Process_Flow_Diagram.svg)
 
 ## Major Subsystems
