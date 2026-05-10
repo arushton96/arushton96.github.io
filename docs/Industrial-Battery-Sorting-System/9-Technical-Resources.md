@@ -19,6 +19,7 @@ The project combined industrial automation hardware, PLC programming, machine vi
 ### PLC Development Environment
 
 The Siemens Totally Integrated Automation (TIA) Portal environment was used for:
+
 - PLC hardware configuration
 - Profinet device integration
 - Ladder logic development
