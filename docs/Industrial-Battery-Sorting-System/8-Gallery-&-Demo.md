@@ -103,24 +103,6 @@ The separation between pneumatic operation and scanner interaction simplified su
 
 ---
 
-## Sequence Architecture
-
-### Pneumatic State-Machine Logic
-
-The automated transfer process was coordinated through a PLC-controlled state-machine architecture responsible for:
-
-- Pneumatic timing
-- Vacuum handoff coordination
-- Scanner synchronization
-- Reset behavior
-- Sequence-state management
-
-The sequence logic evolved significantly throughout development as subsystem integration exposed additional timing, synchronization, and transfer-stability challenges.
-
-Insert state-machine sequence diagram.
-
----
-
 ## Final Demonstration Summary
 
 ### Completed System Functionality
