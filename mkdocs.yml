@@ -2,6 +2,29 @@ site_name: Andrew Rushton | Projects
 site_url: https://arushton96.github.io/
 repo_url: https://github.com/arushton96/arushton96.github.io
 edit_uri: edit/main/docs/
+
+nav:
+  - Industrial Battery Sorting System:
+      - Overview: Industrial-Battery-Sorting-System/1-Overview.md
+      - System Architecture: Industrial-Battery-Sorting-System/2-System-Architecture.md
+      - PLC Control Logic: Industrial-Battery-Sorting-System/3-PLC-Control-Logic.md
+      - SCADA & Ignition: Industrial-Battery-Sorting-System/4-SCADA-&-Ignition.md
+      - Vision System: Industrial-Battery-Sorting-System/5-Vision-System.md
+      - Pneumatic Handling System: Industrial-Battery-Sorting-System/6-Pneumatics.md
+      - Challenges & Engineering Decisions: Industrial-Battery-Sorting-System/7-Challenges-&-Engineering-Decisions.md
+      - Gallery & Demonstrations: Industrial-Battery-Sorting-System/8-Gallery-&-Demo.md
+      - Technical Resources: Industrial-Battery-Sorting-System/9-Technical-Resources.md
+
+  - Embedded Systems Project:
+      - Block Diagram: Embedded-Systems_Project/1-Block-Diagram.md
+      - Component Selection: Embedded-Systems_Project/2-Component-Selection.md
+      - ESP32 Table: Embedded-Systems_Project/3-esp-32-table.md
+      - BoM: Embedded-Systems_Project/4-Bill-Of-Materials.md
+      - API: Embedded-Systems_Project/5-API.md
+      - Schematic: Embedded-Systems_Project/6-Schematic-Diagram.md
+      - Reflections: Embedded-Systems_Project/7-Reflections.md
+      - Resources: Embedded-Systems_Project/8-Resources.md
+
 theme:
   name: material
   custom_dir: custom_theme/
