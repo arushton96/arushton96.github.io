@@ -14,11 +14,6 @@ theme:
   #logo: static/logo.svg
   #favicon: static/logo.png
 
-markdown_extensions:
-  - toc:
-      permalink: true
-      toc_depth: 2
-
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -45,6 +40,9 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+      toc_depth: 2
 
 draft_docs: |
   **/*_unpublished.md
