@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://arushton96.github.io/Embedded-Systems_Project/1-Block-Diagram/</loc>
+         <lastmod>2026-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://arushton96.github.io/Embedded-Systems_Project/2-Component-Selection/</loc>
          <lastmod>2026-05-10</lastmod>
          <changefreq>daily</changefreq>
@@ -37,11 +42,6 @@
     </url>
     <url>
          <loc>https://arushton96.github.io/Embedded-Systems_Project/8-Resources/</loc>
-         <lastmod>2026-05-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://arushton96.github.io/Embedded-Systems_Project/Block-Diagram/</loc>
          <lastmod>2026-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
