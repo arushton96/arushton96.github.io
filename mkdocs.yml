@@ -27,6 +27,9 @@ nav:
       - Reflections: Embedded-Systems_Project/7-Reflections.md
       - Resources: Embedded-Systems_Project/8-Resources.md
 
+  - Motion Control & Vision Systems:
+    -Vision Guided Object Pickup System: Motion-Control-&-Vision-Systems/Vision-Guided-Object-Pickup-System.md
+
 theme:
   name: material
   custom_dir: custom_theme/
