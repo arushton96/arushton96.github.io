@@ -9,6 +9,7 @@ title: Gallery & Demonstrations
 This section contains screenshots, hardware images, development captures, PLC logic screenshots, SCADA interfaces, pneumatic-system photos, and demonstration media captured throughout development of the Automated Battery Sorting System.
 
 The gallery highlights:
+
 - Final system integration
 - PLC development
 - SCADA functionality
@@ -26,6 +27,7 @@ The images below document both the completed system and the engineering process 
 ## Completed System Assembly
 
 The completed system integrated:
+
 - Siemens S7-1200 PLC
 - Banner ABR3000 vision sensor
 - Ignition Perspective SCADA system
@@ -45,6 +47,7 @@ The final architecture demonstrated coordinated operation between all major indu
 ## Automated Sequence Operation
 
 During operation, the system performed:
+
 1. Pneumatic battery pickup and transfer
 2. Scanner positioning
 3. QR-code acquisition
@@ -58,6 +61,7 @@ The automated sequence demonstrated coordinated interaction between the PLC, sca
 ### Demonstration Features
 
 The final demonstration included:
+
 - Automatic operation
 - Manual operation
 - Real-time SCADA monitoring
@@ -67,6 +71,7 @@ The final demonstration included:
 - QR-data visualization
 
 Optional media:
+
 - Demonstration video
 - Animated sequence capture
 - Integrated system walkthrough
@@ -78,6 +83,7 @@ Optional media:
 ## Main Operator Interface
 
 The primary SCADA interface provided:
+
 - Start/stop/reset controls
 - Auto/manual mode selection
 - Real-time status monitoring
@@ -94,6 +100,7 @@ The interface was designed to provide centralized visibility into the overall sy
 ## Manual Control Interface
 
 A dedicated manual-control page was developed to support:
+
 - Pneumatic testing
 - Output verification
 - Sequence debugging
@@ -111,6 +118,7 @@ This interface became one of the primary debugging tools used throughout subsyst
 The Ignition SCADA interface integrated directly with a SQL database used for battery traceability logging.
 
 Logged information included:
+
 - Battery serial numbers
 - Manufacturer information
 - Voltage
@@ -119,6 +127,7 @@ Logged information included:
 - Scan timestamps
 
 The database interface was used to validate:
+
 - Scanner communication
 - PLC parsing logic
 - Database connectivity
@@ -133,6 +142,7 @@ The database interface was used to validate:
 ## PLC Program Structure
 
 The PLC architecture was organized around:
+
 - State-machine sequencing
 - Pneumatic coordination
 - QR parsing logic
@@ -140,6 +150,7 @@ The PLC architecture was organized around:
 - Industrial communication handling
 
 The project utilized structured PLC organization through:
+
 - Organizational blocks
 - Function blocks
 - Structured data blocks
@@ -152,6 +163,7 @@ The project utilized structured PLC organization through:
 ## State Machine Logic
 
 The automated sequence was controlled through a PLC-based state-machine architecture coordinating:
+
 - Pneumatic outputs
 - Scanner timing
 - Vacuum handoffs
@@ -169,6 +181,7 @@ The final sequence architecture evolved significantly throughout development as 
 Custom SCL parsing functions were developed to process incoming QR messages directly within the PLC.
 
 The parser extracted:
+
 - Battery identification data
 - Voltage information
 - Capacity values
@@ -176,6 +189,7 @@ The parser extracted:
 - Manufacturing information
 
 Significant engineering effort was spent optimizing:
+
 - Message structure
 - Buffer handling
 - String parsing
@@ -192,6 +206,7 @@ Significant engineering effort was spent optimizing:
 The Banner ABR3000 vision sensor was integrated with the Siemens PLC through Profinet communication and served as the primary battery-identification subsystem.
 
 The scanner architecture included:
+
 - PLC-triggered acquisition
 - Good-read/no-read handling
 - QR-code parsing
@@ -207,6 +222,7 @@ The scanner architecture included:
 The scanner transmitted raw QR payloads to the PLC, where the message was parsed into structured battery information fields for display and logging.
 
 The final implementation optimized QR payload structure to improve:
+
 - Communication reliability
 - Parser stability
 - Profinet compatibility
@@ -221,12 +237,14 @@ The final implementation optimized QR payload structure to improve:
 ## Pneumatic Hardware
 
 The pneumatic subsystem utilized:
+
 - Vacuum generators
 - SMC valve manifold control
 - Pneumatic transfer hardware
 - PLC-controlled sequencing
 
 The pneumatic architecture coordinated:
+
 - Battery transfer
 - Vacuum overlap timing
 - Scanner positioning
@@ -241,6 +259,7 @@ The pneumatic architecture coordinated:
 A pneumatic flipper assembly coordinated battery transfer between handling stages and maintained stable positioning during scanning operations.
 
 The mechanism relied heavily on:
+
 - Vacuum overlap timing
 - Extend/retract coordination
 - PLC-controlled sequencing
@@ -253,6 +272,7 @@ The mechanism relied heavily on:
 ## Pneumatic Testing
 
 Extensive subsystem testing was performed throughout development to validate:
+
 - Vacuum timing
 - Transfer stability
 - Reset behavior
@@ -270,12 +290,14 @@ Manual testing interfaces were heavily used during subsystem integration and tro
 ## Ethernet & Communication Architecture
 
 The system utilized an industrial Ethernet architecture connecting:
+
 - Siemens PLC
 - Banner scanner
 - SMC valve manifold
 - Ignition SCADA workstation
 
 Communication technologies included:
+
 - Profinet IO
 - OPC UA
 - Industrial Ethernet
@@ -292,6 +314,7 @@ Communication technologies included:
 The completed system integrated several industrial hardware platforms into a unified automation architecture.
 
 Major hardware components included:
+
 - Siemens S7-1200 PLC
 - SITOP power supply
 - Banner scanner
@@ -308,6 +331,7 @@ Major hardware components included:
 ## Integration & Troubleshooting
 
 Development involved extensive subsystem testing and iterative troubleshooting across:
+
 - PLC logic
 - Scanner communication
 - Pneumatic timing
@@ -324,6 +348,7 @@ The final implementation evolved significantly throughout development as testing
 ## Project Evolution
 
 The project architecture evolved considerably throughout development due to:
+
 - Communication hardware delays
 - Industrial integration challenges
 - Pneumatic redesigns
@@ -341,6 +366,7 @@ The final implementation preserved the core industrial automation objectives of 
 ## Completed System Demonstration
 
 The completed project successfully demonstrated:
+
 - PLC-controlled automation
 - Industrial Ethernet integration
 - Machine vision communication
