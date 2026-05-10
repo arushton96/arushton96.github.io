@@ -55,9 +55,7 @@ The final sequence architecture emphasized deterministic operation, subsystem co
 
 ### Demonstration Video
 
-<video controls preload="metadata" width="100%">
-  <source src="../Images/SCADA_Display.mp4" type="video/mp4">
-</video>
+
 
 ---
 
@@ -99,7 +97,9 @@ The separation between pneumatic operation and scanner interaction simplified su
 
 ### SCADA Demonstration Video
 
-Insert SCADA walkthrough or functionality demonstration video.
+<video controls preload="metadata" width="100%">
+  <source src="../Images/SCADA_Display.mp4" type="video/mp4">
+</video>
 
 ---
 
