@@ -147,7 +147,7 @@ This interface became especially important during:
 
 The separation between pneumatic controls and scanner interaction simplified troubleshooting and allowed subsystem-specific diagnostics to remain organized throughout development.
 
-![Battery Scan & QC Interface](Images/SCADA-Camera.png)
+![Battery Scan & QC Interface](Images/SCADA-Camera-Edit.png)
 
 ---
 
