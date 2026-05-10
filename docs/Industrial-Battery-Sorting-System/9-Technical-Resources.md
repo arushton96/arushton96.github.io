@@ -12,11 +12,11 @@ The project combined industrial automation hardware, PLC programming, machine vi
 
 ---
 
-# Software Platforms
+## Software Platforms
 
-## Siemens TIA Portal
+### Siemens TIA Portal
 
-### PLC Development Environment
+#### PLC Development Environment
 
 The Siemens Totally Integrated Automation (TIA) Portal environment was used for:
 
@@ -28,7 +28,7 @@ The Siemens Totally Integrated Automation (TIA) Portal environment was used for:
 - Network configuration
 - PLC deployment and testing
 
-### Major Features Used
+#### Major Features Used
 
 Topics:
 
@@ -46,9 +46,9 @@ Software:
 
 ---
 
-## Ignition Perspective
+### Ignition Perspective
 
-### SCADA Development Platform
+#### SCADA Development Platform
 
 Ignition Perspective was used to develop the SCADA and operator-interface subsystem.
 
@@ -61,7 +61,7 @@ The platform provided:
 - Diagnostic interfaces
 - Perspective scripting
 
-### Major Features Used
+#### Major Features Used
 
 Topics:
 
@@ -79,11 +79,11 @@ Software:
 
 ---
 
-# PLC Technologies
+## PLC Technologies
 
-## Siemens S7-1200 PLC
+### Siemens S7-1200 PLC
 
-### Central Control Platform
+#### Central Control Platform
 
 The Siemens S7-1200 PLC served as the primary controller for the entire automation system.
 
@@ -96,7 +96,7 @@ Responsibilities included:
 - SCADA communication
 - System-state management
 
-### PLC Development Topics
+#### PLC Development Topics
 
 Topics:
 
@@ -110,11 +110,11 @@ Topics:
 
 ---
 
-# Machine Vision Resources
+## Machine Vision Resources
 
-## Banner ABR3000 Vision Sensor
+### Banner ABR3000 Vision Sensor
 
-### QR-Code Scanning Platform
+#### QR-Code Scanning Platform
 
 The Banner ABR3000 vision sensor provided:
 
@@ -123,7 +123,7 @@ The Banner ABR3000 vision sensor provided:
 - Good-read/no-read handling
 - Industrial Ethernet integration
 
-### Topics
+#### Topics
 
 Topics:
 
@@ -135,11 +135,11 @@ Topics:
 
 ---
 
-# SCADA & Communication Standards
+## SCADA & Communication Standards
 
-## OPC UA
+### OPC UA
 
-### SCADA Communication
+#### SCADA Communication
 
 OPC UA was used for communication between:
 
@@ -153,7 +153,7 @@ The communication architecture supported:
 - Tag mapping
 - Diagnostic visibility
 
-### Topics
+#### Topics
 
 Topics:
 
@@ -164,9 +164,9 @@ Topics:
 
 ---
 
-## Profinet
+### Profinet
 
-### Industrial Ethernet Communication
+#### Industrial Ethernet Communication
 
 Profinet communication connected:
 
@@ -174,7 +174,7 @@ Profinet communication connected:
 - Banner scanner
 - SMC valve manifold
 
-### Topics
+#### Topics
 
 Topics:
 
@@ -187,9 +187,9 @@ Topics:
 
 ---
 
-# Database Technologies
+## Database Technologies
 
-## SQL Database Logging
+### SQL Database Logging
 
 The project used SQL database integration through Ignition for:
 
@@ -198,7 +198,7 @@ The project used SQL database integration through Ignition for:
 - Data validation
 - System demonstration
 
-### Database Topics
+#### Database Topics
 
 Topics:
 
@@ -210,9 +210,9 @@ Topics:
 
 ---
 
-# Pneumatic Hardware
+## Pneumatic Hardware
 
-## SMC Pneumatic Components
+### SMC Pneumatic Components
 
 The pneumatic subsystem utilized:
 
@@ -221,7 +221,7 @@ The pneumatic subsystem utilized:
 - Pneumatic transfer hardware
 - Solenoid-controlled outputs
 
-### Topics
+#### Topics
 
 Topics:
 
@@ -233,9 +233,9 @@ Topics:
 
 ---
 
-# Networking Architecture
+## Networking Architecture
 
-## Industrial Ethernet Network
+### Industrial Ethernet Network
 
 The system used a static-IP industrial Ethernet architecture connecting:
 
@@ -244,7 +244,7 @@ The system used a static-IP industrial Ethernet architecture connecting:
 - Pneumatic communication hardware
 - SCADA workstation
 
-### Topics
+#### Topics
 
 Topics:
 
@@ -256,13 +256,13 @@ Topics:
 
 ---
 
-# Development & Debugging Tools
+## Development & Debugging Tools
 
-## Testing & Validation
+### Testing & Validation
 
 Several tools and techniques were used throughout development and troubleshooting.
 
-### PLC Debugging
+#### PLC Debugging
 
 Methods included:
 
@@ -272,7 +272,7 @@ Methods included:
 - Sequence-state monitoring
 - Timer validation
 
-### SCADA Debugging
+#### SCADA Debugging
 
 Methods included:
 
@@ -281,7 +281,7 @@ Methods included:
 - Database query validation
 - OPC communication testing
 
-### Vision-System Validation
+#### Vision-System Validation
 
 Methods included:
 
@@ -293,9 +293,9 @@ Methods included:
 
 ---
 
-# Engineering Standards & Practices
+## Engineering Standards & Practices
 
-## Industrial Automation Design
+### Industrial Automation Design
 
 The project followed common industrial automation design practices including:
 
@@ -307,7 +307,7 @@ The project followed common industrial automation design practices including:
 - Operator-interface separation
 - Real-time diagnostics
 
-### Topics
+#### Topics
 
 Topics:
 
@@ -319,9 +319,9 @@ Topics:
 
 ---
 
-# Documentation Resources
+## Documentation Resources
 
-## Technical References
+### Technical References
 
 Development relied heavily on:
 
@@ -332,7 +332,7 @@ Development relied heavily on:
 - Device datasheets
 - Profinet configuration references
 
-### Major Reference Areas
+#### Major Reference Areas
 
 Topics:
 
@@ -345,9 +345,9 @@ Topics:
 
 ---
 
-# Project Skills Demonstrated
+## Project Skills Demonstrated
 
-## Technical Competencies
+### Technical Competencies
 
 The completed project demonstrated experience with:
 
@@ -363,9 +363,9 @@ The completed project demonstrated experience with:
 
 ---
 
-# Final Notes
+## Final Notes
 
-## Project Scope
+### Project Scope
 
 This project represented a full industrial automation integration workflow combining multiple industrial hardware and software platforms into a coordinated and functional control system.
 
