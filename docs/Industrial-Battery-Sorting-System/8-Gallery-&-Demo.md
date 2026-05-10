@@ -22,9 +22,9 @@ The images below document both the completed system and the engineering process 
 
 ---
 
-# Final Integrated System
+## Final Integrated System
 
-## Completed System Assembly
+### Completed System Assembly
 
 The completed system integrated:
 
@@ -42,9 +42,9 @@ The final architecture demonstrated coordinated operation between all major indu
 
 ---
 
-# System Demonstration
+## System Demonstration
 
-## Automated Sequence Operation
+### Automated Sequence Operation
 
 During operation, the system performed:
 
@@ -58,7 +58,7 @@ During operation, the system performed:
 
 The automated sequence demonstrated coordinated interaction between the PLC, scanner, pneumatic hardware, and SCADA system.
 
-### Demonstration Features
+#### Demonstration Features
 
 The final demonstration included:
 
@@ -78,9 +78,9 @@ Optional media:
 
 ---
 
-# SCADA Interface
+## SCADA Interface
 
-## Main Operator Interface
+### Main Operator Interface
 
 The primary SCADA interface provided:
 
@@ -97,7 +97,7 @@ The interface was designed to provide centralized visibility into the overall sy
 
 ---
 
-## Manual Control Interface
+### Manual Control Interface
 
 A dedicated manual-control page was developed to support:
 
@@ -113,7 +113,7 @@ This interface became one of the primary debugging tools used throughout subsyst
 
 ---
 
-## Database Logging
+### Database Logging
 
 The Ignition SCADA interface integrated directly with a SQL database used for battery traceability logging.
 
@@ -137,9 +137,9 @@ The database interface was used to validate:
 
 ---
 
-# PLC Development
+## PLC Development
 
-## PLC Program Structure
+### PLC Program Structure
 
 The PLC architecture was organized around:
 
@@ -160,7 +160,7 @@ The project utilized structured PLC organization through:
 
 ---
 
-## State Machine Logic
+### State Machine Logic
 
 The automated sequence was controlled through a PLC-based state-machine architecture coordinating:
 
@@ -176,7 +176,7 @@ The final sequence architecture evolved significantly throughout development as 
 
 ---
 
-## QR Parsing Logic
+### QR Parsing Logic
 
 Custom SCL parsing functions were developed to process incoming QR messages directly within the PLC.
 
@@ -199,9 +199,9 @@ Significant engineering effort was spent optimizing:
 
 ---
 
-# Vision System
+## Vision System
 
-## Banner Scanner Integration
+### Banner Scanner Integration
 
 The Banner ABR3000 vision sensor was integrated with the Siemens PLC through Profinet communication and served as the primary battery-identification subsystem.
 
@@ -217,7 +217,7 @@ The scanner architecture included:
 
 ---
 
-## QR Scan Results
+### QR Scan Results
 
 The scanner transmitted raw QR payloads to the PLC, where the message was parsed into structured battery information fields for display and logging.
 
@@ -232,9 +232,9 @@ The final implementation optimized QR payload structure to improve:
 
 ---
 
-# Pneumatic System
+## Pneumatic System
 
-## Pneumatic Hardware
+### Pneumatic Hardware
 
 The pneumatic subsystem utilized:
 
@@ -254,7 +254,7 @@ The pneumatic architecture coordinated:
 
 ---
 
-## Flipper Transfer Mechanism
+### Flipper Transfer Mechanism
 
 A pneumatic flipper assembly coordinated battery transfer between handling stages and maintained stable positioning during scanning operations.
 
@@ -269,7 +269,7 @@ The mechanism relied heavily on:
 
 ---
 
-## Pneumatic Testing
+### Pneumatic Testing
 
 Extensive subsystem testing was performed throughout development to validate:
 
@@ -285,9 +285,9 @@ Manual testing interfaces were heavily used during subsystem integration and tro
 
 ---
 
-# Industrial Networking
+## Industrial Networking
 
-## Ethernet & Communication Architecture
+### Ethernet & Communication Architecture
 
 The system utilized an industrial Ethernet architecture connecting:
 
@@ -307,9 +307,9 @@ Communication technologies included:
 
 ---
 
-# Hardware Integration
+## Hardware Integration
 
-## Industrial Control Hardware
+### Industrial Control Hardware
 
 The completed system integrated several industrial hardware platforms into a unified automation architecture.
 
@@ -326,9 +326,9 @@ Major hardware components included:
 
 ---
 
-# Development Process
+## Development Process
 
-## Integration & Troubleshooting
+### Integration & Troubleshooting
 
 Development involved extensive subsystem testing and iterative troubleshooting across:
 
@@ -345,7 +345,7 @@ The final implementation evolved significantly throughout development as testing
 
 ---
 
-## Project Evolution
+### Project Evolution
 
 The project architecture evolved considerably throughout development due to:
 
@@ -361,9 +361,9 @@ The final implementation preserved the core industrial automation objectives of 
 
 ---
 
-# Final Demonstration Summary
+## Final Demonstration Summary
 
-## Completed System Demonstration
+### Completed System Demonstration
 
 The completed project successfully demonstrated:
 
