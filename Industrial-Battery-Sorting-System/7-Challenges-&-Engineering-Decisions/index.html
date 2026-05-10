@@ -759,14 +759,16 @@
 <hr>
 <h1 id="original-project-architecture">Original Project Architecture</h1>
 <h2 id="initial-system-concept">Initial System Concept</h2>
-<p>The original project architecture centered around a fully integrated industrial automation platform combining:
-- FANUC robotic handling
-- Pneumatic transfer hardware
-- Siemens PLC control
-- Machine vision integration
-- SCADA monitoring
-- SQL database logging
-- Industrial Ethernet communication</p>
+<p>The original project architecture centered around a fully integrated industrial automation platform combining:</p>
+<ul>
+<li>FANUC robotic handling</li>
+<li>Pneumatic transfer hardware</li>
+<li>Siemens PLC control</li>
+<li>Machine vision integration</li>
+<li>SCADA monitoring</li>
+<li>SQL database logging</li>
+<li>Industrial Ethernet communication</li>
+</ul>
 <p>The robotic system was originally intended to perform the primary battery-transfer operations while the PLC coordinated sequence control, scanner communication, subsystem timing, and operator interaction.</p>
 <p>The intended architecture represented a more traditional industrial automation workflow involving coordinated robot motion and PLC-controlled peripheral systems.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/OriginalConcept.png" data-desc-position="bottom"><img alt="Original System Concept" src="Images/OriginalConcept.png"></a></p>
@@ -777,205 +779,247 @@
 <p>Although the robot itself supported Ethernet/IP communication, the project architecture required Profinet integration in order to maintain compatibility with the rest of the industrial communication network.</p>
 <h3 id="profinet-upgrade-delays">Profinet Upgrade Delays</h3>
 <p>The required Profinet communication hardware experienced repeated delays and ultimately did not arrive within the project timeline.</p>
-<p>This created several major impacts:
-- Loss of direct PLC-to-robot communication
-- Inability to complete planned robot integration
-- Reduced integration/testing time
-- Required redesign of the automation sequence
-- Scope reduction near final integration stages</p>
+<p>This created several major impacts:</p>
+<ul>
+<li>Loss of direct PLC-to-robot communication</li>
+<li>Inability to complete planned robot integration</li>
+<li>Reduced integration/testing time</li>
+<li>Required redesign of the automation sequence</li>
+<li>Scope reduction near final integration stages</li>
+</ul>
 <h3 id="engineering-response">Engineering Response</h3>
 <p>Rather than abandoning the automation workflow entirely, the project architecture was redesigned around a pneumatic-focused transfer sequence that simulated the intended battery-handling process while preserving the core integration objectives of the project.</p>
-<p>This redesign allowed the system to continue demonstrating:
-- PLC-controlled automation
-- Machine vision communication
-- Industrial networking
-- SCADA integration
-- SQL logging
-- Automated sequencing
-- Subsystem coordination</p>
+<p>This redesign allowed the system to continue demonstrating:</p>
+<ul>
+<li>PLC-controlled automation</li>
+<li>Machine vision communication</li>
+<li>Industrial networking</li>
+<li>SCADA integration</li>
+<li>SQL logging</li>
+<li>Automated sequencing</li>
+<li>Subsystem coordination</li>
+</ul>
 <p>despite the loss of robotic communication integration.</p>
 <hr>
 <h1 id="industrial-networking-challenges">Industrial Networking Challenges</h1>
 <h2 id="profinet-integration">Profinet Integration</h2>
 <p>Industrial communication integration became one of the largest technical portions of the project.</p>
-<p>Several challenges were encountered while integrating:
-- Siemens PLC hardware
-- Banner vision sensor
-- SMC valve manifold
-- Ignition SCADA system</p>
+<p>Several challenges were encountered while integrating:</p>
+<ul>
+<li>Siemens PLC hardware</li>
+<li>Banner vision sensor</li>
+<li>SMC valve manifold</li>
+<li>Ignition SCADA system</li>
+</ul>
 <h3 id="device-configuration-issues">Device Configuration Issues</h3>
-<p>Challenges included:
-- GSD installation and configuration
-- Device naming
-- Static IP assignment
-- IO module sizing
-- Input/output mapping
-- Profinet diagnostics</p>
+<p>Challenges included:</p>
+<ul>
+<li>GSD installation and configuration</li>
+<li>Device naming</li>
+<li>Static IP assignment</li>
+<li>IO module sizing</li>
+<li>Input/output mapping</li>
+<li>Profinet diagnostics</li>
+</ul>
 <p>Much of the troubleshooting process involved validating communication settings between the scanner, PLC hardware configuration, and Profinet IO modules inside TIA Portal.</p>
 <h3 id="communication-validation">Communication Validation</h3>
-<p>Additional testing was required to:
-- Verify cyclic IO behavior
-- Confirm scanner trigger timing
-- Validate Ethernet communication paths
-- Debug incorrect module mappings
-- Troubleshoot device-detection issues</p>
+<p>Additional testing was required to:</p>
+<ul>
+<li>Verify cyclic IO behavior</li>
+<li>Confirm scanner trigger timing</li>
+<li>Validate Ethernet communication paths</li>
+<li>Debug incorrect module mappings</li>
+<li>Troubleshoot device-detection issues</li>
+</ul>
 <p>The networking subsystem ultimately became one of the most integration-heavy portions of the project.</p>
 <hr>
 <h1 id="qr-communication-challenges">QR Communication Challenges</h1>
 <h2 id="message-buffer-limitations">Message Buffer Limitations</h2>
 <p>One of the most significant technical problems encountered during development involved scanner message-size limitations and Profinet communication buffers.</p>
 <h3 id="original-problem">Original Problem</h3>
-<p>Initial QR payload formats exceeded the configured Profinet input-buffer allocation, causing:
-- Truncated scan messages
-- Incomplete data fields
-- Parsing failures
-- Unstable communication behavior</p>
+<p>Initial QR payload formats exceeded the configured Profinet input-buffer allocation, causing:</p>
+<ul>
+<li>Truncated scan messages</li>
+<li>Incomplete data fields</li>
+<li>Parsing failures</li>
+<li>Unstable communication behavior</li>
+</ul>
 <p>The issue initially appeared to be inconsistent scanner behavior before being traced back to IO module sizing and communication mapping limitations.</p>
 <h3 id="engineering-solution">Engineering Solution</h3>
-<p>Several engineering decisions were made to improve communication reliability:
-- Increasing Profinet input-buffer allocation
-- Correcting IO address mapping
-- Reducing QR payload size
-- Simplifying message formatting
-- Optimizing parser structure</p>
+<p>Several engineering decisions were made to improve communication reliability:</p>
+<ul>
+<li>Increasing Profinet input-buffer allocation</li>
+<li>Correcting IO address mapping</li>
+<li>Reducing QR payload size</li>
+<li>Simplifying message formatting</li>
+<li>Optimizing parser structure</li>
+</ul>
 <p>The final QR payload format preserved the required traceability information while significantly reducing communication overhead and improving parser reliability.</p>
 <hr>
 <h1 id="plc-architecture-challenges">PLC Architecture Challenges</h1>
 <h2 id="state-machine-development">State-Machine Development</h2>
 <p>The PLC sequence architecture evolved significantly throughout development.</p>
-<p>Initial implementations became increasingly difficult to maintain as:
-- Additional sequence states were added
-- Pneumatic timing became more complex
-- Reset behavior expanded
-- Manual controls were introduced
-- Scanner integration requirements increased</p>
+<p>Initial implementations became increasingly difficult to maintain as:</p>
+<ul>
+<li>Additional sequence states were added</li>
+<li>Pneumatic timing became more complex</li>
+<li>Reset behavior expanded</li>
+<li>Manual controls were introduced</li>
+<li>Scanner integration requirements increased</li>
+</ul>
 <h3 id="sequence-refinement">Sequence Refinement</h3>
-<p>The final state-machine architecture focused heavily on:
-- Deterministic behavior
-- Sequence readability
-- Timing coordination
-- Safe state transitions
-- Reset reliability
-- Manual/automatic separation</p>
+<p>The final state-machine architecture focused heavily on:</p>
+<ul>
+<li>Deterministic behavior</li>
+<li>Sequence readability</li>
+<li>Timing coordination</li>
+<li>Safe state transitions</li>
+<li>Reset reliability</li>
+<li>Manual/automatic separation</li>
+</ul>
 <p>Large portions of the sequence logic were repeatedly restructured throughout development as subsystem integration exposed new timing and synchronization problems.</p>
 <hr>
 <h1 id="pneumatic-coordination-challenges">Pneumatic Coordination Challenges</h1>
 <h2 id="vacuum-handoff-timing">Vacuum Handoff Timing</h2>
 <p>Reliable battery transfer required significantly more timing coordination than originally expected.</p>
 <h3 id="transfer-stability-issues">Transfer Stability Issues</h3>
-<p>Early implementations encountered:
-- Unstable handoffs
-- Inconsistent battery positioning
-- Vacuum release timing problems
-- Reset-state complications
-- Transfer synchronization issues</p>
+<p>Early implementations encountered:</p>
+<ul>
+<li>Unstable handoffs</li>
+<li>Inconsistent battery positioning</li>
+<li>Vacuum release timing problems</li>
+<li>Reset-state complications</li>
+<li>Transfer synchronization issues</li>
+</ul>
 <h3 id="engineering-improvements">Engineering Improvements</h3>
-<p>The final implementation introduced:
-- Overlapping vacuum states
-- Dedicated handoff delays
-- Structured transfer sequencing
-- Improved reset behavior
-- Deterministic motion coordination</p>
+<p>The final implementation introduced:</p>
+<ul>
+<li>Overlapping vacuum states</li>
+<li>Dedicated handoff delays</li>
+<li>Structured transfer sequencing</li>
+<li>Improved reset behavior</li>
+<li>Deterministic motion coordination</li>
+</ul>
 <p>These changes significantly improved transfer reliability and overall sequence stability.</p>
 <hr>
 <h1 id="scada-integration-challenges">SCADA Integration Challenges</h1>
 <h2 id="ignition-opc-ua">Ignition &amp; OPC UA</h2>
 <p>Several integration challenges were encountered while connecting Ignition to the Siemens PLC through OPC UA communication.</p>
 <h3 id="major-issues">Major Issues</h3>
-<p>Challenges included:
-- PLC string handling limitations
-- Invalid tag states
-- OPC browsing limitations
-- Manual DB-offset mapping
-- Perspective scripting issues
-- Database configuration troubleshooting</p>
+<p>Challenges included:</p>
+<ul>
+<li>PLC string handling limitations</li>
+<li>Invalid tag states</li>
+<li>OPC browsing limitations</li>
+<li>Manual DB-offset mapping</li>
+<li>Perspective scripting issues</li>
+<li>Database configuration troubleshooting</li>
+</ul>
 <h3 id="string-handling-problems">String Handling Problems</h3>
 <p>One particularly difficult issue involved PLC string allocations and OPC communication reliability.</p>
-<p>Oversized PLC string declarations caused:
-- Invalid OPC tag states
-- Broken sibling tags
-- Unstable SCADA communication behavior</p>
+<p>Oversized PLC string declarations caused:</p>
+<ul>
+<li>Invalid OPC tag states</li>
+<li>Broken sibling tags</li>
+<li>Unstable SCADA communication behavior</li>
+</ul>
 <p>The final solution involved restructuring portions of the PLC data architecture and reducing string-size allocations to improve OPC stability.</p>
 <hr>
 <h1 id="real-world-project-constraints">Real-World Project Constraints</h1>
 <h2 id="schedule-compression">Schedule Compression</h2>
 <p>A major challenge throughout development involved adapting the project architecture while operating under compressed integration timelines.</p>
-<p>Several external constraints affected development time, including:
-- Hardware shipping delays
-- Communication hardware availability
-- Software licensing delays
-- Integration troubleshooting
-- Subsystem redesigns</p>
-<p>These issues reduced the amount of available time for:
-- Full-system integration
-- Final validation
-- Sequence refinement
-- Hardware testing</p>
+<p>Several external constraints affected development time, including:</p>
+<ul>
+<li>Hardware shipping delays</li>
+<li>Communication hardware availability</li>
+<li>Software licensing delays</li>
+<li>Integration troubleshooting</li>
+<li>Subsystem redesigns</li>
+</ul>
+<p>These issues reduced the amount of available time for:</p>
+<ul>
+<li>Full-system integration</li>
+<li>Final validation</li>
+<li>Sequence refinement</li>
+<li>Hardware testing</li>
+</ul>
 <h3 id="engineering-adaptation">Engineering Adaptation</h3>
 <p>The project required continuous reprioritization and scope management throughout development in order to preserve the most technically valuable portions of the system architecture.</p>
-<p>The final implementation prioritized:
-- Industrial integration
-- PLC control architecture
-- Machine vision communication
-- SCADA functionality
-- Pneumatic sequencing
-- Database logging
-- Networking reliability</p>
+<p>The final implementation prioritized:</p>
+<ul>
+<li>Industrial integration</li>
+<li>PLC control architecture</li>
+<li>Machine vision communication</li>
+<li>SCADA functionality</li>
+<li>Pneumatic sequencing</li>
+<li>Database logging</li>
+<li>Networking reliability</li>
+</ul>
 <p>while removing or simplifying portions of the original scope that could no longer be realistically completed within the available timeline.</p>
 <hr>
 <h1 id="engineering-decisions">Engineering Decisions</h1>
 <h2 id="architectural-priorities">Architectural Priorities</h2>
 <p>Several major engineering decisions shaped the final system architecture.</p>
 <h3 id="centralized-plc-control">Centralized PLC Control</h3>
-<p>The project used the Siemens PLC as the centralized controller for:
-- Sequence logic
-- Scanner communication
-- Pneumatic coordination
-- SCADA interaction
-- System-state management</p>
+<p>The project used the Siemens PLC as the centralized controller for:</p>
+<ul>
+<li>Sequence logic</li>
+<li>Scanner communication</li>
+<li>Pneumatic coordination</li>
+<li>SCADA interaction</li>
+<li>System-state management</li>
+</ul>
 <p>This simplified subsystem coordination and improved deterministic control behavior.</p>
 <h3 id="separation-of-control-interface-layers">Separation of Control &amp; Interface Layers</h3>
-<p>The PLC retained all real-time automation logic while Ignition handled:
-- Visualization
-- Operator interaction
-- Diagnostics
-- Database logging</p>
+<p>The PLC retained all real-time automation logic while Ignition handled:</p>
+<ul>
+<li>Visualization</li>
+<li>Operator interaction</li>
+<li>Diagnostics</li>
+<li>Database logging</li>
+</ul>
 <p>This separation improved system stability and simplified troubleshooting.</p>
 <h3 id="pneumatic-only-fallback-architecture">Pneumatic-Only Fallback Architecture</h3>
 <p>The redesign away from robotic integration preserved the majority of the industrial automation architecture while simplifying the physical handling process enough to maintain a stable and demonstrable final system.</p>
 <hr>
 <h1 id="lessons-learned">Lessons Learned</h1>
 <h2 id="engineering-experience">Engineering Experience</h2>
-<p>The project provided extensive experience in:
-- Industrial automation integration
-- PLC programming
-- Machine vision communication
-- Industrial networking
-- SCADA development
-- Pneumatic sequencing
-- Real-world troubleshooting
-- Systems-level debugging</p>
+<p>The project provided extensive experience in:</p>
+<ul>
+<li>Industrial automation integration</li>
+<li>PLC programming</li>
+<li>Machine vision communication</li>
+<li>Industrial networking</li>
+<li>SCADA development</li>
+<li>Pneumatic sequencing</li>
+<li>Real-world troubleshooting</li>
+<li>Systems-level debugging</li>
+</ul>
 <h3 id="systems-integration">Systems Integration</h3>
 <p>One of the largest lessons learned throughout development involved the complexity of integrating multiple industrial subsystems into a coordinated and reliable automation platform.</p>
-<p>Many of the project challenges were not isolated programming problems, but instead involved:
-- Communication architecture
-- Timing coordination
-- Hardware/software interaction
-- State management
-- Integration reliability
-- Real-world engineering constraints</p>
+<p>Many of the project challenges were not isolated programming problems, but instead involved:</p>
+<ul>
+<li>Communication architecture</li>
+<li>Timing coordination</li>
+<li>Hardware/software interaction</li>
+<li>State management</li>
+<li>Integration reliability</li>
+<li>Real-world engineering constraints</li>
+</ul>
 <hr>
 <h1 id="final-outcome">Final Outcome</h1>
 <h2 id="completed-system-architecture">Completed System Architecture</h2>
-<p>Despite multiple communication challenges, hardware limitations, and evolving project constraints, the final implementation successfully demonstrated:
-- PLC-controlled automation
-- Industrial Ethernet communication
-- Machine vision integration
-- Pneumatic sequencing
-- SCADA monitoring
-- SQL database logging
-- Manual and automatic operation
-- Real-time subsystem coordination</p>
+<p>Despite multiple communication challenges, hardware limitations, and evolving project constraints, the final implementation successfully demonstrated:</p>
+<ul>
+<li>PLC-controlled automation</li>
+<li>Industrial Ethernet communication</li>
+<li>Machine vision integration</li>
+<li>Pneumatic sequencing</li>
+<li>SCADA monitoring</li>
+<li>SQL database logging</li>
+<li>Manual and automatic operation</li>
+<li>Real-time subsystem coordination</li>
+</ul>
 <p>The completed project ultimately served as a fully integrated industrial automation platform demonstrating practical industrial control-system design, subsystem communication, and engineering problem-solving under real-world development constraints.</p>
 
 
