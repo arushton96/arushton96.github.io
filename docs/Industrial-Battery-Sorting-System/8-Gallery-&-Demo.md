@@ -53,9 +53,10 @@ The final sequence architecture emphasized deterministic operation, subsystem co
 
 ### Demonstration Video
 
+### Demonstration Video
+
 <video controls preload="metadata" width="100%">
-  <source src="Images/SCADA_Display.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+  <source src="../Images/SCADA_Display.mp4" type="video/mp4">
 </video>
 
 ---
