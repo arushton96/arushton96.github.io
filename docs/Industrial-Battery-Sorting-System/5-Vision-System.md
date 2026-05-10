@@ -20,13 +20,13 @@ The vision system was designed around:
 
 ---
 
-# Vision Hardware
+## Vision Hardware
 
-## Banner ABR3000 Vision Sensor
+### Banner ABR3000 Vision Sensor
 
 The system utilized a Banner ABR3000 industrial barcode and vision sensor configured for Profinet communication.
 
-### Scanner Responsibilities
+#### Scanner Responsibilities
 
 The scanner was responsible for:
 
@@ -36,7 +36,7 @@ The scanner was responsible for:
 - Indicating successful or failed reads
 - Supporting repeated automated scans during operation
 
-### Hardware Integration
+#### Hardware Integration
 
 The scanner was connected to the industrial Ethernet network alongside the Siemens PLC and pneumatic valve manifold.
 
@@ -47,7 +47,7 @@ System connections included:
 - PLC-controlled trigger signals
 - PLC status feedback handling
 
-### Industrial Network Configuration
+#### Industrial Network Configuration
 
 The camera was assigned a static IP address within the system network and configured as a Profinet IO device within TIA Portal.
 
@@ -61,15 +61,15 @@ Topics:
 
 ---
 
-# Profinet Integration
+## Profinet Integration
 
-## PLC Communication
+### PLC Communication
 
 The Banner scanner communicated directly with the Siemens PLC through Profinet IO communication rather than serial or TCP socket-based messaging.
 
 This allowed the scanner to behave as a cyclic industrial IO device inside the PLC hardware configuration.
 
-### Communication Architecture
+#### Communication Architecture
 
 The scanner exchanged:
 
@@ -80,7 +80,7 @@ The scanner exchanged:
 
 The PLC handled all higher-level message processing and parsing logic internally.
 
-### GSD Configuration
+#### GSD Configuration
 
 A Banner Profinet GSD file was imported into TIA Portal in order to configure the scanner as an industrial IO device.
 
@@ -93,13 +93,13 @@ Challenges included:
 
 ---
 
-# Scanner Triggering Logic
+## Scanner Triggering Logic
 
-## PLC-Controlled Acquisition
+### PLC-Controlled Acquisition
 
 The scanner was configured for externally triggered acquisition. The PLC generated a trigger pulse once the pneumatic sequence positioned a battery at the scan station.
 
-### Trigger Sequence
+#### Trigger Sequence
 
 The scanning process followed this general sequence:
 
@@ -111,7 +111,7 @@ The scanning process followed this general sequence:
 6. PLC verifies read result
 7. Parsed data becomes available to SCADA/database systems
 
-### Trigger Output
+#### Trigger Output
 
 The scanner trigger was controlled using a dedicated PLC output bit mapped to the Profinet device output area.
 
@@ -124,9 +124,9 @@ Topics:
 
 ---
 
-# QR Message Processing
+## QR Message Processing
 
-## Raw Data Handling
+### Raw Data Handling
 
 The scanner transmitted raw QR message data into the PLC through the Profinet input buffer.
 
@@ -139,7 +139,7 @@ The PLC received:
 
 The incoming message was processed entirely within PLC logic using SCL string parsing functions.
 
-### Message Buffer Structure
+#### Message Buffer Structure
 
 The message buffer contained:
 
@@ -152,9 +152,9 @@ The parser monitored the input buffer and extracted usable text data from the in
 
 ---
 
-# QR Parsing Logic
+## QR Parsing Logic
 
-## PLC-Based String Parsing
+### PLC-Based String Parsing
 
 A custom SCL parsing routine was developed to process incoming QR messages directly within the PLC.
 
@@ -168,7 +168,7 @@ The parser extracted:
 - Capacity
 - Resistance data
 
-### Parsing Architecture
+#### Parsing Architecture
 
 Custom PLC functions were developed for:
 
@@ -186,7 +186,7 @@ Topics:
 - Structured data formatting
 - Parse validation
 
-### Scan Verification
+#### Scan Verification
 
 The parser validated:
 
@@ -199,15 +199,15 @@ The system rejected invalid or incomplete messages.
 
 ---
 
-# Buffer Size Optimization
+## Buffer Size Optimization
 
-## Profinet Message Limitations
+### Profinet Message Limitations
 
 One of the major engineering challenges during development involved Profinet message buffer sizing and scanner communication limits.
 
 Initial scanner configurations produced QR payloads that exceeded the configured PLC input buffer size, resulting in truncated scan messages.
 
-### Original Problem
+#### Original Problem
 
 Issues encountered included:
 
@@ -217,7 +217,7 @@ Issues encountered included:
 - Lost data fields
 - PLC/scanner IO mismatches
 
-### Solution
+#### Solution
 
 The final solution involved:
 
@@ -228,7 +228,7 @@ The final solution involved:
 
 The QR format was redesigned into a shorter structured format that preserved required information while reducing message size significantly.
 
-### Final Result
+#### Final Result
 
 The final communication implementation:
 
@@ -239,15 +239,15 @@ The final communication implementation:
 
 ---
 
-# Read Status Handling
+## Read Status Handling
 
-## Good Read / No Read Logic
+### Good Read / No Read Logic
 
 The scanner transmitted dedicated status bits indicating successful or failed scans.
 
 These signals were integrated into PLC logic and SCADA monitoring systems.
 
-### Status Indicators
+#### Status Indicators
 
 The system monitored:
 
@@ -256,7 +256,7 @@ The system monitored:
 - Trigger acknowledgement
 - Scanner activity states
 
-### PLC Integration
+#### PLC Integration
 
 Read status bits were used for:
 
@@ -270,13 +270,13 @@ The SCADA system displayed scanner state information in real time during operati
 
 ---
 
-# SCADA Integration
+## SCADA Integration
 
-## Vision Data in Ignition
+### Vision Data in Ignition
 
 Parsed battery information was transferred from the PLC into the Ignition SCADA system for display and logging.
 
-### Displayed Information
+#### Displayed Information
 
 The SCADA interface displayed:
 
@@ -287,7 +287,7 @@ The SCADA interface displayed:
 - Scan status
 - Current battery information
 
-### Database Logging
+#### Database Logging
 
 Battery scan information was also logged into the SQL database system through Ignition.
 
@@ -300,13 +300,13 @@ Logged information included:
 
 ---
 
-# Vision System Challenges
+## Vision System Challenges
 
-## Engineering Challenges
+### Engineering Challenges
 
 Several technical challenges were encountered during development of the vision subsystem.
 
-### Major Challenges
+#### Major Challenges
 
 Key development issues included:
 
@@ -318,7 +318,7 @@ Key development issues included:
 - Message parsing reliability
 - Industrial Ethernet configuration
 
-### Troubleshooting Process
+#### Troubleshooting Process
 
 Development required:
 
@@ -333,9 +333,9 @@ The majority of troubleshooting focused on ensuring reliable communication betwe
 
 ---
 
-# Final Outcome
+## Final Outcome
 
-## Completed Vision System
+### Completed Vision System
 
 The final vision subsystem successfully provided:
 
