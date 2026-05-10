@@ -21,6 +21,7 @@ The PLC project was organized using a combination of organizational blocks, func
 The main control logic executed through `OB1`, which coordinated the primary sequence execution, subsystem communication, and runtime state management. Additional logic was separated into dedicated function blocks and mapping functions to simplify debugging and organization.
 
 Major program components included:
+
 - Pneumatic sequence logic
 - QR parsing logic
 - SCADA interface mapping
@@ -30,6 +31,7 @@ Major program components included:
 - Manual-control handling
 
 Key blocks included:
+
 - `OB1`
 - `DB_SCADA_Interface`
 - `FB_PneuSequence`
@@ -46,6 +48,7 @@ The overall architecture emphasized modular subsystem separation while maintaini
 The automated sequence was structured around a PLC-controlled state machine that coordinated the pneumatic handling process step-by-step throughout operation.
 
 Each sequence state controlled a specific portion of the automation cycle, including:
+
 - Vacuum activation
 - Flipper movement
 - Scanner timing
@@ -54,6 +57,7 @@ Each sequence state controlled a specific portion of the automation cycle, inclu
 - Sequence completion
 
 The state-machine architecture allowed the system to:
+
 - Execute deterministic automated sequences
 - Prevent conflicting outputs
 - Simplify troubleshooting
@@ -69,6 +73,7 @@ Timers and interlocks were integrated throughout the sequence to ensure stable o
 Automatic mode controlled the full pneumatic handling sequence without operator intervention after the cycle was started.
 
 During operation, the PLC coordinated:
+
 1. Battery pickup using the robot vacuum simulation
 2. Battery transfer to the flipper vacuum system
 3. Flipper extension into scan position
@@ -88,6 +93,7 @@ The final automatic sequence architecture was refined extensively during testing
 Manual mode allowed operators to directly actuate pneumatic outputs and test subsystem behavior independently of the automatic sequence.
 
 The manual-control architecture was primarily developed to support:
+
 - Pneumatic testing
 - Hardware validation
 - Sequence debugging
@@ -95,6 +101,7 @@ The manual-control architecture was primarily developed to support:
 - Sensor and output verification
 
 Manual operation was integrated through the Ignition SCADA interface and allowed operators to individually control:
+
 - Vacuum outputs
 - Flipper extension/retraction
 - Scanner triggering
@@ -111,6 +118,7 @@ The PLC logic included dedicated mode-management logic used to coordinate transi
 Mode changes were restricted through permissive logic that verified the system was in a safe idle state before allowing transitions between operating modes.
 
 The mode-management structure prevented:
+
 - Mode switching during active sequences
 - Conflicting output control
 - Unsafe pneumatic states
@@ -125,6 +133,7 @@ This logic improved overall system stability and simplified troubleshooting thro
 A major focus of the PLC logic was maintaining safe and deterministic system behavior during all operating conditions.
 
 Interlocks were implemented throughout the pneumatic sequence to:
+
 - Prevent conflicting outputs
 - Maintain safe actuator states
 - Prevent unstable vacuum transfers
@@ -134,6 +143,7 @@ Interlocks were implemented throughout the pneumatic sequence to:
 Normally closed logic structures were used in several portions of the sequence to guarantee mutually exclusive output behavior between opposing pneumatic states.
 
 Additional safety-oriented logic included:
+
 - Stop-request handling
 - Reset sequencing
 - Vacuum overlap timing
@@ -151,6 +161,7 @@ Reset handling became one of the more complex portions of the control architectu
 Rather than simply forcing all outputs off during reset conditions, the PLC logic evaluated the current transfer state and coordinated a controlled return to the idle position while preserving vacuum control of the battery when required.
 
 The reset sequence architecture focused on:
+
 - Safe return-to-home behavior
 - Preventing dropped batteries
 - Controlled vacuum release
@@ -168,6 +179,7 @@ The PLC coordinated scanner communication through dedicated trigger outputs and 
 During operation, the PLC triggered the Banner scanner once the battery reached the correct scan position within the pneumatic sequence. The scanner then returned good-read or no-read status information through Profinet communication modules.
 
 Additional logic was implemented to:
+
 - Detect new scan messages
 - Validate message structure
 - Compare current and previous scan data
@@ -182,6 +194,7 @@ The scanner integration logic became closely tied to the overall state-machine a
 QR-code data received from the scanner was processed directly inside the PLC using structured parsing logic.
 
 The parser validated incoming message structure and extracted battery information fields including:
+
 - Manufacturer information
 - Model identifiers
 - Serial numbers
@@ -191,6 +204,7 @@ The parser validated incoming message structure and extracted battery informatio
 - Manufacturing data
 
 Dedicated parsing functions were developed to:
+
 - Separate message fields
 - Handle delimiters
 - Validate scan data
@@ -205,6 +219,7 @@ Significant effort was spent optimizing message structure and buffer handling to
 The PLC communicated with Ignition through structured SCADA interface mapping logic.
 
 Dedicated data blocks and mapping functions were used to expose:
+
 - Operator commands
 - System-status values
 - Sequence states
@@ -213,6 +228,7 @@ Dedicated data blocks and mapping functions were used to expose:
 - Parsed QR data
 
 A naming convention was implemented throughout the project to separate:
+
 - User/SCADA command tags
 - Internal PLC logic
 - Status outputs
@@ -229,6 +245,7 @@ A major portion of the PLC development process involved coordinating pneumatic t
 Timed overlap periods were implemented between vacuum channels to prevent unstable transfers while batteries moved between handling stages.
 
 Additional timing logic coordinated:
+
 - Flipper extension/retraction
 - Scanner wait timing
 - State transitions
@@ -244,6 +261,7 @@ Sequence timing was refined extensively during testing to improve transfer relia
 PLC development involved extensive iterative testing throughout subsystem integration and full-system validation.
 
 Testing methods included:
+
 - Watch-table monitoring
 - Manual sequence stepping
 - SCADA-based diagnostics
@@ -261,6 +279,7 @@ Additional temporary diagnostic logic and testing interfaces were developed thro
 Several major engineering challenges were encountered during PLC development.
 
 These included:
+
 - State-machine restructuring
 - Reset-sequence complexity
 - Pneumatic timing coordination
@@ -282,6 +301,7 @@ The final implementation emphasized stability, readability, modularity, and reli
 The completed PLC architecture successfully coordinated all major automation behavior throughout the project and served as the foundation for the final integrated system.
 
 The final implementation demonstrated:
+
 - Stable automated sequencing
 - Pneumatic coordination
 - Reliable scanner communication
