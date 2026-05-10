@@ -31,6 +31,7 @@ The Siemens Totally Integrated Automation (TIA) Portal environment was used for:
 ### Major Features Used
 
 Topics:
+
 - Hardware configuration
 - Profinet integration
 - Data block management
@@ -40,6 +41,7 @@ Topics:
 - Device naming and addressing
 
 Software:
+
 - Siemens TIA Portal
 
 ---
@@ -51,6 +53,7 @@ Software:
 Ignition Perspective was used to develop the SCADA and operator-interface subsystem.
 
 The platform provided:
+
 - Browser-based operator interfaces
 - OPC UA communication
 - Real-time monitoring
@@ -61,6 +64,7 @@ The platform provided:
 ### Major Features Used
 
 Topics:
+
 - Perspective views
 - Tag bindings
 - Device connections
@@ -69,6 +73,7 @@ Topics:
 - Real-time status monitoring
 
 Software:
+
 - Ignition Perspective
 - Ignition Gateway
 
@@ -83,6 +88,7 @@ Software:
 The Siemens S7-1200 PLC served as the primary controller for the entire automation system.
 
 Responsibilities included:
+
 - Sequence control
 - Pneumatic coordination
 - Scanner communication
@@ -93,6 +99,7 @@ Responsibilities included:
 ### PLC Development Topics
 
 Topics:
+
 - Ladder logic
 - State-machine programming
 - Structured Text (SCL)
@@ -110,6 +117,7 @@ Topics:
 ### QR-Code Scanning Platform
 
 The Banner ABR3000 vision sensor provided:
+
 - QR-code scanning
 - Profinet communication
 - Good-read/no-read handling
@@ -118,6 +126,7 @@ The Banner ABR3000 vision sensor provided:
 ### Topics
 
 Topics:
+
 - Scanner configuration
 - Profinet communication
 - Triggered acquisition
@@ -133,10 +142,12 @@ Topics:
 ### SCADA Communication
 
 OPC UA was used for communication between:
+
 - Ignition SCADA
 - Siemens PLC
 
 The communication architecture supported:
+
 - Real-time monitoring
 - Read/write operations
 - Tag mapping
@@ -145,6 +156,7 @@ The communication architecture supported:
 ### Topics
 
 Topics:
+
 - OPC UA configuration
 - Tag browsing
 - DB-offset addressing
@@ -157,6 +169,7 @@ Topics:
 ### Industrial Ethernet Communication
 
 Profinet communication connected:
+
 - Siemens PLC
 - Banner scanner
 - SMC valve manifold
@@ -164,6 +177,7 @@ Profinet communication connected:
 ### Topics
 
 Topics:
+
 - Industrial Ethernet
 - Device configuration
 - GSD installation
@@ -178,6 +192,7 @@ Topics:
 ## SQL Database Logging
 
 The project used SQL database integration through Ignition for:
+
 - Battery traceability
 - Scan-history logging
 - Data validation
@@ -186,6 +201,7 @@ The project used SQL database integration through Ignition for:
 ### Database Topics
 
 Topics:
+
 - SQL insert queries
 - Table creation
 - Database connections
@@ -199,6 +215,7 @@ Topics:
 ## SMC Pneumatic Components
 
 The pneumatic subsystem utilized:
+
 - SMC valve manifolds
 - Vacuum generators
 - Pneumatic transfer hardware
@@ -207,6 +224,7 @@ The pneumatic subsystem utilized:
 ### Topics
 
 Topics:
+
 - Pneumatic sequencing
 - Vacuum timing
 - Solenoid control
@@ -220,6 +238,7 @@ Topics:
 ## Industrial Ethernet Network
 
 The system used a static-IP industrial Ethernet architecture connecting:
+
 - PLC hardware
 - Vision system
 - Pneumatic communication hardware
@@ -228,6 +247,7 @@ The system used a static-IP industrial Ethernet architecture connecting:
 ### Topics
 
 Topics:
+
 - Static IP assignment
 - Ethernet configuration
 - Device communication
@@ -245,6 +265,7 @@ Several tools and techniques were used throughout development and troubleshootin
 ### PLC Debugging
 
 Methods included:
+
 - Watch-table monitoring
 - Online diagnostics
 - IO testing
@@ -254,6 +275,7 @@ Methods included:
 ### SCADA Debugging
 
 Methods included:
+
 - Tag diagnostics
 - Perspective testing
 - Database query validation
@@ -262,6 +284,7 @@ Methods included:
 ### Vision-System Validation
 
 Methods included:
+
 - Scanner diagnostics
 - IO verification
 - Trigger validation
@@ -275,6 +298,7 @@ Methods included:
 ## Industrial Automation Design
 
 The project followed common industrial automation design practices including:
+
 - Centralized PLC control
 - Structured tag naming
 - Modular subsystem separation
@@ -286,6 +310,7 @@ The project followed common industrial automation design practices including:
 ### Topics
 
 Topics:
+
 - State-machine architecture
 - Read/write separation
 - Subsystem modularity
@@ -299,6 +324,7 @@ Topics:
 ## Technical References
 
 Development relied heavily on:
+
 - Siemens documentation
 - Banner engineering resources
 - Ignition documentation
@@ -309,6 +335,7 @@ Development relied heavily on:
 ### Major Reference Areas
 
 Topics:
+
 - PLC programming
 - Profinet configuration
 - OPC UA communication
@@ -323,6 +350,7 @@ Topics:
 ## Technical Competencies
 
 The completed project demonstrated experience with:
+
 - Industrial automation integration
 - PLC programming
 - SCADA development
@@ -342,6 +370,7 @@ The completed project demonstrated experience with:
 This project represented a full industrial automation integration workflow combining multiple industrial hardware and software platforms into a coordinated and functional control system.
 
 The final implementation emphasized:
+
 - Real-world subsystem integration
 - Practical industrial communication
 - Deterministic PLC control
