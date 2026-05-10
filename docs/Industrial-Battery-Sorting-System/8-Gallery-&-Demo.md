@@ -53,8 +53,6 @@ The final sequence architecture emphasized deterministic operation, subsystem co
 
 ### Demonstration Video
 
-### Demonstration Video
-
 
 
 ---
