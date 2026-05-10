@@ -729,12 +729,12 @@
   
 
 
-<h1 id="process-and-solved-problems">Process and Solved Problems</h1>
+<h1 id="process-and-solved-problems">Process and Solved Problems<a class="headerlink" href="#process-and-solved-problems" title="Permanent link">¶</a></h1>
 <p>The MQTT subsystem served as the second node in the UART message chain and took on the primary responsibility for message validation and filtering due to its robust communication protocol. Over the course of development, our team determined that only one type of message—live sensor values—needed to be propagated through the system. While sender and receiver IDs were initially planned as key routing elements, they ultimately became redundant for most subsystems. However, the MQTT system retained full protocol enforcement, which required it to remain between the sensor and motor subsystems to ensure only valid messages were processed. To support this, I adapted the receiver ID field to track whether a message had already circulated through the full UART chain. Upon receiving a valid message, the MQTT system rewrote the receiver ID to its own and filtered out any returning messages marked this way, effectively preventing duplication without altering the message structure.</p>
 <p>A separate challenge arose from the high frequency of sensor messages—often 5 to 10 per second—which could overwhelm the system and prevent the motors from restarting once a stop condition was triggered. To manage this, I implemented a timed filter that suppressed duplicate sensor messages during a defined stop interval. After this delay, the MQTT subsystem automatically resumed motor activity and introduced a secondary lockout period to prevent premature retriggering. This approach ensured reliable operation without requiring upstream changes to the sensor logic.</p>
 <p>&nbsp;</p>
 
-<h1 id="message-overview">Message Overview</h1>
+<h1 id="message-overview">Message Overview<a class="headerlink" href="#message-overview" title="Permanent link">¶</a></h1>
 <table>
 <thead>
 <tr>
@@ -770,9 +770,9 @@
 <p>Team IDs: Sensor = 0x01 | HMI = 0x03 | Motor = 0x02 | MQTT = 0x04</p>
 <p>&nbsp;</p>
 
-<h1 id="message-format">Message Format</h1>
+<h1 id="message-format">Message Format<a class="headerlink" href="#message-format" title="Permanent link">¶</a></h1>
 <p>This section demonstrates how the MQTT subsystem receives messages differently the first time versus the second time. When a sensor message is received for the first time, it arrives with the original receiver ID (0x05). The MQTT subsystem then rewrites the receiver ID to 0x04 before forwarding it. This change affects how all other subsystems receive the message as well—each sees the modified version with the updated receiver ID. If the message loops back to the MQTT subsystem, the new receiver ID indicates it has already been processed once, allowing it to be identified and discarded as a duplicate.</p>
-<h2 id="first-time-message-format-before-id-change">First-Time Message Format (Before ID Change)</h2>
+<h2 id="first-time-message-format-before-id-change">First-Time Message Format (Before ID Change)<a class="headerlink" href="#first-time-message-format-before-id-change" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -811,7 +811,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="second-time-message-format-after-id-change">Second-Time Message Format (After ID Change)</h2>
+<h2 id="second-time-message-format-after-id-change">Second-Time Message Format (After ID Change)<a class="headerlink" href="#second-time-message-format-after-id-change" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>

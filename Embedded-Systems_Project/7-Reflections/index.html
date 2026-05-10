@@ -821,9 +821,9 @@
   
 
 
-<h1 id="reflections">Reflections</h1>
+<h1 id="reflections">Reflections<a class="headerlink" href="#reflections" title="Permanent link">¶</a></h1>
 <hr>
-<h2 id="lessons-learned">Lessons Learned</h2>
+<h2 id="lessons-learned">Lessons Learned<a class="headerlink" href="#lessons-learned" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p><strong>Strong protocols make systems resilient.</strong>
@@ -867,7 +867,7 @@
 </li>
 </ol>
 <p><br></p>
-<h2 id="recommendations-for-future-students">Recommendations for Future Students</h2>
+<h2 id="recommendations-for-future-students">Recommendations for Future Students<a class="headerlink" href="#recommendations-for-future-students" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p><strong>Use debug LEDs — more than you think you need.</strong>
@@ -890,7 +890,7 @@
   Designing your board with access to spare IO pins, power, and UART connections allows you to run different code, reassign subsystems, or even use your board to rescue someone else’s in a pinch. It’s one of the best safety nets you can build in.</p>
 </li>
 </ol>
-<h2 id="version-20-software-improvements">Version 2.0: Software Improvements</h2>
+<h2 id="version-20-software-improvements">Version 2.0: Software Improvements<a class="headerlink" href="#version-20-software-improvements" title="Permanent link">¶</a></h2>
 <p>If I were to create a “Version 2.0” of this system’s communication architecture, I would implement a few key improvements.</p>
 <p>First, I would transition from the simple 5-byte UART protocol to a more flexible packet-based system using length fields, message IDs, and checksums. This would enable the system to handle variable-length messages and confirm integrity, which is especially useful for future expansion beyond simple stop/go commands.</p>
 <p>Second, I would add message queuing and acknowledgment for reliability. Right now, messages are sent and forgotten — if a packet is missed, it’s gone. A retry mechanism with a basic ACK/NACK structure would make the system more robust.</p>

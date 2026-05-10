@@ -495,21 +495,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Final Major Components Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#power-budget" class="md-nav__link">
-    <span class="md-ellipsis">
-      Power Budget
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -857,21 +842,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Final Major Components Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#power-budget" class="md-nav__link">
-    <span class="md-ellipsis">
-      Power Budget
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -911,20 +881,20 @@
   
 
 
-<h2 id="my-subsystem">My Subsystem</h2>
+<h2 id="my-subsystem">My Subsystem<a class="headerlink" href="#my-subsystem" title="Permanent link">¶</a></h2>
 <p>I was responsible for developing the MQTT subsystem, which provided fault-tolerant communication reliability and system monitoring. The ESP32-S3-WROOM module served as the backbone for this design due to its native Wi-Fi capabilities, flexible UART support, and sufficient GPIO for expansion and debugging features.</p>
 <p>This subsystem was responsible for relaying messages between other boards, detecting UART failure, and forwarding valid data via MQTT. It also coordinated a system-wide response to sensor input, managed a timed lockout to prevent false stop signals, and published MQTT data that could be visualized using a Python-based local graph viewer. Debug LEDs were incorporated for status indication during startup, message processing, and system activity.</p>
 <p><br></p>
-<h2 id="major-hardware-selection">Major Hardware Selection</h2>
+<h2 id="major-hardware-selection">Major Hardware Selection<a class="headerlink" href="#major-hardware-selection" title="Permanent link">¶</a></h2>
 <p>This subsystem relied primarily on the ESP32-S3-WROOM, which integrated all the features required for MQTT communication and UART relaying. No external microcontroller or Wi-Fi module was necessary due to its built-in capabilities. The only other significant component was a switching voltage regulator (buck converter) used to step down 5V USB power to the 3.3V required by the ESP32.</p>
 <p>While passive components like resistors and capacitors were also included, they were part of standard best practices rather than explicit design decisions. Because the ESP32 handled all logic, message processing, and communication tasks, no additional sensors or specialized ICs were required.</p>
 <p><br></p>
-<h2 id="design-decisions-and-justification">Design Decisions and Justification</h2>
+<h2 id="design-decisions-and-justification">Design Decisions and Justification<a class="headerlink" href="#design-decisions-and-justification" title="Permanent link">¶</a></h2>
 <p>The MQTT board’s design revolved around ensuring reliable message routing, fallback communication, and monitoring. The ESP32-S3-WROOM was selected because it could handle all UART communication and MQTT publishing without external hardware. This selection enabled robust integration and flexibility while minimizing the component count.</p>
 <p>A previously validated buck converter (MP1584) was reused to provide regulated 3.3V power. Although not extensively researched during this project, the module was well-known from earlier coursework and was verified to meet voltage and current demands. Other hardware choices, such as debug LEDs, were added to support troubleshooting and state visibility throughout the development process.</p>
 <p>Originally, this subsystem was also meant to handle the power supply and HMI coordination, but its role was later focused specifically on system communication. Final implementation included UART parsing and filtering, MQTT publishing of valid messages, automatic fallback when UART became unresponsive, and visualization of system activity using a local Python graphing tool. These decisions resulted in a stable and modular foundation for the entire system’s message flow.</p>
 <p><br></p>
-<h1 id="microcontroller-selection">Microcontroller Selection</h1>
+<h1 id="microcontroller-selection">Microcontroller Selection<a class="headerlink" href="#microcontroller-selection" title="Permanent link">¶</a></h1>
 <table>
 <thead>
 <tr>
@@ -1057,7 +1027,7 @@
 </table>
 <p>&nbsp;</p>
 
-<h2 id="final-major-components-summary">Final Major Components Summary</h2>
+<h2 id="final-major-components-summary">Final Major Components Summary<a class="headerlink" href="#final-major-components-summary" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1081,7 +1051,7 @@
 </table>
 <p>&nbsp;</p>
 
-<h3 id="power-budget">Power Budget</h3>
+<h3 id="power-budget">Power Budget<a class="headerlink" href="#power-budget" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -1115,7 +1085,7 @@
 <p>This power budget outlines the expected current draw and supply capability of the major components in the system. The LM2575-3.3 voltage regulator supplies up to 1000 mA at 3.3V, which is sufficient to power the ESP32-S3-WROOM module, which has a maximum current draw of approximately 500 mA. This margin ensures stable operation even under peak load conditions. Estimating power requirements like this was essential for confirming regulator selection and ensuring reliability during testing.</p>
 <p>&nbsp;</p>
 
-<h1 id="esp32-diagram-and-wiring">ESP32 Diagram and Wiring</h1>
+<h1 id="esp32-diagram-and-wiring">ESP32 Diagram and Wiring<a class="headerlink" href="#esp32-diagram-and-wiring" title="Permanent link">¶</a></h1>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Images/Diagram.png" data-desc-position="bottom"><img alt="Block Diagram" src="../Images/Diagram.png"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Images/Wiring.png" data-desc-position="bottom"><img alt="Block Diagram" src="../Images/Wiring.png"></a></p>
 

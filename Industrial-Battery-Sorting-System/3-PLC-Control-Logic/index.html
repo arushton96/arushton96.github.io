@@ -1003,13 +1003,13 @@
   
 
 
-<h1 id="plc-control-logic">PLC Control Logic</h1>
-<h2 id="plc-logic-overview">PLC Logic Overview</h2>
+<h1 id="plc-control-logic">PLC Control Logic<a class="headerlink" href="#plc-control-logic" title="Permanent link">¶</a></h1>
+<h2 id="plc-logic-overview">PLC Logic Overview<a class="headerlink" href="#plc-logic-overview" title="Permanent link">¶</a></h2>
 <p>The Siemens S7-1200 PLC served as the central controller for the Automated Battery Sorting System and coordinated all major automation behavior throughout operation. The PLC was responsible for pneumatic sequencing, scanner communication, SCADA interaction, system-state management, timing coordination, reset behavior, and QR-data processing.</p>
 <p>The overall control structure was designed around a state-machine architecture that allowed the system to operate in both automatic and manual modes while maintaining deterministic control over all major subsystems. The PLC coordinated communication between the machine vision system, pneumatic hardware, and SCADA interface while also handling sequence timing and system-status monitoring.</p>
 <p>A major focus of the control architecture was maintaining safe and predictable operation during all system states, including startup, reset handling, stop conditions, manual operation, and automatic sequencing.</p>
 <hr>
-<h2 id="plc-program-structure">PLC Program Structure</h2>
+<h2 id="plc-program-structure">PLC Program Structure<a class="headerlink" href="#plc-program-structure" title="Permanent link">¶</a></h2>
 <p>The PLC project was organized using a combination of organizational blocks, function blocks, function calls, and structured data blocks to separate subsystem responsibilities and improve maintainability throughout development.</p>
 <p>The main control logic executed through <code>OB1</code>, which coordinated the primary sequence execution, subsystem communication, and runtime state management. Additional logic was separated into dedicated function blocks and mapping functions to simplify debugging and organization.</p>
 <p>Major program components included:</p>
@@ -1033,7 +1033,7 @@
 </ul>
 <p>The overall architecture emphasized modular subsystem separation while maintaining centralized control through the PLC.</p>
 <hr>
-<h2 id="state-machine-architecture">State Machine Architecture</h2>
+<h2 id="state-machine-architecture">State Machine Architecture<a class="headerlink" href="#state-machine-architecture" title="Permanent link">¶</a></h2>
 <p>The automated sequence was structured around a PLC-controlled state machine that coordinated the pneumatic handling process step-by-step throughout operation.</p>
 <p>Each sequence state controlled a specific portion of the automation cycle, including:</p>
 <ul>
@@ -1054,7 +1054,7 @@
 </ul>
 <p>Timers and interlocks were integrated throughout the sequence to ensure stable operation and prevent unsafe transitions between states.</p>
 <hr>
-<h2 id="automatic-mode">Automatic Mode</h2>
+<h2 id="automatic-mode">Automatic Mode<a class="headerlink" href="#automatic-mode" title="Permanent link">¶</a></h2>
 <p>Automatic mode controlled the full pneumatic handling sequence without operator intervention after the cycle was started.</p>
 <p>During operation, the PLC coordinated:</p>
 <ol>
@@ -1069,7 +1069,7 @@
 <p>The automated sequence relied heavily on coordinated timing between pneumatic outputs, vacuum overlap periods, scanner communication, and state transitions to maintain stable battery transfer throughout operation.</p>
 <p>The final automatic sequence architecture was refined extensively during testing to improve reliability, reset behavior, and transfer stability.</p>
 <hr>
-<h2 id="manual-mode">Manual Mode</h2>
+<h2 id="manual-mode">Manual Mode<a class="headerlink" href="#manual-mode" title="Permanent link">¶</a></h2>
 <p>Manual mode allowed operators to directly actuate pneumatic outputs and test subsystem behavior independently of the automatic sequence.</p>
 <p>The manual-control architecture was primarily developed to support:</p>
 <ul>
@@ -1088,7 +1088,7 @@
 </ul>
 <p>Interlocks were implemented to prevent conflicts between automatic and manual operation and to ensure outputs could not enter unsafe or contradictory states.</p>
 <hr>
-<h2 id="mode-management">Mode Management</h2>
+<h2 id="mode-management">Mode Management<a class="headerlink" href="#mode-management" title="Permanent link">¶</a></h2>
 <p>The PLC logic included dedicated mode-management logic used to coordinate transitions between automatic and manual operation.</p>
 <p>Mode changes were restricted through permissive logic that verified the system was in a safe idle state before allowing transitions between operating modes.</p>
 <p>The mode-management structure prevented:</p>
@@ -1100,7 +1100,7 @@
 </ul>
 <p>This logic improved overall system stability and simplified troubleshooting throughout development and testing.</p>
 <hr>
-<h2 id="safety-and-interlocks">Safety and Interlocks</h2>
+<h2 id="safety-and-interlocks">Safety and Interlocks<a class="headerlink" href="#safety-and-interlocks" title="Permanent link">¶</a></h2>
 <p>A major focus of the PLC logic was maintaining safe and deterministic system behavior during all operating conditions.</p>
 <p>Interlocks were implemented throughout the pneumatic sequence to:</p>
 <ul>
@@ -1121,7 +1121,7 @@
 </ul>
 <p>The reset architecture was designed specifically to preserve control of the battery throughout reset conditions and prevent unstable transfer states during interruption of the automated sequence.</p>
 <hr>
-<h2 id="reset-logic">Reset Logic</h2>
+<h2 id="reset-logic">Reset Logic<a class="headerlink" href="#reset-logic" title="Permanent link">¶</a></h2>
 <p>Reset handling became one of the more complex portions of the control architecture due to the need to safely recover from interrupted transfer states.</p>
 <p>Rather than simply forcing all outputs off during reset conditions, the PLC logic evaluated the current transfer state and coordinated a controlled return to the idle position while preserving vacuum control of the battery when required.</p>
 <p>The reset sequence architecture focused on:</p>
@@ -1134,7 +1134,7 @@
 </ul>
 <p>Additional reset-status indicators and reset-active states were exposed to the SCADA interface for operator visibility and debugging support.</p>
 <hr>
-<h2 id="vision-system-trigger-logic">Vision System Trigger Logic</h2>
+<h2 id="vision-system-trigger-logic">Vision System Trigger Logic<a class="headerlink" href="#vision-system-trigger-logic" title="Permanent link">¶</a></h2>
 <p>The PLC coordinated scanner communication through dedicated trigger outputs and scan-status monitoring logic.</p>
 <p>During operation, the PLC triggered the Banner scanner once the battery reached the correct scan position within the pneumatic sequence. The scanner then returned good-read or no-read status information through Profinet communication modules.</p>
 <p>Additional logic was implemented to:</p>
@@ -1146,7 +1146,7 @@
 </ul>
 <p>The scanner integration logic became closely tied to the overall state-machine architecture and pneumatic timing structure.</p>
 <hr>
-<h2 id="qr-parsing-logic">QR Parsing Logic</h2>
+<h2 id="qr-parsing-logic">QR Parsing Logic<a class="headerlink" href="#qr-parsing-logic" title="Permanent link">¶</a></h2>
 <p>QR-code data received from the scanner was processed directly inside the PLC using structured parsing logic.</p>
 <p>The parser validated incoming message structure and extracted battery information fields including:</p>
 <ul>
@@ -1167,7 +1167,7 @@
 </ul>
 <p>Significant effort was spent optimizing message structure and buffer handling to support reliable Profinet communication within available communication-size limitations.</p>
 <hr>
-<h2 id="scada-interface-mapping">SCADA Interface Mapping</h2>
+<h2 id="scada-interface-mapping">SCADA Interface Mapping<a class="headerlink" href="#scada-interface-mapping" title="Permanent link">¶</a></h2>
 <p>The PLC communicated with Ignition through structured SCADA interface mapping logic.</p>
 <p>Dedicated data blocks and mapping functions were used to expose:</p>
 <ul>
@@ -1187,7 +1187,7 @@
 </ul>
 <p>This organization improved readability, debugging, and long-term maintainability throughout development.</p>
 <hr>
-<h2 id="timing-and-handoff-logic">Timing and Handoff Logic</h2>
+<h2 id="timing-and-handoff-logic">Timing and Handoff Logic<a class="headerlink" href="#timing-and-handoff-logic" title="Permanent link">¶</a></h2>
 <p>A major portion of the PLC development process involved coordinating pneumatic timing and vacuum handoff behavior.</p>
 <p>Timed overlap periods were implemented between vacuum channels to prevent unstable transfers while batteries moved between handling stages.</p>
 <p>Additional timing logic coordinated:</p>
@@ -1200,7 +1200,7 @@
 </ul>
 <p>Sequence timing was refined extensively during testing to improve transfer reliability and overall system stability.</p>
 <hr>
-<h2 id="plc-debugging-and-testing">PLC Debugging and Testing</h2>
+<h2 id="plc-debugging-and-testing">PLC Debugging and Testing<a class="headerlink" href="#plc-debugging-and-testing" title="Permanent link">¶</a></h2>
 <p>PLC development involved extensive iterative testing throughout subsystem integration and full-system validation.</p>
 <p>Testing methods included:</p>
 <ul>
@@ -1214,7 +1214,7 @@
 </ul>
 <p>Additional temporary diagnostic logic and testing interfaces were developed throughout the project to simplify troubleshooting and isolate subsystem issues during integration.</p>
 <hr>
-<h2 id="plc-logic-challenges">PLC Logic Challenges</h2>
+<h2 id="plc-logic-challenges">PLC Logic Challenges<a class="headerlink" href="#plc-logic-challenges" title="Permanent link">¶</a></h2>
 <p>Several major engineering challenges were encountered during PLC development.</p>
 <p>These included:</p>
 <ul>
@@ -1231,7 +1231,7 @@
 <p>Many portions of the final control architecture evolved significantly throughout testing as subsystem integration exposed new timing, communication, and sequencing issues.</p>
 <p>The final implementation emphasized stability, readability, modularity, and reliable subsystem coordination under real-world integration constraints.</p>
 <hr>
-<h2 id="final-outcome">Final Outcome</h2>
+<h2 id="final-outcome">Final Outcome<a class="headerlink" href="#final-outcome" title="Permanent link">¶</a></h2>
 <p>The completed PLC architecture successfully coordinated all major automation behavior throughout the project and served as the foundation for the final integrated system.</p>
 <p>The final implementation demonstrated:</p>
 <ul>
