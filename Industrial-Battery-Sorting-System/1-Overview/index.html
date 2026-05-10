@@ -966,35 +966,41 @@
 <p>The objective of this project was to design and integrate an industrial automation system capable of identifying, tracking, and handling battery cells through a combination of machine vision, PLC-based control logic, pneumatic automation, and SCADA integration.</p>
 <p>The original system concept centered around a fully integrated automated handling process using a FANUC robotic arm, pneumatic transfer hardware, QR-code scanning, and industrial networking. Battery cells would be transferred through the system, scanned using a machine vision sensor, and logged through a SCADA interface connected to a SQL database.</p>
 <p>As the project evolved, hardware availability and communication limitations required portions of the system architecture to be redesigned. The final implementation shifted toward a pneumatic-focused automation platform while preserving the core goals of industrial device integration, automated sequencing, vision-system communication, operator interaction, and data logging.</p>
-<p>The completed system successfully demonstrated:
-- PLC-controlled automated sequencing
-- QR-code scanning and parsing
-- Profinet industrial communication
-- Ignition SCADA integration
-- SQL database logging
-- Manual and automatic operating modes
-- Pneumatic battery handling and transfer</p>
+<p>The completed system successfully demonstrated:</p>
+<ul>
+<li>PLC-controlled automated sequencing</li>
+<li>QR-code scanning and parsing</li>
+<li>Profinet industrial communication</li>
+<li>Ignition SCADA integration</li>
+<li>SQL database logging</li>
+<li>Manual and automatic operating modes</li>
+<li>Pneumatic battery handling and transfer</li>
+</ul>
 <h2 id="system-summary">System Summary</h2>
 <p>The completed system operated as a coordinated industrial automation platform centered around a Siemens S7-1200 PLC.</p>
 <p>During operation, a battery cell would enter the handling sequence and be transferred through a pneumatic vacuum system controlled by the PLC. The PLC coordinated vacuum actuation, flipper movement, sequence timing, and communication between all major subsystems.</p>
 <p>Once positioned within the scanning area, the PLC triggered a Banner vision sensor over Profinet to read the QR code attached to the battery cell. The scanner returned identification data to the PLC, where the message was parsed and processed into individual battery information fields such as serial number, voltage, capacity, and manufacturing data.</p>
 <p>The PLC then transmitted system status and parsed battery information to an Ignition SCADA interface through OPC communication. The SCADA system provided operator controls, real-time monitoring, diagnostic visibility, and SQL database logging for scanned battery information.</p>
-<p>The final system integrated:
-- Siemens S7-1200 PLC
-- Banner ABR3000 vision sensor
-- Ignition Perspective SCADA interface
-- SQL database logging
-- Pneumatic vacuum handling hardware
-- Profinet industrial networking
-- Manual and automatic sequence control</p>
+<p>The final system integrated:</p>
+<ul>
+<li>Siemens S7-1200 PLC</li>
+<li>Banner ABR3000 vision sensor</li>
+<li>Ignition Perspective SCADA interface</li>
+<li>SQL database logging</li>
+<li>Pneumatic vacuum handling hardware</li>
+<li>Profinet industrial networking</li>
+<li>Manual and automatic sequence control</li>
+</ul>
 <p>The project emphasized real-world industrial integration challenges including industrial networking, PLC programming, machine vision communication, pneumatic coordination, SCADA architecture, and system-level troubleshooting.</p>
-<p>Example flow:
-1. Battery enters system
-2. Vision system scans QR code
-3. PLC processes identification data
-4. Pneumatic sequence transfers battery
-5. SCADA displays/logs information
-6. Database records scan results</p>
+<p>Example flow:</p>
+<ol>
+<li>Battery enters system</li>
+<li>Vision system scans QR code</li>
+<li>PLC processes identification data</li>
+<li>Pneumatic sequence transfers battery</li>
+<li>SCADA displays/logs information</li>
+<li>Database records scan results</li>
+</ol>
 <h2 id="final-system-architecture">Final System Architecture</h2>
 <p>System-level block diagram or architecture image.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="Images/SystemArchitecture.png" data-desc-position="bottom"><img alt="System Architecture" src="Images/SystemArchitecture.png"></a></p>
@@ -1024,44 +1030,50 @@
 <p>I designed and implemented the PLC control logic used throughout the project, including the automated pneumatic sequence, manual operating mode, state-machine architecture, reset behavior, vacuum handoff timing, scanner trigger logic, and SCADA interface mapping.</p>
 <p>I also handled the integration of the Banner vision system with the Siemens PLC over Profinet communication. This included configuring industrial communication modules, troubleshooting device integration issues, restructuring QR payload formats to fit communication buffer limitations, and developing the PLC-based QR parsing logic used to process battery information.</p>
 <p>On the SCADA side, I developed the Ignition Perspective interface used for system control, monitoring, diagnostics, and SQL database logging. This included PLC tag integration through OPC UA, operator interface design, manual testing controls, and database interaction for battery traceability logging.</p>
-<p>Additional responsibilities included:
-- Industrial Ethernet network configuration
-- Static IP addressing and device communication setup
-- Pneumatic sequence testing and debugging
-- PLC/SCADA integration troubleshooting
-- Database logging implementation
-- Hardware integration and validation
-- Technical documentation and system organization</p>
+<p>Additional responsibilities included:</p>
+<ul>
+<li>Industrial Ethernet network configuration</li>
+<li>Static IP addressing and device communication setup</li>
+<li>Pneumatic sequence testing and debugging</li>
+<li>PLC/SCADA integration troubleshooting</li>
+<li>Database logging implementation</li>
+<li>Hardware integration and validation</li>
+<li>Technical documentation and system organization</li>
+</ul>
 <p>Throughout development, I also played a major role in adapting the project architecture in response to hardware delays, communication limitations, and evolving project constraints. This included redesigning portions of the automation sequence, restructuring subsystem interactions, and preserving the core functionality of the project despite multiple scope and integration challenges.</p>
 <h2 id="project-evolution">Project Evolution</h2>
 <p>The original project concept centered around a fully integrated industrial automation system that combined robotic handling, pneumatic transfer hardware, machine vision, industrial networking, and SCADA integration into a single automated workflow.</p>
 <p>The planned system architecture included a FANUC robotic arm responsible for battery transfer operations, with the Siemens PLC coordinating robot communication, pneumatic sequencing, scanner interaction, and system monitoring through Profinet-based industrial communication.</p>
 <p>During development, the project encountered several constraints that significantly impacted the final system architecture. The most significant issue involved delays related to the robot communication hardware required for Profinet integration. Although the robot itself supported Ethernet/IP communication, the required Profinet upgrade hardware was repeatedly delayed and ultimately unavailable within the project timeline.</p>
 <p>As a result, the project scope was restructured to remove direct PLC-to-robot integration while preserving the core automation objectives of the system. The final implementation shifted toward a pneumatic-focused automated sequence that simulated the intended battery transfer process using coordinated vacuum handling, flipper control, machine vision integration, and PLC-controlled sequencing.</p>
-<p>This redesign allowed the project to maintain its primary technical goals:
-- Industrial device integration
-- PLC-based automation control
-- Pneumatic sequencing
-- Machine vision communication
-- SCADA integration
-- Database logging
-- Industrial networking architecture</p>
+<p>This redesign allowed the project to maintain its primary technical goals:</p>
+<ul>
+<li>Industrial device integration</li>
+<li>PLC-based automation control</li>
+<li>Pneumatic sequencing</li>
+<li>Machine vision communication</li>
+<li>SCADA integration</li>
+<li>Database logging</li>
+<li>Industrial networking architecture</li>
+</ul>
 <p>Additional project challenges included industrial communication troubleshooting, scanner integration issues, QR message-size limitations, software licensing delays, and hardware shipping delays that compressed the available integration and testing timeline.</p>
 <p>Throughout development, the system architecture continued to evolve as testing exposed new timing, communication, and sequencing challenges. Pneumatic handoff logic, scanner communication structures, reset behavior, and SCADA interaction were refined iteratively through subsystem testing and full-system integration.</p>
 <p>Although portions of the original architecture were ultimately removed from scope, the final system successfully demonstrated a functional industrial automation platform capable of automated sequencing, QR-code scanning, SCADA interaction, industrial communication, and database logging using real industrial control hardware and software tools.</p>
 <h2 id="final-outcome">Final Outcome</h2>
 <p>The completed project successfully demonstrated a functional industrial automation platform integrating PLC-based control logic, machine vision communication, pneumatic automation, industrial networking, SCADA monitoring, and database logging into a unified system architecture.</p>
 <p>The final implementation operated as a coordinated automated sequence controlled by a Siemens S7-1200 PLC. Pneumatic vacuum hardware transferred battery cells through the handling sequence while a Banner vision sensor scanned QR-coded battery information over Profinet communication. Parsed battery data was transmitted to an Ignition SCADA interface through OPC UA, where operators could monitor system operation, control the sequence, and log scan information to a SQL database.</p>
-<p>The completed system demonstrated:
-- Automated pneumatic handling and transfer operations
-- PLC-based sequence control using a state-machine architecture
-- Profinet integration between industrial devices
-- QR-code scanning and parsing
-- Ignition SCADA integration
-- SQL database logging and traceability
-- Manual and automatic operating modes
-- Real-time operator monitoring and diagnostics
-- Industrial Ethernet communication architecture</p>
+<p>The completed system demonstrated:</p>
+<ul>
+<li>Automated pneumatic handling and transfer operations</li>
+<li>PLC-based sequence control using a state-machine architecture</li>
+<li>Profinet integration between industrial devices</li>
+<li>QR-code scanning and parsing</li>
+<li>Ignition SCADA integration</li>
+<li>SQL database logging and traceability</li>
+<li>Manual and automatic operating modes</li>
+<li>Real-time operator monitoring and diagnostics</li>
+<li>Industrial Ethernet communication architecture</li>
+</ul>
 <p>Beyond the functional system itself, the project provided extensive experience in industrial automation integration, systems-level troubleshooting, communication architecture design, PLC programming, SCADA development, pneumatic sequencing, and industrial networking.</p>
 <p>A major outcome of the project was the development of practical engineering problem-solving skills under real-world constraints. Hardware delays, communication limitations, integration issues, and evolving project requirements required continuous redesigns and technical tradeoff decisions throughout development.</p>
 <p>Although the final system differed from the original project concept in several areas, the completed implementation successfully preserved the core engineering objectives of the project and demonstrated a fully operational industrial control platform built using professional automation hardware and software tools.</p>
