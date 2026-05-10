@@ -115,7 +115,7 @@ Additional safeguards and PLC-side permissive logic were implemented to prevent 
 
 The interface layout emphasized readability and quick status visibility while minimizing unnecessary operator complexity during development and demonstration.
 
-![Pneumatic Control Interface](Images/SCADA-Pneumatics.png)
+![Pneumatic Control Interface](Images/SCADA-Pneumatics-Edit.png){ .scada-shot }
 
 ---
 
