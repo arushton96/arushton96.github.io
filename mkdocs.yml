@@ -14,6 +14,11 @@ theme:
   #logo: static/logo.svg
   #favicon: static/logo.png
 
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 2
+
   features:
     - navigation.tabs
     - navigation.tabs.sticky
