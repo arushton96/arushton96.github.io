@@ -13,6 +13,7 @@ The original system concept centered around a fully integrated automated handlin
 As the project evolved, hardware availability and communication limitations required portions of the system architecture to be redesigned. The final implementation shifted toward a pneumatic-focused automation platform while preserving the core goals of industrial device integration, automated sequencing, vision-system communication, operator interaction, and data logging.
 
 The completed system successfully demonstrated:
+
 - PLC-controlled automated sequencing
 - QR-code scanning and parsing
 - Profinet industrial communication
@@ -32,6 +33,7 @@ Once positioned within the scanning area, the PLC triggered a Banner vision sens
 The PLC then transmitted system status and parsed battery information to an Ignition SCADA interface through OPC communication. The SCADA system provided operator controls, real-time monitoring, diagnostic visibility, and SQL database logging for scanned battery information.
 
 The final system integrated:
+
 - Siemens S7-1200 PLC
 - Banner ABR3000 vision sensor
 - Ignition Perspective SCADA interface
@@ -43,6 +45,7 @@ The final system integrated:
 The project emphasized real-world industrial integration challenges including industrial networking, PLC programming, machine vision communication, pneumatic coordination, SCADA architecture, and system-level troubleshooting.
 
 Example flow:
+
 1. Battery enters system
 2. Vision system scans QR code
 3. PLC processes identification data
@@ -109,6 +112,7 @@ I also handled the integration of the Banner vision system with the Siemens PLC 
 On the SCADA side, I developed the Ignition Perspective interface used for system control, monitoring, diagnostics, and SQL database logging. This included PLC tag integration through OPC UA, operator interface design, manual testing controls, and database interaction for battery traceability logging.
 
 Additional responsibilities included:
+
 - Industrial Ethernet network configuration
 - Static IP addressing and device communication setup
 - Pneumatic sequence testing and debugging
@@ -130,6 +134,7 @@ During development, the project encountered several constraints that significant
 As a result, the project scope was restructured to remove direct PLC-to-robot integration while preserving the core automation objectives of the system. The final implementation shifted toward a pneumatic-focused automated sequence that simulated the intended battery transfer process using coordinated vacuum handling, flipper control, machine vision integration, and PLC-controlled sequencing.
 
 This redesign allowed the project to maintain its primary technical goals:
+
 - Industrial device integration
 - PLC-based automation control
 - Pneumatic sequencing
@@ -151,6 +156,7 @@ The completed project successfully demonstrated a functional industrial automati
 The final implementation operated as a coordinated automated sequence controlled by a Siemens S7-1200 PLC. Pneumatic vacuum hardware transferred battery cells through the handling sequence while a Banner vision sensor scanned QR-coded battery information over Profinet communication. Parsed battery data was transmitted to an Ignition SCADA interface through OPC UA, where operators could monitor system operation, control the sequence, and log scan information to a SQL database.
 
 The completed system demonstrated:
+
 - Automated pneumatic handling and transfer operations
 - PLC-based sequence control using a state-machine architecture
 - Profinet integration between industrial devices
