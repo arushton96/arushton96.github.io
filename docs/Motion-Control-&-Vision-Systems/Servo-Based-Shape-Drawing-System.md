@@ -1,5 +1,5 @@
 ---
-title: Servo-Based Shape Drawign System
+title: Servo-Based Shape Drawing System
 ---
 
 # Servo-Based Shape Drawing System
