@@ -19,6 +19,7 @@ Many portions of the final architecture evolved significantly as testing exposed
 ## Initial System Concept
 
 The original project architecture centered around a fully integrated industrial automation platform combining:
+
 - FANUC robotic handling
 - Pneumatic transfer hardware
 - Siemens PLC control
@@ -48,6 +49,7 @@ Although the robot itself supported Ethernet/IP communication, the project archi
 The required Profinet communication hardware experienced repeated delays and ultimately did not arrive within the project timeline.
 
 This created several major impacts:
+
 - Loss of direct PLC-to-robot communication
 - Inability to complete planned robot integration
 - Reduced integration/testing time
@@ -59,6 +61,7 @@ This created several major impacts:
 Rather than abandoning the automation workflow entirely, the project architecture was redesigned around a pneumatic-focused transfer sequence that simulated the intended battery-handling process while preserving the core integration objectives of the project.
 
 This redesign allowed the system to continue demonstrating:
+
 - PLC-controlled automation
 - Machine vision communication
 - Industrial networking
@@ -78,6 +81,7 @@ despite the loss of robotic communication integration.
 Industrial communication integration became one of the largest technical portions of the project.
 
 Several challenges were encountered while integrating:
+
 - Siemens PLC hardware
 - Banner vision sensor
 - SMC valve manifold
@@ -86,6 +90,7 @@ Several challenges were encountered while integrating:
 ### Device Configuration Issues
 
 Challenges included:
+
 - GSD installation and configuration
 - Device naming
 - Static IP assignment
@@ -98,6 +103,7 @@ Much of the troubleshooting process involved validating communication settings b
 ### Communication Validation
 
 Additional testing was required to:
+
 - Verify cyclic IO behavior
 - Confirm scanner trigger timing
 - Validate Ethernet communication paths
@@ -117,6 +123,7 @@ One of the most significant technical problems encountered during development in
 ### Original Problem
 
 Initial QR payload formats exceeded the configured Profinet input-buffer allocation, causing:
+
 - Truncated scan messages
 - Incomplete data fields
 - Parsing failures
@@ -127,6 +134,7 @@ The issue initially appeared to be inconsistent scanner behavior before being tr
 ### Engineering Solution
 
 Several engineering decisions were made to improve communication reliability:
+
 - Increasing Profinet input-buffer allocation
 - Correcting IO address mapping
 - Reducing QR payload size
@@ -144,6 +152,7 @@ The final QR payload format preserved the required traceability information whil
 The PLC sequence architecture evolved significantly throughout development.
 
 Initial implementations became increasingly difficult to maintain as:
+
 - Additional sequence states were added
 - Pneumatic timing became more complex
 - Reset behavior expanded
@@ -153,6 +162,7 @@ Initial implementations became increasingly difficult to maintain as:
 ### Sequence Refinement
 
 The final state-machine architecture focused heavily on:
+
 - Deterministic behavior
 - Sequence readability
 - Timing coordination
@@ -173,6 +183,7 @@ Reliable battery transfer required significantly more timing coordination than o
 ### Transfer Stability Issues
 
 Early implementations encountered:
+
 - Unstable handoffs
 - Inconsistent battery positioning
 - Vacuum release timing problems
@@ -182,6 +193,7 @@ Early implementations encountered:
 ### Engineering Improvements
 
 The final implementation introduced:
+
 - Overlapping vacuum states
 - Dedicated handoff delays
 - Structured transfer sequencing
@@ -201,6 +213,7 @@ Several integration challenges were encountered while connecting Ignition to the
 ### Major Issues
 
 Challenges included:
+
 - PLC string handling limitations
 - Invalid tag states
 - OPC browsing limitations
@@ -213,6 +226,7 @@ Challenges included:
 One particularly difficult issue involved PLC string allocations and OPC communication reliability.
 
 Oversized PLC string declarations caused:
+
 - Invalid OPC tag states
 - Broken sibling tags
 - Unstable SCADA communication behavior
@@ -228,6 +242,7 @@ The final solution involved restructuring portions of the PLC data architecture 
 A major challenge throughout development involved adapting the project architecture while operating under compressed integration timelines.
 
 Several external constraints affected development time, including:
+
 - Hardware shipping delays
 - Communication hardware availability
 - Software licensing delays
@@ -235,6 +250,7 @@ Several external constraints affected development time, including:
 - Subsystem redesigns
 
 These issues reduced the amount of available time for:
+
 - Full-system integration
 - Final validation
 - Sequence refinement
@@ -245,6 +261,7 @@ These issues reduced the amount of available time for:
 The project required continuous reprioritization and scope management throughout development in order to preserve the most technically valuable portions of the system architecture.
 
 The final implementation prioritized:
+
 - Industrial integration
 - PLC control architecture
 - Machine vision communication
@@ -266,6 +283,7 @@ Several major engineering decisions shaped the final system architecture.
 ### Centralized PLC Control
 
 The project used the Siemens PLC as the centralized controller for:
+
 - Sequence logic
 - Scanner communication
 - Pneumatic coordination
@@ -277,6 +295,7 @@ This simplified subsystem coordination and improved deterministic control behavi
 ### Separation of Control & Interface Layers
 
 The PLC retained all real-time automation logic while Ignition handled:
+
 - Visualization
 - Operator interaction
 - Diagnostics
@@ -295,6 +314,7 @@ The redesign away from robotic integration preserved the majority of the industr
 ## Engineering Experience
 
 The project provided extensive experience in:
+
 - Industrial automation integration
 - PLC programming
 - Machine vision communication
@@ -309,6 +329,7 @@ The project provided extensive experience in:
 One of the largest lessons learned throughout development involved the complexity of integrating multiple industrial subsystems into a coordinated and reliable automation platform.
 
 Many of the project challenges were not isolated programming problems, but instead involved:
+
 - Communication architecture
 - Timing coordination
 - Hardware/software interaction
@@ -323,6 +344,7 @@ Many of the project challenges were not isolated programming problems, but inste
 ## Completed System Architecture
 
 Despite multiple communication challenges, hardware limitations, and evolving project constraints, the final implementation successfully demonstrated:
+
 - PLC-controlled automation
 - Industrial Ethernet communication
 - Machine vision integration
