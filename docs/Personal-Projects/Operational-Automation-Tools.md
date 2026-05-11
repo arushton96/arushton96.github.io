@@ -24,9 +24,9 @@ The projects emphasized:
 
 ---
 
-## Medical Equipment Invoice Processing System
+# Medical Equipment Invoice Processing System
 
-### Operational Problem
+## Operational Problem
 
 Navis frequently worked with a medical-equipment auction company that handled inventory from hospitals undergoing closure, renovation, or equipment replacement. Customers purchasing equipment through these auctions were often referred to us for shipping and logistics services.
 
@@ -50,7 +50,7 @@ Because many auction items were repeated frequently between auctions, the workfl
 
 ---
 
-### Project Goals
+## Project Goals
 
 The goals of the automation system were:
 
@@ -66,9 +66,9 @@ The project was intentionally designed as a semi-automated workflow rather than 
 
 ---
 
-### System Workflow
+## Processing & Data Pipeline
 
-#### High-Level Processing Pipeline
+### High-Level Processing Pipeline
 
 ```text
 Incoming .eml Files
@@ -85,6 +85,8 @@ Excel Spreadsheet Generation
         ↓
 Item Database Lookup / Update
 ```
+
+The project was built around converting highly repetitive invoice-processing workflows into structured operational data while minimizing manual estimator intervention.
 
 ---
 
@@ -154,7 +156,7 @@ Suggested content:
 
 ---
 
-### Persistent Item Reference Database
+## Persistent Item Reference Database
 
 One of the primary design goals of the project was reducing repetitive manual data entry over time.
 
@@ -166,7 +168,7 @@ Although auction invoices frequently changed between jobs, many individual inven
 
 When repeated inventory items appeared in future invoices, the system automatically reused the stored information instead of requiring estimators to manually research the item again.
 
-#### Database Workflow
+### Database Workflow
 
 ```text
 Unknown Item
@@ -189,7 +191,7 @@ The database was intentionally implemented using an Excel-based structure rather
 - Nontechnical users needed easy access
 - Operational simplicity was prioritized
 
-#### Planned Media Placeholder
+### Planned Media Placeholder
 
 <!-- Insert screenshot of item reference database here -->
 
@@ -202,6 +204,8 @@ Suggested content:
 
 ---
 
+## Automation Philosophy & Design Decisions
+
 ### Automation Boundary
 
 Some downstream estimating decisions, such as packing method and crate assignment, followed highly repeatable rule-based patterns most of the time. However, the remaining exceptions carried enough operational risk that those fields were intentionally left open for estimator review.
@@ -212,9 +216,9 @@ This design philosophy intentionally prioritized operational reliability over ag
 
 ---
 
-### Technical Implementation
+## Technical Implementation
 
-#### Libraries & Technologies Used
+### Libraries & Technologies Used
 
 - Python
 - PyMuPDF (`fitz`)
@@ -223,7 +227,7 @@ This design philosophy intentionally prioritized operational reliability over ag
 - Excel file generation
 - `.eml` email parsing
 
-#### Major Functional Components
+### Major Functional Components
 
 - Email attachment extraction
 - PDF validation
@@ -233,7 +237,7 @@ This design philosophy intentionally prioritized operational reliability over ag
 - Duplicate-item handling
 - Persistent inventory database updates
 
-#### Example Database Handling Logic
+### Example Database Handling Logic
 
 ```python
 item_db.drop_duplicates(subset=["Description"], keep="first", inplace=True)
@@ -241,9 +245,9 @@ item_db.drop_duplicates(subset=["Description"], keep="first", inplace=True)
 
 ---
 
-### Demonstration Media
+## Demonstration Media
 
-#### Planned Demonstration Workflow
+### Planned Demonstration Workflow
 
 <!-- Insert demonstration images or video here -->
 
@@ -258,9 +262,9 @@ Suggested demonstration sequence:
 
 ---
 
-## WhatsApp Job Evaluation Parser
+# WhatsApp Job Evaluation Parser
 
-### Operational Problem
+## Operational Problem
 
 Navis frequently performed on-site evaluations for large or unusual shipping projects. During these evaluations, managers documented inventory items using mobile-phone photos and short text descriptions shared through the company WhatsApp chat.
 
@@ -285,7 +289,7 @@ This process was repetitive, time-consuming, and highly formatting-dependent.
 
 ---
 
-### Project Goals
+## Project Goals
 
 The goals of the parser were:
 
@@ -300,9 +304,9 @@ The script focused specifically on automating the deterministic formatting and o
 
 ---
 
-### System Workflow
+## Processing Workflow
 
-#### High-Level Processing Pipeline
+### High-Level Processing Pipeline
 
 ```text
 WhatsApp Export ZIP
@@ -317,6 +321,8 @@ Structured Table Generation
         ↓
 Word Document Export
 ```
+
+The parser converted unstructured mobile-phone documentation into structured operational estimate documents suitable for internal workflow processing.
 
 ---
 
@@ -387,7 +393,7 @@ Suggested content:
 
 ---
 
-### Human-in-the-Loop Design Philosophy
+## Human-in-the-Loop Design Philosophy
 
 The script intentionally automated:
 
@@ -408,9 +414,9 @@ Although many of these downstream decisions followed highly repeatable rules, th
 
 ---
 
-### Technical Implementation
+## Technical Implementation
 
-#### Libraries & Technologies Used
+### Libraries & Technologies Used
 
 - Python
 - ZIP extraction
@@ -419,7 +425,7 @@ Although many of these downstream decisions followed highly repeatable rules, th
 - automated image insertion
 - structured document generation
 
-#### Major Functional Components
+### Major Functional Components
 
 - ZIP extraction
 - Chat-log parsing
@@ -430,9 +436,9 @@ Although many of these downstream decisions followed highly repeatable rules, th
 
 ---
 
-### Demonstration Media
+## Demonstration Media
 
-#### Planned Demonstration Workflow
+### Planned Demonstration Workflow
 
 <!-- Insert demonstration images or video here -->
 
@@ -446,25 +452,7 @@ Suggested demonstration sequence:
 
 ---
 
-### Technical Concepts Demonstrated
-
-These projects demonstrated practical implementation of:
-
-- Operational workflow analysis
-- Human-in-the-loop automation
-- Structured document parsing
-- PDF text extraction
-- Email attachment processing
-- Batch data handling
-- Regex-based parsing
-- Persistent reusable data systems
-- Automated document generation
-- Workflow-oriented scripting
-- Process optimization through software automation
-
----
-
-### Project Outcome
+## Project Outcome
 
 These tools significantly reduced repetitive formatting and data-entry work within real operational workflows while preserving estimator oversight where human judgment remained important.
 
