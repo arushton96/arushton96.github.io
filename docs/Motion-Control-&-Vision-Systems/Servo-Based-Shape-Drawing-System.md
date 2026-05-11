@@ -227,8 +227,6 @@ All trajectory generation and motion control calculations were executed directly
 
 ### System Demonstration Video
 
-<!-- Replace with actual video path -->
-
 <video controls preload="metadata" width="100%">
   <source src="../Images/shape_drawing_demo.mp4" type="video/mp4">
 </video>
