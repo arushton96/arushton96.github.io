@@ -98,7 +98,7 @@ extra_javascript:
 not_in_nav: |
   static/node_modules
   
-copyright: "Copyright &copy; 2024 team-name-here"
+copyright: "Copyright &copy; 2026 Andrew Rushton"
 
 extra:
   generator: false
