@@ -133,16 +133,7 @@ match_vals = re.findall(r'\$\s*\d+(?:,\d{3})*(?:\.\d{2})?', text)
 
 The extracted data was then converted into a structured spreadsheet format for estimator use.
 
-##### Planned Media Placeholder
-
-<!-- Insert screenshot of generated spreadsheet here -->
-
-Suggested content:
-
-- Parsed spreadsheet output
-- Structured item columns
-- Weight/dimension placeholders
-- Repeated-item auto-fill examples
+![Output Sample](Images/Output_Sample.png)
 
 ---
 
