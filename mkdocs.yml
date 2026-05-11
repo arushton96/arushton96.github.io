@@ -28,9 +28,14 @@ nav:
       - Resources: Embedded-Systems_Project/8-Resources.md
 
   - Motion Control & Vision Systems:
-      - Vision Guided Object Pickup System: Motion-Control-&-Vision-Systems/Vision-Guided-Object-Pickup-System.md
       - Motion Control & Vision Systems: Motion-Control-&-Vision-Systems/index.md
+      - Vision Guided Object Pickup System: Motion-Control-&-Vision-Systems/Vision-Guided-Object-Pickup-System.md
       - Servo Based Shape Drawing System: Motion-Control-&-Vision-Systems/Servo-Based-Shape-Drawing-System.md
+
+  - Personal Projects:
+      - Personal Projects: Personal-Projects/index.md
+      - Operational Automation Tools: Personal-Projects/Operational-Automation-Tools.md
+      - Computer Vision & Automation: Personal-Projects/Computer-Vision-Automation.md
 
 theme:
   name: material
