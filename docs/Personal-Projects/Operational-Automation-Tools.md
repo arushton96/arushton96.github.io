@@ -267,12 +267,10 @@ Navis frequently performed on-site evaluations for large or unusual shipping pro
 Historically, this process created large unstructured message threads consisting of:
 
 ```text
-Image
-Description
-Image
-Description
-Image
-Description
+- Batch Images
+- Descriptions
+- Batch Images
+- Descriptions
 ```
 
 After returning to the office, estimators manually:
@@ -327,7 +325,7 @@ Word Document Export
 The parser operated using a standardized message structure:
 
 ```text
-Image → Description → Image → Description
+Single Image → Description → Single Image → Description
 ```
 
 The script scanned exported WhatsApp chat logs and identified image attachments followed by the next valid descriptive message.
