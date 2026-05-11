@@ -104,7 +104,7 @@ return "Centurion Service Group" in text and "Bidder" in text
 
 This filtering stage prevented unrelated attachments and non-invoice emails from entering the processing pipeline.
 
-![Integrated System Hardware](Images/Invoice_Sample.png)
+![Invoice Sample](Images/Invoice_Sample.png)
 
 ---
 
