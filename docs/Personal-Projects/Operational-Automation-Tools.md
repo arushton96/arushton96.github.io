@@ -174,14 +174,7 @@ The database was intentionally implemented using an Excel-based structure rather
 
 #### Planned Media Placeholder
 
-<!-- Insert screenshot of item reference database here -->
-
-Suggested content:
-
-- Example repeated inventory items
-- Weight/dimension columns
-- Auto-populated entries
-- Reusable item catalog
+![Database Sample](Images/Database_Sample.png)
 
 ---
 
