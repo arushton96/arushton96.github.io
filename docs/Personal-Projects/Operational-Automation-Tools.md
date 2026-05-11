@@ -4,7 +4,12 @@
 
 This section contains a collection of Python-based workflow automation tools developed to reduce repetitive manual processing tasks within shipping, logistics, and operational-estimating workflows.
 
-Unlike the larger robotics and industrial automation systems elsewhere in this portfolio, these projects focused on practical process automation and operational efficiency improvements. The primary goal was identifying repetitive, deterministic portions of existing workflows and automating the most predictable tasks while preserving human oversight where operational judgment was still required.
+While these projects are generally smaller in scope than the larger robotics and automation systems elsewhere in this portfolio, they demonstrate an important engineering mindset:
+
+- identify repetitive work
+- analyze deterministic patterns
+- design reliable automation
+- reduce manual intervention
 
 These tools were developed after spending significant time working directly with the associated workflows and identifying opportunities to reduce repetitive formatting, parsing, and data-entry work.
 
@@ -19,11 +24,11 @@ The projects emphasized:
 
 ---
 
-# Medical Equipment Invoice Processing System
+## Medical Equipment Invoice Processing System
 
-## Operational Problem
+### Operational Problem
 
-My former company frequently worked with a medical-equipment auction company that handled inventory from hospitals undergoing closure, renovation, or equipment replacement. Customers purchasing equipment through these auctions were often referred to Navis for shipping and logistics services.
+My former company frequently worked with a medical-equipment auction company that handled inventory from hospitals undergoing closure, renovation, or equipment replacement. Customers purchasing equipment through these auctions were often referred to us for shipping and logistics services.
 
 The auction company generated invoices in a highly consistent format that contained:
 
@@ -45,7 +50,7 @@ Because many auction items were repeated frequently between auctions, the workfl
 
 ---
 
-## Project Goals
+### Project Goals
 
 The goals of the automation system were:
 
@@ -61,9 +66,9 @@ The project was intentionally designed as a semi-automated workflow rather than 
 
 ---
 
-## System Workflow
+### System Workflow
 
-### High-Level Processing Pipeline
+#### High-Level Processing Pipeline
 
 ```text
 Incoming .eml Files
@@ -83,13 +88,13 @@ Item Database Lookup / Update
 
 ---
 
-## Invoice Filtering & PDF Extraction
+### Invoice Filtering & PDF Extraction
 
 The system first scanned `.eml` email files and extracted PDF attachments from incoming messages.
 
 The script then filtered valid auction invoices by searching for known invoice identifiers within the PDF contents.
 
-### Example Invoice Detection Logic
+#### Example Invoice Detection Logic
 
 ```python
 return "Centurion Service Group" in text and "Bidder" in text
@@ -97,7 +102,7 @@ return "Centurion Service Group" in text and "Bidder" in text
 
 This filtering stage prevented unrelated attachments and non-invoice emails from entering the processing pipeline.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert screenshot of raw invoice email or PDF here -->
 
@@ -111,7 +116,7 @@ Suggested content:
 
 ---
 
-## PDF Parsing & Structured Data Extraction
+### PDF Parsing & Structured Data Extraction
 
 After identifying a valid invoice, the system parsed the PDF contents using PyMuPDF block extraction and regular-expression matching.
 
@@ -124,7 +129,7 @@ The parser extracted:
 - Quantity
 - Total cost
 
-### Example Parsing Logic
+#### Example Parsing Logic
 
 ```python
 blocks = page.get_text("blocks")
@@ -136,7 +141,7 @@ match_vals = re.findall(r'\$\s*\d+(?:,\d{3})*(?:\.\d{2})?', text)
 
 The extracted data was then converted into a structured spreadsheet format for estimator use.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert screenshot of generated spreadsheet here -->
 
@@ -149,7 +154,7 @@ Suggested content:
 
 ---
 
-## Persistent Item Reference Database
+### Persistent Item Reference Database
 
 One of the primary design goals of the project was reducing repetitive manual data entry over time.
 
@@ -161,7 +166,7 @@ Although auction invoices frequently changed between jobs, many individual inven
 
 When repeated inventory items appeared in future invoices, the system automatically reused the stored information instead of requiring estimators to manually research the item again.
 
-### Database Workflow
+#### Database Workflow
 
 ```text
 Unknown Item
@@ -184,7 +189,7 @@ The database was intentionally implemented using an Excel-based structure rather
 - Nontechnical users needed easy access
 - Operational simplicity was prioritized
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert screenshot of item reference database here -->
 
@@ -197,7 +202,7 @@ Suggested content:
 
 ---
 
-## Automation Boundary
+### Automation Boundary
 
 Some downstream estimating decisions, such as packing method and crate assignment, followed highly repeatable rule-based patterns most of the time. However, the remaining exceptions carried enough operational risk that those fields were intentionally left open for estimator review.
 
@@ -207,9 +212,9 @@ This design philosophy intentionally prioritized operational reliability over ag
 
 ---
 
-## Technical Implementation
+### Technical Implementation
 
-### Libraries & Technologies Used
+#### Libraries & Technologies Used
 
 - Python
 - PyMuPDF (`fitz`)
@@ -218,7 +223,7 @@ This design philosophy intentionally prioritized operational reliability over ag
 - Excel file generation
 - `.eml` email parsing
 
-### Major Functional Components
+#### Major Functional Components
 
 - Email attachment extraction
 - PDF validation
@@ -228,7 +233,7 @@ This design philosophy intentionally prioritized operational reliability over ag
 - Duplicate-item handling
 - Persistent inventory database updates
 
-### Example Database Handling Logic
+#### Example Database Handling Logic
 
 ```python
 item_db.drop_duplicates(subset=["Description"], keep="first", inplace=True)
@@ -236,9 +241,9 @@ item_db.drop_duplicates(subset=["Description"], keep="first", inplace=True)
 
 ---
 
-## Demonstration Media
+### Demonstration Media
 
-### Planned Demonstration Workflow
+#### Planned Demonstration Workflow
 
 <!-- Insert demonstration images or video here -->
 
@@ -253,9 +258,9 @@ Suggested demonstration sequence:
 
 ---
 
-# WhatsApp Job Evaluation Parser
+## WhatsApp Job Evaluation Parser
 
-## Operational Problem
+### Operational Problem
 
 Navis frequently performed on-site evaluations for large or unusual shipping projects. During these evaluations, managers documented inventory items using mobile-phone photos and short text descriptions shared through the company WhatsApp chat.
 
@@ -282,7 +287,7 @@ This process was repetitive, time-consuming, and highly formatting-dependent.
 
 ---
 
-## Project Goals
+### Project Goals
 
 The goals of the parser were:
 
@@ -297,9 +302,9 @@ The script focused specifically on automating the deterministic formatting and o
 
 ---
 
-## System Workflow
+### System Workflow
 
-### High-Level Processing Pipeline
+#### High-Level Processing Pipeline
 
 ```text
 WhatsApp Export ZIP
@@ -317,7 +322,7 @@ Word Document Export
 
 ---
 
-## Structured Message Parsing
+### Structured Message Parsing
 
 The parser operated using a standardized message structure:
 
@@ -327,7 +332,7 @@ Image → Description → Image → Description
 
 The script scanned exported WhatsApp chat logs and identified image attachments followed by the next valid descriptive message.
 
-### Example Parsing Logic
+#### Example Parsing Logic
 
 ```python
 image_match = re.search(r"<attached:\s*(.+\.jpg)>", line)
@@ -335,7 +340,7 @@ image_match = re.search(r"<attached:\s*(.+\.jpg)>", line)
 
 The resulting image-description pairs were then reconstructed into structured operational documentation.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert screenshot of WhatsApp export structure here -->
 
@@ -347,7 +352,7 @@ Suggested content:
 
 ---
 
-## Automated Word Document Generation
+### Automated Word Document Generation
 
 After parsing the chat export, the script generated a structured Word document containing:
 
@@ -357,13 +362,13 @@ After parsing the chat export, the script generated a structured Word document c
 - Packing column
 - Crate-number column
 
-### Example DOCX Generation Logic
+#### Example DOCX Generation Logic
 
 ```python
 table = doc.add_table(rows=1, cols=5)
 ```
 
-### Embedded Image Handling
+#### Embedded Image Handling
 
 ```python
 add_picture(image_path, width=Inches(1.5))
@@ -371,7 +376,7 @@ add_picture(image_path, width=Inches(1.5))
 
 The final result converted an unstructured mobile message thread into a clean estimator-ready document.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert screenshot of generated Word document here -->
 
@@ -384,7 +389,7 @@ Suggested content:
 
 ---
 
-## Human-in-the-Loop Design Philosophy
+### Human-in-the-Loop Design Philosophy
 
 The script intentionally automated:
 
@@ -405,9 +410,9 @@ Although many of these downstream decisions followed highly repeatable rules, th
 
 ---
 
-## Technical Implementation
+### Technical Implementation
 
-### Libraries & Technologies Used
+#### Libraries & Technologies Used
 
 - Python
 - ZIP extraction
@@ -416,7 +421,7 @@ Although many of these downstream decisions followed highly repeatable rules, th
 - automated image insertion
 - structured document generation
 
-### Major Functional Components
+#### Major Functional Components
 
 - ZIP extraction
 - Chat-log parsing
@@ -427,9 +432,9 @@ Although many of these downstream decisions followed highly repeatable rules, th
 
 ---
 
-## Demonstration Media
+### Demonstration Media
 
-### Planned Demonstration Workflow
+#### Planned Demonstration Workflow
 
 <!-- Insert demonstration images or video here -->
 
@@ -443,7 +448,7 @@ Suggested demonstration sequence:
 
 ---
 
-## Technical Concepts Demonstrated
+### Technical Concepts Demonstrated
 
 These projects demonstrated practical implementation of:
 
@@ -461,7 +466,7 @@ These projects demonstrated practical implementation of:
 
 ---
 
-## Project Outcome
+### Project Outcome
 
 These tools significantly reduced repetitive formatting and data-entry work within real operational workflows while preserving estimator oversight where human judgment remained important.
 
