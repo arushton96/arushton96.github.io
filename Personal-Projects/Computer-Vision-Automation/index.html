@@ -689,36 +689,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#region-of-interest-monitoring" class="md-nav__link">
+  <a href="#detection-automation-logic" class="md-nav__link">
     <span class="md-ellipsis">
-      Region-of-Interest Monitoring
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#real-time-image-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Real-Time Image Processing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contour-detection-event-recognition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contour Detection &amp; Event Recognition
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automated-input-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automated Input Control
+      Detection &amp; Automation Logic
     </span>
   </a>
   
@@ -728,24 +701,6 @@
   <a href="#reliability-automation-philosophy" class="md-nav__link">
     <span class="md-ellipsis">
       Reliability &amp; Automation Philosophy
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#timeout-state-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Timeout &amp; State Handling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automated-maintenance-logic" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automated Maintenance Logic
     </span>
   </a>
   
@@ -866,36 +821,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#region-of-interest-monitoring" class="md-nav__link">
+  <a href="#detection-automation-logic" class="md-nav__link">
     <span class="md-ellipsis">
-      Region-of-Interest Monitoring
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#real-time-image-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Real-Time Image Processing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contour-detection-event-recognition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contour Detection &amp; Event Recognition
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automated-input-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automated Input Control
+      Detection &amp; Automation Logic
     </span>
   </a>
   
@@ -905,24 +833,6 @@
   <a href="#reliability-automation-philosophy" class="md-nav__link">
     <span class="md-ellipsis">
       Reliability &amp; Automation Philosophy
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#timeout-state-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Timeout &amp; State Handling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automated-maintenance-logic" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automated Maintenance Logic
     </span>
   </a>
   
@@ -1054,9 +964,10 @@ Automatic Recast
 </code></pre></div>
 <p>The script continuously monitored a small portion of the screen corresponding to the fishing float location and reacted automatically when a valid splash event was detected.</p>
 <hr>
-<h2 id="region-of-interest-monitoring">Region-of-Interest Monitoring<a class="headerlink" href="#region-of-interest-monitoring" title="Permanent link">¶</a></h2>
+<h2 id="detection-automation-logic">Detection &amp; Automation Logic<a class="headerlink" href="#detection-automation-logic" title="Permanent link">¶</a></h2>
+<h3 id="region-of-interest-monitoring">Region-of-Interest Monitoring<a class="headerlink" href="#region-of-interest-monitoring" title="Permanent link">¶</a></h3>
 <p>Rather than processing the entire screen, the system monitored a tightly constrained screen region surrounding the fishing float.</p>
-<h3 id="example-region-definition">Example Region Definition<a class="headerlink" href="#example-region-definition" title="Permanent link">¶</a></h3>
+<h4 id="example-region-definition">Example Region Definition<a class="headerlink" href="#example-region-definition" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">region</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"left"</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
     <span class="s2">"top"</span><span class="p">:</span> <span class="mi">175</span><span class="p">,</span>
@@ -1065,7 +976,7 @@ Automatic Recast
 <span class="p">}</span>
 </code></pre></div>
 <p>Restricting the processing area significantly reduced computational overhead while improving detection consistency and minimizing false detections from unrelated screen activity.</p>
-<h3 id="planned-media-placeholder">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder" title="Permanent link">¶</a></h3>
+<h4 id="planned-media-placeholder">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder" title="Permanent link">¶</a></h4>
 <!-- Insert screenshot of monitored screen region here -->
 
 <p>Suggested content:</p>
@@ -1075,16 +986,16 @@ Automatic Recast
 <li>Region-of-interest boundaries</li>
 </ul>
 <hr>
-<h2 id="real-time-image-processing">Real-Time Image Processing<a class="headerlink" href="#real-time-image-processing" title="Permanent link">¶</a></h2>
+<h3 id="real-time-image-processing">Real-Time Image Processing<a class="headerlink" href="#real-time-image-processing" title="Permanent link">¶</a></h3>
 <p>The project used OpenCV-based image processing to isolate visual splash events from the monitored screen region.</p>
-<h3 id="grayscale-conversion">Grayscale Conversion<a class="headerlink" href="#grayscale-conversion" title="Permanent link">¶</a></h3>
+<h4 id="grayscale-conversion">Grayscale Conversion<a class="headerlink" href="#grayscale-conversion" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="noise-reduction">Noise Reduction<a class="headerlink" href="#noise-reduction" title="Permanent link">¶</a></h3>
+<h4 id="noise-reduction">Noise Reduction<a class="headerlink" href="#noise-reduction" title="Permanent link">¶</a></h4>
 <p>A Gaussian blur filter was applied to reduce image noise and smooth rapid pixel fluctuations:</p>
 <div class="highlight"><pre><span></span><code><span class="n">blur</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="threshold-filtering">Threshold Filtering<a class="headerlink" href="#threshold-filtering" title="Permanent link">¶</a></h3>
+<h4 id="threshold-filtering">Threshold Filtering<a class="headerlink" href="#threshold-filtering" title="Permanent link">¶</a></h4>
 <p>Thresholding converted the processed image into a binary representation suitable for contour extraction:</p>
 <div class="highlight"><pre><span></span><code><span class="n">_</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span>
     <span class="n">blur</span><span class="p">,</span>
@@ -1094,7 +1005,7 @@ Automatic Recast
 <span class="p">)</span>
 </code></pre></div>
 <p>This processing pipeline isolated sudden bright splash events from the surrounding environment.</p>
-<h3 id="planned-media-placeholder_1">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_1" title="Permanent link">¶</a></h3>
+<h4 id="planned-media-placeholder_1">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_1" title="Permanent link">¶</a></h4>
 <!-- Insert image-processing sequence screenshots here -->
 
 <p>Suggested content:</p>
@@ -1105,9 +1016,9 @@ Automatic Recast
 <li>Final contour detection overlay</li>
 </ul>
 <hr>
-<h2 id="contour-detection-event-recognition">Contour Detection &amp; Event Recognition<a class="headerlink" href="#contour-detection-event-recognition" title="Permanent link">¶</a></h2>
+<h3 id="contour-detection-event-recognition">Contour Detection &amp; Event Recognition<a class="headerlink" href="#contour-detection-event-recognition" title="Permanent link">¶</a></h3>
 <p>After threshold filtering, the script searched for contours matching expected splash characteristics.</p>
-<h3 id="contour-detection">Contour Detection<a class="headerlink" href="#contour-detection" title="Permanent link">¶</a></h3>
+<h4 id="contour-detection">Contour Detection<a class="headerlink" href="#contour-detection" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">contours</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span>
     <span class="n">thresh</span><span class="p">,</span>
     <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span>
@@ -1118,13 +1029,13 @@ Automatic Recast
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="n">area</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
 </code></pre></div>
 <p>This filtering prevented extremely small noise artifacts and excessively large unrelated screen changes from triggering false detections.</p>
-<h3 id="centroid-extraction">Centroid Extraction<a class="headerlink" href="#centroid-extraction" title="Permanent link">¶</a></h3>
+<h4 id="centroid-extraction">Centroid Extraction<a class="headerlink" href="#centroid-extraction" title="Permanent link">¶</a></h4>
 <p>The system then calculated the center location of the detected splash region:</p>
 <div class="highlight"><pre><span></span><code><span class="n">cX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="s2">"m10"</span><span class="p">]</span> <span class="o">/</span> <span class="n">M</span><span class="p">[</span><span class="s2">"m00"</span><span class="p">])</span>
 <span class="n">cY</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="s2">"m01"</span><span class="p">]</span> <span class="o">/</span> <span class="n">M</span><span class="p">[</span><span class="s2">"m00"</span><span class="p">])</span>
 </code></pre></div>
 <p>The resulting centroid coordinates were converted into screen-space coordinates for automated mouse interaction.</p>
-<h3 id="planned-media-placeholder_2">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_2" title="Permanent link">¶</a></h3>
+<h4 id="planned-media-placeholder_2">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_2" title="Permanent link">¶</a></h4>
 <!-- Insert contour detection screenshot here -->
 
 <p>Suggested content:</p>
@@ -1135,7 +1046,7 @@ Automatic Recast
 <li>Contour visualization</li>
 </ul>
 <hr>
-<h2 id="automated-input-control">Automated Input Control<a class="headerlink" href="#automated-input-control" title="Permanent link">¶</a></h2>
+<h3 id="automated-input-control">Automated Input Control<a class="headerlink" href="#automated-input-control" title="Permanent link">¶</a></h3>
 <p>When a valid splash event was detected, the system automatically:</p>
 <ol>
 <li>Moved the cursor to the detected splash location</li>
@@ -1143,11 +1054,11 @@ Automatic Recast
 <li>Waited for the interaction delay</li>
 <li>Recast the fishing action automatically</li>
 </ol>
-<h3 id="example-automated-interaction-logic">Example Automated Interaction Logic<a class="headerlink" href="#example-automated-interaction-logic" title="Permanent link">¶</a></h3>
+<h4 id="example-automated-interaction-logic">Example Automated Interaction Logic<a class="headerlink" href="#example-automated-interaction-logic" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">pyautogui</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">screen_x</span><span class="p">,</span> <span class="n">screen_y</span><span class="p">)</span>
 <span class="n">pyautogui</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">button</span><span class="o">=</span><span class="s1">'right'</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="automatic-recast-logic">Automatic Recast Logic<a class="headerlink" href="#automatic-recast-logic" title="Permanent link">¶</a></h3>
+<h4 id="automatic-recast-logic">Automatic Recast Logic<a class="headerlink" href="#automatic-recast-logic" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">pyautogui</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">'8'</span><span class="p">)</span>
 </code></pre></div>
 <p>This created a fully continuous automation loop requiring no manual interaction during normal operation.</p>
@@ -1172,16 +1083,16 @@ False Negative:
 </ul>
 <p>This design philosophy mirrored many real-world automation systems where avoiding missed events is often more important than eliminating every false trigger.</p>
 <hr>
-<h2 id="timeout-state-handling">Timeout &amp; State Handling<a class="headerlink" href="#timeout-state-handling" title="Permanent link">¶</a></h2>
+<h3 id="timeout-state-handling">Timeout &amp; State Handling<a class="headerlink" href="#timeout-state-handling" title="Permanent link">¶</a></h3>
 <p>The project also implemented timing-based fallback systems to handle edge cases where splash detection failed or interaction timing became desynchronized.</p>
-<h3 id="timeout-recovery">Timeout Recovery<a class="headerlink" href="#timeout-recovery" title="Permanent link">¶</a></h3>
+<h4 id="timeout-recovery">Timeout Recovery<a class="headerlink" href="#timeout-recovery" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">elif</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">last_cast</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
 </code></pre></div>
 <p>If no splash event occurred within a specified timeout period, the system automatically restarted the fishing cycle to maintain continuous operation.</p>
 <hr>
-<h2 id="automated-maintenance-logic">Automated Maintenance Logic<a class="headerlink" href="#automated-maintenance-logic" title="Permanent link">¶</a></h2>
+<h3 id="automated-maintenance-logic">Automated Maintenance Logic<a class="headerlink" href="#automated-maintenance-logic" title="Permanent link">¶</a></h3>
 <p>The script additionally included automated maintenance handling for temporary gameplay enhancements.</p>
-<h3 id="automatic-lure-reapplication">Automatic Lure Reapplication<a class="headerlink" href="#automatic-lure-reapplication" title="Permanent link">¶</a></h3>
+<h4 id="automatic-lure-reapplication">Automatic Lure Reapplication<a class="headerlink" href="#automatic-lure-reapplication" title="Permanent link">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">last_lure_time</span> <span class="o">&gt;</span> <span class="n">lure_interval</span><span class="p">:</span>
 </code></pre></div>
 <p>The automation system periodically:</p>
