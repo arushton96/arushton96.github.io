@@ -4,7 +4,7 @@ This section contains a collection of self-directed and workflow-driven automati
 
 Unlike the larger academic and industrial systems elsewhere in this portfolio, these projects originated from real repetitive tasks, workflow inefficiencies, or personal experimentation ideas that evolved into fully functional automation tools.
 
-Although the scale of these projects is smaller than the industrial automation systems featured elsewhere in this portfolio, they demonstrate an important engineering mindset:
+While these projects are generally smaller in scope than the larger robotics and automation systems elsewhere in this portfolio, they demonstrate an important engineering mindset:
 
 ```text
 Identify repetitive work
