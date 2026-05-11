@@ -23,7 +23,7 @@ The projects emphasized:
 
 ## Operational Problem
 
-Navis frequently worked with a medical-equipment auction company that handled inventory from hospitals undergoing closure, renovation, or equipment replacement. Customers purchasing equipment through these auctions were often referred to Navis for shipping and logistics services.
+My former company frequently worked with a medical-equipment auction company that handled inventory from hospitals undergoing closure, renovation, or equipment replacement. Customers purchasing equipment through these auctions were often referred to Navis for shipping and logistics services.
 
 The auction company generated invoices in a highly consistent format that contained:
 
