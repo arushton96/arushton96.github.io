@@ -9,12 +9,16 @@
       
       
       
-        <link rel="canonical" href="https://arushton96.github.io/Embedded-Systems_Project/Code/mqtt-code/uart-protocol/">
+        <link rel="canonical" href="https://arushton96.github.io/Personal-Projects/">
       
       
+        <link rel="prev" href="../Motion-Control-%26-Vision-Systems/Servo-Based-Shape-Drawing-System/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+        <link rel="next" href="Operational-Automation-Tools/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
             
 
@@ -22,14 +26,14 @@
 
     
       
-        <title>uart_protocol.py - Andrew Rushton | Projects</title>
+        <title>Personal Projects - Andrew Rushton | Projects</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,7 +63,7 @@
     
 
 
-  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -87,11 +91,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#uart_protocolpy" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -104,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Andrew Rushton | Projects" class="md-header__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
+    <a href=".." title="Andrew Rushton | Projects" class="md-header__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
@@ -124,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              uart_protocol.py
+              Personal Projects
             
           </span>
         </div>
@@ -213,7 +212,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Industrial-Battery-Sorting-System/" class="md-tabs__link">
+        <a href="../Industrial-Battery-Sorting-System/" class="md-tabs__link">
           
   
     
@@ -233,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../" class="md-tabs__link">
+        <a href="../Embedded-Systems_Project/" class="md-tabs__link">
           
   
     
@@ -253,7 +252,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Motion-Control-%26-Vision-Systems/" class="md-tabs__link">
+        <a href="../Motion-Control-%26-Vision-Systems/" class="md-tabs__link">
           
   
     
@@ -269,11 +268,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../Personal-Projects/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
     
@@ -314,7 +315,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Andrew Rushton | Projects" class="md-nav__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
+    <a href=".." title="Andrew Rushton | Projects" class="md-nav__button md-logo" aria-label="Andrew Rushton | Projects" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
@@ -384,7 +385,7 @@
         
   
   
-    <a href="../../../../Industrial-Battery-Sorting-System/" class="md-nav__link">
+    <a href="../Industrial-Battery-Sorting-System/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -448,7 +449,7 @@
         
   
   
-    <a href="../../../" class="md-nav__link">
+    <a href="../Embedded-Systems_Project/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -500,7 +501,7 @@
         
   
   
-    <a href="../../../../Motion-Control-%26-Vision-Systems/" class="md-nav__link">
+    <a href="../Motion-Control-%26-Vision-Systems/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -523,6 +524,8 @@
       
   
   
+    
+  
   
   
     
@@ -539,33 +542,93 @@
     
     
       
+        
+        
+      
       
     
     
       
-        
-        
-      
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
-  
-  
-    <a href="../../../../Personal-Projects/" class="md-nav__link">
-      
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   <span class="md-ellipsis">
     Personal Projects
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Personal Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Operational-Automation-Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operational Automation Tools
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Computer-Vision-Automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computer Vision &amp; Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -588,8 +651,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -604,7 +665,7 @@
                   
 
   
-    <a href="https://github.com/arushton96/arushton96.github.io/edit/main/docs/Embedded-Systems_Project/Code/mqtt-code/uart-protocol.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/arushton96/arushton96.github.io/edit/main/docs/Personal-Projects/index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
     </a>
@@ -612,77 +673,9 @@
   
 
 
-<h1 id="uart_protocolpy">uart_protocol.py<a class="headerlink" href="#uart_protocolpy" title="Permanent link">¶</a></h1>
-<p>This module defines the UART message protocol for the MQTT subsystem. It provides functions for encoding and decoding 5-byte messages, including full validation of structure, sender/receiver IDs, and data integrity.</p>
-<hr>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">UART</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="n">START</span> <span class="o">=</span> <span class="mh">0x41</span>
-<span class="n">END</span> <span class="o">=</span> <span class="mh">0x42</span>
-<span class="n">SENDER</span> <span class="o">=</span> <span class="mh">0x04</span>  <span class="c1"># This device’s ID</span>
-
-<span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">uart</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-    <span class="c1"># Accept int or hex string</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Data must be an integer or hex string"</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">data</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Data must be a single byte (0–255)"</span><span class="p">)</span>
-
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">START</span><span class="p">,</span> <span class="n">SENDER</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">END</span><span class="p">])</span>
-    <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Sent:"</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"0x</span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
+  <h1>Personal Projects</h1>
 
 
-<span class="k">def</span> <span class="nf">read_message</span><span class="p">(</span><span class="n">uart</span><span class="p">):</span>
-    <span class="k">while</span> <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">START</span><span class="p">:</span>
-            <span class="k">continue</span>
-
-        <span class="n">rest</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">''</span>
-        <span class="n">timeout</span> <span class="o">=</span> <span class="mi">1000</span>
-        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
-
-        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-                <span class="n">rest</span> <span class="o">+=</span> <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"Timed out waiting for full message."</span><span class="p">)</span>
-                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span>
-
-        <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">START</span><span class="p">])</span> <span class="o">+</span> <span class="n">rest</span>
-
-        <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="n">END</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid packet structure:"</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
-            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">False</span>
-
-        <span class="n">sender</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">receiver</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">sender</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">)</span> <span class="ow">or</span> <span class="n">receiver</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid sender or receiver value:"</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
-            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">False</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">data</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid data value (not a byte):"</span><span class="p">,</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">])</span>
-            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">False</span>
-
-        <span class="k">if</span> <span class="n">receiver</span> <span class="o">==</span> <span class="n">SENDER</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Message Received:"</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Sender  : 0x</span><span class="si">{</span><span class="n">sender</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Receiver: 0x</span><span class="si">{</span><span class="n">receiver</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Data    : 0x</span><span class="si">{</span><span class="n">data</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">chr</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="kc">True</span>
-
-    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span>
-</code></pre></div>
 
 
 
@@ -713,6 +706,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../Motion-Control-%26-Vision-Systems/Servo-Based-Shape-Drawing-System/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Servo Based Shape Drawing System">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Servo Based Shape Drawing System
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="Operational-Automation-Tools/" class="md-footer__link md-footer__link--next" aria-label="Next: Operational Automation Tools">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Operational Automation Tools
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -748,12 +779,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
-        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
