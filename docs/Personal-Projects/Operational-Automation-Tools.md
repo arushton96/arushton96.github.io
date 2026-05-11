@@ -172,8 +172,6 @@ The database was intentionally implemented using an Excel-based structure rather
 - Nontechnical users needed easy access
 - Operational simplicity was prioritized
 
-#### Planned Media Placeholder
-
 ![Database Sample](Images/Database_Sample.png)
 
 ---
