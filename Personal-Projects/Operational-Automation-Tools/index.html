@@ -986,12 +986,10 @@ Automatic Data Population
 <h3 id="operational-problem_1">Operational Problem<a class="headerlink" href="#operational-problem_1" title="Permanent link">¶</a></h3>
 <p>Navis frequently performed on-site evaluations for large or unusual shipping projects. During these evaluations, managers documented inventory items using mobile-phone photos and short text descriptions shared through the company WhatsApp chat.</p>
 <p>Historically, this process created large unstructured message threads consisting of:</p>
-<div class="highlight"><pre><span></span><code>Image
-Description
-Image
-Description
-Image
-Description
+<div class="highlight"><pre><span></span><code>- Batch Images
+- Descriptions
+- Batch Images
+- Descriptions
 </code></pre></div>
 <p>After returning to the office, estimators manually:</p>
 <ul>
@@ -1032,7 +1030,7 @@ Word Document Export
 <hr>
 <h3 id="structured-message-parsing">Structured Message Parsing<a class="headerlink" href="#structured-message-parsing" title="Permanent link">¶</a></h3>
 <p>The parser operated using a standardized message structure:</p>
-<div class="highlight"><pre><span></span><code>Image → Description → Image → Description
+<div class="highlight"><pre><span></span><code>Single Image → Description → Single Image → Description
 </code></pre></div>
 <p>The script scanned exported WhatsApp chat logs and identified image attachments followed by the next valid descriptive message.</p>
 <h4 id="example-parsing-logic_1">Example Parsing Logic<a class="headerlink" href="#example-parsing-logic_1" title="Permanent link">¶</a></h4>
