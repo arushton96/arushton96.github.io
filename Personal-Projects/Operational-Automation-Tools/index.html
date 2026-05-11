@@ -91,6 +91,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#operational-automation-tools" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -598,6 +603,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Operational Automation Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -608,6 +626,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -659,6 +705,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -681,9 +746,364 @@
   
 
 
-  <h1>Operational Automation Tools</h1>
+<h1 id="operational-automation-tools">Operational Automation Tools<a class="headerlink" href="#operational-automation-tools" title="Permanent link">¶</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>This section contains a collection of Python-based workflow automation tools developed to reduce repetitive manual processing tasks within shipping, logistics, and operational-estimating workflows.</p>
+<p>Unlike the larger robotics and industrial automation systems elsewhere in this portfolio, these projects focused on practical process automation and operational efficiency improvements. The primary goal was identifying repetitive, deterministic portions of existing workflows and automating the most predictable tasks while preserving human oversight where operational judgment was still required.</p>
+<p>These tools were developed after spending significant time working directly with the associated workflows and identifying opportunities to reduce repetitive formatting, parsing, and data-entry work.</p>
+<p>The projects emphasized:</p>
+<ul>
+<li>Structured document parsing</li>
+<li>Workflow automation</li>
+<li>Reusable operational data</li>
+<li>Human-in-the-loop automation</li>
+<li>Practical process optimization</li>
+<li>Python-based scripting and data handling</li>
+</ul>
+<hr>
+<h1 id="medical-equipment-invoice-processing-system">Medical Equipment Invoice Processing System<a class="headerlink" href="#medical-equipment-invoice-processing-system" title="Permanent link">¶</a></h1>
+<h2 id="operational-problem">Operational Problem<a class="headerlink" href="#operational-problem" title="Permanent link">¶</a></h2>
+<p>Navis frequently worked with a medical-equipment auction company that handled inventory from hospitals undergoing closure, renovation, or equipment replacement. Customers purchasing equipment through these auctions were often referred to Navis for shipping and logistics services.</p>
+<p>The auction company generated invoices in a highly consistent format that contained:</p>
+<ul>
+<li>Item descriptions</li>
+<li>Lot numbers</li>
+<li>Barcodes</li>
+<li>Quantities</li>
+<li>Purchase totals</li>
+</ul>
+<p>However, the invoices typically did not contain critical shipping information such as:</p>
+<ul>
+<li>Item weight</li>
+<li>Shipping dimensions</li>
+<li>Packaging requirements</li>
+</ul>
+<p>Estimators were therefore required to manually process every invoice and research shipping data for each individual item before generating shipping quotes.</p>
+<p>Because many auction items were repeated frequently between auctions, the workflow involved a large amount of repetitive manual lookup and spreadsheet formatting work.</p>
+<hr>
+<h2 id="project-goals">Project Goals<a class="headerlink" href="#project-goals" title="Permanent link">¶</a></h2>
+<p>The goals of the automation system were:</p>
+<ul>
+<li>Automatically identify valid invoice emails</li>
+<li>Extract invoice PDFs from <code>.eml</code> files</li>
+<li>Parse invoice contents into structured data</li>
+<li>Generate organized Excel spreadsheets for estimators</li>
+<li>Reduce repetitive manual formatting work</li>
+<li>Build a reusable item-reference database for repeated inventory items</li>
+<li>Gradually reduce human workload over time</li>
+</ul>
+<p>The project was intentionally designed as a semi-automated workflow rather than a fully autonomous system.</p>
+<hr>
+<h2 id="system-workflow">System Workflow<a class="headerlink" href="#system-workflow" title="Permanent link">¶</a></h2>
+<h3 id="high-level-processing-pipeline">High-Level Processing Pipeline<a class="headerlink" href="#high-level-processing-pipeline" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Incoming .eml Files
+        ↓
+PDF Attachment Extraction
+        ↓
+Invoice Validation
+        ↓
+PDF Text Parsing
+        ↓
+Structured Data Extraction
+        ↓
+Excel Spreadsheet Generation
+        ↓
+Item Database Lookup / Update
+</code></pre></div>
+<hr>
+<h2 id="invoice-filtering-pdf-extraction">Invoice Filtering &amp; PDF Extraction<a class="headerlink" href="#invoice-filtering-pdf-extraction" title="Permanent link">¶</a></h2>
+<p>The system first scanned <code>.eml</code> email files and extracted PDF attachments from incoming messages.</p>
+<p>The script then filtered valid auction invoices by searching for known invoice identifiers within the PDF contents.</p>
+<h3 id="example-invoice-detection-logic">Example Invoice Detection Logic<a class="headerlink" href="#example-invoice-detection-logic" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="s2">"Centurion Service Group"</span> <span class="ow">in</span> <span class="n">text</span> <span class="ow">and</span> <span class="s2">"Bidder"</span> <span class="ow">in</span> <span class="n">text</span>
+</code></pre></div>
+<p>This filtering stage prevented unrelated attachments and non-invoice emails from entering the processing pipeline.</p>
+<h3 id="planned-media-placeholder">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder" title="Permanent link">¶</a></h3>
+<!-- Insert screenshot of raw invoice email or PDF here -->
 
+<p>Suggested content:</p>
+<ul>
+<li>Sample invoice PDF</li>
+<li>Auction invoice formatting</li>
+<li>Item rows</li>
+<li>Bidder information</li>
+<li>Typical raw document structure</li>
+</ul>
+<hr>
+<h2 id="pdf-parsing-structured-data-extraction">PDF Parsing &amp; Structured Data Extraction<a class="headerlink" href="#pdf-parsing-structured-data-extraction" title="Permanent link">¶</a></h2>
+<p>After identifying a valid invoice, the system parsed the PDF contents using PyMuPDF block extraction and regular-expression matching.</p>
+<p>The parser extracted:</p>
+<ul>
+<li>Lot number</li>
+<li>Barcode</li>
+<li>Description</li>
+<li>Price</li>
+<li>Quantity</li>
+<li>Total cost</li>
+</ul>
+<h3 id="example-parsing-logic">Example Parsing Logic<a class="headerlink" href="#example-parsing-logic" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">blocks</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">"blocks"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">match_vals</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\$\s*\d+(?:,\d</span><span class="si">{3}</span><span class="s1">)*(?:\.\d</span><span class="si">{2}</span><span class="s1">)?'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>The extracted data was then converted into a structured spreadsheet format for estimator use.</p>
+<h3 id="planned-media-placeholder_1">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_1" title="Permanent link">¶</a></h3>
+<!-- Insert screenshot of generated spreadsheet here -->
 
+<p>Suggested content:</p>
+<ul>
+<li>Parsed spreadsheet output</li>
+<li>Structured item columns</li>
+<li>Weight/dimension placeholders</li>
+<li>Repeated-item auto-fill examples</li>
+</ul>
+<hr>
+<h2 id="persistent-item-reference-database">Persistent Item Reference Database<a class="headerlink" href="#persistent-item-reference-database" title="Permanent link">¶</a></h2>
+<p>One of the primary design goals of the project was reducing repetitive manual data entry over time.</p>
+<p>Although auction invoices frequently changed between jobs, many individual inventory items appeared repeatedly across multiple auctions. Instead of repeatedly researching shipping information for common items, the system maintained a persistent Excel-based item reference database containing:</p>
+<ul>
+<li>Item descriptions</li>
+<li>Shipping weights</li>
+<li>Shipping dimensions</li>
+</ul>
+<p>When repeated inventory items appeared in future invoices, the system automatically reused the stored information instead of requiring estimators to manually research the item again.</p>
+<h3 id="database-workflow">Database Workflow<a class="headerlink" href="#database-workflow" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Unknown Item
+        ↓
+Manual Weight/Dimension Entry
+        ↓
+Stored in Reference Database
+        ↓
+Future Invoice Detection
+        ↓
+Automatic Data Population
+</code></pre></div>
+<p>This allowed the system to become more effective over time as additional inventory items were processed and cataloged.</p>
+<p>The database was intentionally implemented using an Excel-based structure rather than a larger SQL-style database because:</p>
+<ul>
+<li>Data volume was relatively small</li>
+<li>The file needed to remain human-readable</li>
+<li>Nontechnical users needed easy access</li>
+<li>Operational simplicity was prioritized</li>
+</ul>
+<h3 id="planned-media-placeholder_2">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_2" title="Permanent link">¶</a></h3>
+<!-- Insert screenshot of item reference database here -->
+
+<p>Suggested content:</p>
+<ul>
+<li>Example repeated inventory items</li>
+<li>Weight/dimension columns</li>
+<li>Auto-populated entries</li>
+<li>Reusable item catalog</li>
+</ul>
+<hr>
+<h2 id="automation-boundary">Automation Boundary<a class="headerlink" href="#automation-boundary" title="Permanent link">¶</a></h2>
+<p>Some downstream estimating decisions, such as packing method and crate assignment, followed highly repeatable rule-based patterns most of the time. However, the remaining exceptions carried enough operational risk that those fields were intentionally left open for estimator review.</p>
+<p>The goal of the project was not to replace judgment-based shipping decisions. The goal was to eliminate repetitive formatting, parsing, and data-entry work so that estimators could focus their time on validating and planning shipments rather than rebuilding spreadsheets manually.</p>
+<p>This design philosophy intentionally prioritized operational reliability over aggressive automation.</p>
+<hr>
+<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link">¶</a></h2>
+<h3 id="libraries-technologies-used">Libraries &amp; Technologies Used<a class="headerlink" href="#libraries-technologies-used" title="Permanent link">¶</a></h3>
+<ul>
+<li>Python</li>
+<li>PyMuPDF (<code>fitz</code>)</li>
+<li>pandas</li>
+<li>regular expressions (<code>re</code>)</li>
+<li>Excel file generation</li>
+<li><code>.eml</code> email parsing</li>
+</ul>
+<h3 id="major-functional-components">Major Functional Components<a class="headerlink" href="#major-functional-components" title="Permanent link">¶</a></h3>
+<ul>
+<li>Email attachment extraction</li>
+<li>PDF validation</li>
+<li>Block-based PDF parsing</li>
+<li>Structured invoice extraction</li>
+<li>Spreadsheet generation</li>
+<li>Duplicate-item handling</li>
+<li>Persistent inventory database updates</li>
+</ul>
+<h3 id="example-database-handling-logic">Example Database Handling Logic<a class="headerlink" href="#example-database-handling-logic" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">item_db</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"Description"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<hr>
+<h2 id="demonstration-media">Demonstration Media<a class="headerlink" href="#demonstration-media" title="Permanent link">¶</a></h2>
+<h3 id="planned-demonstration-workflow">Planned Demonstration Workflow<a class="headerlink" href="#planned-demonstration-workflow" title="Permanent link">¶</a></h3>
+<!-- Insert demonstration images or video here -->
+
+<p>Suggested demonstration sequence:</p>
+<ol>
+<li>Raw invoice email</li>
+<li>Invoice PDF extraction</li>
+<li>Generated spreadsheet</li>
+<li>Manual metadata entry</li>
+<li>Database update</li>
+<li>Future invoice auto-population</li>
+</ol>
+<hr>
+<h1 id="whatsapp-job-evaluation-parser">WhatsApp Job Evaluation Parser<a class="headerlink" href="#whatsapp-job-evaluation-parser" title="Permanent link">¶</a></h1>
+<h2 id="operational-problem_1">Operational Problem<a class="headerlink" href="#operational-problem_1" title="Permanent link">¶</a></h2>
+<p>Navis frequently performed on-site evaluations for large or unusual shipping projects. During these evaluations, managers documented inventory items using mobile-phone photos and short text descriptions shared through the company WhatsApp chat.</p>
+<p>Historically, this process created large unstructured message threads consisting of:</p>
+<div class="highlight"><pre><span></span><code>Image
+Description
+Image
+Description
+Image
+Description
+</code></pre></div>
+<p>After returning to the office, estimators manually:</p>
+<ul>
+<li>Saved images individually</li>
+<li>Reorganized photos</li>
+<li>Matched descriptions to images</li>
+<li>Rebuilt the information into estimate tables</li>
+<li>Added operational packing information</li>
+</ul>
+<p>This process was repetitive, time-consuming, and highly formatting-dependent.</p>
+<hr>
+<h2 id="project-goals_1">Project Goals<a class="headerlink" href="#project-goals_1" title="Permanent link">¶</a></h2>
+<p>The goals of the parser were:</p>
+<ul>
+<li>Automatically process WhatsApp export files</li>
+<li>Associate images with descriptions</li>
+<li>Rebuild the message thread into a structured estimate format</li>
+<li>Generate organized Word documents</li>
+<li>Reduce repetitive formatting work</li>
+<li>Preserve manual estimator control where operational judgment was required</li>
+</ul>
+<p>The script focused specifically on automating the deterministic formatting and organization tasks within the workflow.</p>
+<hr>
+<h2 id="system-workflow_1">System Workflow<a class="headerlink" href="#system-workflow_1" title="Permanent link">¶</a></h2>
+<h3 id="high-level-processing-pipeline_1">High-Level Processing Pipeline<a class="headerlink" href="#high-level-processing-pipeline_1" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>WhatsApp Export ZIP
+        ↓
+ZIP Extraction
+        ↓
+Chat Log Parsing
+        ↓
+Image / Description Matching
+        ↓
+Structured Table Generation
+        ↓
+Word Document Export
+</code></pre></div>
+<hr>
+<h2 id="structured-message-parsing">Structured Message Parsing<a class="headerlink" href="#structured-message-parsing" title="Permanent link">¶</a></h2>
+<p>The parser operated using a standardized message structure:</p>
+<div class="highlight"><pre><span></span><code>Image → Description → Image → Description
+</code></pre></div>
+<p>The script scanned exported WhatsApp chat logs and identified image attachments followed by the next valid descriptive message.</p>
+<h3 id="example-parsing-logic_1">Example Parsing Logic<a class="headerlink" href="#example-parsing-logic_1" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">image_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"&lt;attached:\s*(.+\.jpg)&gt;"</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</code></pre></div>
+<p>The resulting image-description pairs were then reconstructed into structured operational documentation.</p>
+<h3 id="planned-media-placeholder_3">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_3" title="Permanent link">¶</a></h3>
+<!-- Insert screenshot of WhatsApp export structure here -->
+
+<p>Suggested content:</p>
+<ul>
+<li>Example chat export</li>
+<li>Image/description formatting</li>
+<li>Raw message structure</li>
+</ul>
+<hr>
+<h2 id="automated-word-document-generation">Automated Word Document Generation<a class="headerlink" href="#automated-word-document-generation" title="Permanent link">¶</a></h2>
+<p>After parsing the chat export, the script generated a structured Word document containing:</p>
+<ul>
+<li>Embedded item images</li>
+<li>Dimensions column</li>
+<li>Description column</li>
+<li>Packing column</li>
+<li>Crate-number column</li>
+</ul>
+<h3 id="example-docx-generation-logic">Example DOCX Generation Logic<a class="headerlink" href="#example-docx-generation-logic" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">table</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="embedded-image-handling">Embedded Image Handling<a class="headerlink" href="#embedded-image-handling" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">add_picture</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">Inches</span><span class="p">(</span><span class="mf">1.5</span><span class="p">))</span>
+</code></pre></div>
+<p>The final result converted an unstructured mobile message thread into a clean estimator-ready document.</p>
+<h3 id="planned-media-placeholder_4">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_4" title="Permanent link">¶</a></h3>
+<!-- Insert screenshot of generated Word document here -->
+
+<p>Suggested content:</p>
+<ul>
+<li>Structured estimate table</li>
+<li>Embedded images</li>
+<li>Organized item layout</li>
+<li>Dimension/description formatting</li>
+</ul>
+<hr>
+<h2 id="human-in-the-loop-design-philosophy">Human-in-the-Loop Design Philosophy<a class="headerlink" href="#human-in-the-loop-design-philosophy" title="Permanent link">¶</a></h2>
+<p>The script intentionally automated:</p>
+<ul>
+<li>image organization</li>
+<li>document formatting</li>
+<li>image/description association</li>
+<li>table generation</li>
+</ul>
+<p>while leaving operational decisions such as:</p>
+<ul>
+<li>packing method</li>
+<li>crate assignment</li>
+<li>shipment grouping</li>
+</ul>
+<p>available for manual estimator review.</p>
+<p>Although many of these downstream decisions followed highly repeatable rules, the remaining edge cases carried enough operational variability that the project intentionally prioritized reliability and estimator oversight over aggressive automation.</p>
+<hr>
+<h2 id="technical-implementation_1">Technical Implementation<a class="headerlink" href="#technical-implementation_1" title="Permanent link">¶</a></h2>
+<h3 id="libraries-technologies-used_1">Libraries &amp; Technologies Used<a class="headerlink" href="#libraries-technologies-used_1" title="Permanent link">¶</a></h3>
+<ul>
+<li>Python</li>
+<li>ZIP extraction</li>
+<li>regular expressions (<code>re</code>)</li>
+<li><code>python-docx</code></li>
+<li>automated image insertion</li>
+<li>structured document generation</li>
+</ul>
+<h3 id="major-functional-components_1">Major Functional Components<a class="headerlink" href="#major-functional-components_1" title="Permanent link">¶</a></h3>
+<ul>
+<li>ZIP extraction</li>
+<li>Chat-log parsing</li>
+<li>Image matching</li>
+<li>Text cleanup</li>
+<li>Structured table creation</li>
+<li>Word-document export</li>
+</ul>
+<hr>
+<h2 id="demonstration-media_1">Demonstration Media<a class="headerlink" href="#demonstration-media_1" title="Permanent link">¶</a></h2>
+<h3 id="planned-demonstration-workflow_1">Planned Demonstration Workflow<a class="headerlink" href="#planned-demonstration-workflow_1" title="Permanent link">¶</a></h3>
+<!-- Insert demonstration images or video here -->
+
+<p>Suggested demonstration sequence:</p>
+<ol>
+<li>Raw WhatsApp export</li>
+<li>Extracted images</li>
+<li>Parsed message associations</li>
+<li>Structured Word document output</li>
+<li>Final estimator-ready table</li>
+</ol>
+<hr>
+<h2 id="technical-concepts-demonstrated">Technical Concepts Demonstrated<a class="headerlink" href="#technical-concepts-demonstrated" title="Permanent link">¶</a></h2>
+<p>These projects demonstrated practical implementation of:</p>
+<ul>
+<li>Operational workflow analysis</li>
+<li>Human-in-the-loop automation</li>
+<li>Structured document parsing</li>
+<li>PDF text extraction</li>
+<li>Email attachment processing</li>
+<li>Batch data handling</li>
+<li>Regex-based parsing</li>
+<li>Persistent reusable data systems</li>
+<li>Automated document generation</li>
+<li>Workflow-oriented scripting</li>
+<li>Process optimization through software automation</li>
+</ul>
+<hr>
+<h2 id="project-outcome">Project Outcome<a class="headerlink" href="#project-outcome" title="Permanent link">¶</a></h2>
+<p>These tools significantly reduced repetitive formatting and data-entry work within real operational workflows while preserving estimator oversight where human judgment remained important.</p>
+<p>Rather than attempting to fully automate complex operational decision-making, the projects focused on eliminating predictable repetitive work and building structured systems that improved efficiency, consistency, and scalability over time.</p>
+<p>Together, these projects demonstrate a practical automation mindset centered around identifying deterministic workflow patterns, reducing operational friction, and designing reliable automation systems that support human operators rather than attempting to replace them entirely.</p>
 
 
 
