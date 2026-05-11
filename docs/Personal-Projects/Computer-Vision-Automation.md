@@ -73,11 +73,13 @@ The script continuously monitored a small portion of the screen corresponding to
 
 ---
 
-## Region-of-Interest Monitoring
+## Detection & Automation Logic
+
+### Region-of-Interest Monitoring
 
 Rather than processing the entire screen, the system monitored a tightly constrained screen region surrounding the fishing float.
 
-### Example Region Definition
+#### Example Region Definition
 
 ```python
 region = {
@@ -90,7 +92,7 @@ region = {
 
 Restricting the processing area significantly reduced computational overhead while improving detection consistency and minimizing false detections from unrelated screen activity.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert screenshot of monitored screen region here -->
 
@@ -102,17 +104,17 @@ Suggested content:
 
 ---
 
-## Real-Time Image Processing
+### Real-Time Image Processing
 
 The project used OpenCV-based image processing to isolate visual splash events from the monitored screen region.
 
-### Grayscale Conversion
+#### Grayscale Conversion
 
 ```python
 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 ```
 
-### Noise Reduction
+#### Noise Reduction
 
 A Gaussian blur filter was applied to reduce image noise and smooth rapid pixel fluctuations:
 
@@ -120,7 +122,7 @@ A Gaussian blur filter was applied to reduce image noise and smooth rapid pixel 
 blur = cv2.GaussianBlur(gray, (5, 5), 0)
 ```
 
-### Threshold Filtering
+#### Threshold Filtering
 
 Thresholding converted the processed image into a binary representation suitable for contour extraction:
 
@@ -135,7 +137,7 @@ _, thresh = cv2.threshold(
 
 This processing pipeline isolated sudden bright splash events from the surrounding environment.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert image-processing sequence screenshots here -->
 
@@ -148,11 +150,11 @@ Suggested content:
 
 ---
 
-## Contour Detection & Event Recognition
+### Contour Detection & Event Recognition
 
 After threshold filtering, the script searched for contours matching expected splash characteristics.
 
-### Contour Detection
+#### Contour Detection
 
 ```python
 contours, _ = cv2.findContours(
@@ -170,7 +172,7 @@ if 100 < area < 500:
 
 This filtering prevented extremely small noise artifacts and excessively large unrelated screen changes from triggering false detections.
 
-### Centroid Extraction
+#### Centroid Extraction
 
 The system then calculated the center location of the detected splash region:
 
@@ -181,7 +183,7 @@ cY = int(M["m01"] / M["m00"])
 
 The resulting centroid coordinates were converted into screen-space coordinates for automated mouse interaction.
 
-### Planned Media Placeholder
+#### Planned Media Placeholder
 
 <!-- Insert contour detection screenshot here -->
 
@@ -194,7 +196,7 @@ Suggested content:
 
 ---
 
-## Automated Input Control
+### Automated Input Control
 
 When a valid splash event was detected, the system automatically:
 
@@ -203,14 +205,14 @@ When a valid splash event was detected, the system automatically:
 3. Waited for the interaction delay
 4. Recast the fishing action automatically
 
-### Example Automated Interaction Logic
+#### Example Automated Interaction Logic
 
 ```python
 pyautogui.moveTo(screen_x, screen_y)
 pyautogui.click(button='right')
 ```
 
-### Automatic Recast Logic
+#### Automatic Recast Logic
 
 ```python
 pyautogui.press('8')
@@ -249,11 +251,11 @@ This design philosophy mirrored many real-world automation systems where avoidin
 
 ---
 
-## Timeout & State Handling
+### Timeout & State Handling
 
 The project also implemented timing-based fallback systems to handle edge cases where splash detection failed or interaction timing became desynchronized.
 
-### Timeout Recovery
+#### Timeout Recovery
 
 ```python
 elif time.time() - last_cast > timeout:
@@ -263,11 +265,11 @@ If no splash event occurred within a specified timeout period, the system automa
 
 ---
 
-## Automated Maintenance Logic
+### Automated Maintenance Logic
 
 The script additionally included automated maintenance handling for temporary gameplay enhancements.
 
-### Automatic Lure Reapplication
+#### Automatic Lure Reapplication
 
 ```python
 if time.time() - last_lure_time > lure_interval:
