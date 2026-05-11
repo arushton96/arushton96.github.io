@@ -106,15 +106,7 @@ This filtering stage prevented unrelated attachments and non-invoice emails from
 
 ##### Planned Media Placeholder
 
-<!-- Insert screenshot of raw invoice email or PDF here -->
-
-Suggested content:
-
-- Sample invoice PDF
-- Auction invoice formatting
-- Item rows
-- Bidder information
-- Typical raw document structure
+![Integrated System Hardware](Images/Invoice_Sample.png)
 
 ---
 
