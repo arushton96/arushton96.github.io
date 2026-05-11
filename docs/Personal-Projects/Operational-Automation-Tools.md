@@ -217,23 +217,6 @@ item_db.drop_duplicates(subset=["Description"], keep="first", inplace=True)
 
 ---
 
-### Demonstration Media
-
-#### Planned Demonstration Workflow
-
-<!-- Insert demonstration images or video here -->
-
-Suggested demonstration sequence:
-
-1. Raw invoice email
-2. Invoice PDF extraction
-3. Generated spreadsheet
-4. Manual metadata entry
-5. Database update
-6. Future invoice auto-population
-
----
-
 ## WhatsApp Job Evaluation Parser
 
 ### Operational Problem
