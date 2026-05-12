@@ -134,10 +134,10 @@ The system calculated centroid location independently in both the X and Y image 
 
 This process allowed the robotic system to determine the object's position within the camera frame before converting that position into robot workspace coordinates.
 
-### Planned Diagram Placeholder
+<!-- ### Planned Diagram Placeholder -->
 
 <!-- Insert image-processing pipeline diagram here -->
-
+<!--
 Suggested diagram content:
 
 - Original camera image
@@ -145,7 +145,7 @@ Suggested diagram content:
 - Thresholded image
 - Contour-filtered result
 - Final centroid extraction
-
+-->
 ---
 
 ## Coordinate Transformation
@@ -216,10 +216,10 @@ theta_2
 
 Quadrant-dependent handling logic was used to ensure correct manipulator motion throughout the workspace.
 
-### Planned Diagram Placeholder
+<!-- ### Planned Diagram Placeholder -->
 
 <!-- Insert manipulator geometry diagram here -->
-
+<!--
 Suggested diagram content:
 
 - Link lengths
@@ -227,7 +227,7 @@ Suggested diagram content:
 - Workspace coordinates
 - End-effector location
 - Coordinate-frame labels
-
+-->
 ---
 
 ## Embedded Communication & Motor Control
@@ -285,13 +285,13 @@ UART communication constraints required custom handling for signed floating-poin
 The communication pipeline was redesigned to separate whole-number and decimal components into individual byte transmissions.
 
 ---
-
+<!--
 ## Demonstration Media
 
 ### Planned Demonstration Media
-
+-->
 <!-- Add demonstration images/videos here -->
-
+<!--
 Suggested content:
 
 - Camera view screenshots
@@ -355,7 +355,7 @@ This project demonstrated practical implementation of several robotics and machi
 - Python-to-microcontroller integration
 
 ---
-
+-->
 ## Project Outcome
 
 The completed system successfully detected object locations within the camera frame, transformed those measurements into robot workspace coordinates, calculated corresponding manipulator joint angles, and transmitted motion commands to an embedded actuator controller.
