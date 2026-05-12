@@ -73,7 +73,7 @@ The manifold was integrated into the industrial Ethernet network alongside:
 
 This architecture allowed all major automation devices to communicate through a unified industrial network structure.
 
-![SMC Valve Manifold](Images/ValveManifold.png)
+<!-- ![SMC Valve Manifold](Images/ValveManifold.png) -->
 
 ---
 
@@ -137,7 +137,7 @@ The PLC managed all sequencing logic and timing coordination between:
 
 The system used mutually exclusive extend/retract logic to prevent conflicting pneumatic outputs and maintain predictable motion behavior during operation.
 
-![Flipper Mechanism](Images/FlipperMechanism.png)
+<!-- ![Flipper Mechanism](Images/FlipperMechanism.png) -->
 
 ---
 
