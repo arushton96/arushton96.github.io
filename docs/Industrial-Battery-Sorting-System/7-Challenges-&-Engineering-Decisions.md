@@ -32,7 +32,7 @@ The robotic system was originally intended to perform the primary battery-transf
 
 The intended architecture represented a more traditional industrial automation workflow involving coordinated robot motion and PLC-controlled peripheral systems.
 
-![Original System Concept](Images/OriginalConcept.png)
+<!-- ![Original System Concept](Images/OriginalConcept.png) -->
 
 ---
 
