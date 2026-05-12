@@ -78,10 +78,10 @@ The arm geometry was modeled mathematically using fixed link lengths and rotatio
 
 The system modeled the robotic arm as a planar multi-link manipulator with fixed link lengths.
 
-### Planned Diagram Placeholder
+<!-- ### Planned Diagram Placeholder -->
 
 <!-- Insert manipulator geometry diagram here -->
-
+<!--
 Suggested diagram content:
 
 - Link lengths
@@ -89,7 +89,7 @@ Suggested diagram content:
 - End-effector location
 - Workspace coordinates
 - Coordinate-frame labeling
-
+-->
 The manipulator geometry formed the basis for all inverse kinematic and Jacobian calculations used throughout the project.
 
 ---
@@ -232,7 +232,7 @@ All trajectory generation and motion control calculations were executed directly
 </video>
 
 ---
-
+<!--
 ## Additional Planned Diagrams
 
 ### Motion-Control Pipeline Diagram
@@ -265,7 +265,7 @@ Suggested content:
 - Joint-angle relationships
 
 ---
-
+-->
 ## Technical Concepts Demonstrated
 
 This project demonstrated practical implementation of several robotics and embedded motion-control concepts:
