@@ -681,33 +681,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demonstration-media" class="md-nav__link">
-    <span class="md-ellipsis">
-      Demonstration Media
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-planned-diagrams" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Planned Diagrams
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-concepts-demonstrated" class="md-nav__link">
-    <span class="md-ellipsis">
-      Technical Concepts Demonstrated
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#project-outcome" class="md-nav__link">
     <span class="md-ellipsis">
       Project Outcome
@@ -922,33 +895,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demonstration-media" class="md-nav__link">
-    <span class="md-ellipsis">
-      Demonstration Media
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-planned-diagrams" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Planned Diagrams
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-concepts-demonstrated" class="md-nav__link">
-    <span class="md-ellipsis">
-      Technical Concepts Demonstrated
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#project-outcome" class="md-nav__link">
     <span class="md-ellipsis">
       Project Outcome
@@ -1070,17 +1016,18 @@ Servo Motor Actuation
 <p>After thresholding and contour filtering, the object's center location was calculated using weighted pixel sums.</p>
 <p>The system calculated centroid location independently in both the X and Y image dimensions using intensity-weighted coordinate averaging.</p>
 <p>This process allowed the robotic system to determine the object's position within the camera frame before converting that position into robot workspace coordinates.</p>
-<h3 id="planned-diagram-placeholder">Planned Diagram Placeholder<a class="headerlink" href="#planned-diagram-placeholder" title="Permanent link">¶</a></h3>
-<!-- Insert image-processing pipeline diagram here -->
+<!-- ### Planned Diagram Placeholder -->
 
-<p>Suggested diagram content:</p>
-<ul>
-<li>Original camera image</li>
-<li>Difference image</li>
-<li>Thresholded image</li>
-<li>Contour-filtered result</li>
-<li>Final centroid extraction</li>
-</ul>
+<!-- Insert image-processing pipeline diagram here -->
+<!--
+Suggested diagram content:
+
+- Original camera image
+- Difference image
+- Thresholded image
+- Contour-filtered result
+- Final centroid extraction
+-->
 <hr>
 <h2 id="coordinate-transformation">Coordinate Transformation<a class="headerlink" href="#coordinate-transformation" title="Permanent link">¶</a></h2>
 <p>After detecting the object within the image frame, the measured camera coordinates were transformed into the robot base coordinate system using a homogeneous transformation matrix.</p>
@@ -1127,17 +1074,18 @@ Servo Motor Actuation
 <span class="n">theta_2</span>
 </code></pre></div>
 <p>Quadrant-dependent handling logic was used to ensure correct manipulator motion throughout the workspace.</p>
-<h3 id="planned-diagram-placeholder_1">Planned Diagram Placeholder<a class="headerlink" href="#planned-diagram-placeholder_1" title="Permanent link">¶</a></h3>
-<!-- Insert manipulator geometry diagram here -->
+<!-- ### Planned Diagram Placeholder -->
 
-<p>Suggested diagram content:</p>
-<ul>
-<li>Link lengths</li>
-<li>Joint angles</li>
-<li>Workspace coordinates</li>
-<li>End-effector location</li>
-<li>Coordinate-frame labels</li>
-</ul>
+<!-- Insert manipulator geometry diagram here -->
+<!--
+Suggested diagram content:
+
+- Link lengths
+- Joint angles
+- Workspace coordinates
+- End-effector location
+- Coordinate-frame labels
+-->
 <hr>
 <h2 id="embedded-communication-motor-control">Embedded Communication &amp; Motor Control<a class="headerlink" href="#embedded-communication-motor-control" title="Permanent link">¶</a></h2>
 <p>The calculated joint-angle values were transmitted from Python to the PSOC microcontroller using UART serial communication.</p>
@@ -1172,22 +1120,29 @@ Servo Motor Actuation
 <p>UART communication constraints required custom handling for signed floating-point transmission between Python and the embedded controller.</p>
 <p>The communication pipeline was redesigned to separate whole-number and decimal components into individual byte transmissions.</p>
 <hr>
-<h2 id="demonstration-media">Demonstration Media<a class="headerlink" href="#demonstration-media" title="Permanent link">¶</a></h2>
-<h3 id="planned-demonstration-media">Planned Demonstration Media<a class="headerlink" href="#planned-demonstration-media" title="Permanent link">¶</a></h3>
-<!-- Add demonstration images/videos here -->
+<!--
+## Demonstration Media
 
-<p>Suggested content:</p>
-<ul>
-<li>Camera view screenshots</li>
-<li>Thresholded image examples</li>
-<li>Coordinate-overlay images</li>
-<li>Manipulator motion demonstrations</li>
-<li>Embedded LCD debugging display</li>
-</ul>
-<hr>
-<h2 id="additional-planned-diagrams">Additional Planned Diagrams<a class="headerlink" href="#additional-planned-diagrams" title="Permanent link">¶</a></h2>
-<h3 id="vision-to-motion-pipeline-diagram">Vision-to-Motion Pipeline Diagram<a class="headerlink" href="#vision-to-motion-pipeline-diagram" title="Permanent link">¶</a></h3>
-<p>Suggested content:</p>
+### Planned Demonstration Media
+-->
+<!-- Add demonstration images/videos here -->
+<!--
+Suggested content:
+
+- Camera view screenshots
+- Thresholded image examples
+- Coordinate-overlay images
+- Manipulator motion demonstrations
+- Embedded LCD debugging display
+
+---
+
+## Additional Planned Diagrams
+
+### Vision-to-Motion Pipeline Diagram
+
+Suggested content:
+
 <div class="highlight"><pre><span></span><code>Camera Image
     ↓
 Image Processing
@@ -1202,33 +1157,39 @@ Joint Angle Commands
     ↓
 Embedded Motor Control
 </code></pre></div>
-<hr>
-<h3 id="coordinate-transformation-diagram">Coordinate Transformation Diagram<a class="headerlink" href="#coordinate-transformation-diagram" title="Permanent link">¶</a></h3>
-<p>Suggested content:</p>
-<ul>
-<li>Camera coordinate frame</li>
-<li>Robot base frame</li>
-<li>Translation offsets</li>
-<li>Rotation alignment</li>
-<li>Workspace coordinate conversion</li>
-</ul>
-<hr>
-<h2 id="technical-concepts-demonstrated">Technical Concepts Demonstrated<a class="headerlink" href="#technical-concepts-demonstrated" title="Permanent link">¶</a></h2>
-<p>This project demonstrated practical implementation of several robotics and machine-vision concepts:</p>
-<ul>
-<li>OpenCV image processing</li>
-<li>Background subtraction</li>
-<li>Threshold filtering</li>
-<li>Contour extraction</li>
-<li>Object centroid calculation</li>
-<li>Homogeneous transformations</li>
-<li>Coordinate-frame conversion</li>
-<li>Planar inverse kinematics</li>
-<li>UART serial communication</li>
-<li>Embedded motor control</li>
-<li>Python-to-microcontroller integration</li>
-</ul>
-<hr>
+
+---
+
+### Coordinate Transformation Diagram
+
+Suggested content:
+
+- Camera coordinate frame
+- Robot base frame
+- Translation offsets
+- Rotation alignment
+- Workspace coordinate conversion
+
+---
+
+## Technical Concepts Demonstrated
+
+This project demonstrated practical implementation of several robotics and machine-vision concepts:
+
+- OpenCV image processing
+- Background subtraction
+- Threshold filtering
+- Contour extraction
+- Object centroid calculation
+- Homogeneous transformations
+- Coordinate-frame conversion
+- Planar inverse kinematics
+- UART serial communication
+- Embedded motor control
+- Python-to-microcontroller integration
+
+---
+-->
 <h2 id="project-outcome">Project Outcome<a class="headerlink" href="#project-outcome" title="Permanent link">¶</a></h2>
 <p>The completed system successfully detected object locations within the camera frame, transformed those measurements into robot workspace coordinates, calculated corresponding manipulator joint angles, and transmitted motion commands to an embedded actuator controller.</p>
 <p>The project provided hands-on experience with machine vision, coordinate transformation, robotics mathematics, embedded communication, and manipulator control while demonstrating the integration of sensing, computation, and physical robotic motion into a unified control system.</p>
