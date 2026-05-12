@@ -91,17 +91,17 @@ region = {
 ```
 
 Restricting the processing area significantly reduced computational overhead while improving detection consistency and minimizing false detections from unrelated screen activity.
-
+<!--
 #### Planned Media Placeholder
-
+-->
 <!-- Insert screenshot of monitored screen region here -->
-
+<!--
 Suggested content:
 
 - Highlighted fishing-float region
 - Detection window overlay
 - Region-of-interest boundaries
-
+-->
 ---
 
 ### Real-Time Image Processing
@@ -137,17 +137,17 @@ _, thresh = cv2.threshold(
 
 This processing pipeline isolated sudden bright splash events from the surrounding environment.
 
-#### Planned Media Placeholder
+<!-- #### Planned Media Placeholder -->
 
 <!-- Insert image-processing sequence screenshots here -->
-
+<!--
 Suggested content:
 
 - Original screen capture
 - Grayscale image
 - Thresholded image
 - Final contour detection overlay
-
+-->
 ---
 
 ### Contour Detection & Event Recognition
@@ -183,17 +183,17 @@ cY = int(M["m01"] / M["m00"])
 
 The resulting centroid coordinates were converted into screen-space coordinates for automated mouse interaction.
 
-#### Planned Media Placeholder
+<!-- #### Planned Media Placeholder -->
 
 <!-- Insert contour detection screenshot here -->
-
+<!--
 Suggested content:
 
 - Bounding-box overlay
 - Detected splash highlight
 - Centroid marker
 - Contour visualization
-
+-->
 ---
 
 ### Automated Input Control
@@ -311,12 +311,10 @@ This transformed the project from a simple event-trigger script into a more comp
 - Periodic maintenance automation
 
 ---
-
+<!--
 ## Demonstration Media
 
 ### Planned Demonstration Media
-
-<!-- Insert demonstration video or screenshots here -->
 
 Suggested content:
 
@@ -348,7 +346,7 @@ Input Automation
 ```
 
 ---
-
+-->
 ### Reliability Tradeoff Diagram
 
 Suggested content:
