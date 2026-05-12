@@ -716,24 +716,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demonstration-media" class="md-nav__link">
-    <span class="md-ellipsis">
-      Demonstration Media
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-planned-diagrams" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Planned Diagrams
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#technical-concepts-demonstrated" class="md-nav__link">
     <span class="md-ellipsis">
       Technical Concepts Demonstrated
@@ -842,24 +824,6 @@
   <a href="#technical-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       Technical Implementation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demonstration-media" class="md-nav__link">
-    <span class="md-ellipsis">
-      Demonstration Media
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-planned-diagrams" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Planned Diagrams
     </span>
   </a>
   
@@ -976,15 +940,17 @@ Automatic Recast
 <span class="p">}</span>
 </code></pre></div>
 <p>Restricting the processing area significantly reduced computational overhead while improving detection consistency and minimizing false detections from unrelated screen activity.</p>
-<h4 id="planned-media-placeholder">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder" title="Permanent link">¶</a></h4>
+<!--
+#### Planned Media Placeholder
+-->
 <!-- Insert screenshot of monitored screen region here -->
+<!--
+Suggested content:
 
-<p>Suggested content:</p>
-<ul>
-<li>Highlighted fishing-float region</li>
-<li>Detection window overlay</li>
-<li>Region-of-interest boundaries</li>
-</ul>
+- Highlighted fishing-float region
+- Detection window overlay
+- Region-of-interest boundaries
+-->
 <hr>
 <h3 id="real-time-image-processing">Real-Time Image Processing<a class="headerlink" href="#real-time-image-processing" title="Permanent link">¶</a></h3>
 <p>The project used OpenCV-based image processing to isolate visual splash events from the monitored screen region.</p>
@@ -1005,16 +971,17 @@ Automatic Recast
 <span class="p">)</span>
 </code></pre></div>
 <p>This processing pipeline isolated sudden bright splash events from the surrounding environment.</p>
-<h4 id="planned-media-placeholder_1">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_1" title="Permanent link">¶</a></h4>
-<!-- Insert image-processing sequence screenshots here -->
+<!-- #### Planned Media Placeholder -->
 
-<p>Suggested content:</p>
-<ul>
-<li>Original screen capture</li>
-<li>Grayscale image</li>
-<li>Thresholded image</li>
-<li>Final contour detection overlay</li>
-</ul>
+<!-- Insert image-processing sequence screenshots here -->
+<!--
+Suggested content:
+
+- Original screen capture
+- Grayscale image
+- Thresholded image
+- Final contour detection overlay
+-->
 <hr>
 <h3 id="contour-detection-event-recognition">Contour Detection &amp; Event Recognition<a class="headerlink" href="#contour-detection-event-recognition" title="Permanent link">¶</a></h3>
 <p>After threshold filtering, the script searched for contours matching expected splash characteristics.</p>
@@ -1035,16 +1002,17 @@ Automatic Recast
 <span class="n">cY</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="s2">"m01"</span><span class="p">]</span> <span class="o">/</span> <span class="n">M</span><span class="p">[</span><span class="s2">"m00"</span><span class="p">])</span>
 </code></pre></div>
 <p>The resulting centroid coordinates were converted into screen-space coordinates for automated mouse interaction.</p>
-<h4 id="planned-media-placeholder_2">Planned Media Placeholder<a class="headerlink" href="#planned-media-placeholder_2" title="Permanent link">¶</a></h4>
-<!-- Insert contour detection screenshot here -->
+<!-- #### Planned Media Placeholder -->
 
-<p>Suggested content:</p>
-<ul>
-<li>Bounding-box overlay</li>
-<li>Detected splash highlight</li>
-<li>Centroid marker</li>
-<li>Contour visualization</li>
-</ul>
+<!-- Insert contour detection screenshot here -->
+<!--
+Suggested content:
+
+- Bounding-box overlay
+- Detected splash highlight
+- Centroid marker
+- Contour visualization
+-->
 <hr>
 <h3 id="automated-input-control">Automated Input Control<a class="headerlink" href="#automated-input-control" title="Permanent link">¶</a></h3>
 <p>When a valid splash event was detected, the system automatically:</p>
@@ -1127,22 +1095,26 @@ False Negative:
 <li>Periodic maintenance automation</li>
 </ul>
 <hr>
-<h2 id="demonstration-media">Demonstration Media<a class="headerlink" href="#demonstration-media" title="Permanent link">¶</a></h2>
-<h3 id="planned-demonstration-media">Planned Demonstration Media<a class="headerlink" href="#planned-demonstration-media" title="Permanent link">¶</a></h3>
-<!-- Insert demonstration video or screenshots here -->
+<!--
+## Demonstration Media
 
-<p>Suggested content:</p>
-<ul>
-<li>Live detection overlay</li>
-<li>Splash-event triggering</li>
-<li>Cursor automation</li>
-<li>Long-duration unattended operation</li>
-<li>False-positive examples</li>
-<li>Timeout recovery demonstrations</li>
-</ul>
-<hr>
-<h2 id="additional-planned-diagrams">Additional Planned Diagrams<a class="headerlink" href="#additional-planned-diagrams" title="Permanent link">¶</a></h2>
-<h3 id="detection-pipeline-diagram">Detection Pipeline Diagram<a class="headerlink" href="#detection-pipeline-diagram" title="Permanent link">¶</a></h3>
+### Planned Demonstration Media
+
+Suggested content:
+
+- Live detection overlay
+- Splash-event triggering
+- Cursor automation
+- Long-duration unattended operation
+- False-positive examples
+- Timeout recovery demonstrations
+
+---
+
+## Additional Planned Diagrams
+
+### Detection Pipeline Diagram
+
 <div class="highlight"><pre><span></span><code>Screen Capture
         ↓
 Image Filtering
@@ -1155,7 +1127,9 @@ Event Validation
         ↓
 Input Automation
 </code></pre></div>
-<hr>
+
+---
+-->
 <h3 id="reliability-tradeoff-diagram">Reliability Tradeoff Diagram<a class="headerlink" href="#reliability-tradeoff-diagram" title="Permanent link">¶</a></h3>
 <p>Suggested content:</p>
 <ul>
