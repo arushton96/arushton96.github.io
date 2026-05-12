@@ -32,11 +32,7 @@ The final architecture emphasized:
 
 Although the final implementation evolved significantly throughout development, the completed system successfully demonstrated the integration of multiple industrial automation technologies into a coordinated and functional control platform.
 
-## Overall System Diagram
-
-Insert a full system architecture or communication diagram.
-
-![System Architecture Diagram](Images/SystemArchitecture.png)
+<!-- ## Overall System Diagram -->
 
 ## Control System Architecture
 
